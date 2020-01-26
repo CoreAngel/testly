@@ -1,0 +1,282 @@
+[
+  {
+    "q": "Czy warstwa Łącza danych odpowiada za końcową integralność danych?: ",
+    "a": [
+      "TAK",
+      "NIE"
+    ],
+    "c": "B"
+  },
+  {
+    "q": "Czy światłowód wielomodowy w przeciwieństwie do jednomodowego, umożliwia transmisję w obu kierunkach?: ",
+    "a": [
+      "TAK",
+      "NIE"
+    ],
+    "c": "B"
+  },
+  {
+    "q": "Czy ATM używa komórek zamiast ramek?: ",
+    "a": [
+      "TAK",
+      "NIE"
+    ],
+    "c": "A"
+  },
+  {
+    "q": "Czy dla sieci o masce 255.255.254.0 i adresie sieci: 192.168.1.0, adres rozgłaszania to: 192.168.2.255: ",
+    "a": [
+      "TAK",
+      "NIE"
+    ],
+    "c": "B"
+  },
+  {
+    "q": "Czy ekranowana skrętka, umożliwia dalszą transmisję od nieekranowanej?: ",
+    "a": [
+      "TAK",
+      "NIE"
+    ],
+    "c": "B"
+  },
+  {
+    "q": "Czy protokół Mac odpowiada za translację adresu logicznego na fizyczny?: ",
+    "a": [
+      "TAK",
+      "NIE"
+    ],
+    "c": "B"
+  },
+  {
+    "q": "Czy możemy skonfigurować interfejs poleceniem: ip address 123.456.789.123 255.255.255.24: ",
+    "a": [
+      "TAK",
+      "NIE"
+    ],
+    "c": "B"
+  },
+  {
+    "q": "Czy wzrost elementów sieci w TR zmniejszy jego sprawność, a w FDDI, zwiększy?: ",
+    "a": [
+      "TAK",
+      "NIE"
+    ],
+    "c": "A"
+  },
+  {
+    "q": "Czy UTP kategorii 5, działa na 250MHz?: ",
+    "a": [
+      "TAK",
+      "NIE"
+    ],
+    "c": "B"
+  },
+  {
+    "q": "Czy podstawowym protokołem wykorzystywanym w WiFi jest CSMA/CD {chyba tak jakoś leciało?}: ",
+    "a": [
+      "TAK",
+      "NIE"
+    ],
+    "c": "B"
+  },
+  {
+    "q": "Czy w sieci Ethernet kolizja występuje tylko i wyłącznie wtedy, kiedy dwa urządzenia próbują nadawać jednocześnie.: ",
+    "a": [
+      "TAK",
+      "NIE"
+    ],
+    "c": "A"
+  },
+  {
+    "q": "Czy możemy skonfigurować routing statyczny poleceniem: ip route 192.168.0.0 255.255.255.0 192.168.1.254: ",
+    "a": [
+      "TAK",
+      "NIE"
+    ],
+    "c": "A"
+  },
+  {
+    "q": "Czy transowanie metodą wektora odległości korzysta z informacji pośrednicyh: ",
+    "a": [
+      "TAK",
+      "NIE"
+    ],
+    "c": "A"
+  },
+  {
+    "q": "Czy czas konwergencji w trasowaniu metodą stanu łącza jest skrócony do metody wektora odległośći.: ",
+    "a": [
+      "TAK",
+      "NIE"
+    ],
+    "c": "A"
+  },
+  {
+    "q": "Czy token w TR może modyfikować dowolny monitor: ",
+    "a": [
+      "TAK",
+      "NIE"
+    ],
+    "c": "B"
+  },
+  {
+    "q": "Czy autonaprawa w FDDI polega na przełączeniu loginczym transmisji na drugi pierścień: ",
+    "a": [
+      "TAK",
+      "NIE"
+    ],
+    "c": "A"
+  },
+  {
+    "q": "Czy transmisja roznicowa redukuje zaklocenie w 100%.: ",
+    "a": [
+      "TAK",
+      "NIE"
+    ],
+    "c": "B"
+  },
+  {
+    "q": "Sprawdzanie poprawnośći przesłanych danych wykonują się w w. łącza danych i w w. transportowej: ",
+    "a": [
+      "TAK",
+      "NIE"
+    ],
+    "c": "A"
+  },
+  {
+    "q": "HUB przynależy do warstwy fizycznej: ",
+    "a": [
+      "TAK",
+      "NIE"
+    ],
+    "c": "A"
+  },
+  {
+    "q": "Protokół IP przynależy do warstwy sieci: ",
+    "a": [
+      "TAK",
+      "NIE"
+    ],
+    "c": "A"
+  },
+  {
+    "q": "Switch pracuje w topologi magistralii: ",
+    "a": [
+      "TAK",
+      "NIE"
+    ],
+    "c": "B"
+  },
+  {
+    "q": "Kabel ekranowany pozwala na transmisję o większym zasięgu niż nieekranowany: ",
+    "a": [
+      "TAK",
+      "NIE"
+    ],
+    "c": "B"
+  },
+  {
+    "q": "Światłowód wielomodowy pozwala przesłać więcej Mb/s niż jednomodowy: ",
+    "a": [
+      "TAK",
+      "NIE"
+    ],
+    "c": "B"
+  },
+  {
+    "q": "Przy dużym obciążeniu sieci wydajność Ethernetu spada nawet 5-krotnie : ",
+    "a": [
+      "TAK",
+      "NIE"
+    ],
+    "c": "A"
+  },
+  {
+    "q": "Jeśli zostaną przerwane obydwa światłowody, to FDDI będzie działać dalej: ",
+    "a": [
+      "TAK",
+      "NIE"
+    ],
+    "c": "A"
+  },
+  {
+    "q": "Ping działa w oparciu o protokół ICMP: ",
+    "a": [
+      "TAK",
+      "NIE"
+    ],
+    "c": "A"
+  },
+  {
+    "q": "Zaletą FDDI jest szybkie uwalnianie tokenu: ",
+    "a": [
+      "TAK",
+      "NIE"
+    ],
+    "c": "A"
+  },
+  {
+    "q": "Token Ring działa w oparciu o większe ramki niz FDDI: ",
+    "a": [
+      "TAK",
+      "NIE"
+    ],
+    "c": "A"
+  },
+  {
+    "q": "Ethernet działa w oparciu o protokuł CSMA/CA: ",
+    "a": [
+      "TAK",
+      "NIE"
+    ],
+    "c": "B"
+  },
+  {
+    "q": "Warstwa transportowa sprawdza integralność każdej pojedynczej ramki: ",
+    "a": [
+      "TAK",
+      "NIE"
+    ],
+    "c": "B"
+  },
+  {
+    "q": "Sieć o masce 255.255.255.192 i adresie 192.168.1.128 ma adres rozgłoszeniowy 192.168.1.255: ",
+    "a": [
+      "TAK",
+      "NIE"
+    ],
+    "c": "B"
+  },
+  {
+    "q": "Sieć klasy C możemy podzielić na 64 sieci o maskach 255.255.255.252 : ",
+    "a": [
+      "TAK",
+      "NIE"
+    ],
+    "c": "A"
+  },
+  {
+    "q": "Sieć WiFi pracująca w częst. o wartości 2,4 GHz ma większy zasięg niż w częst. 5GHz : ",
+    "a": [
+      "TAK",
+      "NIE"
+    ],
+    "c": "A"
+  },
+  {
+    "q": "Każdy router może dzielić większe pakiety na mniejsze i z powrotem je składać: ",
+    "a": [
+      "TAK",
+      "NIE"
+    ],
+    "c": "A"
+  },
+  {
+    "q": "W technologii WiFi wykrwanie kolizji odbywa się analogicznie jak w Ethernet: ",
+    "a": [
+      "TAK",
+      "NIE"
+    ],
+    "c": "B"
+  }
+]

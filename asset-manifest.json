@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/testly/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/testly/static/js/main.8d4e4d81.chunk.js",
+    "main.js.map": "/testly/static/js/main.8d4e4d81.chunk.js.map",
+    "runtime-main.js": "/testly/static/js/runtime-main.d7030ce2.js",
+    "runtime-main.js.map": "/testly/static/js/runtime-main.d7030ce2.js.map",
+    "static/css/2.47e06e2e.chunk.css": "/testly/static/css/2.47e06e2e.chunk.css",
+    "static/js/2.c524f0d4.chunk.js": "/testly/static/js/2.c524f0d4.chunk.js",
+    "static/js/2.c524f0d4.chunk.js.map": "/testly/static/js/2.c524f0d4.chunk.js.map",
+    "index.html": "/testly/index.html",
+    "precache-manifest.b8fb521f5f45470e92e2e8635f7f6b4d.js": "/testly/precache-manifest.b8fb521f5f45470e92e2e8635f7f6b4d.js",
+    "service-worker.js": "/testly/service-worker.js",
+    "static/css/2.47e06e2e.chunk.css.map": "/testly/static/css/2.47e06e2e.chunk.css.map",
+    "static/css/main.5ecd60fb.chunk.css.map": "/testly/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.c524f0d4.chunk.js.LICENSE": "/testly/static/js/2.c524f0d4.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d7030ce2.js",
+    "static/css/2.47e06e2e.chunk.css",
+    "static/js/2.c524f0d4.chunk.js",
+    "static/css/main.5ecd60fb.chunk.css",
+    "static/js/main.8d4e4d81.chunk.js"
+  ]
+}
