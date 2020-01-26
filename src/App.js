@@ -57,6 +57,7 @@ function App() {
     });
 
     setEndTest(false);
+    setCurrentQuestion(0);
     setTestQuestions(testQuestions);
   };
 
