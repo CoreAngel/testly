@@ -1,9 +1,30 @@
 import React, {useEffect} from "react";
 import Question from "./Question";
 import styled from "styled-components";
+import {Button} from "reactstrap";
 
 const TestPanel = ({testQuestions, setTestQuestions, currentQuestion, setCurrentQuestion, setEndTest}) => {
     const { q, a, c } = testQuestions.slice(currentQuestion, currentQuestion + 1).pop();
+
+    const checkAnswer = (index) => {
+        console.log(index);
+        if (c === index) {
+            if (currentQuestion + 1 < testQuestions.length) {
+                setCurrentQuestion(currentQuestion + 1)
+            } else {
+                setCurrentQuestion(0);
+                setEndTest(true);
+            }
+        } else {
+            const arrCopy = [...testQuestions];
+            const current = arrCopy[currentQuestion];
+            arrCopy.splice(currentQuestion, 1, {
+                ...current,
+                fails: current.fails + 1,
+            });
+            setTestQuestions(arrCopy)
+        }
+    };
 
     const keyUpFun = event => {
         const {keyCode} = event;
@@ -23,39 +44,45 @@ const TestPanel = ({testQuestions, setTestQuestions, currentQuestion, setCurrent
             return;
         }
 
-        if (c === index) {
-            if (currentQuestion + 1 < testQuestions.length) {
-                setCurrentQuestion(currentQuestion+1)
-            } else {
-                setCurrentQuestion(0);
-                setEndTest(true);
-            }
-        } else {
-            const arrCopy = [...testQuestions];
-            const current = arrCopy[currentQuestion];
-            arrCopy.splice(currentQuestion, 1, {
-                ...current,
-                fails: current.fails + 1,
-            });
-            setTestQuestions(arrCopy)
-        }
+        checkAnswer(index);
+    };
+
+    const onClick = (event) => {
+        const button = event.target;
+        const index = button.getAttribute('data-index');
+        checkAnswer(+index);
     };
 
     useEffect(() => {
         window.addEventListener('keypress', keyUpFun);
         return () => window.removeEventListener('keypress', keyUpFun);
-    }, [keyUpFun]);
+    }, [keyUpFun, checkAnswer]);
 
     return (
-        <Container>
+        <div>
             <p>{currentQuestion + 1}/{testQuestions.length}</p>
             <Question number={currentQuestion + 1} answers={a} question={q}/>
-        </Container>
+            <ButtonContainer>
+                {
+                    a.map((item, index) => (
+                        <ButtonWithMaring data-index={index} key={index} color='primary' onClick={onClick}>
+                            {String.fromCharCode(65 + index)}
+                        </ButtonWithMaring>)
+                    )
+                }
+            </ButtonContainer>
+        </div>
     );
 };
 
-const Container = styled.div`
-  
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  padding-bottom: 50px;
+`;
+
+const ButtonWithMaring = styled(Button)`
+  margin: 0 10px;
 `;
 
 export default TestPanel;

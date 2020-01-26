@@ -832,7 +832,7 @@
   {
     "q": "Macierz śladu pozwala na: ",
     "a": [
-      "ednoznaczne odwzorowanie kodu systemu na jego wymagania",
+      "jednoznaczne odwzorowanie kodu systemu na jego wymagania",
       "sprawdzenie realizacji wszystkich wymagań przez podsystemy",
       "właściwy dobór technologii implementacyjnej",
       "odpowiednią specyfikację wymagań systemu"

@@ -29,7 +29,8 @@ const SelectLoader = ({setQuestions}) => {
         if (selected.path == null) {
             return;
         }
-        fetch(`/data/${selected.path}`)
+        const absoluteUrl = `${window.location.protocol}//${window.location.host}${window.location.pathname.replace(/\/$/, '')}`;
+        fetch(`${absoluteUrl}/data/${selected.path}`)
             .then(data => data.json())
             .then(data => data.map(item => {
                 const correctIndex = item.c.trim().toLowerCase().charCodeAt(0) - 97;

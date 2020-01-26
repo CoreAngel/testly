@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import SelectLoader from './components/SelectLoader'
 import SelectRun, {runTypes} from './components/SelectRun'
@@ -24,9 +24,9 @@ function App() {
       return {
         index,
         q,
-        a: a.map((aItem, index) => ({
+        a: a.map((aItem, aIndex) => ({
           a: aItem,
-          c: index === c
+          c: aIndex === c
         })),
         fails: 0
       }
