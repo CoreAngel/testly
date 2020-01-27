@@ -50,6 +50,7 @@ const TestPanel = ({testQuestions, setTestQuestions, currentQuestion, setCurrent
     const onClick = (event) => {
         const button = event.target;
         const index = button.getAttribute('data-index');
+        button.blur();
         checkAnswer(+index);
     };
 
