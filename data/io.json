@@ -1023,9 +1023,9 @@
     "q": "Proces doboru technologii implementacji odbywa się na etapie: ",
     "a": [
       "budowania modelu specyfikacji",
-      "budowania modelu numeryczneg",
-      "transformacji modelu numerycznego do modelu cyfroweg",
-      "transformacji systemu do użytkownik"
+      "budowania modelu numerycznego",
+      "transformacji modelu numerycznego do modelu cyfrowego",
+      "transformacji systemu do użytkownika"
     ],
     "c": "C"
   },
