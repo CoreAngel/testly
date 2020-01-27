@@ -61,10 +61,15 @@ function App() {
     setTestQuestions(testQuestions);
   };
 
+  const backFun = () => {
+    setTestQuestions(null);
+    setEndTest(false);
+  };
+
   return <Container>
     <InnerContainer>
       <Options>
-        <Button color='danger' onClick={() => setTestQuestions(null)}>Back</Button>
+        <Button color='danger' onClick={backFun}>Back</Button>
         <SelectLoader setQuestions={setQuestions}/>
         <SelectRun runTest={runTest}/>
       </Options>
