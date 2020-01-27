@@ -182,7 +182,7 @@
   {
     "q": "Metody obiektowe tworzenia oprogramowania bazuja na wprowadzeniu: ",
     "a": [
-      "skladowych pasywnych {danych} i aktywnych {funkcji}",
+      "skladowych pasywnych (danych) i aktywnych (funkcji)",
       "skladowych prostych i zlozonych o roznej dlugosci",
       "skladowych lokalnych i globalnych",
       "skladowych laczacych dane z metodami"
@@ -620,7 +620,7 @@
     "c": "B"
   },
   {
-    "q": "Wyodrebnij pary klasa {K} i jej obiekt {O}: Klient Jan Kowalski przychodzi do bankomatu nr 100 przy ul. Wroclawskiej by pobrac pieniadze. Podaj nr PIN, oraz kwote do wyplaty. Bankomat sprawdza poprawnosc danych i wyplaca pieniadze: ",
+    "q": "Wyodrebnij pary klasa (K) i jej obiekt (O): Klient Jan Kowalski przychodzi do bankomatu nr 100 przy ul. Wroclawskiej by pobrac pieniadze. Podaj nr PIN, oraz kwote do wyplaty. Bankomat sprawdza poprawnosc danych i wyplaca pieniadze: ",
     "a": [
       "K-Klient O-Sprawdzenie danych, K-Bankomat O-wyplata pieniedzy",
       "K-Operacja O-Kwota, K-System O-klient",
@@ -660,7 +660,7 @@
     "c": "D"
   },
   {
-    "q": "Wyodrebnij obiekty {O} i wlasciowosci {W} Klient Jan Kowalski przychodzi do bankomatu nr 100 przy ul. Wroclawskiej by pobrac pieniadze. Podaj nr PIN, oraz kwote do wyplaty. Bankomat sprawdza poprawnosc danych i wyplaca pieniadze: ",
+    "q": "Wyodrebnij obiekty (O) i wlasciowosci (W) Klient Jan Kowalski przychodzi do bankomatu nr 100 przy ul. Wroclawskiej by pobrac pieniadze. Podaj nr PIN, oraz kwote do wyplaty. Bankomat sprawdza poprawnosc danych i wyplaca pieniadze: ",
     "a": [
       "O-Jan Kowalski, W-PIN=1010, O-bankomat W-wyplac pieniadze",
       "O-Jan Kowalski, W-wyplac pieniadze, O-bankomat W-adres=\"Wroclawska\"",
@@ -882,10 +882,10 @@
   {
     "q": "Model logiczny systemu stanowiący o jego architekturze logicznej jest reprezentowany przez: ",
     "a": [
-      "model {diagram} wdrożenia",
-      "model {diagram} czynności",
-      "model {diagram} przypadków użycia",
-      "model {diagram} pakietów i komponentów"
+      "model (diagram) wdrożenia",
+      "model (diagram) czynności",
+      "model (diagram) przypadków użycia",
+      "model (diagram) pakietów i komponentów"
     ],
     "c": "B"
   },
@@ -902,10 +902,10 @@
   {
     "q": "Model fizyczny systemu stanowiący o jego architekturze fizycznej jest reprezentowany przez: ",
     "a": [
-      "model {diagram} wdrożenia",
-      "model {diagram} czynności",
-      "model {diagram} przypadków użycia",
-      "model {diagram} pakietów i komponentów"
+      "model (diagram) wdrożenia",
+      "model (diagram) czynności",
+      "model (diagram) przypadków użycia",
+      "model (diagram) pakietów i komponentów"
     ],
     "c": "A"
   },
@@ -980,7 +980,7 @@
     "c": "A"
   },
   {
-    "q": "Transformacja od środowiska do kodu obejmuje kolejne modele {wskaż właściwa sekwencje}:  ",
+    "q": "Transformacja od środowiska do kodu obejmuje kolejne modele (wskaż właściwa sekwencje):  ",
     "a": [
       "środowisko, model numeryczny, kod, model cyfrowy",
       "środowisko, model środowiska, model kodu, model cyfrowy",
