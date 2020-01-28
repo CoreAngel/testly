@@ -144,7 +144,7 @@
     "c": "A"
   },
   {
-    "q": "Sprawdzanie poprawnośći przesłanych danych wykonują w.fizyczna i w. łącza danych",
+    "q": "Sprawdzanie poprawności przesłanych danych wykonują w.fizyczna i w. łącza danych",
     "a": [
       "Tak",
       "Nie"
@@ -288,7 +288,7 @@
     "c": "B"
   },
   {
-    "q": "Sprawdzanie poprawnośći przesłanych danych wykonują w. łącza danych i w. transportowa",
+    "q": "Sprawdzanie poprawności przesłanych danych wykonują w. łącza danych i w. transportowa",
     "a": [
       "Tak",
       "Nie"
