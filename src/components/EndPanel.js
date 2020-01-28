@@ -9,7 +9,7 @@ const EndPanel = ({testQuestions}) => {
 
     return (
         <>
-            <p>Failed questions: {failedQuestions.length}/{testQuestions.length}</p>
+                <p>Failed answers: {failedQuestions.length}/{testQuestions.length}</p>
             <div>
                 {failedQuestions.map(item => {
                     const {index, q, a, c, fails} = item;

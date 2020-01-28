@@ -26,7 +26,7 @@ const TestPanel = ({testQuestions, setTestQuestions, currentQuestion, setCurrent
         }
     };
 
-    const keyUpFun = event => {
+    const keyPressFun = event => {
         const {keyCode} = event;
 
         let index;
@@ -55,9 +55,9 @@ const TestPanel = ({testQuestions, setTestQuestions, currentQuestion, setCurrent
     };
 
     useEffect(() => {
-        window.addEventListener('keypress', keyUpFun);
-        return () => window.removeEventListener('keypress', keyUpFun);
-    }, [keyUpFun, checkAnswer]);
+        window.addEventListener('keypress', keyPressFun);
+        return () => window.removeEventListener('keypress', keyPressFun);
+    }, [keyPressFun, checkAnswer]);
 
     return (
         <div>
@@ -66,9 +66,9 @@ const TestPanel = ({testQuestions, setTestQuestions, currentQuestion, setCurrent
             <ButtonContainer>
                 {
                     a.map((item, index) => (
-                        <ButtonWithMaring data-index={index} key={index} color='primary' onClick={onClick}>
+                        <ButtonWithMargin data-index={index} key={index} color='primary' onClick={onClick}>
                             {String.fromCharCode(65 + index)}
-                        </ButtonWithMaring>)
+                        </ButtonWithMargin>)
                     )
                 }
             </ButtonContainer>
@@ -82,7 +82,7 @@ const ButtonContainer = styled.div`
   padding-bottom: 50px;
 `;
 
-const ButtonWithMaring = styled(Button)`
+const ButtonWithMargin = styled(Button)`
   margin: 0 10px;
 `;
 

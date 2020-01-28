@@ -390,7 +390,7 @@
     "c": "D"
   },
   {
-    "q": "System bedzie przyjmowal dopuszczalne ID pracownika z przedzialu 1-100. Jakie cechy ma takiewymaganie? Jest ono: ",
+    "q": "System bedzie przyjmowal dopuszczalne ID pracownika z przedzialu 1-100. Jakie cechy ma takie wymaganie? Jest ono: ",
     "a": [
       "zrozumiale, spojne, niekompletne, wykonalne,jasne",
       "zrozumiale, niespojne, kompletne, wykonalne, niejasne",
@@ -795,7 +795,7 @@
       "czasem niezbędnym do zakończenia budowy systemu informatycznego",
       "w osobogodzinach pracy",
       "złożonością postawionego zadania",
-      "ielkością poniesionych kosztó"
+      "wielkością poniesionych kosztów"
     ],
     "c": "C"
   },
@@ -1173,7 +1173,7 @@
     "q": "Gwarancje powodzenia przypadków uzycia to: ",
     "a": [
       "warunki spelnione po pomyślnym wykonaniu scenariusza powodzenia",
-      "warunki spelnioen po uruchomieniu przypadku uzycia",
+      "warunki spelnione po uruchomieniu przypadku uzycia",
       "warunki jakie zapewnia system by przypadek zakonczyl sie powodzeniem",
       "warunki poczatkowe, wymagany by przypadek mógl sie rozpoczac"
     ],
