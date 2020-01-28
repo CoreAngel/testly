@@ -15,10 +15,10 @@ const QuestionsList = ({questions}) => {
     return (
         <>
             <SearchContainer>
-                <Input onChange={({target}) => setSearchState(target.value)} value={searchState} type='search'/>
+                <Input onChange={({target}) => setSearchState(target.value)} value={searchState} placeholder={'Search...'} type='search'/>
             </SearchContainer>
             <div>
-                {searchedQuestions.map((item, index) =><Question key={index} number={index + 1} question={item.q} answers={item.a} correct={item.c}/>)}
+                {searchedQuestions.map(({index, q, a, c}) =><Question key={index} number={index + 1} question={q} answers={a} correct={c}/>)}
             </div>
         </>
     )

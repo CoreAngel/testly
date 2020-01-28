@@ -19,8 +19,8 @@ function App() {
       return;
     }
 
-    let testQuestions = questions.map((item, index) => {
-      const {q, a, c} = item;
+    let testQuestions = questions.map(item => {
+      const {index, q, a, c} = item;
       return {
         index,
         q,

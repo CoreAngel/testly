@@ -32,10 +32,11 @@ const SelectLoader = ({setQuestions}) => {
         const absoluteUrl = `${window.location.protocol}//${window.location.host}${window.location.pathname.replace(/\/$/, '')}`;
         fetch(`${absoluteUrl}/data/${selected.path}`)
             .then(data => data.json())
-            .then(data => data.map(item => {
+            .then(data => data.map((item, index) => {
                 const correctIndex = item.c.trim().toLowerCase().charCodeAt(0) - 97;
                 return {
                     ...item,
+                    index,
                     c: correctIndex
                 }
             }))
