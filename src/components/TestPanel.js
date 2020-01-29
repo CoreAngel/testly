@@ -7,7 +7,6 @@ const TestPanel = ({testQuestions, setTestQuestions, currentQuestion, setCurrent
     const { q, a, c } = testQuestions.slice(currentQuestion, currentQuestion + 1).pop();
 
     const checkAnswer = (index) => {
-        console.log(index);
         if (c === index) {
             if (currentQuestion + 1 < testQuestions.length) {
                 setCurrentQuestion(currentQuestion + 1)

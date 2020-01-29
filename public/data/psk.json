@@ -29,7 +29,7 @@
       "Tak",
       "Nie"
     ],
-    "c": "B"
+    "c": "A"
   },
   {
     "q": "Medium transmisyjne przynależy do warstwy fizycznej",
@@ -181,7 +181,7 @@
       "Tak",
       "Nie"
     ],
-    "c": "A"
+    "c": "B"
   },
   {
     "q": "Światłowód wielomodowy pozwala przesłać więcej Mb/s niż jednomodowy",
@@ -230,14 +230,6 @@
       "Nie"
     ],
     "c": "A"
-  },
-  {
-    "q": "Ethernet działa w oparciu o protokół CSMA/CA",
-    "a": [
-      "Tak",
-      "Nie"
-    ],
-    "c": "B"
   },
   {
     "q": "Przełączniki ATM wybierają trasę na podstawie adresu IP odbiorcy zapisanego w komórce",
@@ -529,6 +521,214 @@
   },
   {
     "q": "Czy transmisja różnicowa redukuje zakłócenie w 100%. ",
+    "a": [
+      "Tak",
+      "Nie"
+    ],
+    "c": "B"
+  },
+  {
+    "q": "Hub pracuje w topologii fizycznej gwiazdy.",
+    "a": [
+      "Tak",
+      "Nie"
+    ],
+    "c": "A"
+  },
+  {
+    "q": "Hub pracuje w topologii logicznej gwiazdy",
+    "a": [
+      "Tak",
+      "Nie"
+    ],
+    "c": "B"
+  },
+  {
+    "q": "2Base10 oznacza przewód o długości 200 m",
+    "a": [
+      "Tak",
+      "Nie"
+    ],
+    "c": "B"
+  },
+  {
+    "q": "Ping używa protokołu CSMA/CD",
+    "a": [
+      "Tak",
+      "Nie"
+    ],
+    "c": "B"
+  },
+  {
+    "q": "Światłowody gradientowe mają podobną szerokość rdzenia jak jednomodowe",
+    "a": [
+      "Tak",
+      "Nie"
+    ],
+    "c": "B"
+  },
+  {
+    "q": "Adresat ramki po rozpoznaniu kolizji wysyła żądanie retransmisji.",
+    "a": [
+      "Tak",
+      "Nie"
+    ],
+    "c": "A"
+  },
+  {
+    "q": "Metoda CRC-32 gwarantuje nam wykrycie przekłamania danych w przesłanej ramce.",
+    "a": [
+      "Tak",
+      "Nie"
+    ],
+    "c": "A"
+  },
+  {
+    "q": "Protokół CSMA/CA dotyczy wykrywania kolizji",
+    "a": [
+      "Tak",
+      "Nie"
+    ],
+    "c": "B"
+  },
+  {
+    "q": "Żądanie retransmisji generuje warstwa sieciowa",
+    "a": [
+      "Tak",
+      "Nie"
+    ],
+    "c": "B"
+  },
+  {
+    "q": "Ramka Ethernetowa może mieć rozmiar od 32 B do około 1,5 kB",
+    "a": [
+      "Tak",
+      "Nie"
+    ],
+    "c": "B"
+  },
+  {
+    "q": "W Ethernecie nie ma priorytetów, dlatego jest odpowiedni do zastosowań przemysłowych",
+    "a": [
+      "Tak",
+      "Nie"
+    ],
+    "c": "B"
+  },
+  {
+    "q": "W adresie Mac znajdują się 4 bajty",
+    "a": [
+      "Tak",
+      "Nie"
+    ],
+    "c": "B"
+  },
+  {
+    "q": "Sieć o masce 29-bitowej i adresie 192.168.1.64 ma adr. rozgł. 192.168.1.71",
+    "a": [
+      "Tak",
+      "Nie"
+    ],
+    "c": "A"
+  },
+  {
+    "q": "W sieci 23.bitowej mamy dostępne do adresowania urządzeń 510 adresów",
+    "a": [
+      "Tak",
+      "Nie"
+    ],
+    "c": "A"
+  },
+  {
+    "q": "Jeśli sieć klasy C podzielimy na sieci 28-bitowe, to stracimy 32 adresy na organizację sieci",
+    "a": [
+      "Tak",
+      "Nie"
+    ],
+    "c": "A"
+  },
+  {
+    "q": "W sieci FDDI problem kolizji został rozwiązany za pomocą priorytetów",
+    "a": [
+      "Tak",
+      "Nie"
+    ],
+    "c": "B"
+  },
+  {
+    "q": "W sieci WiFi \"stacja ukryta\" niepotrzebnie wstrzymuje transmisję",
+    "a": [
+      "Tak",
+      "Nie"
+    ],
+    "c": "B"
+  },
+  {
+    "q": "Metoda odpytywania w sieci WiFi jest możliwa tylko wtedy gdy wszystkie hosty się widzą",
+    "a": [
+      "Tak",
+      "Nie"
+    ],
+    "c": "A"
+  },
+  {
+    "q": "PCF w sieci WiFi jest przykładem ruchu izochronicznego",
+    "a": [
+      "Tak",
+      "Nie"
+    ],
+    "c": "A"
+  },
+  {
+    "q": "Rekord nawiązania łączności WiFi w Polsce został osiągnięty z Giewontu do Krakowa",
+    "a": [
+      "Tak",
+      "Nie"
+    ],
+    "c": "B"
+  },
+  {
+    "q": "W sieciach ATM ramki danych (komórki) mają stały rozmiar",
+    "a": [
+      "Tak",
+      "Nie"
+    ],
+    "c": "A"
+  },
+  {
+    "q": "Komenda powodująca przejście do konfiguracji routingu statycznego to: no router rip",
+    "a": [
+      "Tak",
+      "Nie"
+    ],
+    "c": "B"
+  },
+  {
+    "q": "W routingu wektora odległości czas konwergencji może wynieść nawet 15 minut.",
+    "a": [
+      "Tak",
+      "Nie"
+    ],
+    "c": "B"
+  },
+  {
+    "q": "Czy transmisja różnicowa redukuje zakłócenie w 100%. ",
+    "a": [
+      "Tak",
+      "Nie"
+    ],
+    "c": "B"
+  },
+  {
+    "q": "Pętla routingu występuje w sieciach stanu łącza",
+    "a": [
+      "Tak",
+      "Nie"
+    ],
+    "c": "B"
+  },
+  {
+    "q": "Sieć 5G pracuje w częstotliwości 5 GHz",
     "a": [
       "Tak",
       "Nie"
