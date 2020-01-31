@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import styled from "styled-components";
 import {Input} from "reactstrap";
+import {Redirect} from "react-router-dom";
+import {connect} from "react-redux";
 import Question from './Question'
 
 const QuestionsList = ({questions}) => {
@@ -12,7 +14,8 @@ const QuestionsList = ({questions}) => {
         return question.includes(searchText)
     });
 
-    return (
+    return questions.length <= 0 ?
+        <Redirect to={'/'}/> :
         <>
             <SearchContainer>
                 <Input onChange={({target}) => setSearchState(target.value)} value={searchState} placeholder={'Search...'} type='search'/>
@@ -20,14 +23,23 @@ const QuestionsList = ({questions}) => {
             <div>
                 {searchedQuestions.map(({index, q, a, c}) =><Question key={index} number={index + 1} question={q} answers={a} correct={c}/>)}
             </div>
-        </>
-    )
+        </>;
 };
 
 const SearchContainer = styled.div`
   display: flex;
+  position: sticky;
+  top: 0;
   justify-content: center;
-  padding-top: 20px;
+  margin-top: 20px;
 `;
 
-export default QuestionsList;
+const mapStateToProps = (state) => {
+    const { question } = state;
+
+    return {
+        questions: question
+    }
+};
+
+export default connect(mapStateToProps)(QuestionsList);

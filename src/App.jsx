@@ -1,12 +1,15 @@
 import React, {useState} from 'react';
+import {BrowserRouter as Router, Route } from 'react-router-dom';
+import {Provider} from 'react-redux';
 import styled from 'styled-components';
+import store from './redux/store'
 import SelectLoader from './components/SelectLoader'
 import SelectRun, {runTypes} from './components/SelectRun'
 import QuestionsList from "./components/QuestionsList";
 import TestPanel from "./components/TestPanel";
 import EndPanel from "./components/EndPanel";
 import {shuffle} from "./util/array";
-import {Button} from "reactstrap";
+import BackButton from "./components/BackButton";
 
 function App() {
   const [questions, setQuestions] = useState(null);
@@ -66,25 +69,39 @@ function App() {
     setEndTest(false);
   };
 
-  return <Container>
-    <InnerContainer>
-      <Options>
-        <Button color='danger' onClick={backFun}>Back</Button>
-        <SelectLoader setQuestions={setQuestions}/>
-        <SelectRun runTest={runTest}/>
-      </Options>
-      {questions == null && testQuestions == null && <p>Choose questions</p>}
-      {questions != null && testQuestions == null && <QuestionsList questions={questions}/>}
-      {testQuestions != null && endTest === false && <TestPanel
-          testQuestions={testQuestions}
-          setTestQuestions={setTestQuestions}
-          currentQuestion={currentQuestion}
-          setCurrentQuestion={setCurrentQuestion}
-          setEndTest={setEndTest}
-      />}
-      {endTest && <EndPanel testQuestions={testQuestions}/>}
-    </InnerContainer>
-  </Container>;
+  return (
+      <Provider store={store}>
+        <Container>
+          <InnerContainer>
+            <Router>
+              <Options>
+                <BackButton/>
+                <SelectLoader setQuestions={setQuestions}/>
+                <SelectRun runTest={runTest}/>
+              </Options>
+              <Route exact path={'/'}>
+                <p>Choose questions...</p>
+              </Route>
+              <Route exact path={'/list'}>
+                <QuestionsList/>
+              </Route>
+              <Route path={'/test'}>
+                <TestPanel
+                    testQuestions={testQuestions}
+                    setTestQuestions={setTestQuestions}
+                    currentQuestion={currentQuestion}
+                    setCurrentQuestion={setCurrentQuestion}
+                    setEndTest={setEndTest}
+                />
+              </Route>
+              <Route path={'/result'}>
+                <EndPanel testQuestions={testQuestions}/>
+              </Route>
+            </Router>
+          </InnerContainer>
+        </Container>
+      </Provider>
+  );
 }
 
 const Container = styled.div`

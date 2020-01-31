@@ -1,7 +1,12 @@
 import React, {useEffect, useState} from "react";
 import {Input} from 'reactstrap'
+import {connect} from 'react-redux'
+import {useHistory} from 'react-router-dom'
+import {useLocation} from 'react-router-dom'
+import {setQuestions} from './../redux/questionStore'
+import fetchFile from './../util/fetchFile'
 
-const SelectLoader = ({setQuestions}) => {
+const SelectLoader = ({setQuestionsAction}) => {
     const [selected, setSelected] = useState({
         id: 0,
         label: 'Select...',
@@ -25,22 +30,21 @@ const SelectLoader = ({setQuestions}) => {
         }
     ]);
 
+    const history = useHistory();
+    const location = useLocation();
+
     useEffect(() => {
         if (selected.path == null) {
             return;
         }
-        const absoluteUrl = `${window.location.protocol}//${window.location.host}${window.location.pathname.replace(/\/$/, '')}`;
-        fetch(`${absoluteUrl}/data/${selected.path}`)
-            .then(data => data.json())
-            .then(data => data.map((item, index) => {
-                const correctIndex = item.c.trim().toLowerCase().charCodeAt(0) - 97;
-                return {
-                    ...item,
-                    index,
-                    c: correctIndex
+
+        fetchFile(selected.path)
+            .then(data => {
+                setQuestionsAction(data);
+                if (location.pathname !== '/list') {
+                    history.push('/list');
                 }
-            }))
-            .then(data => setQuestions(data));
+            });
     }, [selected]);
 
     const onChange = (e) => {
@@ -58,4 +62,8 @@ const SelectLoader = ({setQuestions}) => {
 
 };
 
-export default SelectLoader;
+const mapDispatchToProps = {
+    setQuestionsAction: setQuestions
+};
+
+export default connect(null, mapDispatchToProps)(SelectLoader);
