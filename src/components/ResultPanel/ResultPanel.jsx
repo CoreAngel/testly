@@ -1,15 +1,16 @@
 import React from "react";
 import styled from "styled-components";
-import Question from "./Question";
+import {connect} from "react-redux";
+import Question from "../Question";
 
-const EndPanel = ({testQuestions}) => {
-    const failedQuestions = testQuestions
+const ResultPanel = ({questions}) => {
+    const failedQuestions = questions
         .filter(item => item.fails > 0)
         .sort((i1, i2) => i1.index - i2.index);
 
     return (
         <>
-                <p>Failed answers: {failedQuestions.length}/{testQuestions.length}</p>
+            <p>Failed answers: {failedQuestions.length}/{questions.length}</p>
             <div>
                 {failedQuestions.map(item => {
                     const {index, q, a, c, fails} = item;
@@ -27,4 +28,12 @@ const FailsContainer = styled.p`
   margin-left: 35px;
 `;
 
-export default EndPanel;
+const mapStateToProps = (store) => {
+    const {test: {questions}} = store;
+
+    return {
+        questions
+    }
+};
+
+export default connect(mapStateToProps)(ResultPanel);

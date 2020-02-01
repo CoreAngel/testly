@@ -1,74 +1,16 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {BrowserRouter as Router, Route } from 'react-router-dom';
 import {Provider} from 'react-redux';
 import styled from 'styled-components';
 import store from './redux/store'
 import SelectLoader from './components/SelectLoader'
-import SelectRun, {runTypes} from './components/SelectRun'
+import SelectRun from './components/SelectRun'
 import QuestionsList from "./components/QuestionsList";
 import TestPanel from "./components/TestPanel";
-import EndPanel from "./components/EndPanel";
-import {shuffle} from "./util/array";
+import ResultPanel from "./components/ResultPanel";
 import BackButton from "./components/BackButton";
 
-function App() {
-  const [questions, setQuestions] = useState(null);
-  const [testQuestions, setTestQuestions] = useState(null);
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [endTest, setEndTest] = useState(false);
-
-  const runTest = (runType) => {
-    if (questions == null) {
-      return;
-    }
-
-    let testQuestions = questions.map(item => {
-      const {index, q, a, c} = item;
-      return {
-        index,
-        q,
-        a: a.map((aItem, aIndex) => ({
-          a: aItem,
-          c: aIndex === c
-        })),
-        fails: 0
-      }
-    });
-
-    if (runType === runTypes.Q_RANDOM_A_ORDERED || runType === runTypes.Q_RANDOM_A_RANDOM) {
-      testQuestions = shuffle(testQuestions);
-    } else {
-      testQuestions = [...testQuestions];
-    }
-
-    if (runType === runTypes.Q_ORDERED_A_RANDOM || runType === runTypes.Q_RANDOM_A_RANDOM) {
-      testQuestions = testQuestions.map(item => {
-        return {
-          ...item,
-          a: shuffle(item.a)
-        }
-      })
-    }
-
-    testQuestions = testQuestions.map(item => {
-      const aCorrectIndex = item.a.findIndex(aItem => aItem.c);
-      return {
-        ...item,
-        a: item.a.map(aItem => aItem.a),
-        c: aCorrectIndex
-      }
-    });
-
-    setEndTest(false);
-    setCurrentQuestion(0);
-    setTestQuestions(testQuestions);
-  };
-
-  const backFun = () => {
-    setTestQuestions(null);
-    setEndTest(false);
-  };
-
+const App = () => {
   return (
       <Provider store={store}>
         <Container>
@@ -76,26 +18,20 @@ function App() {
             <Router>
               <Options>
                 <BackButton/>
-                <SelectLoader setQuestions={setQuestions}/>
-                <SelectRun runTest={runTest}/>
+                <SelectLoader/>
+                <SelectRun/>
               </Options>
               <Route exact path={'/'}>
                 <p>Choose questions...</p>
               </Route>
-              <Route exact path={'/list'}>
+              <Route path={'/list'}>
                 <QuestionsList/>
               </Route>
               <Route path={'/test'}>
-                <TestPanel
-                    testQuestions={testQuestions}
-                    setTestQuestions={setTestQuestions}
-                    currentQuestion={currentQuestion}
-                    setCurrentQuestion={setCurrentQuestion}
-                    setEndTest={setEndTest}
-                />
+                <TestPanel/>
               </Route>
               <Route path={'/result'}>
-                <EndPanel testQuestions={testQuestions}/>
+                <ResultPanel/>
               </Route>
             </Router>
           </InnerContainer>
