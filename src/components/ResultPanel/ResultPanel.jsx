@@ -8,17 +8,23 @@ const ResultPanel = ({questions}) => {
         .filter(item => item.fails > 0)
         .sort((i1, i2) => i1.index - i2.index);
 
+    const failedCounter = failedQuestions.length;
+    const questionNumber = questions.length;
+
     return (
         <>
-            <p>Failed answers: {failedQuestions.length}/{questions.length}</p>
+            <p>{`Failed answers: ${failedCounter}/${questionNumber}`}</p>
             <div>
-                {failedQuestions.map(item => {
-                    const {index, q, a, c, fails} = item;
-                    return <>
-                            <Question key={index} number={index + 1} question={q} answers={a} correct={c}/>
-                            <FailsContainer>Fails: {fails}</FailsContainer>
-                        </>
-                })}
+                {
+                    failedQuestions.map(item => {
+                        const {index, q, a, c, fails} = item;
+
+                        return <>
+                                <Question key={index} number={index + 1} question={q} answers={a} correct={c}/>
+                                <FailsContainer>Fails: {fails}</FailsContainer>
+                            </>
+                    })
+                }
             </div>
         </>
     )

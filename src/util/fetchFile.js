@@ -1,3 +1,5 @@
+import keyCodes from './keyCodes'
+
 const fetchFile = (fileName) => {
     const host = `${window.location.host}`;
     const base = `${window.location.protocol}//${host}`;
@@ -6,7 +8,7 @@ const fetchFile = (fileName) => {
     return fetch(`${absoluteUrl}/data/${fileName}`)
         .then(data => data.json())
         .then(data => data.map((item, index) => {
-            const correctIndex = item.c.trim().toLowerCase().charCodeAt(0) - 97;
+            const correctIndex = item.c.trim().toLowerCase().charCodeAt(0) - keyCodes.a;
             return {
                 ...item,
                 index,

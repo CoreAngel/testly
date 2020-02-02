@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import styled from "styled-components";
 import {Button, Input} from "reactstrap";
 import {connect} from "react-redux";
-import {useHistory, useLocation} from "react-router-dom";
+import useHistoryPush from "../util/useHistoryPush";
 import {setTest} from "../redux/testStore";
 import {shuffle} from "../util/array";
 
@@ -42,8 +42,7 @@ const SelectLoader = ({questions, setTestAction}) => {
         label: 'Questions Random - Answers Random',
         value: runTypes.Q_RANDOM_A_RANDOM
     });
-    const history = useHistory();
-    const location = useLocation();
+    const pushToTest = useHistoryPush('/test');
 
     const onChange = (e) => {
         const value = e.target.value;
@@ -103,9 +102,7 @@ const SelectLoader = ({questions, setTestAction}) => {
 
         const testQuestions = prepareTest(questions, runType);
         setTestAction(testQuestions);
-        if (location.pathname !== '/test') {
-            history.push('test');
-        }
+        pushToTest();
     };
 
 
