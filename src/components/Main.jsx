@@ -1,9 +1,8 @@
 import React from "react";
 import {BrowserRouter as Router, Route} from "react-router-dom";
-import BackButton from "./BackButton";
-import SelectLoader from "./SelectLoader";
-import SelectRun from "./SelectRun";
+import Navigation from "./Navigation";
 import QuestionsList from "./QuestionsList";
+import Home from "./Home";
 import TestPanel from "./TestPanel";
 import ResultPanel from "./ResultPanel";
 import styled from "styled-components";
@@ -13,13 +12,9 @@ const Main = () => {
         <Container>
             <InnerContainer>
                 <Router>
-                    <Options>
-                        <BackButton/>
-                        <SelectLoader/>
-                        <SelectRun/>
-                    </Options>
+                    <Navigation/>
                     <Route exact path={'/'}>
-                        <p>Choose questions...</p>
+                        <Home/>
                     </Route>
                     <Route path={'/list'}>
                         <QuestionsList/>
@@ -42,11 +37,6 @@ const Container = styled.div`
     background-color: #1f1f1f;
     color: #e2e2e2;
     min-height: 100vh;
-`;
-
-const Options = styled.div`
-    display: flex;
-    justify-content: space-between;
 `;
 
 const InnerContainer = styled.div`
