@@ -1,9 +1,9 @@
-import React, {useEffect, useRef, useState} from "react";
-import styled from 'styled-components'
-import keyCodes from '../../util/keyCodes'
-import Menu from "./Menu";
+import React, { useEffect, useRef, useState } from 'react';
+import styled from 'styled-components';
+import keyCodes from '../../util/keyCodes';
+import Menu from './Menu';
 
-const ContainerService = ({exitOnEscape, exitWithClickOutside}) => {
+const ContainerService = ({ exitOnEscape, exitWithClickOutside }) => {
     const [isMobile, setIsMobile] = useState(true);
     const [isOpen, setIsOpen] = useState(false);
     const containerRef = useRef(null);
@@ -11,7 +11,7 @@ const ContainerService = ({exitOnEscape, exitWithClickOutside}) => {
 
     useEffect(() => {
         const checkIsMobile = () => {
-            const {matches} = window.matchMedia('(max-width: 480px)');
+            const { matches } = window.matchMedia('(max-width: 480px)');
             if (matches !== isMobile) {
                 setIsMobile(matches);
                 setIsOpen(false);
@@ -24,7 +24,7 @@ const ContainerService = ({exitOnEscape, exitWithClickOutside}) => {
         return () => {
             window.removeEventListener('resize', checkIsMobile);
             window.removeEventListener('orientationchange', checkIsMobile);
-        }
+        };
     }, [isMobile]);
 
     useEffect(() => {
@@ -32,10 +32,10 @@ const ContainerService = ({exitOnEscape, exitWithClickOutside}) => {
             return;
         }
 
-        const closeOnEscPress = (event) => {
+        const closeOnEscPress = event => {
             if (!isMobile) return;
 
-            const {keyCode} = event;
+            const { keyCode } = event;
             if (keyCode === keyCodes.esc) {
                 setIsOpen(false);
             }
@@ -52,10 +52,10 @@ const ContainerService = ({exitOnEscape, exitWithClickOutside}) => {
             return;
         }
 
-        const closeOnOutsideClick = (event) => {
+        const closeOnOutsideClick = event => {
             if (!isMobile) return;
 
-            const target = event.target;
+            const { target } = event;
             const menu = menuRef.current;
 
             if (!menu.contains(target)) {
@@ -82,7 +82,7 @@ const ContainerService = ({exitOnEscape, exitWithClickOutside}) => {
 
 const ContainerBackDrop = styled.div`
     z-index: 9999;
-    position: ${({isOpen}) => isOpen ? 'fixed' : 'static'};
+    position: ${({ isOpen }) => (isOpen ? 'fixed' : 'static')};
     top: 0;
     left: 0;
     bottom: 0;
