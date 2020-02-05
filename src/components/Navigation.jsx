@@ -17,6 +17,7 @@ const Navigation = () => {
 };
 
 const Container = styled.div`
+    margin: 20px 0;
     display: flex;
     justify-content: space-between;
 `;

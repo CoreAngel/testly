@@ -1,7 +1,7 @@
 import React from "react";
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import Navigation from "./Navigation";
-import QuestionsList from "./QuestionsList";
+import ListPanel from "./ListPanel";
 import Home from "./Home";
 import TestPanel from "./TestPanel";
 import ResultPanel from "./ResultPanel";
@@ -13,18 +13,10 @@ const Main = () => {
             <InnerContainer>
                 <Router>
                     <Navigation/>
-                    <Route exact path={'/'}>
-                        <Home/>
-                    </Route>
-                    <Route path={'/list'}>
-                        <QuestionsList/>
-                    </Route>
-                    <Route path={'/test'}>
-                        <TestPanel/>
-                    </Route>
-                    <Route path={'/result'}>
-                        <ResultPanel/>
-                    </Route>
+                    <Route exact path={'/'} component={Home}/>
+                    <Route path={'/list'} component={ListPanel}/>
+                    <Route path={'/test'} component={TestPanel}/>
+                    <Route path={'/result'} component={ResultPanel}/>
                 </Router>
             </InnerContainer>
         </Container>

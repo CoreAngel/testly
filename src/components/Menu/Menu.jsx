@@ -31,6 +31,7 @@ const Menu = ({isMobile, isOpen, setIsOpen}) => {
                                     onClick={isMobile ? () => setIsOpen(false) : null}
                                     tabIndex={isOpen ? 0 : -1}
                                     to={path}
+                                    exact
                                 >
                                     <IconCenter size={20} icon={icon} />
                                     <NavSpan>{label}</NavSpan>
@@ -57,7 +58,7 @@ const NavContainer = styled.nav(({isMobile, isOpen}) => ({
 
 const Button = styled.button`
     padding: 5px;
-    margin: 0;
+    margin: 20px 0 0 0;
     background-color: transparent;
     border: none;
     height: 30px;

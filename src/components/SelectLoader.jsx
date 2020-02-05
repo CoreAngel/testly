@@ -56,7 +56,7 @@ const SelectLoader = ({setQuestionsAction}) => {
     return (
         <div>
             <Input type='select' onChange={onChange} value={selected.label}>
-                {items.map(item => <option value={item.label} key={item.id} disabled={item.path == null}>{item.label}</option>)}
+                {items.map(item => <option value={item.label} key={item.id} disabled={item.path === ''}>{item.label}</option>)}
             </Input>
         </div>
     )

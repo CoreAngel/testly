@@ -7,7 +7,7 @@ const RouteProtector = ({questions}) => {
     const history = useHistory();
 
     if (questions.length === 0) {
-        history.replace('/');
+        history.replace('/test');
         return null;
     }
 
