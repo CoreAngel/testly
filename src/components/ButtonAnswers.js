@@ -4,6 +4,16 @@ import { Button } from 'reactstrap';
 import PropTypes from 'prop-types';
 import keyCodes from '../util/keyCodes';
 
+const ButtonContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    padding-bottom: 50px;
+`;
+
+const ButtonWithMargin = styled(Button)`
+    margin: 0 10px;
+`;
+
 const ButtonAnswers = ({ answers, onClick }) => {
     return (
         <ButtonContainer>
@@ -21,15 +31,5 @@ ButtonAnswers.propTypes = {
     answers: PropTypes.arrayOf(PropTypes.string).isRequired,
     onClick: PropTypes.func.isRequired,
 };
-
-const ButtonContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    padding-bottom: 50px;
-`;
-
-const ButtonWithMargin = styled(Button)`
-    margin: 0 10px;
-`;
 
 export default ButtonAnswers;

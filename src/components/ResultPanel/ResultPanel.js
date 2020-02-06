@@ -4,6 +4,10 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Question from '../Question';
 
+const FailsContainer = styled.p`
+    margin-left: 35px;
+`;
+
 const ResultPanel = ({ questions }) => {
     const failedQuestions = questions.filter(item => item.fails > 0).sort((i1, i2) => i1.index - i2.index);
 
@@ -40,10 +44,6 @@ ResultPanel.propTypes = {
         }),
     ).isRequired,
 };
-
-const FailsContainer = styled.p`
-    margin-left: 35px;
-`;
 
 const mapStateToProps = store => {
     const {

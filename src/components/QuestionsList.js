@@ -4,6 +4,14 @@ import { Input } from 'reactstrap';
 import PropTypes from 'prop-types';
 import Question from './Question';
 
+const SearchContainer = styled.div`
+    display: flex;
+    position: sticky;
+    top: 0;
+    justify-content: center;
+    margin-top: 20px;
+`;
+
 const QuestionsList = ({ questions }) => {
     const [searchState, setSearchState] = useState('');
 
@@ -42,13 +50,5 @@ QuestionsList.propTypes = {
         }),
     ).isRequired,
 };
-
-const SearchContainer = styled.div`
-    display: flex;
-    position: sticky;
-    top: 0;
-    justify-content: center;
-    margin-top: 20px;
-`;
 
 export default QuestionsList;

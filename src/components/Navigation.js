@@ -4,17 +4,6 @@ import { Icon } from 'react-icons-kit';
 import { androidSettings } from 'react-icons-kit/ionicons/androidSettings';
 import Menu from './Menu';
 
-const Navigation = () => {
-    return (
-        <Container>
-            <Menu exitOnEscape exitWithClickOutside />
-            <OptionButton>
-                <IconCenter size={32} icon={androidSettings} />
-            </OptionButton>
-        </Container>
-    );
-};
-
 const Container = styled.div`
     margin: 20px 0;
     display: flex;
@@ -38,5 +27,16 @@ const OptionButton = styled.button`
     border: none;
     color: #ffffff;
 `;
+
+const Navigation = () => {
+    return (
+        <Container>
+            <Menu exitOnEscape exitWithClickOutside />
+            <OptionButton>
+                <IconCenter size={32} icon={androidSettings} />
+            </OptionButton>
+        </Container>
+    );
+};
 
 export default Navigation;

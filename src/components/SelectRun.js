@@ -37,6 +37,10 @@ const items = [
     },
 ];
 
+const Container = styled.div`
+    display: flex;
+`;
+
 const SelectRun = ({ questions, setTestAction }) => {
     const [selected, setSelected] = useState({
         id: 3,
@@ -136,10 +140,6 @@ SelectRun.propTypes = {
     ).isRequired,
     setTestAction: PropTypes.func.isRequired,
 };
-
-const Container = styled.div`
-    display: flex;
-`;
 
 const mapStateToProps = store => {
     const { question } = store;

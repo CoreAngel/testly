@@ -5,54 +5,6 @@ import { Icon } from 'react-icons-kit';
 import PropTypes from 'prop-types';
 import navigationItems from '../../static/navigation';
 
-const Menu = ({ isMobile, isOpen, setIsOpen }) => {
-    const toggleMenu = () => {
-        setIsOpen(!isOpen);
-    };
-
-    return (
-        <NavContainer isMobile={isMobile} isOpen={isOpen}>
-            <VisibilityHidden>
-                <h2>Menu</h2>
-            </VisibilityHidden>
-            {isMobile && (
-                <Button aria-expanded={isOpen} onClick={toggleMenu}>
-                    <NavIcon aria-hidden="true" isOpen={isOpen}>
-                        <span />
-                        <span />
-                        <span />
-                    </NavIcon>
-                    <VisibilityHidden>{isOpen ? 'Close menu' : 'Open menu'}</VisibilityHidden>
-                </Button>
-            )}
-            <NavList isMobile={isMobile}>
-                {navigationItems.map(item => {
-                    const { id, label, icon, path } = item;
-                    return (
-                        <NavItem isMobile={isMobile} key={id}>
-                            <NavLink
-                                onClick={isMobile ? () => setIsOpen(false) : null}
-                                tabIndex={isOpen ? 0 : -1}
-                                to={path}
-                                exact
-                            >
-                                <IconCenter size={20} icon={icon} />
-                                <NavSpan>{label}</NavSpan>
-                            </NavLink>
-                        </NavItem>
-                    );
-                })}
-            </NavList>
-        </NavContainer>
-    );
-};
-
-Menu.propTypes = {
-    isMobile: PropTypes.bool.isRequired,
-    isOpen: PropTypes.bool.isRequired,
-    setIsOpen: PropTypes.func.isRequired,
-};
-
 const NavContainer = styled.nav(({ isMobile, isOpen }) => ({
     position: isMobile ? 'fixed' : 'static',
     height: isMobile ? '100vh' : 'auto',
@@ -157,5 +109,53 @@ const IconCenter = styled(Icon).attrs({
     align-items: center;
     justify-content: center;
 `;
+
+const Menu = ({ isMobile, isOpen, setIsOpen }) => {
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+    };
+
+    return (
+        <NavContainer isMobile={isMobile} isOpen={isOpen}>
+            <VisibilityHidden>
+                <h2>Menu</h2>
+            </VisibilityHidden>
+            {isMobile && (
+                <Button aria-expanded={isOpen} onClick={toggleMenu}>
+                    <NavIcon aria-hidden="true" isOpen={isOpen}>
+                        <span />
+                        <span />
+                        <span />
+                    </NavIcon>
+                    <VisibilityHidden>{isOpen ? 'Close menu' : 'Open menu'}</VisibilityHidden>
+                </Button>
+            )}
+            <NavList isMobile={isMobile}>
+                {navigationItems.map(item => {
+                    const { id, label, icon, path } = item;
+                    return (
+                        <NavItem isMobile={isMobile} key={id}>
+                            <NavLink
+                                onClick={isMobile ? () => setIsOpen(false) : null}
+                                tabIndex={isOpen ? 0 : -1}
+                                to={path}
+                                exact
+                            >
+                                <IconCenter size={20} icon={icon} />
+                                <NavSpan>{label}</NavSpan>
+                            </NavLink>
+                        </NavItem>
+                    );
+                })}
+            </NavList>
+        </NavContainer>
+    );
+};
+
+Menu.propTypes = {
+    isMobile: PropTypes.bool.isRequired,
+    isOpen: PropTypes.bool.isRequired,
+    setIsOpen: PropTypes.func.isRequired,
+};
 
 export default React.memo(Menu);
