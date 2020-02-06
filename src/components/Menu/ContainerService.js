@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import keyCodes from '../../util/keyCodes';
+import { checkIsMobile } from '../../util/breakpoints';
 import Menu from './Menu';
 
 const ContainerBackDrop = styled.div`
@@ -25,20 +26,20 @@ const ContainerService = ({ exitOnEscape, exitWithClickOutside }) => {
     const menuRef = useRef(null);
 
     useEffect(() => {
-        const checkIsMobile = () => {
-            const { matches } = window.matchMedia('(max-width: 480px)');
-            if (matches !== isMobile) {
-                setIsMobile(matches);
+        const detectIsMobile = () => {
+            const match = checkIsMobile();
+            if (match !== isMobile) {
+                setIsMobile(match);
                 setIsOpen(false);
             }
         };
-        checkIsMobile();
+        detectIsMobile();
 
-        window.addEventListener('resize', checkIsMobile);
-        window.addEventListener('orientationchange', checkIsMobile);
+        window.addEventListener('resize', detectIsMobile);
+        window.addEventListener('orientationchange', detectIsMobile);
         return () => {
-            window.removeEventListener('resize', checkIsMobile);
-            window.removeEventListener('orientationchange', checkIsMobile);
+            window.removeEventListener('resize', detectIsMobile);
+            window.removeEventListener('orientationchange', detectIsMobile);
         };
     }, [isMobile]);
 
