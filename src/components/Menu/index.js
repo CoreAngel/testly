@@ -1,3 +1,3 @@
-import Menu from "./ContainerService";
+import Menu from './ContainerService';
 
 export default Menu;

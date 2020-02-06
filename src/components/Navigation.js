@@ -1,19 +1,18 @@
-import React from "react";
-import styled from 'styled-components'
-import { Icon } from 'react-icons-kit'
-import Menu from "./Menu";
-import {androidSettings} from 'react-icons-kit/ionicons/androidSettings'
+import React from 'react';
+import styled from 'styled-components';
+import { Icon } from 'react-icons-kit';
+import { androidSettings } from 'react-icons-kit/ionicons/androidSettings';
+import Menu from './Menu';
 
 const Navigation = () => {
-
     return (
         <Container>
             <Menu exitOnEscape exitWithClickOutside />
             <OptionButton>
-                <IconCenter size={32} icon={androidSettings}/>
+                <IconCenter size={32} icon={androidSettings} />
             </OptionButton>
         </Container>
-    )
+    );
 };
 
 const Container = styled.div`
@@ -24,8 +23,8 @@ const Container = styled.div`
 
 const IconCenter = styled(Icon).attrs({
     style: {
-        display: 'flex'
-    }
+        display: 'flex',
+    },
 })`
     display: flex;
     align-items: center;

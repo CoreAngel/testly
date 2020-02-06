@@ -1,7 +1,6 @@
-import {useHistory} from 'react-router-dom'
-import {useLocation} from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom';
 
-const useHistoryPush = (path) => {
+const useHistoryPush = path => {
     const location = useLocation();
     const history = useHistory();
 
@@ -12,4 +11,4 @@ const useHistoryPush = (path) => {
     return () => {};
 };
 
-export default useHistoryPush
+export default useHistoryPush;

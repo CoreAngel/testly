@@ -1,3 +1,3 @@
-import ResultPanel from './RouteProtector'
+import ResultPanel from './RouteProtector';
 
 export default ResultPanel;

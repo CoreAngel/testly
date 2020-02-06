@@ -1,6 +1,7 @@
-export const shuffle = (array) => {
+export const shuffle = array => {
     let currentIndex = array.length;
-    let temporaryValue, randomIndex;
+    let temporaryValue;
+    let randomIndex;
     const newArray = [...array];
 
     while (currentIndex !== 0) {

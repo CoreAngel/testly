@@ -1,16 +1,16 @@
-import React from "react";
-import SelectLoader from "./SelectLoader";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
+import SelectLoader from './SelectLoader';
 
-const ChooseList = ({backBtn}) => {
+const ChooseList = () => {
     return (
         <ChooseListContainer>
             <ChooseLabel>
                 <ChooseText>Choose internal list:</ChooseText>
-                <SelectLoader/>
+                <SelectLoader />
             </ChooseLabel>
         </ChooseListContainer>
-    )
+    );
 };
 
 const ChooseListContainer = styled.div`

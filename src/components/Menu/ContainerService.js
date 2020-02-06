@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import keyCodes from '../../util/keyCodes';
 import Menu from './Menu';
 
@@ -29,7 +30,7 @@ const ContainerService = ({ exitOnEscape, exitWithClickOutside }) => {
 
     useEffect(() => {
         if (!exitOnEscape || !containerRef.current) {
-            return;
+            return null;
         }
 
         const closeOnEscPress = event => {
@@ -49,7 +50,7 @@ const ContainerService = ({ exitOnEscape, exitWithClickOutside }) => {
 
     useEffect(() => {
         if (!exitWithClickOutside || !containerRef.current || !menuRef.current) {
-            return;
+            return null;
         }
 
         const closeOnOutsideClick = event => {
@@ -78,6 +79,11 @@ const ContainerService = ({ exitOnEscape, exitWithClickOutside }) => {
             </ContainerBackDrop>
         </div>
     );
+};
+
+ContainerService.propTypes = {
+    exitOnEscape: PropTypes.bool.isRequired,
+    exitWithClickOutside: PropTypes.bool.isRequired,
 };
 
 const ContainerBackDrop = styled.div`
