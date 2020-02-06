@@ -1,20 +1,26 @@
 import React from 'react';
 import { NavLink as Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Icon } from 'react-icons-kit';
 import PropTypes from 'prop-types';
 import navigationItems from '../../static/navigation';
 
-const NavContainer = styled.nav(({ isMobile, isOpen }) => ({
-    position: isMobile ? 'fixed' : 'static',
-    height: isMobile ? '100vh' : 'auto',
-    transform: isMobile && (!isOpen ? 'translateX(-180px)' : 'transform: translateX(0)'),
-    transition: isMobile ? 'transform ease-in-out 200ms;' : null,
-    top: 0,
-    left: 0,
-    display: 'flex',
-    flexDirection: 'row-reverse',
-}));
+const NavContainer = styled.nav`
+    position: static;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row-reverse;
+
+    ${({ isMobile, isOpen }) =>
+        isMobile &&
+        css`
+            position: fixed;
+            height: 100vh;
+            transform: ${!isOpen ? 'translateX(-180px)' : 'transform: translateX(0)'};
+            transition: transform ease-in-out 200ms;
+        `}
+`;
 
 const Button = styled.button`
     padding: 5px;
@@ -52,34 +58,61 @@ const NavIcon = styled.div`
     }
 
     & span:nth-child(1) {
-        top: ${({ isOpen }) => (isOpen ? '50%' : '0')};
-        transform: ${({ isOpen }) => isOpen && 'translateY(-50%) rotate(45deg)'};
-        ${({ isOpen }) => isOpen && 'transition-delay: 200ms'};
+        top: 0;
+
+        ${({ isOpen }) =>
+            isOpen &&
+            css`
+                top: 50%;
+                transform: translateY(-50%) rotate(45deg);
+                transition-delay: 200ms;
+            `}
     }
 
     & span:nth-child(2) {
         top: 50%;
-        transform: translateY(-50%) ${({ isOpen }) => (isOpen ? 'translateX(-100%)' : 'translateX(0)')};
-        opacity: ${({ isOpen }) => (isOpen ? 0 : 1)};
-        ${({ isOpen }) => !isOpen && 'transition-delay: 200ms'};
+        transform: translateY(-50%) translateX(0);
+        opacity: 1;
+        transition-delay: 200ms;
+
+        ${({ isOpen }) =>
+            isOpen &&
+            css`
+                transform: translateY(-50%) translateX(-100%);
+                opacity: 0;
+                transition-delay: 0ms;
+            `}
     }
 
     & span:nth-child(3) {
-        bottom: ${({ isOpen }) => (isOpen ? '50%' : '0')};
-        transform: ${({ isOpen }) => isOpen && 'translateY(50%) rotate(-45deg)'};
-        ${({ isOpen }) => isOpen && 'transition-delay: 200ms'};
+        bottom: 0;
+
+        ${({ isOpen }) =>
+            isOpen &&
+            css`
+                bottom: 50%;
+                transform: translateY(50%) rotate(-45deg);
+                transition-delay: 200ms;
+            `}
     }
 `;
 
-const NavList = styled.ul(({ isMobile }) => ({
-    listStyleType: 'none',
-    display: 'flex',
-    flexDirection: isMobile ? 'column' : 'row',
-    width: isMobile ? '180px' : 'auto',
-    backgroundColor: isMobile ? '#1a1a1a' : 'transparent',
-    padding: isMobile ? '10px 0' : '0',
-    margin: 0,
-}));
+const NavList = styled.ul`
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+
+    ${({ isMobile }) =>
+        isMobile &&
+        css`
+            flex-direction: column;
+            width: 180px;
+            background-color: #1a1a1a;
+            padding: 10px 0;
+        `}
+`;
 
 const NavItem = styled.li`
     margin: ${({ isMobile }) => (isMobile ? '10px' : '0 20px 0 0')};
@@ -100,7 +133,7 @@ const NavSpan = styled.span`
     margin-left: 8px;
 `;
 
-const IconCenter = styled(Icon).attrs({
+const IconStyled = styled(Icon).attrs({
     style: {
         display: 'flex',
     },
@@ -141,7 +174,7 @@ const Menu = ({ isMobile, isOpen, setIsOpen }) => {
                                 to={path}
                                 exact
                             >
-                                <IconCenter size={20} icon={icon} />
+                                <IconStyled size={20} icon={icon} />
                                 <NavSpan>{label}</NavSpan>
                             </NavLink>
                         </NavItem>
