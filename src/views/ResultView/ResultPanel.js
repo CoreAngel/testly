@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Question from '../Question';
+import Question from '../../components/Question';
 
 const FailsContainer = styled.p`
     margin-left: 35px;

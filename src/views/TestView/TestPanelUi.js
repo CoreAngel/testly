@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import Question from '../Question';
-import ButtonAnswers from '../ButtonAnswers';
+import Question from '../../components/Question';
+import ButtonAnswers from '../../components/ButtonAnswers';
 
 const TestPanelUi = ({ questionCounter, questionsNumber, question, answers, checkAnswer, keyPress }) => {
     const onClick = useCallback(

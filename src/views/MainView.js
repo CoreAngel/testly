@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
-import Navigation from './Navigation';
-import ListPanel from './ListPanel';
-import Home from './Home';
-import TestPanel from './TestPanel';
-import ResultPanel from './ResultPanel';
+import Navigation from '../components/Navigation';
+import ListView from './ListView';
+import HomeView from './HomeView';
+import TestView from './TestView';
+import ResultView from './ResultView';
 
 const Container = styled.div`
     display: flex;
@@ -22,17 +22,17 @@ const Wrapper = styled.div`
     width: 100%;
 `;
 
-const Main = () => {
+const MainView = () => {
     return (
         <Container>
             <Wrapper>
                 <Router>
                     <Navigation />
                     <Switch>
-                        <Route exact path="/" component={Home} />
-                        <Route path="/list" component={ListPanel} />
-                        <Route path="/test" component={TestPanel} />
-                        <Route path="/result" component={ResultPanel} />
+                        <Route exact path="/" component={HomeView} />
+                        <Route path="/list" component={ListView} />
+                        <Route path="/test" component={TestView} />
+                        <Route path="/result" component={ResultView} />
                     </Switch>
                 </Router>
             </Wrapper>
@@ -40,4 +40,4 @@ const Main = () => {
     );
 };
 
-export default Main;
+export default MainView;

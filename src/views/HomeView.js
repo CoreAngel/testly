@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Home = () => {
+const HomeView = () => {
     return <p>Choose questions...</p>;
 };
 
-export default Home;
+export default HomeView;

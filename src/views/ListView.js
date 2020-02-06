@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import ChooseList from './ChooseList';
-import QuestionsList from './QuestionsList';
+import ChooseList from '../components/ChooseList';
+import QuestionsList from '../components/QuestionsList';
 
-const ListPanel = ({ questions }) => {
+const ListView = ({ questions }) => {
     return (
         <>
             <ChooseList />
@@ -13,7 +13,7 @@ const ListPanel = ({ questions }) => {
     );
 };
 
-ListPanel.propTypes = {
+ListView.propTypes = {
     questions: PropTypes.arrayOf(
         PropTypes.shape({
             index: PropTypes.number.isRequired,
@@ -32,4 +32,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps)(ListPanel);
+export default connect(mapStateToProps)(ListView);
