@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Question from '../../components/Question/Question';
+import Question from 'components/Question/Question';
 import { FailsContainer } from './ResultView.style';
 
 const ResultView = ({ questions }) => {

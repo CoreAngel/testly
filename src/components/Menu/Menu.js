@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import navigationItems from '../../static/navigation';
+import navigationItems from 'static/navigation';
+import Hamburger from 'components/Hamburger';
 import { NavLink, IconStyled, NavContainer, NavItem, NavList, NavSpan, VisibilityHidden } from './Menu.style';
-import Hamburger from '../Hamburger';
 
 const Menu = ({ isMobile, isOpen, setIsOpen }) => {
     const toggleMenu = () => {

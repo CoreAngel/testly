@@ -33,15 +33,9 @@ RouteProtector.propTypes = {
     currentIndex: PropTypes.number.isRequired,
 };
 
-const mapStateToProps = store => {
-    const {
-        test: { questions, currentIndex },
-    } = store;
-
-    return {
-        questions,
-        currentIndex,
-    };
-};
+const mapStateToProps = ({ test: { questions, currentIndex } }) => ({
+    questions,
+    currentIndex,
+});
 
 export default connect(mapStateToProps)(RouteProtector);

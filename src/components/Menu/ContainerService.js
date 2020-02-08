@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import keyCodes from '../../util/keyCodes';
+import keyCodes from 'utils/keyCodes';
+import { checkIsMobile } from 'utils/breakpoints';
 import { ContainerBackDrop, MenuContainer } from './ContainerService.style';
-import { checkIsMobile } from '../../util/breakpoints';
 import Menu from './Menu';
 
 const ContainerService = ({ exitOnEscape, exitWithClickOutside }) => {

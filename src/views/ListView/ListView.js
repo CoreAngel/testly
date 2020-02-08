@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import ChooseList from '../../components/ChooseList';
-import QuestionsList from '../../components/QuestionsList/QuestionsList';
+import ChooseList from 'components/ChooseList';
+import QuestionsList from 'components/QuestionsList/QuestionsList';
 
 const ListView = ({ questions }) => {
     return (
@@ -24,12 +24,8 @@ ListView.propTypes = {
     ).isRequired,
 };
 
-const mapStateToProps = state => {
-    const { question } = state;
-
-    return {
-        questions: question,
-    };
-};
+const mapStateToProps = ({ question }) => ({
+    questions: question,
+});
 
 export default connect(mapStateToProps)(ListView);

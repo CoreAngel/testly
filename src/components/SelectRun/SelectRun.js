@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { Button, Input } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import useHistoryPush from 'utils/useHistoryPush';
+import { setTest } from 'redux/testStore';
+import { shuffle } from 'utils/array';
+import { runTypes, runItems } from 'static/run';
 import { Container } from './SelectRun.style';
-import useHistoryPush from '../../util/useHistoryPush';
-import { setTest } from '../../redux/testStore';
-import { shuffle } from '../../util/array';
-import { runTypes, runItems } from '../../static/run';
 
 const SelectRun = ({ questions, setTestAction }) => {
     const [selected, setSelected] = useState(runItems.find(item => item.value === runTypes.Q_RANDOM_A_RANDOM));
@@ -104,11 +104,9 @@ SelectRun.propTypes = {
     setTestAction: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({ question }) => {
-    return {
-        questions: question,
-    };
-};
+const mapStateToProps = ({ question }) => ({
+    questions: question,
+});
 
 const mapDispatchToProps = {
     setTestAction: setTest,

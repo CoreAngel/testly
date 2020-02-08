@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { nextQuestion, addFail } from 'redux/testStore';
+import keyCodes from 'utils/keyCodes';
 import TestViewUi from './TestViewUi';
-import { nextQuestion, addFail } from '../../redux/testStore';
-import keyCodes from '../../util/keyCodes';
 
 const TestViewService = ({ questions, currentIndex, nextQuestionAction, addFailAction }) => {
     const { q, a, c } = questions[currentIndex];
@@ -65,16 +65,10 @@ TestViewService.propTypes = {
     addFailAction: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = store => {
-    const {
-        test: { questions, currentIndex },
-    } = store;
-
-    return {
-        questions,
-        currentIndex,
-    };
-};
+const mapStateToProps = ({ test: { questions, currentIndex } }) => ({
+    questions,
+    currentIndex,
+});
 
 const mapDispatchToProps = {
     nextQuestionAction: nextQuestion,

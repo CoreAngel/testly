@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Input } from 'reactstrap';
 import PropTypes from 'prop-types';
+import Question from 'components/Question';
 import { SearchContainer } from './QuestionsList.style';
-import Question from '../Question';
 
 const QuestionsList = ({ questions }) => {
     const [searchState, setSearchState] = useState('');

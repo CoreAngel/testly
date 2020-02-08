@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import Question from '../../components/Question/Question';
-import ButtonAnswers from '../../components/ButtonAnswers/ButtonAnswers';
+import Question from 'components/Question/Question';
+import ButtonAnswers from 'components/ButtonAnswers/ButtonAnswers';
 
 const TestViewUi = ({ questionCounter, questionsNumber, question, answers, checkAnswer, keyPress }) => {
     const onClick = useCallback(

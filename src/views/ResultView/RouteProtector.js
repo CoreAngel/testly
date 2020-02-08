@@ -27,14 +27,8 @@ RouteProtector.propTypes = {
     ).isRequired,
 };
 
-const mapStateToProps = store => {
-    const {
-        test: { questions },
-    } = store;
-
-    return {
-        questions,
-    };
-};
+const mapStateToProps = ({ test: { questions } }) => ({
+    questions,
+});
 
 export default connect(mapStateToProps)(RouteProtector);

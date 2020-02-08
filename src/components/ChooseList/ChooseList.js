@@ -1,6 +1,6 @@
 import React from 'react';
+import SelectLoader from 'components/SelectLoader';
 import { ChooseLabel, ChooseListContainer, ChooseText } from './ChooseList.style';
-import SelectLoader from '../SelectLoader/SelectLoader';
 
 const ChooseList = () => {
     return (

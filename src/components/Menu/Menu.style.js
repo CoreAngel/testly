@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { NavLink as Link } from 'react-router-dom';
 import { Icon } from 'react-icons-kit';
-import { maxBreakpoints } from '../../util/breakpoints';
+import { maxBreakpoints } from 'utils/breakpoints';
 
 export const NavContainer = styled.nav`
     position: static;

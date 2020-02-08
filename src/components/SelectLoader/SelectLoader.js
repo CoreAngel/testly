@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { Input } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { loaderItems } from '../../static/loader';
-import useHistoryPush from '../../util/useHistoryPush';
-import { setQuestions } from '../../redux/questionStore';
-import fetchFile from '../../util/fetchFile';
+import { loaderItems } from 'static/loader';
+import useHistoryPush from 'utils/useHistoryPush';
+import fetchFile from 'utils/fetchFile';
+import { setQuestions } from 'redux/questionStore';
 
 const SelectLoader = ({ setQuestionsAction }) => {
     const [selected, setSelected] = useState(loaderItems.find(item => item.path === ''));

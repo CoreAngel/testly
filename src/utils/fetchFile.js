@@ -1,12 +1,11 @@
-import keyCodes from './keyCodes';
+import keyCodes from 'utils/keyCodes';
 
 const fetchFile = fileName => {
     const host = `${window.location.host}`;
     const base = `${window.location.protocol}//${host}`;
     const absoluteUrl = host.includes('localhost') ? base : `${base}/testly`;
 
-    return window
-        .fetch(`${absoluteUrl}/data/${fileName}`)
+    return fetch(`${absoluteUrl}/data/${fileName}`)
         .then(data => data.json())
         .then(data =>
             data.map((item, index) => {

@@ -2,17 +2,26 @@
   "extends": [
     "airbnb",
     "prettier",
-    "prettier/react"
+    "prettier/react",
+    "plugin:import/errors", "plugin:import/warnings"
   ],
   "env": {
     "jest": true
   },
   "globals": {
+    "fetch": true,
     "window": true,
     "document": true
   },
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
     "import/prefer-default-export": 0
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "moduleDirectory": ["src/", "node_modules"]
+      }
+    }
   }
 }

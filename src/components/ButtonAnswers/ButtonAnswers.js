@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import keyCodes from 'utils/keyCodes';
 import { ButtonContainer, ButtonWithMargin } from './ButtonAnswers.style';
-import keyCodes from '../../util/keyCodes';
 
 const ButtonAnswers = ({ answers, onClick }) => {
     return (
