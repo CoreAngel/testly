@@ -1,8 +1,6 @@
-import React from 'react';
 import styled, { css } from 'styled-components';
-import PropTypes from 'prop-types';
 
-const Button = styled.button`
+export const Button = styled.button`
     padding: 5px;
     margin: 20px 0 0 0;
     background-color: transparent;
@@ -11,7 +9,7 @@ const Button = styled.button`
     width: 35px;
 `;
 
-const NavIconWrapper = styled.div`
+export const NavIconWrapper = styled.div`
     position: relative;
     width: 100%;
     height: 100%;
@@ -39,7 +37,7 @@ const NavIconWrapper = styled.div`
     }
 `;
 
-const NavIcon = styled.div`
+export const NavIcon = styled.div`
     &::after,
     &::before {
         position: absolute;
@@ -77,7 +75,7 @@ const NavIcon = styled.div`
     }
 `;
 
-const VisibilityHidden = styled.span`
+export const VisibilityHidden = styled.span`
     position: absolute;
     overflow: hidden;
     clip: rect(0 0 0 0);
@@ -87,21 +85,3 @@ const VisibilityHidden = styled.span`
     padding: 0;
     border: 0;
 `;
-
-const HamburgerIcon = ({ isOpen, toggleMenu }) => {
-    return (
-        <Button aria-expanded={isOpen} onClick={toggleMenu}>
-            <NavIconWrapper aria-hidden="true" isOpen={isOpen}>
-                <NavIcon isOpen={isOpen} />
-            </NavIconWrapper>
-            <VisibilityHidden>{isOpen ? 'Close menu' : 'Open menu'}</VisibilityHidden>
-        </Button>
-    );
-};
-
-HamburgerIcon.propTypes = {
-    isOpen: PropTypes.bool.isRequired,
-    toggleMenu: PropTypes.func.isRequired,
-};
-
-export default HamburgerIcon;

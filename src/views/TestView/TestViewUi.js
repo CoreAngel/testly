@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import Question from '../../components/Question';
-import ButtonAnswers from '../../components/ButtonAnswers';
+import Question from '../../components/Question/Question';
+import ButtonAnswers from '../../components/ButtonAnswers/ButtonAnswers';
 
-const TestPanelUi = ({ questionCounter, questionsNumber, question, answers, checkAnswer, keyPress }) => {
+const TestViewUi = ({ questionCounter, questionsNumber, question, answers, checkAnswer, keyPress }) => {
     const onClick = useCallback(
         event => {
             const button = event.target;
@@ -38,7 +38,7 @@ const TestPanelUi = ({ questionCounter, questionsNumber, question, answers, chec
     );
 };
 
-TestPanelUi.propTypes = {
+TestViewUi.propTypes = {
     questionCounter: PropTypes.number.isRequired,
     questionsNumber: PropTypes.number.isRequired,
     question: PropTypes.string.isRequired,
@@ -47,4 +47,4 @@ TestPanelUi.propTypes = {
     keyPress: PropTypes.func.isRequired,
 };
 
-export default TestPanelUi;
+export default TestViewUi;

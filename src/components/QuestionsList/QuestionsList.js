@@ -1,16 +1,8 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import { Input } from 'reactstrap';
 import PropTypes from 'prop-types';
-import Question from './Question';
-
-const SearchContainer = styled.div`
-    display: flex;
-    position: sticky;
-    top: 0;
-    justify-content: center;
-    margin-top: 20px;
-`;
+import { SearchContainer } from './QuestionsList.style';
+import Question from '../Question';
 
 const QuestionsList = ({ questions }) => {
     const [searchState, setSearchState] = useState('');

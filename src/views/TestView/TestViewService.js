@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import TestPanelUi from './TestPanelUi';
+import TestViewUi from './TestViewUi';
 import { nextQuestion, addFail } from '../../redux/testStore';
 import keyCodes from '../../util/keyCodes';
 
-const TestPanelService = ({ questions, currentIndex, nextQuestionAction, addFailAction }) => {
+const TestViewService = ({ questions, currentIndex, nextQuestionAction, addFailAction }) => {
     const { q, a, c } = questions[currentIndex];
 
     const checkAnswer = index => {
@@ -39,7 +39,7 @@ const TestPanelService = ({ questions, currentIndex, nextQuestionAction, addFail
     };
 
     return (
-        <TestPanelUi
+        <TestViewUi
             answers={a}
             question={q}
             checkAnswer={checkAnswer}
@@ -50,7 +50,7 @@ const TestPanelService = ({ questions, currentIndex, nextQuestionAction, addFail
     );
 };
 
-TestPanelService.propTypes = {
+TestViewService.propTypes = {
     questions: PropTypes.arrayOf(
         PropTypes.shape({
             index: PropTypes.number.isRequired,
@@ -81,4 +81,4 @@ const mapDispatchToProps = {
     addFailAction: addFail,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TestPanelService);
+export default connect(mapStateToProps, mapDispatchToProps)(TestViewService);

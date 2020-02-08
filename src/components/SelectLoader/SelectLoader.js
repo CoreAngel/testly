@@ -2,34 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { Input } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import useHistoryPush from '../util/useHistoryPush';
-import { setQuestions } from '../redux/questionStore';
-import fetchFile from '../util/fetchFile';
-
-const items = [
-    {
-        id: 0,
-        label: 'Select...',
-        path: '',
-    },
-    {
-        id: 1,
-        label: 'IO',
-        path: 'io.json',
-    },
-    {
-        id: 2,
-        label: 'PSK',
-        path: 'psk.json',
-    },
-];
+import { loaderItems } from '../../static/loader';
+import useHistoryPush from '../../util/useHistoryPush';
+import { setQuestions } from '../../redux/questionStore';
+import fetchFile from '../../util/fetchFile';
 
 const SelectLoader = ({ setQuestionsAction }) => {
-    const [selected, setSelected] = useState({
-        id: 0,
-        label: 'Select...',
-        path: '',
-    });
+    const [selected, setSelected] = useState(loaderItems.find(item => item.path === ''));
 
     const pushToList = useHistoryPush('/list');
 
@@ -50,13 +29,13 @@ const SelectLoader = ({ setQuestionsAction }) => {
 
     const onChange = e => {
         const { value } = e.target;
-        setSelected(items.find(item => item.label === value));
+        setSelected(loaderItems.find(item => item.label === value));
     };
 
     return (
         <div>
             <Input type="select" onChange={onChange} value={selected.label}>
-                {items.map(item => (
+                {loaderItems.map(item => (
                     <option value={item.label} key={item.id} disabled={item.path === ''}>
                         {item.label}
                     </option>

@@ -1,23 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import keyCodes from '../../util/keyCodes';
+import { ContainerBackDrop, MenuContainer } from './ContainerService.style';
 import { checkIsMobile } from '../../util/breakpoints';
 import Menu from './Menu';
-
-const ContainerBackDrop = styled.div`
-    z-index: 9999;
-    position: ${({ isOpen }) => (isOpen ? 'fixed' : 'static')};
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-`;
-
-const MenuContainer = styled.div`
-    display: flex;
-    align-items: center;
-`;
 
 const ContainerService = ({ exitOnEscape, exitWithClickOutside }) => {
     const [isMobile, setIsMobile] = useState(true);

@@ -1,18 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
-import { Button } from 'reactstrap';
 import PropTypes from 'prop-types';
-import keyCodes from '../util/keyCodes';
-
-const ButtonContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    padding-bottom: 50px;
-`;
-
-const ButtonWithMargin = styled(Button)`
-    margin: 0 10px;
-`;
+import { ButtonContainer, ButtonWithMargin } from './ButtonAnswers.style';
+import keyCodes from '../../util/keyCodes';
 
 const ButtonAnswers = ({ answers, onClick }) => {
     return (

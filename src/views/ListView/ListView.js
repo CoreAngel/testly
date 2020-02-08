@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import ChooseList from '../components/ChooseList';
-import QuestionsList from '../components/QuestionsList';
+import ChooseList from '../../components/ChooseList';
+import QuestionsList from '../../components/QuestionsList/QuestionsList';
 
 const ListView = ({ questions }) => {
     return (

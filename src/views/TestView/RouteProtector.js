@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import TestPanel from './TestPanelService';
+import TestPanel from './TestViewService';
 
 const RouteProtector = ({ questions, currentIndex }) => {
     const history = useHistory();

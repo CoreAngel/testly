@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import ResultPanel from './ResultPanel';
+import ResultView from './ResultView';
 
 const RouteProtector = ({ questions }) => {
     const history = useHistory();
@@ -12,7 +12,7 @@ const RouteProtector = ({ questions }) => {
         return null;
     }
 
-    return <ResultPanel />;
+    return <ResultView />;
 };
 
 RouteProtector.propTypes = {
