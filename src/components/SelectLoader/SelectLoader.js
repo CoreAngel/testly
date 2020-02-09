@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { loaderItems } from 'static/loader';
 import { routes } from 'static/routes';
-import useHistoryPush from 'utils/useHistoryPush';
+import useHistoryPush from 'hooks/useHistoryPush';
 import fetchFile from 'utils/fetchFile';
 import { setQuestions } from 'redux/questionStore';
 

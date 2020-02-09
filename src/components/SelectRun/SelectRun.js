@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, Input } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import useHistoryPush from 'utils/useHistoryPush';
+import useHistoryPush from 'hooks/useHistoryPush';
 import { setTest } from 'redux/testStore';
 import { shuffle } from 'utils/array';
 import { runTypes, runItems } from 'static/run';
