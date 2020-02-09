@@ -2,18 +2,19 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { routes } from 'static/routes';
 import TestPanel from './TestViewService';
 
 const RouteProtector = ({ questions, currentIndex }) => {
     const history = useHistory();
 
     if (questions.length === 0) {
-        history.replace('/');
+        history.replace(routes.Home);
         return null;
     }
 
     if (currentIndex === questions.length - 1) {
-        history.replace('/result');
+        history.replace(routes.Result);
         return null;
     }
 

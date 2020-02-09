@@ -2,13 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { routes } from 'static/routes';
 import ResultView from './ResultView';
 
 const RouteProtector = ({ questions }) => {
     const history = useHistory();
 
     if (questions.length === 0) {
-        history.replace('/test');
+        history.replace(routes.Test);
         return null;
     }
 

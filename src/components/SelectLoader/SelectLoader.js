@@ -3,6 +3,7 @@ import { Input } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { loaderItems } from 'static/loader';
+import { routes } from 'static/routes';
 import useHistoryPush from 'utils/useHistoryPush';
 import fetchFile from 'utils/fetchFile';
 import { setQuestions } from 'redux/questionStore';
@@ -10,7 +11,7 @@ import { setQuestions } from 'redux/questionStore';
 const SelectLoader = ({ setQuestionsAction }) => {
     const [selected, setSelected] = useState(loaderItems.find(item => item.path === ''));
 
-    const pushToList = useHistoryPush('/list');
+    const pushToList = useHistoryPush(routes.List);
 
     useEffect(() => {
         const fetchData = () => {

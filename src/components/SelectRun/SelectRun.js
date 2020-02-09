@@ -6,11 +6,12 @@ import useHistoryPush from 'utils/useHistoryPush';
 import { setTest } from 'redux/testStore';
 import { shuffle } from 'utils/array';
 import { runTypes, runItems } from 'static/run';
+import { routes } from 'static/routes';
 import { Container } from './SelectRun.style';
 
 const SelectRun = ({ questions, setTestAction }) => {
     const [selected, setSelected] = useState(runItems.find(item => item.value === runTypes.Q_RANDOM_A_RANDOM));
-    const pushToTest = useHistoryPush('/test');
+    const pushToTest = useHistoryPush(routes.Test);
 
     const onChange = e => {
         const { value } = e.target;
