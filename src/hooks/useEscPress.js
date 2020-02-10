@@ -18,7 +18,7 @@ const useEscPress = (callback, isRun = true) => {
 
         window.addEventListener('keydown', escPress);
         return () => window.removeEventListener('keydown', escPress);
-    }, [isRun]);
+    }, [isRun, callback]);
 };
 
 export default useEscPress;

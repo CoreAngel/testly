@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
+import useEscPress from 'hooks/useEscPress';
+import useClickOutside from 'hooks/useClickOutside';
+import useDetectMobile from 'hooks/useDetectMobile';
 import { ContainerBackDrop, MenuContainer } from './ContainerService.style';
 import Menu from './Menu';
-import useEscPress from '../../hooks/useEscPress';
-import useClickOutside from '../../hooks/useClickOutside';
-import useDetectMobile from '../../hooks/useDetectMobile';
 
 const ContainerService = ({ exitOnEscape, exitWithClickOutside }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -12,14 +12,12 @@ const ContainerService = ({ exitOnEscape, exitWithClickOutside }) => {
     const menuRef = useRef(null);
     const isMobile = useDetectMobile();
 
-    const callback = () => setIsOpen(false);
+    const callback = useCallback(() => setIsOpen(false), []);
     const isEscExitRun = isMobile && exitOnEscape;
     useEscPress(callback, isEscExitRun);
 
     const isClickOutside = isMobile && exitWithClickOutside;
-    useClickOutside({
-        callback,
-        targetRef: menuRef,
+    useClickOutside(callback, menuRef, {
         containerRef,
         isRun: isClickOutside,
     });
