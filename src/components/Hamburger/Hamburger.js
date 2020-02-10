@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { VisibilityHidden, Button, NavIcon, NavIconWrapper } from './Hamburger.style';
+import { VisibilityHidden } from 'utils/style';
+import { Button, NavIcon, NavIconWrapper } from './Hamburger.style';
 
 const Hamburger = ({ isOpen, toggleMenu }) => {
     return (
