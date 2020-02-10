@@ -6,6 +6,7 @@ export const Container = styled.div`
     background-color: #1f1f1f;
     color: #e2e2e2;
     min-height: 100vh;
+    position: relative;
 `;
 
 export const Wrapper = styled.div`

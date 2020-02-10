@@ -35,7 +35,7 @@ const Menu = ({ exitOnEscape, exitWithClickOutside }) => {
 
     return (
         <div>
-            <Container isMobile={isMobile}>
+            <Container isMobile={isMobile} isOpen={isOpen}>
                 <Backdrop isOpen={isOpen} animationTime={200} ref={containerRef} />
                 <NavContainer ref={menuRef} isOpen={isOpen}>
                     <VisibilityHidden as="h2">Menu</VisibilityHidden>
