@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { colors } from 'utils/colors';
 
 export const Container = styled.div`
     margin: 20px 0;
@@ -11,5 +12,5 @@ export const OptionButton = styled.button`
     margin: 0;
     background-color: transparent;
     border: none;
-    color: #ffffff;
+    color: ${colors.White};
 `;

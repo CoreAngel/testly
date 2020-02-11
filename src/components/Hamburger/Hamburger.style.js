@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { colors } from 'utils/colors';
 
 export const Button = styled.button`
     padding: 5px;
@@ -22,7 +23,7 @@ export const NavIconWrapper = styled.div`
         height: 3px;
         width: 100%;
         border-radius: 1px;
-        background-color: #fff;
+        background-color: ${colors.White};
         transition: 200ms;
         transform: translateY(-50%);
         transition-delay: 200ms;
@@ -46,7 +47,7 @@ export const NavIcon = styled.div`
         height: 3px;
         width: 100%;
         border-radius: 1px;
-        background-color: #fff;
+        background-color: ${colors.White};
         transition: 200ms;
     }
 

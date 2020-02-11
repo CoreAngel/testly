@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { colors } from 'utils/colors';
 
 export const QuestionContainer = styled.div`
     padding: 10px;
@@ -13,5 +14,5 @@ export const AnswersList = styled.ul`
 `;
 
 export const Answer = styled.li`
-    background-color: ${({ correct }) => (correct ? 'green' : 'none')};
+    ${({ correct }) => correct && `background-color: ${colors.Green}`};
 `;

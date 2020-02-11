@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+import { colors } from 'utils/colors';
 
 const animation = keyframes`
   0% { opacity: 0; }
@@ -16,7 +17,7 @@ export const Container = styled.div`
 export const BackdropStyled = styled.div`
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: ${colors.Backdrop};
     animation: ${animation} ${({ animationTime }) => animationTime}ms ease-in-out;
     transition: opacity ease-in-out ${({ animationTime }) => animationTime}ms;
     opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
