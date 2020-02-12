@@ -36,3 +36,11 @@ export const RunButton = styled.button`
 export const LinkText = styled.span`
     font-size: 1.2rem;
 `;
+
+export const Error = styled.p`
+    background-color: ${colors.Red};
+    color: ${colors.White80};
+    font-size: 1.4rem;
+    padding: 5px 10px;
+    margin: 5px;
+`;

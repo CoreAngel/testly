@@ -4,7 +4,7 @@ export const colors = {
     Primary: '#1f1f1f',
     Secondary: '#1a24e7',
     Green: '#178005',
-    Red: '#8d050d',
+    Red: '#d9000d',
     Dark: '#1a1a1a',
     Backdrop: 'rgba(0, 0, 0, 0.3)',
 };

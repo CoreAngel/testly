@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    width: 100%;
-    max-width: 520px;
-    margin: 0 auto;
+    margin: 0 10px;
 `;
 
 export const Header = styled.h2`
@@ -16,4 +14,8 @@ export const Header = styled.h2`
 
 export const HeaderText = styled.span`
     margin-left: 10px;
+`;
+
+export const BackButtonWrapper = styled.div`
+    margin-bottom: 20px;
 `;

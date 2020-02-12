@@ -1,18 +1,30 @@
 import React from 'react';
-import { Button } from 'reactstrap';
+import { androidArrowBack } from 'react-icons-kit/ionicons/androidArrowBack';
 import { useHistory } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { IconStyled } from 'utils/style';
+import { Button, Label } from './BackButton.style';
 
-const BackButton = () => {
+const BackButton = ({ label }) => {
     const history = useHistory();
     const back = () => {
         history.goBack();
     };
 
     return (
-        <Button color="danger" onClick={back}>
-            Back
+        <Button onClick={back}>
+            <IconStyled icon={androidArrowBack} size={32} />
+            {label !== '' && <Label>Back</Label>}
         </Button>
     );
+};
+
+BackButton.propTypes = {
+    label: PropTypes.string,
+};
+
+BackButton.defaultProps = {
+    label: '',
 };
 
 export default BackButton;
