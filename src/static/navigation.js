@@ -1,7 +1,5 @@
-import { home } from 'react-icons-kit/icomoon/home';
-import { list } from 'react-icons-kit/iconic/list';
-import { pencil } from 'react-icons-kit/icomoon/pencil';
-import { trophy } from 'react-icons-kit/icomoon/trophy';
+import { home, pencil, trophy } from 'react-icons-kit/icomoon';
+import { list } from 'react-icons-kit/iconic';
 import { routes } from 'static/routes';
 
 const navigationItems = [
