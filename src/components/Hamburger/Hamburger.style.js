@@ -3,11 +3,27 @@ import { colors } from 'utils/colors';
 
 export const Button = styled.button`
     padding: 5px;
-    margin: 20px 0 0 0;
+    margin: 0;
     background-color: transparent;
     border: none;
     height: 30px;
     width: 35px;
+    position: relative;
+
+    &:focus {
+        outline: none;
+    }
+
+    &:focus::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border: solid 1px orange;
+        border-radius: 2px;
+    }
 `;
 
 export const NavIconWrapper = styled.div`

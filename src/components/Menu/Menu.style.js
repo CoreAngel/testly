@@ -14,6 +14,7 @@ export const NavContainer = styled.nav`
     left: 0;
     display: flex;
     flex-direction: row-reverse;
+    position: relative;
 
     @media (max-width: ${maxBreakpoints.mobile}px) {
         position: absolute;
@@ -21,4 +22,11 @@ export const NavContainer = styled.nav`
         transform: ${({ isOpen }) => (!isOpen ? 'translateX(-180px)' : 'transform: translateX(0)')};
         transition: transform ease-in-out 200ms;
     }
+`;
+
+export const HamburgerWrapper = styled.div`
+    position: absolute;
+    top: 20px;
+    left: 100%;
+    padding-left: 10px;
 `;

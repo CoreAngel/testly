@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { colors } from 'utils/colors';
 
 export const Container = styled.div`
-    margin: 20px 0;
+    margin: 20px 10px;
     display: flex;
     justify-content: space-between;
 `;

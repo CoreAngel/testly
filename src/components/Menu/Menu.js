@@ -7,7 +7,7 @@ import useDetectMobile from 'hooks/useDetectMobile';
 import useEscPress from 'hooks/useEscPress';
 import useClickOutside from 'hooks/useClickOutside';
 import { VisibilityHidden } from 'utils/style';
-import { NavContainer, Container } from './Menu.style';
+import { NavContainer, Container, HamburgerWrapper } from './Menu.style';
 
 const Menu = ({ exitOnEscape, exitWithClickOutside }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -39,7 +39,11 @@ const Menu = ({ exitOnEscape, exitWithClickOutside }) => {
                 <Backdrop isOpen={isOpen} animationTime={200} ref={containerRef} />
                 <NavContainer ref={menuRef} isOpen={isOpen}>
                     <VisibilityHidden as="h2">Menu</VisibilityHidden>
-                    {isMobile && <Hamburger isOpen={isOpen} toggleMenu={toggleMenu} />}
+                    {isMobile && (
+                        <HamburgerWrapper>
+                            <Hamburger isOpen={isOpen} toggleMenu={toggleMenu} />
+                        </HamburgerWrapper>
+                    )}
                     <MenuList isMobile={isMobile} setIsOpen={setIsOpen} isOpen={isOpen} />
                 </NavContainer>
             </Container>
