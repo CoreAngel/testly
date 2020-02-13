@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { maxBreakpoints } from 'utils/breakpoints';
 import { NavLink as Link } from 'react-router-dom';
 import { colors } from 'utils/colors';
@@ -35,6 +35,18 @@ export const NavLink = styled(Link)`
     &:hover {
         color: ${colors.White};
     }
+
+    ${({ disable }) =>
+        disable &&
+        css`
+            color: ${colors.White50};
+
+            &.active,
+            &:hover {
+                color: ${colors.White50};
+                text-decoration: none;
+            }
+        `}
 `;
 
 export const NavSpan = styled.span`
