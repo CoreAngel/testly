@@ -10,7 +10,7 @@ export const NavList = styled.ul`
     padding: 0;
     margin: 0;
 
-    @media (max-width: ${maxBreakpoints.mobile}px) {
+    @media screen and (max-width: ${maxBreakpoints.mobile}px) {
         flex-direction: column;
         width: 180px;
         background-color: ${colors.Dark};
@@ -21,7 +21,7 @@ export const NavList = styled.ul`
 export const NavItem = styled.li`
     margin: 0 20px 0 0;
 
-    @media (max-width: ${maxBreakpoints.mobile}px) {
+    @media screen and (max-width: ${maxBreakpoints.mobile}px) {
         margin: 10px;
     }
 `;

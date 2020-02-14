@@ -14,9 +14,11 @@ const useDetectMobile = () => {
         };
         detectIsMobile();
 
+        window.addEventListener('DOMContentLoaded', detectIsMobile);
         window.addEventListener('resize', detectIsMobile);
         window.addEventListener('orientationchange', detectIsMobile);
         return () => {
+            window.removeEventListener('DOMContentLoaded', detectIsMobile);
             window.removeEventListener('resize', detectIsMobile);
             window.removeEventListener('orientationchange', detectIsMobile);
         };

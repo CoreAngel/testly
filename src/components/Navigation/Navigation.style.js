@@ -7,6 +7,10 @@ export const Container = styled.div`
     justify-content: space-between;
 `;
 
+export const OptionButtonWrapper = styled.div`
+    position: relative;
+`;
+
 export const OptionButton = styled.button`
     padding: 0;
     margin: 0;

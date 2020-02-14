@@ -1,20 +1,21 @@
 import { createGlobalStyle } from 'styled-components';
 
-export const GlobalStyle = createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap&subset=latin-ext');
-    
+const GlobalStyle = createGlobalStyle`
     html {
         font-size: 62.5%;
-    } 
-    
-    body {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.6rem;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
-    
+
+    body {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.6rem;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        ${({ overflowBody }) => overflowBody !== null && `overflow: ${overflowBody}`}
+    }
+
     *, *::after, *::before {
-      box-sizing: border-box;
+        box-sizing: border-box;
     }
 `;
+
+export default GlobalStyle;
