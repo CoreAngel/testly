@@ -5,7 +5,7 @@ import { loaderItems } from 'static/loader';
 import fetchFile from 'utils/fetchFile';
 import LoadList from 'components/LoadList';
 import useHistoryPush from 'hooks/useHistoryPush';
-import { setQuestions } from 'redux/questionStore';
+import { setQuestions } from 'redux/questionsReducer';
 import { routes } from 'static/routes';
 import BackButton from 'components/BackButton';
 import PropTypes from 'prop-types';

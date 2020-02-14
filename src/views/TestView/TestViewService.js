@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { nextQuestion, addFail } from 'redux/testStore';
+import { nextQuestion, addFail } from 'redux/testReducer';
 import keyCodes from 'utils/keyCodes';
 import TestViewUi from './TestViewUi';
 

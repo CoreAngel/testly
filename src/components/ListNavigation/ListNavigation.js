@@ -3,14 +3,15 @@ import { inbox_in as inboxIn } from 'react-icons-kit/ikons/inbox_in';
 import { plus, play } from 'react-icons-kit/ikons';
 import { IconStyled } from 'utils/style';
 import { routes } from 'static/routes';
-import { setTest } from 'redux/testStore';
+import { setTest } from 'redux/testReducer';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import useHistoryPush from 'hooks/useHistoryPush';
+import { runTypes } from 'static/run';
 import { prepareTest } from './PrepareTestService';
 import { Wrapper, Container, LinkStyled, LinkText, RunButton, Error } from './ListNavigation.style';
 
-const ListNavigation = ({ questions, setTestAction }) => {
+const ListNavigation = ({ questions, setTestAction, options }) => {
     const [error, setError] = useState('');
     const pushToTest = useHistoryPush(routes.Test);
 
@@ -21,7 +22,7 @@ const ListNavigation = ({ questions, setTestAction }) => {
         }
 
         setError('');
-        const preparedQuestions = prepareTest(questions);
+        const preparedQuestions = prepareTest(questions, options);
         setTestAction(preparedQuestions);
         pushToTest();
     };
@@ -61,10 +62,15 @@ ListNavigation.propTypes = {
         }),
     ).isRequired,
     setTestAction: PropTypes.func.isRequired,
+    options: PropTypes.shape({
+        questions: PropTypes.oneOf([runTypes.RANDOM, runTypes.ORDERED]).isRequired,
+        answers: PropTypes.oneOf([runTypes.RANDOM, runTypes.ORDERED]).isRequired,
+    }).isRequired,
 };
 
-const mapStateToProps = ({ question }) => ({
-    questions: question,
+const mapStateToProps = ({ questions, options }) => ({
+    questions,
+    options,
 });
 
 const mapDispatchToProps = {

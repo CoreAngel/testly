@@ -2,7 +2,7 @@ import { runTypes } from 'static/run';
 import { shuffle } from 'utils/array';
 
 const prepareQuestions = (testQuestions, runType) => {
-    if (runType === runTypes.Q_RANDOM_A_ORDERED || runType === runTypes.Q_RANDOM_A_RANDOM) {
+    if (runType === runTypes.RANDOM) {
         return shuffle(testQuestions);
     }
 
@@ -10,7 +10,7 @@ const prepareQuestions = (testQuestions, runType) => {
 };
 
 const prepareAnswers = (testQuestions, runType) => {
-    if (runType !== runTypes.Q_ORDERED_A_RANDOM && runType !== runTypes.Q_RANDOM_A_RANDOM) {
+    if (runType !== runTypes.ORDERED && runType !== runTypes.ORDERED) {
         return testQuestions.map(item => ({
             ...item,
             fails: 0,
@@ -45,9 +45,9 @@ const prepareAnswers = (testQuestions, runType) => {
         });
 };
 
-export const prepareTest = testQuestions => {
-    const runType = runTypes.Q_RANDOM_A_RANDOM;
+export const prepareTest = (testQuestions, options) => {
+    const { answers, questions } = options;
 
-    const preparedQuestions = prepareQuestions(testQuestions, runType);
-    return prepareAnswers(preparedQuestions, runType);
+    const preparedQuestions = prepareQuestions(testQuestions, questions);
+    return prepareAnswers(preparedQuestions, answers);
 };
