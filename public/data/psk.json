@@ -1,742 +1,1203 @@
 {
   "name": "PSK",
   "key": "psk.json",
+  "type": "single",
   "list": [
     {
+      "id": 0,
       "q": "W ramce danych znajduje się 6 bajtowy adres odbiorcy ustawiony przez warstwę sieci",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 1,
       "q": "Dla transmisji rozgłoszeniowej HUB jest skuteczniejszy od Switcha",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "A"
+        {
+          "i": "Tak",
+          "c": true
+        },
+        {
+          "i": "Nie"
+        }
+      ]
     },
     {
+      "id": 2,
       "q": "Skrętka nieekranowana ma lepsze parametry transmisyjne od skrętki ekranowanej",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 3,
       "q": "Do najwyższej warstwy OSI przynależą aplikacje sieciowe",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "A"
+        {
+          "i": "Tak",
+          "c": true
+        },
+        {
+          "i": "Nie"
+        }
+      ]
     },
     {
+      "id": 4,
       "q": "Medium transmisyjne przynależy do warstwy fizycznej",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 5,
       "q": "Światłowody od słabszych do najlepszych: gradientowe, wielomodowe, jednomodowe",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 6,
       "q": "Maks. czas oczekiwania na dostęp do nośnika GbEth jest ok 10x krótszy niż w FastEth",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 7,
       "q": "Jeżeli FDDI ma szerokość poniżej 200km, to jest możliwość autonaprawy",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "A"
+        {
+          "i": "Tak",
+          "c": true
+        },
+        {
+          "i": "Nie"
+        }
+      ]
     },
     {
+      "id": 8,
       "q": "Ping sprawdza, czy połączenie działa przynajmniej w jedną stronę",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 9,
       "q": "W FDDI stacja wysyła ramkę danych tuż za uwolnionym tokenem",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B "
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 10,
       "q": "Ethernet jest siecią odpowiednią do zastosowań przemysłowych",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B "
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 11,
       "q": "Protokół CSMA/CA dotyczy unikania kolizji",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "A"
+        {
+          "i": "Tak",
+          "c": true
+        },
+        {
+          "i": "Nie"
+        }
+      ]
     },
     {
+      "id": 12,
       "q": "Maska /23 to maska 255.255.253.0",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 13,
       "q": "Sieć o masce 29.5 bitowej i adresie 192.168.1.64 ma adres broadcast: 192.168.1.69",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 14,
       "q": "Jeżeli klasy C podzielimy na 30-bitowe to stracimy 64 adresy na organizacje sieci",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 15,
       "q": "Komenda Configure terminal powoduje przejście do trybu uprzywilejowanego",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 16,
       "q": "Poprawną komenda konfiguracji statycznego jest: ip route 192.168.0.0     255.255.255.128     192.168.0.1",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 17,
       "q": "W sieci WIFI \"stacja odkryta\" niepotrzebnie wstrzymuje transmisje",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "A"
+        {
+          "i": "Tak",
+          "c": true
+        },
+        {
+          "i": "Nie"
+        }
+      ]
     },
     {
+      "id": 18,
       "q": "Sprawdzanie poprawności przesłanych danych wykonują w.fizyczna i w. łącza danych",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 19,
       "q": "SWITCH przynależy do warstwy fizycznej",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 20,
       "q": "Protokół IP przynależy do warstwy transportowej",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 21,
       "q": "HUB pracuje w topologii gwiazdy",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 22,
       "q": "Największe zniekształcenie sygnału w skrętce powoduje pojemność pasożytnicza",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 23,
       "q": "Światłowód wielomodowy pozwala przesłać więcej Mb/s niż jednomodowy",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 24,
       "q": "Przy dużym obciążeniu sieci wydajność Ethernetu spada nawet o 80%",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "A"
+        {
+          "i": "Tak",
+          "c": true
+        },
+        {
+          "i": "Nie"
+        }
+      ]
     },
     {
+      "id": 25,
       "q": "Jeśli zostaną przerwane obydwa światłowody, to FDDI będzie działać dalej",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "A"
+        {
+          "i": "Tak",
+          "c": true
+        },
+        {
+          "i": "Nie"
+        }
+      ]
     },
     {
+      "id": 26,
       "q": "Ping działa w oparciu o protokół ARP",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 27,
       "q": "Zaletą FDDI jest szybkie uwalnianie tokenu",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "A"
+        {
+          "i": "Tak",
+          "c": true
+        },
+        {
+          "i": "Nie"
+        }
+      ]
     },
     {
+      "id": 28,
       "q": "W trasowaniu metodą stanu łącza nie występuje tzw. pętla routingu",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "A"
+        {
+          "i": "Tak",
+          "c": true
+        },
+        {
+          "i": "Nie"
+        }
+      ]
     },
     {
+      "id": 29,
       "q": "Przełączniki ATM wybierają trasę na podstawie adresu IP odbiorcy zapisanego w komórce",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 30,
       "q": "Sieć o masce 255.255.255.128 i adresie 192.168.1.64 ma adres rozgł. 192.168.1.191",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 31,
       "q": "Sieć klasy C możemy podzielić na 32 sieci o maskach 255.255.255.248",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "A"
+        {
+          "i": "Tak",
+          "c": true
+        },
+        {
+          "i": "Nie"
+        }
+      ]
     },
     {
+      "id": 32,
       "q": "Poprawną komendą konfiguracji interfejsu rutera jest: ip address 192.168.0.251 255.255.255.0",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "A"
+        {
+          "i": "Tak",
+          "c": true
+        },
+        {
+          "i": "Nie"
+        }
+      ]
     },
     {
+      "id": 33,
       "q": "Poprawną komendą konfiguracji rutingu statycznego jest: ip route 192.168.0.64 192.168.0.128",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 34,
       "q": "W technologii WiFi wykrywanie kolizji odbywa się analogicznie jak w Ethernecie",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 35,
       "q": "Sprawdzanie poprawności przesłanych danych wykonują w. łącza danych i w. transportowa",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "A"
+        {
+          "i": "Tak",
+          "c": true
+        },
+        {
+          "i": "Nie"
+        }
+      ]
     },
     {
+      "id": 36,
       "q": "HUB przynależy do warstwy fizycznej",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "A"
+        {
+          "i": "Tak",
+          "c": true
+        },
+        {
+          "i": "Nie"
+        }
+      ]
     },
     {
+      "id": 37,
       "q": "Protokół IP przynależy do warstwy sieci",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "A"
+        {
+          "i": "Tak",
+          "c": true
+        },
+        {
+          "i": "Nie"
+        }
+      ]
     },
     {
+      "id": 38,
       "q": "Switch pracuje w topologi magistrali",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 39,
       "q": "Kabel ekranowany pozwala na transmisję o większym zasięgu niż nieekranowany",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 40,
       "q": "Przy dużym obciążeniu sieci wydajność Ethernetu spada nawet 5 krotnie",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "A"
+        {
+          "i": "Tak",
+          "c": true
+        },
+        {
+          "i": "Nie"
+        }
+      ]
     },
     {
+      "id": 41,
       "q": "Ping działa w oparciu o protokół ICMP",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "A"
+        {
+          "i": "Tak",
+          "c": true
+        },
+        {
+          "i": "Nie"
+        }
+      ]
     },
     {
+      "id": 42,
       "q": "Token Ring działa w oparciu o większe ramki niż FDDI",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "A"
+        {
+          "i": "Tak",
+          "c": true
+        },
+        {
+          "i": "Nie"
+        }
+      ]
     },
     {
+      "id": 43,
       "q": "Ethernet działa w oparciu o protokół CSMA/CA",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 44,
       "q": "Warstwa transportowa sprawdza integralność każdej pojedynczej ramki",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 45,
       "q": "Sieć o masce 255.255.255.192 i adresie 192.168.1.128 ma adres rozgł. 192 168.1.255",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 46,
       "q": "Sieć klasy C możemy podzielić na 64 sieci o maskach 255.255.255.252",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "A"
+        {
+          "i": "Tak",
+          "c": true
+        },
+        {
+          "i": "Nie"
+        }
+      ]
     },
     {
+      "id": 47,
       "q": "Sieć WiFi pracująca w częstotliwośći 2,4 GHz ma większy zasięg niż częst. 5 Ghz",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "A"
+        {
+          "i": "Tak",
+          "c": true
+        },
+        {
+          "i": "Nie"
+        }
+      ]
     },
     {
+      "id": 48,
       "q": "Każdy router może dzielić większe pakiety na mniejsze i z powrotem je składać",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "A"
+        {
+          "i": "Tak",
+          "c": true
+        },
+        {
+          "i": "Nie"
+        }
+      ]
     },
     {
+      "id": 49,
       "q": "Czy warstwa Łącza danych odpowiada za końcową integralność danych? ",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 50,
       "q": "Czy światłowód wielomodowy w przeciwieństwie do jednomodowego, umożliwia transmisję w obu kierunkach",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 51,
       "q": "Czy ATM używa komórek zamiast ramek?",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "A"
+        {
+          "i": "Tak",
+          "c": true
+        },
+        {
+          "i": "Nie"
+        }
+      ]
     },
     {
+      "id": 52,
       "q": "Czy dla sieci o masce 255.255.254.0 i adresie sieci: 192.168.1.0, adres rozgłaszania to: 192.168.2.255?",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 53,
       "q": "Czy ekranowana skrętka, umożliwia dalszą transmisję od nieekranowanej? ",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 54,
       "q": "Czy protokół Mac odpowiada za translację adresu logicznego na fizyczny? ",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 55,
       "q": "Czy możemy skonfigurować interfejs poleceniem: ip address 123.456.789.123 255.255.255.240 (Nie pamiętam dokładnie adresów) ",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 56,
       "q": "Czy wzrost elementów sieci w TR zmniejszy jego sprawność, a w FDDI, zwiększy? ",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "A"
+        {
+          "i": "Tak",
+          "c": true
+        },
+        {
+          "i": "Nie"
+        }
+      ]
     },
     {
+      "id": 57,
       "q": "Czy UTP kategorii 5, działa na 250MHz? ",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 58,
       "q": "Czy podstawowym protokołem wykorzystywanym w WiFi jest CSMA/CD ",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 59,
       "q": "Czy w sieci Ethernet kolizja występuje tylko i wyłącznie wtedy, kiedy dwa urządzenia próbują nadawać jednocześnie. ",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 60,
       "q": "Czy możemy skonfigurować routing statyczny poleceniem: ip route 192.168.0.0 255.255.255.0 192.168.1.254 ",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "A"
+        {
+          "i": "Tak",
+          "c": true
+        },
+        {
+          "i": "Nie"
+        }
+      ]
     },
     {
+      "id": 61,
       "q": "Czy trasowanie metodą wektora odległości korzysta z informacji pośrednich ",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "A"
+        {
+          "i": "Tak",
+          "c": true
+        },
+        {
+          "i": "Nie"
+        }
+      ]
     },
     {
+      "id": 62,
       "q": "Czy czas konwergencji w trasowaniu metodą stanu łącza jest skrócony do metody wektora odległości",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "A"
+        {
+          "i": "Tak",
+          "c": true
+        },
+        {
+          "i": "Nie"
+        }
+      ]
     },
     {
+      "id": 63,
       "q": "Czy token w TR może modyfikować dowolny monitor",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 64,
       "q": "Czy autonaprawa w FDDI polega na przełączeniu logicznym transmisji na drugi pierścień ",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "A"
+        {
+          "i": "Tak",
+          "c": true
+        },
+        {
+          "i": "Nie"
+        }
+      ]
     },
     {
+      "id": 65,
       "q": "Czy transmisja różnicowa redukuje zakłócenie w 100%. ",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 66,
       "q": "Hub pracuje w topologii fizycznej gwiazdy.",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "A"
+        {
+          "i": "Tak",
+          "c": true
+        },
+        {
+          "i": "Nie"
+        }
+      ]
     },
     {
+      "id": 67,
       "q": "Hub pracuje w topologii logicznej gwiazdy",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 68,
       "q": "2Base10 oznacza przewód o długości 200 m",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 69,
       "q": "Ping używa protokołu CSMA/CD",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 70,
       "q": "Światłowody gradientowe mają podobną szerokość rdzenia jak jednomodowe",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 71,
       "q": "Adresat ramki po rozpoznaniu kolizji wysyła żądanie retransmisji.",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "A"
+        {
+          "i": "Tak",
+          "c": true
+        },
+        {
+          "i": "Nie"
+        }
+      ]
     },
     {
+      "id": 72,
       "q": "Metoda CRC-32 gwarantuje nam wykrycie przekłamania danych w przesłanej ramce.",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "A"
+        {
+          "i": "Tak",
+          "c": true
+        },
+        {
+          "i": "Nie"
+        }
+      ]
     },
     {
+      "id": 73,
       "q": "Protokół CSMA/CA dotyczy wykrywania kolizji",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 74,
       "q": "Żądanie retransmisji generuje warstwa sieciowa",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 75,
       "q": "Ramka Ethernetowa może mieć rozmiar od 32 B do około 1,5 kB",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 76,
       "q": "W Ethernecie nie ma priorytetów, dlatego jest odpowiedni do zastosowań przemysłowych",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 77,
       "q": "W adresie Mac znajdują się 4 bajty",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 78,
       "q": "Sieć o masce 29-bitowej i adresie 192.168.1.64 ma adr. rozgł. 192.168.1.71",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "A"
+        {
+          "i": "Tak",
+          "c": true
+        },
+        {
+          "i": "Nie"
+        }
+      ]
     },
     {
+      "id": 79,
       "q": "W sieci 23.bitowej mamy dostępne do adresowania urządzeń 510 adresów",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "A"
+        {
+          "i": "Tak",
+          "c": true
+        },
+        {
+          "i": "Nie"
+        }
+      ]
     },
     {
+      "id": 80,
       "q": "Jeśli sieć klasy C podzielimy na sieci 28-bitowe, to stracimy 32 adresy na organizację sieci",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "A"
+        {
+          "i": "Tak",
+          "c": true
+        },
+        {
+          "i": "Nie"
+        }
+      ]
     },
     {
+      "id": 81,
       "q": "W sieci FDDI problem kolizji został rozwiązany za pomocą priorytetów",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 82,
       "q": "W sieci WiFi \"stacja ukryta\" niepotrzebnie wstrzymuje transmisję",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 83,
       "q": "Metoda odpytywania w sieci WiFi jest możliwa tylko wtedy gdy wszystkie hosty się widzą",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "A"
+        {
+          "i": "Tak",
+          "c": true
+        },
+        {
+          "i": "Nie"
+        }
+      ]
     },
     {
+      "id": 84,
       "q": "PCF w sieci WiFi jest przykładem ruchu izochronicznego",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "A"
+        {
+          "i": "Tak",
+          "c": true
+        },
+        {
+          "i": "Nie"
+        }
+      ]
     },
     {
+      "id": 85,
       "q": "Rekord nawiązania łączności WiFi w Polsce został osiągnięty z Giewontu do Krakowa",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 86,
       "q": "W sieciach ATM ramki danych (komórki) mają stały rozmiar",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "A"
+        {
+          "i": "Tak",
+          "c": true
+        },
+        {
+          "i": "Nie"
+        }
+      ]
     },
     {
+      "id": 87,
       "q": "Komenda powodująca przejście do konfiguracji routingu statycznego to: no router rip",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 88,
       "q": "W routingu wektora odległości czas konwergencji może wynieść nawet 15 minut.",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 89,
       "q": "Czy transmisja różnicowa redukuje zakłócenie w 100%. ",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 90,
       "q": "Pętla routingu występuje w sieciach stanu łącza",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     },
     {
+      "id": 91,
       "q": "Sieć 5G pracuje w częstotliwości 5 GHz",
       "a": [
-        "Tak",
-        "Nie"
-      ],
-      "c": "B"
+        {
+          "i": "Tak"
+        },
+        {
+          "i": "Nie",
+          "c": true
+        }
+      ]
     }
   ]
 }
