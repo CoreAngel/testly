@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Input } from 'reactstrap';
-import PropTypes from 'prop-types';
 import Question from 'components/Question';
+import { listQuestionListProps } from 'utils/propTypes';
 import { SearchContainer } from './QuestionsList.style';
 
 const QuestionsList = ({ questions }) => {
@@ -33,14 +33,7 @@ const QuestionsList = ({ questions }) => {
 };
 
 QuestionsList.propTypes = {
-    questions: PropTypes.arrayOf(
-        PropTypes.shape({
-            index: PropTypes.number.isRequired,
-            q: PropTypes.string.isRequired,
-            a: PropTypes.arrayOf(PropTypes.string).isRequired,
-            c: PropTypes.number.isRequired,
-        }),
-    ).isRequired,
+    questions: listQuestionListProps.isRequired,
 };
 
 export default QuestionsList;

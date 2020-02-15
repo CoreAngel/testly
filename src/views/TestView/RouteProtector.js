@@ -3,17 +3,18 @@ import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { routes } from 'static/routes';
+import { testQuestionListProps } from 'utils/propTypes';
 import TestPanel from './TestViewService';
 
-const RouteProtector = ({ questions, currentIndex }) => {
+const RouteProtector = ({ list, index }) => {
     const history = useHistory();
 
-    if (questions.length === 0) {
+    if (list.length === 0) {
         history.replace(routes.Home);
         return null;
     }
 
-    if (currentIndex === questions.length - 1) {
+    if (index === list.length - 1) {
         history.replace(routes.Result);
         return null;
     }
@@ -22,21 +23,13 @@ const RouteProtector = ({ questions, currentIndex }) => {
 };
 
 RouteProtector.propTypes = {
-    questions: PropTypes.arrayOf(
-        PropTypes.shape({
-            index: PropTypes.number.isRequired,
-            q: PropTypes.string.isRequired,
-            a: PropTypes.arrayOf(PropTypes.string).isRequired,
-            c: PropTypes.number.isRequired,
-            fails: PropTypes.number.isRequired,
-        }),
-    ).isRequired,
-    currentIndex: PropTypes.number.isRequired,
+    list: testQuestionListProps.isRequired,
+    index: PropTypes.number.isRequired,
 };
 
-const mapStateToProps = ({ test: { questions, currentIndex } }) => ({
-    questions,
-    currentIndex,
+const mapStateToProps = ({ test: { list, index } }) => ({
+    list,
+    index,
 });
 
 export default connect(mapStateToProps)(RouteProtector);

@@ -2,10 +2,10 @@ import React from 'react';
 import { androidSettings } from 'react-icons-kit/ionicons/androidSettings';
 import { IconStyled } from 'utils/style';
 import Select from 'components/Select';
-import { runItems, runTypes } from 'static/run';
+import { runItems } from 'static/run';
 import { setAnswers, setQuestions } from 'redux/optionsReducer';
 import { useDispatch, connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import { optionOrderProps } from 'utils/propTypes';
 import { Container, Header, HeaderWrapper, OptionRow } from './Modal.style';
 
 const Modal = ({ questions, answers }) => {
@@ -36,8 +36,8 @@ const Modal = ({ questions, answers }) => {
 };
 
 Modal.propTypes = {
-    questions: PropTypes.oneOf([runTypes.RANDOM, runTypes.ORDERED]).isRequired,
-    answers: PropTypes.oneOf([runTypes.RANDOM, runTypes.ORDERED]).isRequired,
+    questions: optionOrderProps.isRequired,
+    answers: optionOrderProps.isRequired,
 };
 
 const mapStateToProps = ({ options: { questions, answers } }) => ({ questions, answers });

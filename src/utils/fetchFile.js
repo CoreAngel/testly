@@ -7,8 +7,8 @@ const fetchFile = fileName => {
 
     return fetch(`${absoluteUrl}/data/${fileName}`)
         .then(data => data.json())
-        .then(data =>
-            data.map((item, index) => {
+        .then(({ name, key, list }) => {
+            const mappedList = list.map((item, index) => {
                 const correctIndex =
                     item.c
                         .trim()
@@ -19,8 +19,14 @@ const fetchFile = fileName => {
                     index,
                     c: correctIndex,
                 };
-            }),
-        );
+            });
+
+            return {
+                name,
+                key,
+                list: mappedList,
+            };
+        });
 };
 
 export default fetchFile;

@@ -10,7 +10,7 @@ const prepareQuestions = (testQuestions, runType) => {
 };
 
 const prepareAnswers = (testQuestions, runType) => {
-    if (runType !== runTypes.ORDERED && runType !== runTypes.ORDERED) {
+    if (runType !== runTypes.ORDERED) {
         return testQuestions.map(item => ({
             ...item,
             fails: 0,

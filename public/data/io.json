@@ -1,1222 +1,1226 @@
-[
-  {
-    "q": "Glownym zadaniem fazy wymagan jest: ",
-    "a": [
-      "Stwierdzenie jak duzy bedzie system",
-      "Okreslenie co? i jak? ma system robic",
-      "Jasne okreslenie co? system ma robic",
-      "Jasne okreslenie jak? system ma realizowac zadania"
-    ],
-    "c": "C"
-  },
-  {
-    "q": "Dokument wymagan dotyczy: ",
-    "a": [
-      "dokumentacji wymagan stawianych przed tworzonym oprogramowaniem",
-      "dokumentacji planu testow kolejnych etapow zycia oprogramowania",
-      "dokumentacji funkcji realizujacych kolejne wymagania systemu",
-      "dokumentacji etapow realizacji oprogramowania"
-    ],
-    "c": "A"
-  },
-  {
-    "q": "Dokument wymagan zawiera: ",
-    "a": [
-      "specyfikacje wymagan w odniesieniu do tworzonego systemu",
-      "liste funkcji realizujacych okreslone wymagania",
-      "zestawy testow realizowanych na etapie wymagan",
-      "kody procedur realizujacych poszczegolne wymagania"
-    ],
-    "c": "A"
-  },
-  {
-    "q": "Czy wymagania dla systemu powinny byc poddane testowaniu w kaskadowym modelu cyklu zycia oprogramowania: ",
-    "a": [
-      "tak",
-      "nie",
-      "to zalezy od dziedziny problemu",
-      "czasami"
-    ],
-    "c": "B"
-  },
-  {
-    "q": "Czy wymagania dla systemu powinny być poddane analizie: ",
-    "a": [
-      "tak",
-      "nie",
-      "to zalezy od dziedziny problemu",
-      "czasami"
-    ],
-    "c": "A"
-  },
-  {
-    "q": "Wymagania z poziomu uzytkownika maja postac: ",
-    "a": [
-      "informacji o sposobie przetwarzania danych",
-      "ukladu wejsc i wyjsc",
-      "opisu kolejnych testow",
-      "opisu kolejnych procedur"
-    ],
-    "c": "B"
-  },
-  {
-    "q": "Opis wymagan powinien przede wszystkim: ",
-    "a": [
-      "opisywac dzialanie systemu",
-      "opisywac strukture systemu",
-      "dokumentowac model systemu",
-      "opisywac zewnetrzne zachowanie systemu"
-    ],
-    "c": "D"
-  },
-  {
-    "q": "Wymagania funkcjonalne opisuja: ",
-    "a": [
-      "etapy dzialania systemu",
-      "diagramy przejsc",
-      "czynnosci i operacje wykonywane przez system",
-      "zastosowane metody obiektowe"
-    ],
-    "c": "C"
-  },
-  {
-    "q": "Wymagania niefunkcjonalne opisuja: ",
-    "a": [
-      "identyfikacje metod i komunikatow",
-      "metody zwiazane z podstawowymi klasami systemu",
-      "funkcje nie zwiazane z algorytmem podstawowym systemu",
-      "ograniczenia przy ktorych system bedzie realizowal swoje funkcje"
-    ],
-    "c": "D"
-  },
-  {
-    "q": "Specyfikacji wymagan sluzy: ",
-    "a": [
-      "formularz opisu wymagan",
-      "lista metod",
-      "lista klas",
-      "formularz testow"
-    ],
-    "c": "A"
-  },
-  {
-    "q": "Dla poprawnej realizacji wymagan funkcjonalnych konieczne jest wprowadzenie: ",
-    "a": [
-      "macierzy sladu",
-      "hierarchii wymagan",
-      "macierzy odwrotnej sladu",
-      "hierarchii testow"
-    ],
-    "c": "B"
-  },
-  {
-    "q": "Wymagana wielkosc bufora PAO oraz strony pamieci RAM przy defionowaniu sposobu dzialania systemu naleza do wymagan: ",
-    "a": [
-      "systemowych",
-      "niefunkcjonalnych",
-      "funkcjonalnych",
-      "wewnetrznych"
-    ],
-    "c": "B"
-  },
-  {
-    "q": "Celem fazy analizy jest odpowiedz na pytanie: ",
-    "a": [
-      "jak system ma dzialac",
-      "co system ma robic",
-      "kiedy system ma dzialac",
-      "jak system ma zostac zaimlementowany"
-    ],
-    "c": "A"
-  },
-  {
-    "q": "Wynikiem fazy analizy jest: ",
-    "a": [
-      "model fizyczny systemu, opisujacy jego funkcje",
-      "model logiczny systemu wskazujacy na jego ograniczenia",
-      "model fizyczny systemu wskazujacy na jego ograniczenia",
-      "model logiczny systemu opisujacy sposob realizacji postawionych wymagan"
-    ],
-    "c": "D"
-  },
-  {
-    "q": "Celem fazy projektowania jest odpowiedz na pytanie: ",
-    "a": [
-      "jak system ma zostac udekumentowany",
-      "jak system ma zostac zapisany",
-      "jak system ma zostac zaimplementowany",
-      "jak system ma zostac przetestowany"
-    ],
-    "c": "C"
-  },
-  {
-    "q": "Model analityczny budowanego oprogramowania powinien byc: ",
-    "a": [
-      "szczegolowo przetestowany",
-      "gotowy do numerycznej implementacji",
-      "uproszczonym opisem systemu, wskazujacym istotne jego cechy",
-      "zgodny z oczekiwaniami uzytkownika"
-    ],
-    "c": "C"
-  },
-  {
-    "q": "Transformacja od srodowiska do kodu obejmuje kolejne modele: ",
-    "a": [
-      "srodowisko, model numeryczny, kod",
-      "srodowisko, model srodowiska, model kodu, kod",
-      "srodowisko, model matematyczny, model numeryczny, kod",
-      "srodowisko, opis numeryczny, model kodu, kod"
-    ],
-    "c": "B"
-  },
-  {
-    "q": "Metody strukturalne tworzenia oprogramowania wyrozniaja w systemie: ",
-    "a": [
-      "bloki funkcji i bloki operacji",
-      "struktury danych zwiazane jedynie z funkcjami jednoparametrowymi",
-      "skladowe pasywne i skladowe aktywne",
-      "obiekty i dzialajace na nie metody"
-    ],
-    "c": "C"
-  },
-  {
-    "q": "Metody obiektowe tworzenia oprogramowania bazuja na wprowadzeniu: ",
-    "a": [
-      "skladowych pasywnych (danych) i aktywnych (funkcji)",
-      "skladowych prostych i zlozonych o roznej dlugosci",
-      "skladowych lokalnych i globalnych",
-      "skladowych laczacych dane z metodami"
-    ],
-    "c": "D"
-  },
-  {
-    "q": "Obiekt na etapie analizy jest to: ",
-    "a": [
-      "konstrukcja jezyka programowania, laczaca dane i metody",
-      "skladowa dziedziny problemu posiadajaca tozsamosc, stan i zachowanie",
-      "skladowa dziedziny problemu posiadajaca nazwe, pola i atrybuty",
-      "konstrukcja jezyka formalnego sluzacego notacji strukturalnej"
-    ],
-    "c": "B"
-  },
-  {
-    "q": "Klasa na etapie anlizy oznacza: ",
-    "a": [
-      "konstrukcje modelu obiektowego",
-      "skladowa dziedziny problemu charakteryzowana przez stan",
-      "wzorzec dla metod stosowanych w systemie",
-      "wzorzec grupy obiektow o podobnych stanach i zachowaniu"
-    ],
-    "c": "D"
-  },
-  {
-    "q": "Obiekt jest: ",
-    "a": [
-      "elementem klasy definiowanym przez tozsamosc, stan i zachowanie",
-      "elementem klasy definiowanym przez tozsamosc, metody i atrybuty",
-      "elementem klasy definiowanym przez atrybuty, stan i metody",
-      "elementem klasy definiowanym przez atrybuty, stan i zachowanie"
-    ],
-    "c": "A"
-  },
-  {
-    "q": "Skrot UML oznacza: ",
-    "a": [
-      "User Modified Language",
-      "Updated Modified Language",
-      "Unified Modeling Language",
-      "User Modeling Language"
-    ],
-    "c": "C"
-  },
-  {
-    "q": "UML jest graficznym jezykiem sluzacym do: ",
-    "a": [
-      "specyfikowania, kodowania, dokumentowania systemow informatycznych",
-      "kodowania, testowania, dokumentowania systemow informatycznych",
-      "testowania, dokumentowania, implementacji systemow informatycznych",
-      "obrazowania, specyfikowania, dokumentowania systemow informatycznych"
-    ],
-    "c": "D"
-  },
-  {
-    "q": "Ktory z ponizszych jezykow nie pozwala na tworzenie programow w pelni obiektowych: ",
-    "a": [
-      "C",
-      "C++",
-      "Python",
-      "C#"
-    ],
-    "c": "A"
-  },
-  {
-    "q": "Atrybuty klasy to: ",
-    "a": [
-      "opis metod klasy",
-      "nazwane wlasciwosci klasy",
-      "nazwane metody klasy",
-      "opisy nazw klasy"
-    ],
-    "c": "B"
-  },
-  {
-    "q": "Metody klasy to: ",
-    "a": [
-      "operacje zastrzezone w klasie",
-      "dzialania realizowane automatyczne na obiektach danej klasy",
-      "operacje ktorych realizacji mozna wymagac od obiektow danej klasy",
-      "dzialania realizowane przez atrybuty danej klasy"
-    ],
-    "c": "C"
-  },
-  {
-    "q": "Dziedziczenie w modelu obiektowym polega na: ",
-    "a": [
-      "tworzeniu nowych obiektow o wlasnosciach przodka",
-      "tworzeniu nowych metod na podstawie wczesniej zdefiniowanych",
-      "tworzeniu nowych konstruktorow na podstawie wczesniej zdefiniowanych",
-      "tworzeniu nowych komunikatow na podstawie wczesniej zdefiniowanych"
-    ],
-    "c": "A"
-  },
-  {
-    "q": "Artefacty to: ",
-    "a": [
-      "struktury otrzymywane w procesie analizy oprogramowania",
-      "obiekty abstrakcyjne powstajace automatycznie",
-      "fakty artystyczne wynikajace z procesu tworzenia oprogramowania",
-      "elementy informacyjne wytworzone w procesie tworzenia oprogramowania"
-    ],
-    "c": "D"
-  },
-  {
-    "q": "Programowanie strukturalne: ",
-    "a": [
-      "ulatwia hermetyzacje",
-      "ulatwia programowanie oparte na zdarzeniach",
-      "pozwala na tworzenie konstrukcji proceduralnych",
-      "nie jest dobrym rozwiazaniem dla programow obliczeniowe"
-    ],
-    "c": "C"
-  },
-  {
-    "q": "Przypadki uzycia w UML sluza do okreslenia: ",
-    "a": [
-      "uzytkownikow systemu",
-      "parametrow systemu odpowiedzialnych za poprawne dzialanie systemu",
-      "jedynie odpowiedzi systemu na sytuacje awaryjne",
-      "ciagow akcji sluzacych realizacji funkcji systemu"
-    ],
-    "c": "D"
-  },
-  {
-    "q": "Przypadki uzycia sa zbiorem jednostek opisu dynamiki systemu. Skladaja sie z zestawow scenariuszy ktore pokazuja: ",
-    "a": [
-      "strukture pakietow i komponentow systemu",
-      "strukture klas i obiektow wystepujacych w modelu",
-      "sekwencje interakcji prowadzacych do okreslonego celu",
-      "sekwencje stanow obiektow w trakcie transformacji"
-    ],
-    "c": "C"
-  },
-  {
-    "q": "Zbadaj ponizszy tekst: Jurek ma teraz 16 lat, to jest dwa razy tyle, ile Wojtek mial wtedy, kiedy Jurek mial tyle, ile Wojtek ma teraz... Wymaganiem dla systemu bedzie specyfikacja: ",
-    "a": [
-      "Wojtek jest mlodszy od Jurka o 6 lat",
-      "Wojtek jest mlodszy od Jurka o 8 lat",
-      "Wojtek jest mlodszy od Jurka o 4 lat",
-      "Wojtek jest starszy od Jurka o 8 lat"
-    ],
-    "c": "C"
-  },
-  {
-    "q": "Zbadaj ponizszy tekst: Ojciec ma 42 lata a syn 12, za ile lat ojciec bedzie dwa razy starszy od syna. Wymaganiem dla systemu analizujacego wiek ojca i syna bedzie specyfikacja: ",
-    "a": [
-      "Ojciec bedzie dwa razy starszy od syna za 28 lat",
-      "Ojciec jest mlodszy od syna o 30 lat",
-      "Ojciec bedzie dwa razy starszy od syna za 18 lat",
-      "Ojciec jest starszy od syna o 28 lat"
-    ],
-    "c": "C"
-  },
-  {
-    "q": "Zbadaj ponizszy cytat z Tolkiena: Nie kazdy kto bladzi, jest stracony Czy to znaczy ze: ",
-    "a": [
-      "kazdy kto bladzi nie jest stracony",
-      "nie ma straconych bladzacych",
-      "nie ma bladzacych niestraconych",
-      "bladzacy moga byc straceni"
-    ],
-    "c": "D"
-  },
-  {
-    "q": "Zbadaj ponizszy tekst: Do ponumerowania stron gazet stosuje sie co najwyzej 101 cyfr... Ograniczeniem wymagania dla systemu numerujacego strony bedzie: ",
-    "a": [
-      "numeruj nie wiecej niz 45 stron",
-      "numeruj nie wiecej niz 55 stron",
-      "numeruj nie wiecej niz 65 stron",
-      "numeruj nie wiecej niz 101 stron"
-    ],
-    "c": "B"
-  },
-  {
-    "q": "Faza analizy dotyczy nastepujacych etapow cyklu zycia oprogramowania: ",
-    "a": [
-      "okreslenia wymagan, projektowania i kodowania",
-      "specyfikowania, projektowania i kodowania",
-      "projektowania, kodowania i dokumentacji",
-      "okreslenia wymagan, specyfikowania i projektowania"
-    ],
-    "c": "D"
-  },
-  {
-    "q": "Dobor algorytmow i struktur danych odbywa sie w fazie: ",
-    "a": [
-      "specyfikacji wymagan",
-      "implementacji",
-      "projektowania",
-      "kodowania"
-    ],
-    "c": "C"
-  },
-  {
-    "q": "Tzw. dobre wymagania dla systemu powinny byc: ",
-    "a": [
-      "zwiezle, niespojne, zrozumiale dla uzytkownikow i precyzyjne",
-      "spojne, niekompletne, latwe do modyfikacji, wykonalne",
-      "jednoznaczne, spojne, niekompletne, precyzyjne",
-      "zwiezle, spojne, wykonalne, latwe do modyfikacji"
-    ],
-    "c": "D"
-  },
-  {
-    "q": "System bedzie przyjmowal dopuszczalne ID pracownika z przedzialu 1-100. Jakie cechy ma takie wymaganie? Jest ono: ",
-    "a": [
-      "zrozumiale, spojne, niekompletne, wykonalne,jasne",
-      "zrozumiale, niespojne, kompletne, wykonalne, niejasne",
-      "niezrozumiale, spojne, kompletne, niewykonalne jasne",
-      "niezrozumiale, niespojne, niekompletne, niewykonalne, niejasne"
-    ],
-    "c": "A"
-  },
-  {
-    "q": "Klasyfikatory w UML-u obejmuja: ",
-    "a": [
-      "skladowe klasyfikacji diagramow",
-      "elementy modelu opisujace graficznie jego zachowanie lub strukture",
-      "elementy dziedziny problemu nie zwiazane z jego struktura",
-      "konstrukcja jezyka formalnego sluzacego notacji strukturalnej"
-    ],
-    "c": "B"
-  },
-  {
-    "q": "Do wlasnosci, wlasciwosci klasy zaliczamy: ",
-    "a": [
-      "klasyfikatory i instancje",
-      "artefacty i metody",
-      "atrybuty i operacje",
-      "obiekty i pakiety"
-    ],
-    "c": "C"
-  },
-  {
-    "q": "Klasa jest charakteryzowana przez: ",
-    "a": [
-      "stan, zawartosc i zaawansowanie",
-      "stan, budowe i przeznaczenie",
-      "nazwe, stan i historie",
-      "nazwe, stan i metody"
-    ],
-    "c": "D"
-  },
-  {
-    "q": "Dwie klasy sa w zwiazku generalizacji-specjalizacji jezeli jedna z nich: ",
-    "a": [
-      "zwana specjalizacja jest uogolnieniem drugiej, generalizacji",
-      "zwana generalizacja jest uogolnieniem drugiej, specjalizacji",
-      "zwana specjalizacja jest uzupelnieniem drugiej, generalizacji",
-      "zwana generalizacja jest uzupelnieniem drugiej, specjalizacji"
-    ],
-    "c": "B"
-  },
-  {
-    "q": "Czy dla danej specjalizacji moze istniec wiele generalizacji: ",
-    "a": [
-      "nie, moze istniec tylko jedna",
-      "tak, pod warunkiem wprowadzenia zwiazku kwalifikowanego",
-      "tak",
-      "nie, chyba ze zostanie wprowadzony zwiazek kwalifikowany"
-    ],
-    "c": "C"
-  },
-  {
-    "q": "W zwiazku kwalifikowanym klas: student - gr_studencka, gdzie kwlifikatorem jest kierunek_stud irok_akade: ",
-    "a": [
-      "klasa student jest generalizacja, klasa gr_studencka jest specjalizacja",
-      "klasa student jest generalizacja, klasa kierunek_stud jest specjalizacja",
-      "klasa student jest specjalizacja, klasa gr_studencka jest generalizacja",
-      "klasa gr_studencka jest generalizacja, klasa rok akade jest specjalizacja"
-    ],
-    "c": "C"
-  },
-  {
-    "q": "Dynamiczne zachowanie sie systemu jest modelowane poprzez: ",
-    "a": [
-      "ograniczenia, algorytm, przejscie stanu, akcje, operacje",
-      "algorytm, struktury danych, operacje, zdarzenie",
-      "strukture danych, stan, akcje, operacje",
-      "zdarzenie, stan, przejscie stanu, akcje, operacje"
-    ],
-    "c": "D"
-  },
-  {
-    "q": "Diagramy przejsc stanow opisuja: ",
-    "a": [
-      "stan systemu pomiedzy kolejnymi zdarzeniami",
-      "akcje i operacje systemu przeprowadzajace system pomiedzy stanami",
-      "sposob testowania systemu",
-      "zasady implementacji systemu"
-    ],
-    "c": "B"
-  },
-  {
-    "q": "Asocjacja jest relacja: ",
-    "a": [
-      "laczaca dwie lub wiecej klas",
-      "generalizacji - specjalizacji",
-      "zawierania",
-      "typu include"
-    ],
-    "c": "A"
-  },
-  {
-    "q": "Weryfikacja klas i obiektow pozwala na usuniecie elementow zbednych. Usuwamy klasy dla ktorych: ",
-    "a": [
-      "istnieje wiele pol i metod",
-      "istnieje zwiazek z innymi klasami",
-      "brak pol i metod lub jeden obiekt w klasie lub brak zwiazku z innymi klasami",
-      "dla wielu pol istnieje jedynie jedna metoda"
-    ],
-    "c": "C"
-  },
-  {
-    "q": "Identyfikacja zwiazkow klas i obiektow ma na celu: ",
-    "a": [
-      "wyszczegolnienie podstawowych metod w klasach i obiektach",
-      "uogolnienie zaleznosci pomiedzy poszczegolnymi wymaganiami systemu",
-      "uogolnienie metod danej klasy",
-      "uogolnienie wielu zwiazkow zachodzacych pomiedzy obiektami danej klasy"
-    ],
-    "c": "D"
-  },
-  {
-    "q": "Zwiazek klas generalizacji - specjalizacji wskazuje na: ",
-    "a": [
-      "dziedziczenie pol i metod",
-      "polimorfizm tych klas",
-      "zdarzenie powodujace przejscie stanow w poszczegolnych klasach",
-      "operacje wywolane przez metody klasy generalizacji "
-    ],
-    "c": "A"
-  },
-  {
-    "q": "Identyfikacja i definiowanie pol klasy polega miedzy innymi na wprowadzeniu: ",
-    "a": [
-      "zwiazkow generalizacji - specjalizacji pomiedzy obiektami danej klasy",
-      "wszystkich pol opisujacych mozliwe stany obiektow danej klasy",
-      "relacji agregacji wsrod obiektow danej klasy",
-      "wszystkich obiektow definiujacych dana klase"
-    ],
-    "c": "B"
-  },
-  {
-    "q": "Do metod realizowanych w modelu obiektowym zaliczamy miedzy innymi: ",
-    "a": [
-      "Konstruktory, destruktory, metody pobierania wartosci pol, przerwania",
-      "Metody edycji pol, konstruktory, procesy, destruktory",
-      "Metody ustawiania zwiazkow pomiedzy obiektami, destruktory, konstruktory",
-      "Konstruktory, metody pobierania/ustawiania wartosci pol, obsluga zlecenia"
-    ],
-    "c": "C"
-  },
-  {
-    "q": "Agregacja w UML-u jest: ",
-    "a": [
-      "zwiazkiem pomiedzy pakietami",
-      "realcja mnogosciowa jeden do jednego",
-      "zwiazkiem generalizacji - specjalizacji",
-      "rodzajem asocjacji wskazujacej na zawieranie sie klas"
-    ],
-    "c": "D"
-  },
-  {
-    "q": "Wymagania w jezyku naturalnym przyjmuja postac: System czekowy ma na celu obsluge kont czekowych. System ten musi miec mozliwosc przetwarzania takich transakcji na koncie jak wplata i wyplata dla wielu kont... Potencjalnymi klasami sa: ",
-    "a": [
-      "system czekowy; konto czekowe, transakcja, wplata, wyplata, czek",
-      "system czekowy; cel, transakcja, wplata, wyplata, czek",
-      "system czekowy; konto czekowe, cele systemu, wplata, wyplata, czek",
-      "system czekowy; konto czekowe, mozliwosci systemu, wplata, wyplata, czek"
-    ],
-    "c": "A"
-  },
-  {
-    "q": "Glowne pojecia obiektowosci to: ",
-    "a": [
-      "atrybuty, obiekty, pola, struktury",
-      "klasy, obiekty, dziedziczenie, polimorfizm",
-      "struktury, dane pasywne, dane aktywne, obiekty",
-      "klasy obiektow, struktury danych, metody, funkcje"
-    ],
-    "c": "B"
-  },
-  {
-    "q": "Obligatoryjnosc zwiazkow obiektow klas oznacza: ",
-    "a": [
-      "koniecznosc tworzenia uzupelnienia danego obiektu",
-      "koniecznosc utworzenia zwiazku agregacji",
-      "koniecznosc utworzenia klasy obligatoryjnej ",
-      "zadna z wyzej wymienionych"
-    ],
-    "c": "C"
-  },
-  {
-    "q": "Zwiazek agregacji w grupie studenckiej polega na tym, ze: ",
-    "a": [
-      "w sklad grupy wchodzi wielu studentow i wiele studentek",
-      "sklad grupy studenckiej jest zmienny",
-      "w skald grupy studenckiej wchodzi co najmniej 25 osob",
-      "cala grupe studencka stanowi scisle okreslona grupa osob"
-    ],
-    "c": "D"
-  },
-  {
-    "q": "Korzystajac z jezyka UML nie mozna: ",
-    "a": [
-      "stworzyc modelu systemu obiektowego",
-      "stworzyc modelu dowolnego bytu",
-      "stworzyc modelu procesu gospodarczego",
-      "stworzyc modelu przeplywu danych"
-    ],
-    "c": "B"
-  },
-  {
-    "q": "FD's 'data flow diagrams' sa podstawa:",
-    "a": [
-      "modelowania proceduralnego",
-      "modelowania obiektowego",
-      "modelowania matematycznego",
-      "modelowania komputerowego"
-    ],
-    "c": "A"
-  },
-  {
-    "q": "Wyodrebnij cztery klasy z ponizszego opisu problemu: Klient korzysta z systemu, aby pobrac, i aby sprawdzic stan swojego konta. Klient musi wlozyc karte do bankomatu, wprowadzic swoj numer PIN. Klient posiada numer PIN, nazwisko i imię, numer konta. Drukujac saldo klient oczekuje otrzymania aktualnego stanu jego konta, oraz historie transakcji. ",
-    "a": [
-      "Klient, konto, PIN, historia",
-      "Klient, konto, bankomat, system",
-      "System bankowy Sumes, konto nr 1010101010101, Jan Kowalski, bank PKO BP",
-      "Konto, system, transakcja, drukowanie"
-    ],
-    "c": "B"
-  },
-  {
-    "q": "Wyodrebnij pary klasa (K) i jej obiekt (O): Klient Jan Kowalski przychodzi do bankomatu nr 100 przy ul. Wroclawskiej by pobrac pieniadze. Podaj nr PIN, oraz kwote do wyplaty. Bankomat sprawdza poprawnosc danych i wyplaca pieniadze: ",
-    "a": [
-      "K-Klient O-Sprawdzenie danych, K-Bankomat O-wyplata pieniedzy",
-      "K-Operacja O-Kwota, K-System O-klient",
-      "K-Klient O-Jan Kowalski, K-bankomat O-nr100",
-      "K-Pieniadze O-euro, K-Dane O-PIN"
-    ],
-    "c": "C"
-  },
-  {
-    "q": "Modelowanie strukturalne i modelowanie proceduralne: ",
-    "a": [
-      "to jest to samo",
-      "roznia sie podejsciem do statyki systemu",
-      "roznia sie podejsciem do dynamiki systemu",
-      "uzupelniaja sie na wzajem"
-    ],
-    "c": "A"
-  },
-  {
-    "q": "W ktorej fazie nastepuje wybor jezyka programowania wykorzystywanego w projekcie: ",
-    "a": [
-      "w fazie strategicznej",
-      "w fazie okreslania wymagan",
-      "w fazie implementacji",
-      "w żadnej z powyzszych"
-    ],
-    "c": "C"
-  },
-  {
-    "q": "Dla klasy \"Samochod\" zdefiniowano metode \"Sprzedaj_na_raty\". Zdefiniowano klase \"samochod_osobowy\" ktora jest podklasa klasy \"Samochod\". Ktore z ponizszych sformulowan jest prawdziwe: ",
-    "a": [
-      "samochod_osobowy dziedzczy tylko atrybuty klasy samochod",
-      "samochod_osobowy dziedziczy tylko metody klasy samochod",
-      "samochod_osobowy nie ma dostepnych zadnych wlasciowosci",
-      "samochod_osobowy dziedziczy wszystkie wlasciowosci klasy samochod"
-    ],
-    "c": "D"
-  },
-  {
-    "q": "Wyodrebnij obiekty (O) i wlasciowosci (W) Klient Jan Kowalski przychodzi do bankomatu nr 100 przy ul. Wroclawskiej by pobrac pieniadze. Podaj nr PIN, oraz kwote do wyplaty. Bankomat sprawdza poprawnosc danych i wyplaca pieniadze: ",
-    "a": [
-      "O-Jan Kowalski, W-PIN=1010, O-bankomat W-wyplac pieniadze",
-      "O-Jan Kowalski, W-wyplac pieniadze, O-bankomat W-adres=\"Wroclawska\"",
-      "O-Klient, W-Jan Kowalski, O-bankomat W-kolor",
-      "O-Jan Kowalski, W-PIN=1010, O-bankomat 100 W-adres=\"Wroclawska\""
-    ],
-    "c": "D"
-  },
-  {
-    "q": "Symbol klasy zawiera: ",
-    "a": [
-      "nazwe zwiazku",
-      "role",
-      "metody",
-      "czynnosc"
-    ],
-    "c": "C"
-  },
-  {
-    "q": "Ktory z ponizszych jezykow zostal stworzony do modelowania systemow obiektowych: ",
-    "a": [
-      "XML",
-      "CSL",
-      "C#",
-      "UML"
-    ],
-    "c": "D"
-  },
-  {
-    "q": "Diagramy sekwencji w modelowaniu dynamiki systemu pokazuja: ",
-    "a": [
-      "przebieg czynnosci w sekwencji zmiany stanu obiektow",
-      "nastepstwo czasowe w sekwencji komunikatow wymienianych miedzy obiektami",
-      "zmiane stanu obiektow",
-      "nastepstwo stanow obiektow w sekwencji czasu"
-    ],
-    "c": "B"
-  },
-  {
-    "q": "Diagram opisu interakcji jest: ",
-    "a": [
-      "obrazowaniem kolejnych czynnosci w ciagu kolejnych interakcji",
-      "polaczeniem diagramu interakcji i nastepstw",
-      "obrazowaniem stanow obiektow w sekwencji komunikatow",
-      "polaczeniem diagramu pakietow i komponentow"
-    ],
-    "c": "A"
-  },
-  {
-    "q": "OMG jest organizacja o nazwie: ",
-    "a": [
-      "Object Marketing Group",
-      "Object Management Group",
-      "Object Marketing Goal",
-      "Object Management Global"
-    ],
-    "c": "B"
-  },
-  {
-    "q": "Tworzenie systemow sterowane modelami polega na transformacji kolejno pomiedzy modelami: ",
-    "a": [
-      "matematycznym, logicznym, srodowiskiem",
-      "logicznym, fizycznym, rzeczywistym",
-      "srodowiska, wymagan, systemu, podsystemu",
-      "srodowiska, logicznym, matematycznym,numerycznym"
-    ],
-    "c": "C"
-  },
-  {
-    "q": "Modele w tworzeniu oprogramowania sterowanego modelami stanowia: ",
-    "a": [
-      "zestawy odpowiednich diagramow struktury i dynamiki systemu",
-      "opis rzeczywistego zachowania sie systemu",
-      "opis logicznego zachowania sie systemu",
-      "zestawy odpowiednich funkcjonalnosci systemu"
-    ],
-    "c": "A"
-  },
-  {
-    "q": "Architektura trojwarstwowa dla systemu \"obslugi zamowien\" najczesciej obejmuje podsystemy: ",
-    "a": [
-      "przyjmowania zamowien, wysylania przesylek, obslugi platnosci",
-      "interfejs uzytkownika, wysylanie przesylek, baza danych",
-      "przyjmowanie zamowien, obsluga platnosci, interfejs uzytkownika",
-      "interfejs uzytkownika, reguly biznesowe, baza danych"
-    ],
-    "c": "D"
-  },
-  {
-    "q": "Wzorzec potokow i filtrow bazuje na: ",
-    "a": [
-      "swobodnym dostepie do dowolnych danych",
-      "niezaleznosci podsystemow od strumienia danych",
-      "scislej zaleznosci poszczegolnych podsystemow",
-      "zaleznosci poszczegolnych podsystemow od strumienia danych na stosie"
-    ],
-    "c": "D"
-  },
-  {
-    "q": "Wzorzec architektury obiektowej bazuje na: ",
-    "a": [
-      "zaleznosci poszczegolnych podsystemow od strumienia danych na stosie",
-      "podsystemach zdefiniowanych wokol danych i zwiazanych z nimi funkcji",
-      "scislej zaleznosci poszczegolnych podsystemow",
-      "swobodnym dostepie do dowolnych danych"
-    ],
-    "c": "B"
-  },
-  {
-    "q": "Ktora z ponizszych cech nie jest charakterystyczna dla programowania ekstremalnego: ",
-    "a": [
-      "programowanie w parach",
-      "testy jednostkowe",
-      "podejscie kaskadowe",
-      "bezposrednia wspołpraca z klientem"
-    ],
-    "c": "C"
-  },
-  {
-    "q": "Sformulowanie \"Make it work, make it right, make it fast\" jest charakterystyczne dla: ",
-    "a": [
-      "modelu spiralnego wytwarzania oprogramowania",
-      "programowania ekstremalnego",
-      "modelowania aspektowego",
-      "modelu kaskadowego wytwarzania oprogramowani"
-    ],
-    "c": "B"
-  },
-  {
-    "q": "W inżynierii oprogramowania nakład pracy mierzymy: ",
-    "a": [
-      "czasem niezbędnym do zakończenia budowy systemu informatycznego",
-      "w osobogodzinach pracy",
-      "złożonością postawionego zadania",
-      "wielkością poniesionych kosztów"
-    ],
-    "c": "C"
-  },
-  {
-    "q": "Celem fazy projektowania jest: ",
-    "a": [
-      "transformacja pomiędzy modelami opisowym i wymagań?",
-      "transformacja pomiędzy modelami opisowym i specyfikacji?",
-      "transformacja pomiędzy modelami specjalizacji i numerycznym?",
-      "transformacja pomiędzy modelami numerycznym i cyfrowym?"
-    ],
-    "c": "B"
-  },
-  {
-    "q": "Podejście słownikowe do budowy modelu obiektowego wymaga: ",
-    "a": [
-      "identyfikacji dziedziny słownikowej problemu",
-      "zwyczajowego podejścia do modelu opisowego",
-      "modeli praktycznych zdekomponowanego modelu opisowego",
-      "identyfikacji rzeczowników jako obiektów"
-    ],
-    "c": "D"
-  },
-  {
-    "q": "Budowa systemów informatycznych modelujących wycinek rzeczywistości składa się z dwóch  podstawowych procesów: ",
-    "a": [
-      "kodowania i testowania",
-      "analizy i syntezy",
-      "zbierania wymagań i wdrożenia",
-      "specyfikacji i modelowania"
-    ],
-    "c": "B"
-  },
-  {
-    "q": "Macierz śladu pozwala na: ",
-    "a": [
-      "jednoznaczne odwzorowanie kodu systemu na jego wymagania",
-      "sprawdzenie realizacji wszystkich wymagań przez podsystemy",
-      "właściwy dobór technologii implementacyjnej",
-      "odpowiednią specyfikację wymagań systemu"
-    ],
-    "c": "B"
-  },
-  {
-    "q": "Testy statyczne bazują na: ",
-    "a": [
-      "wynikach testowych uruchomień programu",
-      "analizie dokumentacji",
-      "analizie kodu",
-      "na wynikach testów akceptacji-alfa"
-    ],
-    "c": "C"
-  },
-  {
-    "q": "Klasa jest: ",
-    "a": [
-      "rzeczywistym typem danych",
-      "abstrakcyjnym typem danych",
-      "rozproszonym typem danych",
-      "skupionym typem danych"
-    ],
-    "c": "B"
-  },
-  {
-    "q": "Faza analizy dotyczy następujących etapów cyklu życia oprogramowania; ",
-    "a": [
-      "określenia wymagań, projektowania i kodowania",
-      "specyfikowania, projektowania i kodowania",
-      "projektowania, kodowania i dokumentacji",
-      "określenia wymagań, specyfikacji i projektowania"
-    ],
-    "c": "D"
-  },
-  {
-    "q": "Dekompozycja pozwala na jednoznaczną transformacje pomiędzy: ",
-    "a": [
-      "modelem opisowym a modelem specyfikacji",
-      "modelem specyfikacji a modelem numerycznym",
-      "modelem numerycznym a modelem cyfrowym",
-      "modelowaną rzeczywistością a modelem cyfrowym"
-    ],
-    "c": "A"
-  },
-  {
-    "q": "Model logiczny systemu stanowiący o jego architekturze logicznej jest reprezentowany przez: ",
-    "a": [
-      "model (diagram) wdrożenia",
-      "model (diagram) czynności",
-      "model (diagram) przypadków użycia",
-      "model (diagram) pakietów i komponentów"
-    ],
-    "c": "B"
-  },
-  {
-    "q": "Szacowanie występujące kosztów oprogramowania: ",
-    "a": [
-      "model numeryczny zdekomponowanego systemu",
-      "model statyczny zdekomponowanego systemu",
-      "ocenie kosztów oprogramowania",
-      "dekompozycję oprogramowania do jego elementarnej funkcjonalności i jej wartościowani"
-    ],
-    "c": "C"
-  },
-  {
-    "q": "Model fizyczny systemu stanowiący o jego architekturze fizycznej jest reprezentowany przez: ",
-    "a": [
-      "model (diagram) wdrożenia",
-      "model (diagram) czynności",
-      "model (diagram) przypadków użycia",
-      "model (diagram) pakietów i komponentów"
-    ],
-    "c": "A"
-  },
-  {
-    "q": "Modelowanie strukturalne i modelowanie proceduralne: ",
-    "a": [
-      "to są synonimy tego samego typu wdrożenia",
-      "różnią się podejściem do statyki systemu",
-      "różnią się podejściem do dynamiki systemu",
-      "to są synonimy tego samego typu modelowania"
-    ],
-    "c": "D"
-  },
-  {
-    "q": "Atestowanie jest procesem związanym z: ",
-    "a": [
-      "prowadzeniem procesu testowego przez klienta",
-      "prowadzeniem procesu testowego przez audytora projektu",
-      "prowadzeniem procesu testowego przez użytkowników systemu",
-      "prowadzeniem procesu testowego przez członków zespołu projektowego"
-    ],
-    "c": "A"
-  },
-  {
-    "q": "Obiekt w modelowaniu obiektowym reprezentuje: ",
-    "a": [
-      "rzeczywisty typ danych",
-      "abstrakcyjny typ danych",
-      "hierarchiczny typ danych",
-      "uwarunkowany typ danych"
-    ],
-    "c": "A"
-  },
-  {
-    "q": "Model spiralny Boehma wymaga procesu ewolucyjnego w czterech aspektach poniżej: ",
-    "a": [
-      "planowania, analiza ryzyka, konstrukcja iteracji, atestowanie",
-      "planowanie, projektowanie, konstrukcja iteracji, testowanie",
-      "modelowanie, projektowanie, kodowanie, atestowanie",
-      "modelowanie, kodowanie, testowanie, utrzymanie"
-    ],
-    "c": "A"
-  },
-  {
-    "q": "W której fazie następuje wybór języka programowania wykorzystywanego w fazie kodowania: ",
-    "a": [
-      "w fazie strategicznej",
-      "w fazie określania wymagań",
-      "w fazie implementacji",
-      "w żadnej z powyższych"
-    ],
-    "c": "A"
-  },
-  {
-    "q": "Diagram use case w UML służy do określenia: ",
-    "a": [
-      "użytkowników systemu",
-      "parametrów systemu odpowiedzialnych za poprawne działanie systemu",
-      "jedynie odpowiedzi systemu na sytuacje awaryjne",
-      "scenariuszy funkcjonalności systemu"
-    ],
-    "c": "D"
-  },
-  {
-    "q": "Obiekt jest: ",
-    "a": [
-      "instancja klasy definiowanym przez tożsamość, stan i zachowanie",
-      "instancją klasy definiowanym przez tożsamość, metody i atrybuty",
-      "elementem klasy definiowanym przez atrybuty, stan i metody",
-      "elementem klasy definiowanym przez atrybuty, stan i zachowanie"
-    ],
-    "c": "A"
-  },
-  {
-    "q": "Transformacja od środowiska do kodu obejmuje kolejne modele (wskaż właściwa sekwencje):  ",
-    "a": [
-      "środowisko, model numeryczny, kod, model cyfrowy",
-      "środowisko, model środowiska, model kodu, model cyfrowy",
-      "środowisko, model matematyczny, model numeryczny,kod",
-      "środowisko, opis numeryczny, model kodu, kod"
-    ],
-    "c": "B"
-  },
-  {
-    "q": "Proces  SYNTEZY oprogramowania obejmuje fazy transformacji pomiędzy modelami: ",
-    "a": [
-      "numerycznym a cyfrowym wraz z testowaniem",
-      "specyfikacji a numerycznym wraz z testowaniem",
-      "cyfrowym a wdrożeniem wraz z testowaniem",
-      "opisowym a specyfikacji wraz z testowaniem"
-    ],
-    "c": "C"
-  },
-  {
-    "q": "Który z języków został zaprojektowany do graficznego modelowania systemów obiektowych: ",
-    "a": [
-      "Fortran",
-      "CSL",
-      "C#",
-      "UML"
-    ],
-    "c": "D"
-  },
-  {
-    "q": "Model kaskadowy wytwarzania oprogramowania z rozbudowanym testowaniem wymaga: ",
-    "a": [
-      "wprowadzenia fazy testowania systemu po jego implementacji",
-      "wprowadzenia testowania elementów każdej fazy modelu kaskadowego",
-      "wprowadzenia testowania jedynie zbudowanych modeli numerycznych",
-      "wprowadzenia jedynie szczegółowej analizy opracowanego kodu systemu"
-    ],
-    "c": "B"
-  },
-  {
-    "q": "Proces doboru technologii implementacji odbywa się na etapie: ",
-    "a": [
-      "budowania modelu specyfikacji",
-      "budowania modelu numerycznego",
-      "transformacji modelu numerycznego do modelu cyfrowego",
-      "transformacji systemu do użytkownika"
-    ],
-    "c": "C"
-  },
-  {
-    "q": "Głównym zadaniem fazy projektu jest: ",
-    "a": [
-      "Jasne określenie co? System ma robić",
-      "Stwierdzenie jak duży będzie system",
-      "określenie co? I jak? System ma robić",
-      "Jasne określenie jak? System ma realizować zadania"
-    ],
-    "c": "D"
-  },
-  {
-    "q": "Testy funkcjonalne obejmują: ",
-    "a": [
-      "Testowanie założeń systemu",
-      "Testowanie systemu jako białej skrzynki z pełną interpretacją kolejnych instrukcji",
-      "Testowanie systemu jako czarnej skrzynki o określonej funkcjonalności",
-      "Testowanie poszczególnych metod w klasach"
-    ],
-    "c": "C"
-  },
-  {
-    "q": "UML pozwala na graficzna budowę: ",
-    "a": [
-      "modeli numerycznych zdekomponowanego modelu opisowego",
-      "modeli statycznych zdekomponowanego modelu rzeczywistości",
-      "modeli dynamicznych zdekomponowanego modelu opisowego",
-      "modeli praktycznych zdekomponowanego modelu opisowego"
-    ],
-    "c": "A"
-  },
-  {
-    "q": "Na diagramie UML zwiazek agregacji jest oznaczony: ",
-    "a": [
-      "odcinkiem zakonczonym wypelnionym rombem",
-      "odcinkiem zakonczonym okregiem",
-      "tylko odcinkiem",
-      "odcinkiem zakonczonym pustym rombem"
-    ],
-    "c": "D"
-  },
-  {
-    "q": "Odcinkiem zakonczonym pelnym rombem na diagramie UML oznacza sie: ",
-    "a": [
-      "agergacje",
-      "skojarzenie",
-      "dziedziczenie",
-      "kompozycje"
-    ],
-    "c": "D"
-  },
-  {
-    "q": "W opisie przypadku uzycia wyzwalacz to: ",
-    "a": [
-      "Zdarzenie powodujace rozpoczecie przypadku uzycia",
-      "Warunki spelnione po pomyslnym wykonaniu glównego scenariusza przypadku uzycia",
-      "zdarzenie powodujace zakonczenie przypadku uzycia",
-      "warunki które muszą byc spelnione przed wykonaniem przypadku uzycia"
-    ],
-    "c": "A"
-  },
-  {
-    "q": "Na diagramie klas UML oznaczenia widocznosci pól +,#,- oznaczaja kolejno: ",
-    "a": [
-      "private, protected, static",
-      "public, private, protected",
-      "public, abstract, protected",
-      "public, protected, private"
-    ],
-    "c": "D"
-  },
-  {
-    "q": " Metoda abstrakcyjna jest to: ",
-    "a": [
-      "metoda nie posiadająca implementacji",
-      "metoda dziedziczona z klasy abstrakcyjnej",
-      "metoda niewidoczna dla innych klas",
-      "nie istnieje takie pojecie"
-    ],
-    "c": "A"
-  },
-  {
-    "q": "Pola oznaczone znaczkiem widocznosci #: ",
-    "a": [
-      "są widoczne tylko w ramach jednej klasy",
-      "są widoczne tylko w ramach klasy i klas pochodnych",
-      "są widoczne wszedzie",
-      "są niewidoczne"
-    ],
-    "c": "B"
-  },
-  {
-    "q": "Na diagramie UML przypadków uzycia są nastepujące elementy: ",
-    "a": [
-      "aktorzy, przypadki uzycia, klasy",
-      "przypadki uzycia, relacjie, obiekty",
-      "aktorzy, przypadki uzycia, relacje",
-      "relacje, aktorzy, punkty zwrotne"
-    ],
-    "c": "C"
-  },
-  {
-    "q": "Klase abstrakcyjną na diagramie UML oznacza sie poprzez: ",
-    "a": [
-      "podkreslenie",
-      "czcionke pochyłą",
-      "pogrubienie",
-      "dodanie slówka abstract"
-    ],
-    "c": "B"
-  },
-  {
-    "q": "Związek uogólnienia na diagramach UML oznacza sie: ",
-    "a": [
-      "odcinkiem zakonczonym trójkątem wskazującym klase nadrzedną",
-      "odcinkiem zakonczonym trójkątem wskazującym klase podrzedna",
-      "odcinkiem zakonczonym rombem wskazującym klase nadrzedną",
-      "odcinkiem zakonczonym rombem wskazującym klase podrzedną"
-    ],
-    "c": "A"
-  },
-  {
-    "q": "Przypadki uzycia na diagramach UML oznacza sie jako: ",
-    "a": [
-      "prostokaty",
-      "romby",
-      "owale",
-      "trapezy"
-    ],
-    "c": "C"
-  },
-  {
-    "q": "Aktorów na diagramie UML oznacza sie jako: ",
-    "a": [
-      "wypelniony kwadrat",
-      "wypelniony okrag",
-      "schematyczna postac",
-      "schematyczna glowe"
-    ],
-    "c": "C"
-  },
-  {
-    "q": "Gwarancje powodzenia przypadków uzycia to: ",
-    "a": [
-      "warunki spelnione po pomyślnym wykonaniu scenariusza powodzenia",
-      "warunki spelnione po uruchomieniu przypadku uzycia",
-      "warunki jakie zapewnia system by przypadek zakonczyl sie powodzeniem",
-      "warunki poczatkowe, wymagany by przypadek mógl sie rozpoczac"
-    ],
-    "c": "A"
-  },
-  {
-    "q": "Co to jest diagram DFD?: ",
-    "a": [
-      "diagram struktury bazy danych",
-      "diagram opisujacy strukture klas",
-      "diagram przepływu danych",
-      "diagram przypadków uzycia"
-    ],
-    "c": "C"
-  },
-  {
-    "q": "Czy wymagania dla systemu powinny być poddane analizę w FAZIE KODOWANIA: ",
-    "a": [
-      "Nie",
-      "Tak",
-      "Czasami",
-      "Nie wiem"
-    ],
-    "c": "A"
-  },
-  {
-    "q": "Co to COCOMO: ",
-    "a": [
-      "Model szacowania liczby osobogodzin w procesie tworzenia oprogamowania",
-      "Wokie",
-      "Tokie",
-      "Lokie"
-    ],
-    "c": "A"
-  },
-  {
-    "q": "Co to KDSI: ",
-    "a": [
-      "Szacowana liczba linii kodu",
-      "Uana",
-      "Ih",
-      "Ma"
-    ],
-    "c": "A"
-  }
-]
+{
+  "name": "IO",
+  "key": "io.json",
+  "list": [
+    {
+      "q": "Glownym zadaniem fazy wymagan jest: ",
+      "a": [
+        "Stwierdzenie jak duzy bedzie system",
+        "Okreslenie co? i jak? ma system robic",
+        "Jasne okreslenie co? system ma robic",
+        "Jasne okreslenie jak? system ma realizowac zadania"
+      ],
+      "c": "C"
+    },
+    {
+      "q": "Dokument wymagan dotyczy: ",
+      "a": [
+        "dokumentacji wymagan stawianych przed tworzonym oprogramowaniem",
+        "dokumentacji planu testow kolejnych etapow zycia oprogramowania",
+        "dokumentacji funkcji realizujacych kolejne wymagania systemu",
+        "dokumentacji etapow realizacji oprogramowania"
+      ],
+      "c": "A"
+    },
+    {
+      "q": "Dokument wymagan zawiera: ",
+      "a": [
+        "specyfikacje wymagan w odniesieniu do tworzonego systemu",
+        "liste funkcji realizujacych okreslone wymagania",
+        "zestawy testow realizowanych na etapie wymagan",
+        "kody procedur realizujacych poszczegolne wymagania"
+      ],
+      "c": "A"
+    },
+    {
+      "q": "Czy wymagania dla systemu powinny byc poddane testowaniu w kaskadowym modelu cyklu zycia oprogramowania: ",
+      "a": [
+        "tak",
+        "nie",
+        "to zalezy od dziedziny problemu",
+        "czasami"
+      ],
+      "c": "B"
+    },
+    {
+      "q": "Czy wymagania dla systemu powinny być poddane analizie: ",
+      "a": [
+        "tak",
+        "nie",
+        "to zalezy od dziedziny problemu",
+        "czasami"
+      ],
+      "c": "A"
+    },
+    {
+      "q": "Wymagania z poziomu uzytkownika maja postac: ",
+      "a": [
+        "informacji o sposobie przetwarzania danych",
+        "ukladu wejsc i wyjsc",
+        "opisu kolejnych testow",
+        "opisu kolejnych procedur"
+      ],
+      "c": "B"
+    },
+    {
+      "q": "Opis wymagan powinien przede wszystkim: ",
+      "a": [
+        "opisywac dzialanie systemu",
+        "opisywac strukture systemu",
+        "dokumentowac model systemu",
+        "opisywac zewnetrzne zachowanie systemu"
+      ],
+      "c": "D"
+    },
+    {
+      "q": "Wymagania funkcjonalne opisuja: ",
+      "a": [
+        "etapy dzialania systemu",
+        "diagramy przejsc",
+        "czynnosci i operacje wykonywane przez system",
+        "zastosowane metody obiektowe"
+      ],
+      "c": "C"
+    },
+    {
+      "q": "Wymagania niefunkcjonalne opisuja: ",
+      "a": [
+        "identyfikacje metod i komunikatow",
+        "metody zwiazane z podstawowymi klasami systemu",
+        "funkcje nie zwiazane z algorytmem podstawowym systemu",
+        "ograniczenia przy ktorych system bedzie realizowal swoje funkcje"
+      ],
+      "c": "D"
+    },
+    {
+      "q": "Specyfikacji wymagan sluzy: ",
+      "a": [
+        "formularz opisu wymagan",
+        "lista metod",
+        "lista klas",
+        "formularz testow"
+      ],
+      "c": "A"
+    },
+    {
+      "q": "Dla poprawnej realizacji wymagan funkcjonalnych konieczne jest wprowadzenie: ",
+      "a": [
+        "macierzy sladu",
+        "hierarchii wymagan",
+        "macierzy odwrotnej sladu",
+        "hierarchii testow"
+      ],
+      "c": "B"
+    },
+    {
+      "q": "Wymagana wielkosc bufora PAO oraz strony pamieci RAM przy defionowaniu sposobu dzialania systemu naleza do wymagan: ",
+      "a": [
+        "systemowych",
+        "niefunkcjonalnych",
+        "funkcjonalnych",
+        "wewnetrznych"
+      ],
+      "c": "B"
+    },
+    {
+      "q": "Celem fazy analizy jest odpowiedz na pytanie: ",
+      "a": [
+        "jak system ma dzialac",
+        "co system ma robic",
+        "kiedy system ma dzialac",
+        "jak system ma zostac zaimlementowany"
+      ],
+      "c": "A"
+    },
+    {
+      "q": "Wynikiem fazy analizy jest: ",
+      "a": [
+        "model fizyczny systemu, opisujacy jego funkcje",
+        "model logiczny systemu wskazujacy na jego ograniczenia",
+        "model fizyczny systemu wskazujacy na jego ograniczenia",
+        "model logiczny systemu opisujacy sposob realizacji postawionych wymagan"
+      ],
+      "c": "D"
+    },
+    {
+      "q": "Celem fazy projektowania jest odpowiedz na pytanie: ",
+      "a": [
+        "jak system ma zostac udekumentowany",
+        "jak system ma zostac zapisany",
+        "jak system ma zostac zaimplementowany",
+        "jak system ma zostac przetestowany"
+      ],
+      "c": "C"
+    },
+    {
+      "q": "Model analityczny budowanego oprogramowania powinien byc: ",
+      "a": [
+        "szczegolowo przetestowany",
+        "gotowy do numerycznej implementacji",
+        "uproszczonym opisem systemu, wskazujacym istotne jego cechy",
+        "zgodny z oczekiwaniami uzytkownika"
+      ],
+      "c": "C"
+    },
+    {
+      "q": "Transformacja od srodowiska do kodu obejmuje kolejne modele: ",
+      "a": [
+        "srodowisko, model numeryczny, kod",
+        "srodowisko, model srodowiska, model kodu, kod",
+        "srodowisko, model matematyczny, model numeryczny, kod",
+        "srodowisko, opis numeryczny, model kodu, kod"
+      ],
+      "c": "B"
+    },
+    {
+      "q": "Metody strukturalne tworzenia oprogramowania wyrozniaja w systemie: ",
+      "a": [
+        "bloki funkcji i bloki operacji",
+        "struktury danych zwiazane jedynie z funkcjami jednoparametrowymi",
+        "skladowe pasywne i skladowe aktywne",
+        "obiekty i dzialajace na nie metody"
+      ],
+      "c": "C"
+    },
+    {
+      "q": "Metody obiektowe tworzenia oprogramowania bazuja na wprowadzeniu: ",
+      "a": [
+        "skladowych pasywnych (danych) i aktywnych (funkcji)",
+        "skladowych prostych i zlozonych o roznej dlugosci",
+        "skladowych lokalnych i globalnych",
+        "skladowych laczacych dane z metodami"
+      ],
+      "c": "D"
+    },
+    {
+      "q": "Obiekt na etapie analizy jest to: ",
+      "a": [
+        "konstrukcja jezyka programowania, laczaca dane i metody",
+        "skladowa dziedziny problemu posiadajaca tozsamosc, stan i zachowanie",
+        "skladowa dziedziny problemu posiadajaca nazwe, pola i atrybuty",
+        "konstrukcja jezyka formalnego sluzacego notacji strukturalnej"
+      ],
+      "c": "B"
+    },
+    {
+      "q": "Klasa na etapie anlizy oznacza: ",
+      "a": [
+        "konstrukcje modelu obiektowego",
+        "skladowa dziedziny problemu charakteryzowana przez stan",
+        "wzorzec dla metod stosowanych w systemie",
+        "wzorzec grupy obiektow o podobnych stanach i zachowaniu"
+      ],
+      "c": "D"
+    },
+    {
+      "q": "Obiekt jest: ",
+      "a": [
+        "elementem klasy definiowanym przez tozsamosc, stan i zachowanie",
+        "elementem klasy definiowanym przez tozsamosc, metody i atrybuty",
+        "elementem klasy definiowanym przez atrybuty, stan i metody",
+        "elementem klasy definiowanym przez atrybuty, stan i zachowanie"
+      ],
+      "c": "A"
+    },
+    {
+      "q": "Skrot UML oznacza: ",
+      "a": [
+        "User Modified Language",
+        "Updated Modified Language",
+        "Unified Modeling Language",
+        "User Modeling Language"
+      ],
+      "c": "C"
+    },
+    {
+      "q": "UML jest graficznym jezykiem sluzacym do: ",
+      "a": [
+        "specyfikowania, kodowania, dokumentowania systemow informatycznych",
+        "kodowania, testowania, dokumentowania systemow informatycznych",
+        "testowania, dokumentowania, implementacji systemow informatycznych",
+        "obrazowania, specyfikowania, dokumentowania systemow informatycznych"
+      ],
+      "c": "D"
+    },
+    {
+      "q": "Ktory z ponizszych jezykow nie pozwala na tworzenie programow w pelni obiektowych: ",
+      "a": [
+        "C",
+        "C++",
+        "Python",
+        "C#"
+      ],
+      "c": "A"
+    },
+    {
+      "q": "Atrybuty klasy to: ",
+      "a": [
+        "opis metod klasy",
+        "nazwane wlasciwosci klasy",
+        "nazwane metody klasy",
+        "opisy nazw klasy"
+      ],
+      "c": "B"
+    },
+    {
+      "q": "Metody klasy to: ",
+      "a": [
+        "operacje zastrzezone w klasie",
+        "dzialania realizowane automatyczne na obiektach danej klasy",
+        "operacje ktorych realizacji mozna wymagac od obiektow danej klasy",
+        "dzialania realizowane przez atrybuty danej klasy"
+      ],
+      "c": "C"
+    },
+    {
+      "q": "Dziedziczenie w modelu obiektowym polega na: ",
+      "a": [
+        "tworzeniu nowych obiektow o wlasnosciach przodka",
+        "tworzeniu nowych metod na podstawie wczesniej zdefiniowanych",
+        "tworzeniu nowych konstruktorow na podstawie wczesniej zdefiniowanych",
+        "tworzeniu nowych komunikatow na podstawie wczesniej zdefiniowanych"
+      ],
+      "c": "A"
+    },
+    {
+      "q": "Artefacty to: ",
+      "a": [
+        "struktury otrzymywane w procesie analizy oprogramowania",
+        "obiekty abstrakcyjne powstajace automatycznie",
+        "fakty artystyczne wynikajace z procesu tworzenia oprogramowania",
+        "elementy informacyjne wytworzone w procesie tworzenia oprogramowania"
+      ],
+      "c": "D"
+    },
+    {
+      "q": "Programowanie strukturalne: ",
+      "a": [
+        "ulatwia hermetyzacje",
+        "ulatwia programowanie oparte na zdarzeniach",
+        "pozwala na tworzenie konstrukcji proceduralnych",
+        "nie jest dobrym rozwiazaniem dla programow obliczeniowe"
+      ],
+      "c": "C"
+    },
+    {
+      "q": "Przypadki uzycia w UML sluza do okreslenia: ",
+      "a": [
+        "uzytkownikow systemu",
+        "parametrow systemu odpowiedzialnych za poprawne dzialanie systemu",
+        "jedynie odpowiedzi systemu na sytuacje awaryjne",
+        "ciagow akcji sluzacych realizacji funkcji systemu"
+      ],
+      "c": "D"
+    },
+    {
+      "q": "Przypadki uzycia sa zbiorem jednostek opisu dynamiki systemu. Skladaja sie z zestawow scenariuszy ktore pokazuja: ",
+      "a": [
+        "strukture pakietow i komponentow systemu",
+        "strukture klas i obiektow wystepujacych w modelu",
+        "sekwencje interakcji prowadzacych do okreslonego celu",
+        "sekwencje stanow obiektow w trakcie transformacji"
+      ],
+      "c": "C"
+    },
+    {
+      "q": "Zbadaj ponizszy tekst: Jurek ma teraz 16 lat, to jest dwa razy tyle, ile Wojtek mial wtedy, kiedy Jurek mial tyle, ile Wojtek ma teraz... Wymaganiem dla systemu bedzie specyfikacja: ",
+      "a": [
+        "Wojtek jest mlodszy od Jurka o 6 lat",
+        "Wojtek jest mlodszy od Jurka o 8 lat",
+        "Wojtek jest mlodszy od Jurka o 4 lat",
+        "Wojtek jest starszy od Jurka o 8 lat"
+      ],
+      "c": "C"
+    },
+    {
+      "q": "Zbadaj ponizszy tekst: Ojciec ma 42 lata a syn 12, za ile lat ojciec bedzie dwa razy starszy od syna. Wymaganiem dla systemu analizujacego wiek ojca i syna bedzie specyfikacja: ",
+      "a": [
+        "Ojciec bedzie dwa razy starszy od syna za 28 lat",
+        "Ojciec jest mlodszy od syna o 30 lat",
+        "Ojciec bedzie dwa razy starszy od syna za 18 lat",
+        "Ojciec jest starszy od syna o 28 lat"
+      ],
+      "c": "C"
+    },
+    {
+      "q": "Zbadaj ponizszy cytat z Tolkiena: Nie kazdy kto bladzi, jest stracony Czy to znaczy ze: ",
+      "a": [
+        "kazdy kto bladzi nie jest stracony",
+        "nie ma straconych bladzacych",
+        "nie ma bladzacych niestraconych",
+        "bladzacy moga byc straceni"
+      ],
+      "c": "D"
+    },
+    {
+      "q": "Zbadaj ponizszy tekst: Do ponumerowania stron gazet stosuje sie co najwyzej 101 cyfr... Ograniczeniem wymagania dla systemu numerujacego strony bedzie: ",
+      "a": [
+        "numeruj nie wiecej niz 45 stron",
+        "numeruj nie wiecej niz 55 stron",
+        "numeruj nie wiecej niz 65 stron",
+        "numeruj nie wiecej niz 101 stron"
+      ],
+      "c": "B"
+    },
+    {
+      "q": "Faza analizy dotyczy nastepujacych etapow cyklu zycia oprogramowania: ",
+      "a": [
+        "okreslenia wymagan, projektowania i kodowania",
+        "specyfikowania, projektowania i kodowania",
+        "projektowania, kodowania i dokumentacji",
+        "okreslenia wymagan, specyfikowania i projektowania"
+      ],
+      "c": "D"
+    },
+    {
+      "q": "Dobor algorytmow i struktur danych odbywa sie w fazie: ",
+      "a": [
+        "specyfikacji wymagan",
+        "implementacji",
+        "projektowania",
+        "kodowania"
+      ],
+      "c": "C"
+    },
+    {
+      "q": "Tzw. dobre wymagania dla systemu powinny byc: ",
+      "a": [
+        "zwiezle, niespojne, zrozumiale dla uzytkownikow i precyzyjne",
+        "spojne, niekompletne, latwe do modyfikacji, wykonalne",
+        "jednoznaczne, spojne, niekompletne, precyzyjne",
+        "zwiezle, spojne, wykonalne, latwe do modyfikacji"
+      ],
+      "c": "D"
+    },
+    {
+      "q": "System bedzie przyjmowal dopuszczalne ID pracownika z przedzialu 1-100. Jakie cechy ma takie wymaganie? Jest ono: ",
+      "a": [
+        "zrozumiale, spojne, niekompletne, wykonalne,jasne",
+        "zrozumiale, niespojne, kompletne, wykonalne, niejasne",
+        "niezrozumiale, spojne, kompletne, niewykonalne jasne",
+        "niezrozumiale, niespojne, niekompletne, niewykonalne, niejasne"
+      ],
+      "c": "A"
+    },
+    {
+      "q": "Klasyfikatory w UML-u obejmuja: ",
+      "a": [
+        "skladowe klasyfikacji diagramow",
+        "elementy modelu opisujace graficznie jego zachowanie lub strukture",
+        "elementy dziedziny problemu nie zwiazane z jego struktura",
+        "konstrukcja jezyka formalnego sluzacego notacji strukturalnej"
+      ],
+      "c": "B"
+    },
+    {
+      "q": "Do wlasnosci, wlasciwosci klasy zaliczamy: ",
+      "a": [
+        "klasyfikatory i instancje",
+        "artefacty i metody",
+        "atrybuty i operacje",
+        "obiekty i pakiety"
+      ],
+      "c": "C"
+    },
+    {
+      "q": "Klasa jest charakteryzowana przez: ",
+      "a": [
+        "stan, zawartosc i zaawansowanie",
+        "stan, budowe i przeznaczenie",
+        "nazwe, stan i historie",
+        "nazwe, stan i metody"
+      ],
+      "c": "D"
+    },
+    {
+      "q": "Dwie klasy sa w zwiazku generalizacji-specjalizacji jezeli jedna z nich: ",
+      "a": [
+        "zwana specjalizacja jest uogolnieniem drugiej, generalizacji",
+        "zwana generalizacja jest uogolnieniem drugiej, specjalizacji",
+        "zwana specjalizacja jest uzupelnieniem drugiej, generalizacji",
+        "zwana generalizacja jest uzupelnieniem drugiej, specjalizacji"
+      ],
+      "c": "B"
+    },
+    {
+      "q": "Czy dla danej specjalizacji moze istniec wiele generalizacji: ",
+      "a": [
+        "nie, moze istniec tylko jedna",
+        "tak, pod warunkiem wprowadzenia zwiazku kwalifikowanego",
+        "tak",
+        "nie, chyba ze zostanie wprowadzony zwiazek kwalifikowany"
+      ],
+      "c": "C"
+    },
+    {
+      "q": "W zwiazku kwalifikowanym klas: student - gr_studencka, gdzie kwlifikatorem jest kierunek_stud irok_akade: ",
+      "a": [
+        "klasa student jest generalizacja, klasa gr_studencka jest specjalizacja",
+        "klasa student jest generalizacja, klasa kierunek_stud jest specjalizacja",
+        "klasa student jest specjalizacja, klasa gr_studencka jest generalizacja",
+        "klasa gr_studencka jest generalizacja, klasa rok akade jest specjalizacja"
+      ],
+      "c": "C"
+    },
+    {
+      "q": "Dynamiczne zachowanie sie systemu jest modelowane poprzez: ",
+      "a": [
+        "ograniczenia, algorytm, przejscie stanu, akcje, operacje",
+        "algorytm, struktury danych, operacje, zdarzenie",
+        "strukture danych, stan, akcje, operacje",
+        "zdarzenie, stan, przejscie stanu, akcje, operacje"
+      ],
+      "c": "D"
+    },
+    {
+      "q": "Diagramy przejsc stanow opisuja: ",
+      "a": [
+        "stan systemu pomiedzy kolejnymi zdarzeniami",
+        "akcje i operacje systemu przeprowadzajace system pomiedzy stanami",
+        "sposob testowania systemu",
+        "zasady implementacji systemu"
+      ],
+      "c": "B"
+    },
+    {
+      "q": "Asocjacja jest relacja: ",
+      "a": [
+        "laczaca dwie lub wiecej klas",
+        "generalizacji - specjalizacji",
+        "zawierania",
+        "typu include"
+      ],
+      "c": "A"
+    },
+    {
+      "q": "Weryfikacja klas i obiektow pozwala na usuniecie elementow zbednych. Usuwamy klasy dla ktorych: ",
+      "a": [
+        "istnieje wiele pol i metod",
+        "istnieje zwiazek z innymi klasami",
+        "brak pol i metod lub jeden obiekt w klasie lub brak zwiazku z innymi klasami",
+        "dla wielu pol istnieje jedynie jedna metoda"
+      ],
+      "c": "C"
+    },
+    {
+      "q": "Identyfikacja zwiazkow klas i obiektow ma na celu: ",
+      "a": [
+        "wyszczegolnienie podstawowych metod w klasach i obiektach",
+        "uogolnienie zaleznosci pomiedzy poszczegolnymi wymaganiami systemu",
+        "uogolnienie metod danej klasy",
+        "uogolnienie wielu zwiazkow zachodzacych pomiedzy obiektami danej klasy"
+      ],
+      "c": "D"
+    },
+    {
+      "q": "Zwiazek klas generalizacji - specjalizacji wskazuje na: ",
+      "a": [
+        "dziedziczenie pol i metod",
+        "polimorfizm tych klas",
+        "zdarzenie powodujace przejscie stanow w poszczegolnych klasach",
+        "operacje wywolane przez metody klasy generalizacji "
+      ],
+      "c": "A"
+    },
+    {
+      "q": "Identyfikacja i definiowanie pol klasy polega miedzy innymi na wprowadzeniu: ",
+      "a": [
+        "zwiazkow generalizacji - specjalizacji pomiedzy obiektami danej klasy",
+        "wszystkich pol opisujacych mozliwe stany obiektow danej klasy",
+        "relacji agregacji wsrod obiektow danej klasy",
+        "wszystkich obiektow definiujacych dana klase"
+      ],
+      "c": "B"
+    },
+    {
+      "q": "Do metod realizowanych w modelu obiektowym zaliczamy miedzy innymi: ",
+      "a": [
+        "Konstruktory, destruktory, metody pobierania wartosci pol, przerwania",
+        "Metody edycji pol, konstruktory, procesy, destruktory",
+        "Metody ustawiania zwiazkow pomiedzy obiektami, destruktory, konstruktory",
+        "Konstruktory, metody pobierania/ustawiania wartosci pol, obsluga zlecenia"
+      ],
+      "c": "C"
+    },
+    {
+      "q": "Agregacja w UML-u jest: ",
+      "a": [
+        "zwiazkiem pomiedzy pakietami",
+        "realcja mnogosciowa jeden do jednego",
+        "zwiazkiem generalizacji - specjalizacji",
+        "rodzajem asocjacji wskazujacej na zawieranie sie klas"
+      ],
+      "c": "D"
+    },
+    {
+      "q": "Wymagania w jezyku naturalnym przyjmuja postac: System czekowy ma na celu obsluge kont czekowych. System ten musi miec mozliwosc przetwarzania takich transakcji na koncie jak wplata i wyplata dla wielu kont... Potencjalnymi klasami sa: ",
+      "a": [
+        "system czekowy; konto czekowe, transakcja, wplata, wyplata, czek",
+        "system czekowy; cel, transakcja, wplata, wyplata, czek",
+        "system czekowy; konto czekowe, cele systemu, wplata, wyplata, czek",
+        "system czekowy; konto czekowe, mozliwosci systemu, wplata, wyplata, czek"
+      ],
+      "c": "A"
+    },
+    {
+      "q": "Glowne pojecia obiektowosci to: ",
+      "a": [
+        "atrybuty, obiekty, pola, struktury",
+        "klasy, obiekty, dziedziczenie, polimorfizm",
+        "struktury, dane pasywne, dane aktywne, obiekty",
+        "klasy obiektow, struktury danych, metody, funkcje"
+      ],
+      "c": "B"
+    },
+    {
+      "q": "Obligatoryjnosc zwiazkow obiektow klas oznacza: ",
+      "a": [
+        "koniecznosc tworzenia uzupelnienia danego obiektu",
+        "koniecznosc utworzenia zwiazku agregacji",
+        "koniecznosc utworzenia klasy obligatoryjnej ",
+        "zadna z wyzej wymienionych"
+      ],
+      "c": "C"
+    },
+    {
+      "q": "Zwiazek agregacji w grupie studenckiej polega na tym, ze: ",
+      "a": [
+        "w sklad grupy wchodzi wielu studentow i wiele studentek",
+        "sklad grupy studenckiej jest zmienny",
+        "w skald grupy studenckiej wchodzi co najmniej 25 osob",
+        "cala grupe studencka stanowi scisle okreslona grupa osob"
+      ],
+      "c": "D"
+    },
+    {
+      "q": "Korzystajac z jezyka UML nie mozna: ",
+      "a": [
+        "stworzyc modelu systemu obiektowego",
+        "stworzyc modelu dowolnego bytu",
+        "stworzyc modelu procesu gospodarczego",
+        "stworzyc modelu przeplywu danych"
+      ],
+      "c": "B"
+    },
+    {
+      "q": "FD's 'data flow diagrams' sa podstawa:",
+      "a": [
+        "modelowania proceduralnego",
+        "modelowania obiektowego",
+        "modelowania matematycznego",
+        "modelowania komputerowego"
+      ],
+      "c": "A"
+    },
+    {
+      "q": "Wyodrebnij cztery klasy z ponizszego opisu problemu: Klient korzysta z systemu, aby pobrac, i aby sprawdzic stan swojego konta. Klient musi wlozyc karte do bankomatu, wprowadzic swoj numer PIN. Klient posiada numer PIN, nazwisko i imię, numer konta. Drukujac saldo klient oczekuje otrzymania aktualnego stanu jego konta, oraz historie transakcji. ",
+      "a": [
+        "Klient, konto, PIN, historia",
+        "Klient, konto, bankomat, system",
+        "System bankowy Sumes, konto nr 1010101010101, Jan Kowalski, bank PKO BP",
+        "Konto, system, transakcja, drukowanie"
+      ],
+      "c": "B"
+    },
+    {
+      "q": "Wyodrebnij pary klasa (K) i jej obiekt (O): Klient Jan Kowalski przychodzi do bankomatu nr 100 przy ul. Wroclawskiej by pobrac pieniadze. Podaj nr PIN, oraz kwote do wyplaty. Bankomat sprawdza poprawnosc danych i wyplaca pieniadze: ",
+      "a": [
+        "K-Klient O-Sprawdzenie danych, K-Bankomat O-wyplata pieniedzy",
+        "K-Operacja O-Kwota, K-System O-klient",
+        "K-Klient O-Jan Kowalski, K-bankomat O-nr100",
+        "K-Pieniadze O-euro, K-Dane O-PIN"
+      ],
+      "c": "C"
+    },
+    {
+      "q": "Modelowanie strukturalne i modelowanie proceduralne: ",
+      "a": [
+        "to jest to samo",
+        "roznia sie podejsciem do statyki systemu",
+        "roznia sie podejsciem do dynamiki systemu",
+        "uzupelniaja sie na wzajem"
+      ],
+      "c": "A"
+    },
+    {
+      "q": "W ktorej fazie nastepuje wybor jezyka programowania wykorzystywanego w projekcie: ",
+      "a": [
+        "w fazie strategicznej",
+        "w fazie okreslania wymagan",
+        "w fazie implementacji",
+        "w żadnej z powyzszych"
+      ],
+      "c": "C"
+    },
+    {
+      "q": "Dla klasy \"Samochod\" zdefiniowano metode \"Sprzedaj_na_raty\". Zdefiniowano klase \"samochod_osobowy\" ktora jest podklasa klasy \"Samochod\". Ktore z ponizszych sformulowan jest prawdziwe: ",
+      "a": [
+        "samochod_osobowy dziedzczy tylko atrybuty klasy samochod",
+        "samochod_osobowy dziedziczy tylko metody klasy samochod",
+        "samochod_osobowy nie ma dostepnych zadnych wlasciowosci",
+        "samochod_osobowy dziedziczy wszystkie wlasciowosci klasy samochod"
+      ],
+      "c": "D"
+    },
+    {
+      "q": "Wyodrebnij obiekty (O) i wlasciowosci (W) Klient Jan Kowalski przychodzi do bankomatu nr 100 przy ul. Wroclawskiej by pobrac pieniadze. Podaj nr PIN, oraz kwote do wyplaty. Bankomat sprawdza poprawnosc danych i wyplaca pieniadze: ",
+      "a": [
+        "O-Jan Kowalski, W-PIN=1010, O-bankomat W-wyplac pieniadze",
+        "O-Jan Kowalski, W-wyplac pieniadze, O-bankomat W-adres=\"Wroclawska\"",
+        "O-Klient, W-Jan Kowalski, O-bankomat W-kolor",
+        "O-Jan Kowalski, W-PIN=1010, O-bankomat 100 W-adres=\"Wroclawska\""
+      ],
+      "c": "D"
+    },
+    {
+      "q": "Symbol klasy zawiera: ",
+      "a": [
+        "nazwe zwiazku",
+        "role",
+        "metody",
+        "czynnosc"
+      ],
+      "c": "C"
+    },
+    {
+      "q": "Ktory z ponizszych jezykow zostal stworzony do modelowania systemow obiektowych: ",
+      "a": [
+        "XML",
+        "CSL",
+        "C#",
+        "UML"
+      ],
+      "c": "D"
+    },
+    {
+      "q": "Diagramy sekwencji w modelowaniu dynamiki systemu pokazuja: ",
+      "a": [
+        "przebieg czynnosci w sekwencji zmiany stanu obiektow",
+        "nastepstwo czasowe w sekwencji komunikatow wymienianych miedzy obiektami",
+        "zmiane stanu obiektow",
+        "nastepstwo stanow obiektow w sekwencji czasu"
+      ],
+      "c": "B"
+    },
+    {
+      "q": "Diagram opisu interakcji jest: ",
+      "a": [
+        "obrazowaniem kolejnych czynnosci w ciagu kolejnych interakcji",
+        "polaczeniem diagramu interakcji i nastepstw",
+        "obrazowaniem stanow obiektow w sekwencji komunikatow",
+        "polaczeniem diagramu pakietow i komponentow"
+      ],
+      "c": "A"
+    },
+    {
+      "q": "OMG jest organizacja o nazwie: ",
+      "a": [
+        "Object Marketing Group",
+        "Object Management Group",
+        "Object Marketing Goal",
+        "Object Management Global"
+      ],
+      "c": "B"
+    },
+    {
+      "q": "Tworzenie systemow sterowane modelami polega na transformacji kolejno pomiedzy modelami: ",
+      "a": [
+        "matematycznym, logicznym, srodowiskiem",
+        "logicznym, fizycznym, rzeczywistym",
+        "srodowiska, wymagan, systemu, podsystemu",
+        "srodowiska, logicznym, matematycznym,numerycznym"
+      ],
+      "c": "C"
+    },
+    {
+      "q": "Modele w tworzeniu oprogramowania sterowanego modelami stanowia: ",
+      "a": [
+        "zestawy odpowiednich diagramow struktury i dynamiki systemu",
+        "opis rzeczywistego zachowania sie systemu",
+        "opis logicznego zachowania sie systemu",
+        "zestawy odpowiednich funkcjonalnosci systemu"
+      ],
+      "c": "A"
+    },
+    {
+      "q": "Architektura trojwarstwowa dla systemu \"obslugi zamowien\" najczesciej obejmuje podsystemy: ",
+      "a": [
+        "przyjmowania zamowien, wysylania przesylek, obslugi platnosci",
+        "interfejs uzytkownika, wysylanie przesylek, baza danych",
+        "przyjmowanie zamowien, obsluga platnosci, interfejs uzytkownika",
+        "interfejs uzytkownika, reguly biznesowe, baza danych"
+      ],
+      "c": "D"
+    },
+    {
+      "q": "Wzorzec potokow i filtrow bazuje na: ",
+      "a": [
+        "swobodnym dostepie do dowolnych danych",
+        "niezaleznosci podsystemow od strumienia danych",
+        "scislej zaleznosci poszczegolnych podsystemow",
+        "zaleznosci poszczegolnych podsystemow od strumienia danych na stosie"
+      ],
+      "c": "D"
+    },
+    {
+      "q": "Wzorzec architektury obiektowej bazuje na: ",
+      "a": [
+        "zaleznosci poszczegolnych podsystemow od strumienia danych na stosie",
+        "podsystemach zdefiniowanych wokol danych i zwiazanych z nimi funkcji",
+        "scislej zaleznosci poszczegolnych podsystemow",
+        "swobodnym dostepie do dowolnych danych"
+      ],
+      "c": "B"
+    },
+    {
+      "q": "Ktora z ponizszych cech nie jest charakterystyczna dla programowania ekstremalnego: ",
+      "a": [
+        "programowanie w parach",
+        "testy jednostkowe",
+        "podejscie kaskadowe",
+        "bezposrednia wspołpraca z klientem"
+      ],
+      "c": "C"
+    },
+    {
+      "q": "Sformulowanie \"Make it work, make it right, make it fast\" jest charakterystyczne dla: ",
+      "a": [
+        "modelu spiralnego wytwarzania oprogramowania",
+        "programowania ekstremalnego",
+        "modelowania aspektowego",
+        "modelu kaskadowego wytwarzania oprogramowani"
+      ],
+      "c": "B"
+    },
+    {
+      "q": "W inżynierii oprogramowania nakład pracy mierzymy: ",
+      "a": [
+        "czasem niezbędnym do zakończenia budowy systemu informatycznego",
+        "w osobogodzinach pracy",
+        "złożonością postawionego zadania",
+        "wielkością poniesionych kosztów"
+      ],
+      "c": "C"
+    },
+    {
+      "q": "Celem fazy projektowania jest: ",
+      "a": [
+        "transformacja pomiędzy modelami opisowym i wymagań?",
+        "transformacja pomiędzy modelami opisowym i specyfikacji?",
+        "transformacja pomiędzy modelami specjalizacji i numerycznym?",
+        "transformacja pomiędzy modelami numerycznym i cyfrowym?"
+      ],
+      "c": "B"
+    },
+    {
+      "q": "Podejście słownikowe do budowy modelu obiektowego wymaga: ",
+      "a": [
+        "identyfikacji dziedziny słownikowej problemu",
+        "zwyczajowego podejścia do modelu opisowego",
+        "modeli praktycznych zdekomponowanego modelu opisowego",
+        "identyfikacji rzeczowników jako obiektów"
+      ],
+      "c": "D"
+    },
+    {
+      "q": "Budowa systemów informatycznych modelujących wycinek rzeczywistości składa się z dwóch  podstawowych procesów: ",
+      "a": [
+        "kodowania i testowania",
+        "analizy i syntezy",
+        "zbierania wymagań i wdrożenia",
+        "specyfikacji i modelowania"
+      ],
+      "c": "B"
+    },
+    {
+      "q": "Macierz śladu pozwala na: ",
+      "a": [
+        "jednoznaczne odwzorowanie kodu systemu na jego wymagania",
+        "sprawdzenie realizacji wszystkich wymagań przez podsystemy",
+        "właściwy dobór technologii implementacyjnej",
+        "odpowiednią specyfikację wymagań systemu"
+      ],
+      "c": "B"
+    },
+    {
+      "q": "Testy statyczne bazują na: ",
+      "a": [
+        "wynikach testowych uruchomień programu",
+        "analizie dokumentacji",
+        "analizie kodu",
+        "na wynikach testów akceptacji-alfa"
+      ],
+      "c": "C"
+    },
+    {
+      "q": "Klasa jest: ",
+      "a": [
+        "rzeczywistym typem danych",
+        "abstrakcyjnym typem danych",
+        "rozproszonym typem danych",
+        "skupionym typem danych"
+      ],
+      "c": "B"
+    },
+    {
+      "q": "Faza analizy dotyczy następujących etapów cyklu życia oprogramowania; ",
+      "a": [
+        "określenia wymagań, projektowania i kodowania",
+        "specyfikowania, projektowania i kodowania",
+        "projektowania, kodowania i dokumentacji",
+        "określenia wymagań, specyfikacji i projektowania"
+      ],
+      "c": "D"
+    },
+    {
+      "q": "Dekompozycja pozwala na jednoznaczną transformacje pomiędzy: ",
+      "a": [
+        "modelem opisowym a modelem specyfikacji",
+        "modelem specyfikacji a modelem numerycznym",
+        "modelem numerycznym a modelem cyfrowym",
+        "modelowaną rzeczywistością a modelem cyfrowym"
+      ],
+      "c": "A"
+    },
+    {
+      "q": "Model logiczny systemu stanowiący o jego architekturze logicznej jest reprezentowany przez: ",
+      "a": [
+        "model (diagram) wdrożenia",
+        "model (diagram) czynności",
+        "model (diagram) przypadków użycia",
+        "model (diagram) pakietów i komponentów"
+      ],
+      "c": "B"
+    },
+    {
+      "q": "Szacowanie występujące kosztów oprogramowania: ",
+      "a": [
+        "model numeryczny zdekomponowanego systemu",
+        "model statyczny zdekomponowanego systemu",
+        "ocenie kosztów oprogramowania",
+        "dekompozycję oprogramowania do jego elementarnej funkcjonalności i jej wartościowani"
+      ],
+      "c": "C"
+    },
+    {
+      "q": "Model fizyczny systemu stanowiący o jego architekturze fizycznej jest reprezentowany przez: ",
+      "a": [
+        "model (diagram) wdrożenia",
+        "model (diagram) czynności",
+        "model (diagram) przypadków użycia",
+        "model (diagram) pakietów i komponentów"
+      ],
+      "c": "A"
+    },
+    {
+      "q": "Modelowanie strukturalne i modelowanie proceduralne: ",
+      "a": [
+        "to są synonimy tego samego typu wdrożenia",
+        "różnią się podejściem do statyki systemu",
+        "różnią się podejściem do dynamiki systemu",
+        "to są synonimy tego samego typu modelowania"
+      ],
+      "c": "D"
+    },
+    {
+      "q": "Atestowanie jest procesem związanym z: ",
+      "a": [
+        "prowadzeniem procesu testowego przez klienta",
+        "prowadzeniem procesu testowego przez audytora projektu",
+        "prowadzeniem procesu testowego przez użytkowników systemu",
+        "prowadzeniem procesu testowego przez członków zespołu projektowego"
+      ],
+      "c": "A"
+    },
+    {
+      "q": "Obiekt w modelowaniu obiektowym reprezentuje: ",
+      "a": [
+        "rzeczywisty typ danych",
+        "abstrakcyjny typ danych",
+        "hierarchiczny typ danych",
+        "uwarunkowany typ danych"
+      ],
+      "c": "A"
+    },
+    {
+      "q": "Model spiralny Boehma wymaga procesu ewolucyjnego w czterech aspektach poniżej: ",
+      "a": [
+        "planowania, analiza ryzyka, konstrukcja iteracji, atestowanie",
+        "planowanie, projektowanie, konstrukcja iteracji, testowanie",
+        "modelowanie, projektowanie, kodowanie, atestowanie",
+        "modelowanie, kodowanie, testowanie, utrzymanie"
+      ],
+      "c": "A"
+    },
+    {
+      "q": "W której fazie następuje wybór języka programowania wykorzystywanego w fazie kodowania: ",
+      "a": [
+        "w fazie strategicznej",
+        "w fazie określania wymagań",
+        "w fazie implementacji",
+        "w żadnej z powyższych"
+      ],
+      "c": "A"
+    },
+    {
+      "q": "Diagram use case w UML służy do określenia: ",
+      "a": [
+        "użytkowników systemu",
+        "parametrów systemu odpowiedzialnych za poprawne działanie systemu",
+        "jedynie odpowiedzi systemu na sytuacje awaryjne",
+        "scenariuszy funkcjonalności systemu"
+      ],
+      "c": "D"
+    },
+    {
+      "q": "Obiekt jest: ",
+      "a": [
+        "instancja klasy definiowanym przez tożsamość, stan i zachowanie",
+        "instancją klasy definiowanym przez tożsamość, metody i atrybuty",
+        "elementem klasy definiowanym przez atrybuty, stan i metody",
+        "elementem klasy definiowanym przez atrybuty, stan i zachowanie"
+      ],
+      "c": "A"
+    },
+    {
+      "q": "Transformacja od środowiska do kodu obejmuje kolejne modele (wskaż właściwa sekwencje):  ",
+      "a": [
+        "środowisko, model numeryczny, kod, model cyfrowy",
+        "środowisko, model środowiska, model kodu, model cyfrowy",
+        "środowisko, model matematyczny, model numeryczny,kod",
+        "środowisko, opis numeryczny, model kodu, kod"
+      ],
+      "c": "B"
+    },
+    {
+      "q": "Proces  SYNTEZY oprogramowania obejmuje fazy transformacji pomiędzy modelami: ",
+      "a": [
+        "numerycznym a cyfrowym wraz z testowaniem",
+        "specyfikacji a numerycznym wraz z testowaniem",
+        "cyfrowym a wdrożeniem wraz z testowaniem",
+        "opisowym a specyfikacji wraz z testowaniem"
+      ],
+      "c": "C"
+    },
+    {
+      "q": "Który z języków został zaprojektowany do graficznego modelowania systemów obiektowych: ",
+      "a": [
+        "Fortran",
+        "CSL",
+        "C#",
+        "UML"
+      ],
+      "c": "D"
+    },
+    {
+      "q": "Model kaskadowy wytwarzania oprogramowania z rozbudowanym testowaniem wymaga: ",
+      "a": [
+        "wprowadzenia fazy testowania systemu po jego implementacji",
+        "wprowadzenia testowania elementów każdej fazy modelu kaskadowego",
+        "wprowadzenia testowania jedynie zbudowanych modeli numerycznych",
+        "wprowadzenia jedynie szczegółowej analizy opracowanego kodu systemu"
+      ],
+      "c": "B"
+    },
+    {
+      "q": "Proces doboru technologii implementacji odbywa się na etapie: ",
+      "a": [
+        "budowania modelu specyfikacji",
+        "budowania modelu numerycznego",
+        "transformacji modelu numerycznego do modelu cyfrowego",
+        "transformacji systemu do użytkownika"
+      ],
+      "c": "C"
+    },
+    {
+      "q": "Głównym zadaniem fazy projektu jest: ",
+      "a": [
+        "Jasne określenie co? System ma robić",
+        "Stwierdzenie jak duży będzie system",
+        "określenie co? I jak? System ma robić",
+        "Jasne określenie jak? System ma realizować zadania"
+      ],
+      "c": "D"
+    },
+    {
+      "q": "Testy funkcjonalne obejmują: ",
+      "a": [
+        "Testowanie założeń systemu",
+        "Testowanie systemu jako białej skrzynki z pełną interpretacją kolejnych instrukcji",
+        "Testowanie systemu jako czarnej skrzynki o określonej funkcjonalności",
+        "Testowanie poszczególnych metod w klasach"
+      ],
+      "c": "C"
+    },
+    {
+      "q": "UML pozwala na graficzna budowę: ",
+      "a": [
+        "modeli numerycznych zdekomponowanego modelu opisowego",
+        "modeli statycznych zdekomponowanego modelu rzeczywistości",
+        "modeli dynamicznych zdekomponowanego modelu opisowego",
+        "modeli praktycznych zdekomponowanego modelu opisowego"
+      ],
+      "c": "A"
+    },
+    {
+      "q": "Na diagramie UML zwiazek agregacji jest oznaczony: ",
+      "a": [
+        "odcinkiem zakonczonym wypelnionym rombem",
+        "odcinkiem zakonczonym okregiem",
+        "tylko odcinkiem",
+        "odcinkiem zakonczonym pustym rombem"
+      ],
+      "c": "D"
+    },
+    {
+      "q": "Odcinkiem zakonczonym pelnym rombem na diagramie UML oznacza sie: ",
+      "a": [
+        "agergacje",
+        "skojarzenie",
+        "dziedziczenie",
+        "kompozycje"
+      ],
+      "c": "D"
+    },
+    {
+      "q": "W opisie przypadku uzycia wyzwalacz to: ",
+      "a": [
+        "Zdarzenie powodujace rozpoczecie przypadku uzycia",
+        "Warunki spelnione po pomyslnym wykonaniu glównego scenariusza przypadku uzycia",
+        "zdarzenie powodujace zakonczenie przypadku uzycia",
+        "warunki które muszą byc spelnione przed wykonaniem przypadku uzycia"
+      ],
+      "c": "A"
+    },
+    {
+      "q": "Na diagramie klas UML oznaczenia widocznosci pól +,#,- oznaczaja kolejno: ",
+      "a": [
+        "private, protected, static",
+        "public, private, protected",
+        "public, abstract, protected",
+        "public, protected, private"
+      ],
+      "c": "D"
+    },
+    {
+      "q": " Metoda abstrakcyjna jest to: ",
+      "a": [
+        "metoda nie posiadająca implementacji",
+        "metoda dziedziczona z klasy abstrakcyjnej",
+        "metoda niewidoczna dla innych klas",
+        "nie istnieje takie pojecie"
+      ],
+      "c": "A"
+    },
+    {
+      "q": "Pola oznaczone znaczkiem widocznosci #: ",
+      "a": [
+        "są widoczne tylko w ramach jednej klasy",
+        "są widoczne tylko w ramach klasy i klas pochodnych",
+        "są widoczne wszedzie",
+        "są niewidoczne"
+      ],
+      "c": "B"
+    },
+    {
+      "q": "Na diagramie UML przypadków uzycia są nastepujące elementy: ",
+      "a": [
+        "aktorzy, przypadki uzycia, klasy",
+        "przypadki uzycia, relacjie, obiekty",
+        "aktorzy, przypadki uzycia, relacje",
+        "relacje, aktorzy, punkty zwrotne"
+      ],
+      "c": "C"
+    },
+    {
+      "q": "Klase abstrakcyjną na diagramie UML oznacza sie poprzez: ",
+      "a": [
+        "podkreslenie",
+        "czcionke pochyłą",
+        "pogrubienie",
+        "dodanie slówka abstract"
+      ],
+      "c": "B"
+    },
+    {
+      "q": "Związek uogólnienia na diagramach UML oznacza sie: ",
+      "a": [
+        "odcinkiem zakonczonym trójkątem wskazującym klase nadrzedną",
+        "odcinkiem zakonczonym trójkątem wskazującym klase podrzedna",
+        "odcinkiem zakonczonym rombem wskazującym klase nadrzedną",
+        "odcinkiem zakonczonym rombem wskazującym klase podrzedną"
+      ],
+      "c": "A"
+    },
+    {
+      "q": "Przypadki uzycia na diagramach UML oznacza sie jako: ",
+      "a": [
+        "prostokaty",
+        "romby",
+        "owale",
+        "trapezy"
+      ],
+      "c": "C"
+    },
+    {
+      "q": "Aktorów na diagramie UML oznacza sie jako: ",
+      "a": [
+        "wypelniony kwadrat",
+        "wypelniony okrag",
+        "schematyczna postac",
+        "schematyczna glowe"
+      ],
+      "c": "C"
+    },
+    {
+      "q": "Gwarancje powodzenia przypadków uzycia to: ",
+      "a": [
+        "warunki spelnione po pomyślnym wykonaniu scenariusza powodzenia",
+        "warunki spelnione po uruchomieniu przypadku uzycia",
+        "warunki jakie zapewnia system by przypadek zakonczyl sie powodzeniem",
+        "warunki poczatkowe, wymagany by przypadek mógl sie rozpoczac"
+      ],
+      "c": "A"
+    },
+    {
+      "q": "Co to jest diagram DFD?: ",
+      "a": [
+        "diagram struktury bazy danych",
+        "diagram opisujacy strukture klas",
+        "diagram przepływu danych",
+        "diagram przypadków uzycia"
+      ],
+      "c": "C"
+    },
+    {
+      "q": "Czy wymagania dla systemu powinny być poddane analizę w FAZIE KODOWANIA: ",
+      "a": [
+        "Nie",
+        "Tak",
+        "Czasami",
+        "Nie wiem"
+      ],
+      "c": "A"
+    },
+    {
+      "q": "Co to COCOMO: ",
+      "a": [
+        "Model szacowania liczby osobogodzin w procesie tworzenia oprogamowania",
+        "Wokie",
+        "Tokie",
+        "Lokie"
+      ],
+      "c": "A"
+    },
+    {
+      "q": "Co to KDSI: ",
+      "a": [
+        "Szacowana liczba linii kodu",
+        "Uana",
+        "Ih",
+        "Ma"
+      ],
+      "c": "A"
+    }
+  ]
+}

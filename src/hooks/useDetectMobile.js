@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { checkIsMobile } from '../utils/breakpoints';
+import { checkIsMobile } from 'utils/breakpoints';
 
 const useDetectMobile = () => {
     const [isMobile, setIsMobile] = useState(true);

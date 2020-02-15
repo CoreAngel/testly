@@ -3,51 +3,52 @@ import { createSlice } from '@reduxjs/toolkit';
 const testSlice = createSlice({
     name: 'test',
     initialState: {
-        currentIndex: 0,
-        questions: [],
+        name: '',
+        key: '',
+        list: [],
+        index: 0,
     },
     reducers: {
         setTest: (state, action) => ({
-            ...state,
-            currentIndex: 0,
-            questions: [...action.payload],
+            ...action.payload,
+            index: 0,
         }),
         nextQuestion: state => {
-            const { currentIndex, questions } = state;
+            const { index, list } = state;
 
-            if (currentIndex + 1 >= questions.length) {
+            if (index + 1 >= list.length) {
                 return state;
             }
 
             return {
                 ...state,
-                currentIndex: currentIndex + 1,
+                index: index + 1,
             };
         },
         prevQuestion: state => {
-            const { currentIndex } = state;
+            const { index } = state;
 
-            if (currentIndex - 1 < 0) {
+            if (index - 1 < 0) {
                 return state;
             }
 
             return {
                 ...state,
-                currentIndex: currentIndex - 1,
+                index: index - 1,
             };
         },
         addFail: state => {
-            const { questions, currentIndex } = state;
+            const { list, index } = state;
 
-            const copyQuestions = [...questions];
-            copyQuestions.splice(currentIndex, 1, {
-                ...copyQuestions[currentIndex],
-                fails: copyQuestions[currentIndex].fails + 1,
+            const copyList = [...list];
+            copyList.splice(index, 1, {
+                ...copyList[index],
+                fails: copyList[index].fails + 1,
             });
 
             return {
                 ...state,
-                questions: copyQuestions,
+                list: copyList,
             };
         },
     },

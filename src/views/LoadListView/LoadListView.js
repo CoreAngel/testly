@@ -5,19 +5,19 @@ import { loaderItems } from 'static/loader';
 import fetchFile from 'utils/fetchFile';
 import LoadList from 'components/LoadList';
 import useHistoryPush from 'hooks/useHistoryPush';
-import { setQuestions } from 'redux/questionsReducer';
+import { setList } from 'redux/listReducer';
 import { routes } from 'static/routes';
 import BackButton from 'components/BackButton';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Container, Header, HeaderText, BackButtonWrapper } from './LoadListView.style';
 
-const LoadListView = ({ setQuestionsAction }) => {
+const LoadListView = ({ setListAction }) => {
     const pushToList = useHistoryPush(routes.List);
 
     const loadGlobal = id => {
         fetchFile(id).then(data => {
-            setQuestionsAction(data);
+            setListAction(data);
             pushToList();
         });
     };
@@ -37,11 +37,11 @@ const LoadListView = ({ setQuestionsAction }) => {
 };
 
 LoadListView.propTypes = {
-    setQuestionsAction: PropTypes.func.isRequired,
+    setListAction: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = {
-    setQuestionsAction: setQuestions,
+    setListAction: setList,
 };
 
 export default connect(null, mapDispatchToProps)(LoadListView);

@@ -1,14 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import Question from 'components/Question/Question';
+import { testProps } from 'utils/propTypes';
 import { FailsContainer } from './ResultView.style';
 
-const ResultView = ({ questions }) => {
-    const failedQuestions = questions.filter(item => item.fails > 0).sort((i1, i2) => i1.index - i2.index);
+const ResultView = ({ test: { list } }) => {
+    const failedQuestions = list.filter(item => item.fails > 0).sort((i1, i2) => i1.index - i2.index);
 
     const failedCounter = failedQuestions.length;
-    const questionNumber = questions.length;
+    const questionNumber = list.length;
 
     return (
         <>
@@ -30,19 +30,11 @@ const ResultView = ({ questions }) => {
 };
 
 ResultView.propTypes = {
-    questions: PropTypes.arrayOf(
-        PropTypes.shape({
-            index: PropTypes.number.isRequired,
-            q: PropTypes.string.isRequired,
-            a: PropTypes.arrayOf(PropTypes.string).isRequired,
-            c: PropTypes.number.isRequired,
-            fails: PropTypes.number.isRequired,
-        }),
-    ).isRequired,
+    test: testProps.isRequired,
 };
 
-const mapStateToProps = ({ test: { questions } }) => ({
-    questions,
+const mapStateToProps = ({ test }) => ({
+    test,
 });
 
 export default connect(mapStateToProps)(ResultView);

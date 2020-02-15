@@ -7,23 +7,26 @@ import { setTest } from 'redux/testReducer';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import useHistoryPush from 'hooks/useHistoryPush';
-import { runTypes } from 'static/run';
+import { listProps, optionProps } from 'utils/propTypes';
 import { prepareTest } from './PrepareTestService';
 import { Wrapper, Container, LinkStyled, LinkText, RunButton, Error } from './ListNavigation.style';
 
-const ListNavigation = ({ questions, setTestAction, options }) => {
+const ListNavigation = ({ list, setTestAction, options }) => {
     const [error, setError] = useState('');
     const pushToTest = useHistoryPush(routes.Test);
 
     const runTest = () => {
-        if (questions.length === 0) {
+        if (list.list.length === 0) {
             setError('Create or load test before run!');
             return;
         }
 
         setError('');
-        const preparedQuestions = prepareTest(questions, options);
-        setTestAction(preparedQuestions);
+        const preparedList = prepareTest(list.list, options);
+        setTestAction({
+            ...list,
+            list: preparedList,
+        });
         pushToTest();
     };
 
@@ -53,23 +56,13 @@ const ListNavigation = ({ questions, setTestAction, options }) => {
 };
 
 ListNavigation.propTypes = {
-    questions: PropTypes.arrayOf(
-        PropTypes.shape({
-            index: PropTypes.number.isRequired,
-            q: PropTypes.string.isRequired,
-            a: PropTypes.arrayOf(PropTypes.string).isRequired,
-            c: PropTypes.number.isRequired,
-        }),
-    ).isRequired,
+    list: listProps.isRequired,
     setTestAction: PropTypes.func.isRequired,
-    options: PropTypes.shape({
-        questions: PropTypes.oneOf([runTypes.RANDOM, runTypes.ORDERED]).isRequired,
-        answers: PropTypes.oneOf([runTypes.RANDOM, runTypes.ORDERED]).isRequired,
-    }).isRequired,
+    options: optionProps.isRequired,
 };
 
-const mapStateToProps = ({ questions, options }) => ({
-    questions,
+const mapStateToProps = ({ list, options }) => ({
+    list,
     options,
 });
 

@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import { NavItem, NavLink, NavList, NavSpan } from './MenuList.style';
 
 const MenuList = ({ isMobile, isOpen, setIsOpen }) => {
-    const isTestEmpty = useSelector(({ test: { questions } }) => questions.length === 0);
+    const isTestEmpty = useSelector(({ test: { list } }) => list.length === 0);
     const routesToDisableWhenTestEmpty = [routes.Test, routes.Result];
 
     return (

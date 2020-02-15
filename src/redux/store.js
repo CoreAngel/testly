@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import questionsReducer from './questionsReducer';
+import listReducer from './listReducer';
 import testReducer from './testReducer';
 import optionsReducer from './optionsReducer';
 
 const store = configureStore({
     reducer: {
-        questions: questionsReducer,
+        list: listReducer,
         test: testReducer,
         options: optionsReducer,
     },
