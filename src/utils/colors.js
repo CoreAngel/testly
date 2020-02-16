@@ -6,6 +6,7 @@ export const colors = {
     Secondary: '#1a24e7',
     Green: '#178005',
     Red: '#d9000d',
+    Yellow: '#d9d70a',
     Dark: '#1a1a1a',
     Backdrop: 'rgba(0, 0, 0, 0.3)',
 };

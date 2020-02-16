@@ -1,21 +1,26 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { nextQuestion, addFail } from 'redux/testReducer';
+import { nextQuestion, setFail } from 'redux/testReducer';
 import keyCodes from 'utils/keyCodes';
 import { testProps } from 'utils/propTypes';
+import { answerType } from 'static/list';
 import TestViewUi from './TestViewUi';
 
-const TestViewService = ({ test, index, nextQuestionAction, addFailAction }) => {
-    const { q, a, c } = test.list[index];
+const TestViewService = ({ test, index, nextQuestionAction, setFailAction }) => {
+    const { q, a } = test.list[index];
 
     const checkAnswer = ind => {
-        if (c === ind) {
-            if (index + 1 < test.list.length) {
-                nextQuestionAction();
-            }
+        const isInAnswersRange = ind < a.length;
+        const isInQuestionsRange = index < test.list.length;
+        if (!isInAnswersRange || !isInQuestionsRange) return;
+
+        const isCorrect = a[ind].c === answerType.Correct;
+        const isNonSure = a[ind].c === answerType.NotSure;
+        if (isCorrect || isNonSure) {
+            nextQuestionAction();
         } else {
-            addFailAction(index);
+            setFailAction(ind);
         }
     };
 
@@ -55,7 +60,7 @@ TestViewService.propTypes = {
     test: testProps.isRequired,
     index: PropTypes.number.isRequired,
     nextQuestionAction: PropTypes.func.isRequired,
-    addFailAction: PropTypes.func.isRequired,
+    setFailAction: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = ({ test }) => ({
@@ -65,7 +70,7 @@ const mapStateToProps = ({ test }) => ({
 
 const mapDispatchToProps = {
     nextQuestionAction: nextQuestion,
-    addFailAction: addFail,
+    setFailAction: setFail,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TestViewService);

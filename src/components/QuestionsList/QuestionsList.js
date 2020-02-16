@@ -24,8 +24,8 @@ const QuestionsList = ({ questions }) => {
                 />
             </SearchContainer>
             <div>
-                {searchedQuestions.map(({ index, q, a, c }) => (
-                    <Question key={index} number={index + 1} question={q} answers={a} correct={c} />
+                {searchedQuestions.map(({ id, q, a }) => (
+                    <Question key={id} number={id + 1} question={q} answers={a} />
                 ))}
             </div>
         </>

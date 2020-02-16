@@ -5,6 +5,7 @@ const testSlice = createSlice({
     initialState: {
         name: '',
         key: '',
+        type: '',
         list: [],
         index: 0,
     },
@@ -37,13 +38,27 @@ const testSlice = createSlice({
                 index: index - 1,
             };
         },
-        addFail: state => {
+        setFail: (state, action) => {
             const { list, index } = state;
+            const { payload: selectedAnswerIndex } = action;
 
             const copyList = [...list];
+            const copyQuestion = { ...copyList[index] };
+            const copyAnswers = [...copyQuestion.a];
+
+            copyAnswers.splice(selectedAnswerIndex, 1, {
+                ...copyAnswers[selectedAnswerIndex],
+                s: true,
+            });
+
+            const finalQuestion = {
+                ...copyQuestion,
+                a: copyAnswers,
+            };
+
             copyList.splice(index, 1, {
-                ...copyList[index],
-                fails: copyList[index].fails + 1,
+                ...finalQuestion,
+                f: true,
             });
 
             return {
@@ -55,6 +70,6 @@ const testSlice = createSlice({
 });
 
 const { actions, reducer } = testSlice;
-const { setTest, nextQuestion, prevQuestion, addFail } = actions;
-export { setTest, nextQuestion, prevQuestion, addFail };
+const { setTest, nextQuestion, prevQuestion, setFail } = actions;
+export { setTest, nextQuestion, prevQuestion, setFail };
 export default reducer;

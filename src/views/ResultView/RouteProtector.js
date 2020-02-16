@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { routes } from 'static/routes';
@@ -7,13 +7,19 @@ import ResultView from './ResultView';
 
 const RouteProtector = ({ list }) => {
     const history = useHistory();
+    let replacePath = null;
 
     if (list.length === 0) {
-        history.replace(routes.Test);
-        return null;
+        replacePath = routes.Test;
     }
 
-    return <ResultView />;
+    useEffect(() => {
+        if (replacePath) {
+            history.replace(replacePath);
+        }
+    }, [replacePath, history]);
+
+    return replacePath ? null : <ResultView />;
 };
 
 RouteProtector.propTypes = {

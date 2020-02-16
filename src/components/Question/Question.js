@@ -1,32 +1,39 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { answerType } from 'static/list';
+import { answerProp } from 'utils/propTypes';
 import { Answer, AnswersList, QuestionContainer, QuestionText } from './Question.style';
 
-const Question = ({ number, question, answers, correct }) => {
+const Question = ({ number, question, answers, showCorrect }) => {
     return (
         <QuestionContainer>
             <QuestionText>{`${number}. ${question}`}</QuestionText>
             <AnswersList>
-                {answers.map((item, index) => (
-                    // eslint-disable-next-line react/no-array-index-key
-                    <Answer correct={index === correct} key={index}>
-                        {item}
-                    </Answer>
-                ))}
+                {answers.map(({ i, c }, index) => {
+                    const isCorrect = showCorrect && c === answerType.Correct;
+                    const isNotSure = showCorrect && c === answerType.NotSure;
+
+                    return (
+                        // eslint-disable-next-line react/no-array-index-key
+                        <Answer correct={isCorrect} notSure={isNotSure} key={index}>
+                            {i}
+                        </Answer>
+                    );
+                })}
             </AnswersList>
         </QuestionContainer>
     );
 };
 
 Question.propTypes = {
+    showCorrect: PropTypes.bool,
     number: PropTypes.number.isRequired,
     question: PropTypes.string.isRequired,
-    answers: PropTypes.arrayOf(PropTypes.string).isRequired,
-    correct: PropTypes.number,
+    answers: PropTypes.arrayOf(answerProp).isRequired,
 };
 
 Question.defaultProps = {
-    correct: null,
+    showCorrect: true,
 };
 
 export default Question;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -8,18 +8,23 @@ import TestPanel from './TestViewService';
 
 const RouteProtector = ({ list, index }) => {
     const history = useHistory();
+    let replacePath = null;
 
     if (list.length === 0) {
-        history.replace(routes.Home);
-        return null;
+        replacePath = routes.Home;
     }
 
-    if (index === list.length - 1) {
-        history.replace(routes.Result);
-        return null;
+    if (index + 1 === list.length) {
+        replacePath = routes.Result;
     }
 
-    return <TestPanel />;
+    useEffect(() => {
+        if (replacePath) {
+            history.replace(replacePath);
+        }
+    }, [replacePath, history]);
+
+    return replacePath ? null : <TestPanel />;
 };
 
 RouteProtector.propTypes = {

@@ -15,16 +15,18 @@ const MenuList = ({ isMobile, isOpen, setIsOpen }) => {
             {navigationItems.map(item => {
                 const { id, label, icon, path } = item;
                 const isRouteDisabled = isTestEmpty && routesToDisableWhenTestEmpty.some(elem => elem === path) ? 1 : 0;
+                const onClick = e => {
+                    if (isRouteDisabled) {
+                        e.preventDefault();
+                    }
+                    if (isMobile) {
+                        setIsOpen(false);
+                    }
+                };
 
                 return (
                     <NavItem key={id}>
-                        <NavLink
-                            onClick={isMobile ? () => setIsOpen(false) : null}
-                            tabIndex={isOpen ? 0 : -1}
-                            disable={isRouteDisabled}
-                            to={path}
-                            exact
-                        >
+                        <NavLink onClick={onClick} tabIndex={isOpen ? 0 : -1} disable={isRouteDisabled} to={path} exact>
                             <IconStyled size={20} icon={icon} />
                             <NavSpan>{label}</NavSpan>
                         </NavLink>

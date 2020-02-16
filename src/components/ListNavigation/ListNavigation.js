@@ -16,7 +16,7 @@ const ListNavigation = ({ list, setTestAction, options }) => {
     const pushToTest = useHistoryPush(routes.Test);
 
     const runTest = () => {
-        if (list.list.length === 0) {
+        if (list === null) {
             setError('Create or load test before run!');
             return;
         }
@@ -56,13 +56,17 @@ const ListNavigation = ({ list, setTestAction, options }) => {
 };
 
 ListNavigation.propTypes = {
-    list: listProps.isRequired,
+    list: listProps,
     setTestAction: PropTypes.func.isRequired,
     options: optionProps.isRequired,
 };
 
+ListNavigation.defaultProps = {
+    list: null,
+};
+
 const mapStateToProps = ({ list, options }) => ({
-    list,
+    list: list.list.length > 0 ? list : null,
     options,
 });
 

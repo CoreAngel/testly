@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import keyCodes from 'utils/keyCodes';
 import { ButtonContainer, ButtonWithMargin } from './ButtonAnswers.style';
 
-const ButtonAnswers = ({ answers, onClick }) => {
+const ButtonAnswers = ({ numberOfQuestions, onClick }) => {
     return (
         <ButtonContainer>
-            {answers.map((item, index) => (
+            {[...Array(numberOfQuestions)].map((_, index) => (
                 // eslint-disable-next-line react/no-array-index-key
                 <ButtonWithMargin data-index={index} key={index} color="primary" onClick={onClick}>
                     {String.fromCharCode(keyCodes.A + index)}
@@ -17,7 +17,7 @@ const ButtonAnswers = ({ answers, onClick }) => {
 };
 
 ButtonAnswers.propTypes = {
-    answers: PropTypes.arrayOf(PropTypes.string).isRequired,
+    numberOfQuestions: PropTypes.number.isRequired,
     onClick: PropTypes.func.isRequired,
 };
 

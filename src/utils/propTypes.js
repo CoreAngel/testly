@@ -1,39 +1,50 @@
-import PropTypes from 'prop-types';
+import { arrayOf, string, number, shape, oneOf, bool } from 'prop-types';
 import { runTypes } from 'static/run';
+import { answerType, testType } from 'static/list';
 
-export const listQuestionListProps = PropTypes.arrayOf(
-    PropTypes.shape({
-        index: PropTypes.number.isRequired,
-        q: PropTypes.string.isRequired,
-        a: PropTypes.arrayOf(PropTypes.string).isRequired,
-        c: PropTypes.number.isRequired,
+export const answerProp = shape({
+    i: string.isRequired,
+    c: oneOf([answerType.Correct, answerType.NotSure]),
+    s: bool,
+});
+
+export const typeListProp = oneOf([testType.Single, testType.Multi]);
+
+export const listQuestionListProps = arrayOf(
+    shape({
+        id: number.isRequired,
+        q: string.isRequired,
+        a: arrayOf(answerProp).isRequired,
     }),
 );
 
-export const listProps = PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    key: PropTypes.string.isRequired,
+export const listProps = shape({
+    name: string.isRequired,
+    key: string.isRequired,
+    type: typeListProp.isRequired,
     list: listQuestionListProps.isRequired,
 });
 
-export const testQuestionListProps = PropTypes.arrayOf(
-    PropTypes.shape({
-        index: PropTypes.number.isRequired,
-        q: PropTypes.string.isRequired,
-        a: PropTypes.arrayOf(PropTypes.string).isRequired,
-        c: PropTypes.number.isRequired,
+export const testQuestionListProps = arrayOf(
+    shape({
+        id: number.isRequired,
+        q: string.isRequired,
+        a: arrayOf(answerProp).isRequired,
+        f: bool,
     }),
 );
 
-export const testProps = PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    key: PropTypes.string.isRequired,
+export const testProps = shape({
+    name: string.isRequired,
+    key: string.isRequired,
+    type: typeListProp.isRequired,
     list: testQuestionListProps.isRequired,
+    index: number.isRequired,
 });
 
-export const optionOrderProps = PropTypes.oneOf([runTypes.RANDOM, runTypes.ORDERED]);
+export const optionOrderProps = oneOf([runTypes.RANDOM, runTypes.ORDERED]);
 
-export const optionProps = PropTypes.shape({
+export const optionProps = shape({
     questions: optionOrderProps.isRequired,
     answers: optionOrderProps.isRequired,
 });

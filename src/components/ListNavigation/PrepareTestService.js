@@ -10,39 +10,14 @@ const prepareQuestions = (testQuestions, runType) => {
 };
 
 const prepareAnswers = (testQuestions, runType) => {
-    if (runType !== runTypes.ORDERED) {
+    if (runType !== runTypes.RANDOM) {
         return testQuestions.map(item => ({
             ...item,
-            fails: 0,
+            a: shuffle(item.a),
         }));
     }
 
-    return testQuestions
-        .map(item => {
-            const { a, c } = item;
-            return {
-                ...item,
-                a: a.map((aItem, aIndex) => ({
-                    a: aItem,
-                    c: aIndex === c,
-                })),
-                fails: 0,
-            };
-        })
-        .map(item => {
-            return {
-                ...item,
-                a: shuffle(item.a),
-            };
-        })
-        .map(item => {
-            const aCorrectIndex = item.a.findIndex(aItem => aItem.c);
-            return {
-                ...item,
-                a: item.a.map(aItem => aItem.a),
-                c: aCorrectIndex,
-            };
-        });
+    return testQuestions;
 };
 
 export const prepareTest = (testQuestions, options) => {

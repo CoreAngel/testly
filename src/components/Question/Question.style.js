@@ -15,4 +15,5 @@ export const AnswersList = styled.ul`
 
 export const Answer = styled.li`
     ${({ correct }) => correct && `background-color: ${colors.Green}`};
+    ${({ notSure }) => notSure && `background-color: ${colors.Yellow}`};
 `;

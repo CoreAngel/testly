@@ -17,8 +17,6 @@ ListView.propTypes = {
     list: listQuestionListProps.isRequired,
 };
 
-const mapStateToProps = ({ list: { list } }) => ({
-    list,
-});
+const mapStateToProps = ({ list: { list } }) => ({ list });
 
 export default connect(mapStateToProps)(ListView);
