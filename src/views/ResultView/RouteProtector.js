@@ -1,15 +1,14 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { routes } from 'static/routes';
-import { testQuestionListProps } from 'utils/propTypes';
-import ResultView from './ResultView';
+import PropTypes from 'prop-types';
 
-const RouteProtector = ({ list }) => {
+const RouteProtector = ({ children, listLength }) => {
     const history = useHistory();
     let replacePath = null;
 
-    if (list.length === 0) {
+    if (listLength === 0) {
         replacePath = routes.Test;
     }
 
@@ -19,15 +18,16 @@ const RouteProtector = ({ list }) => {
         }
     }, [replacePath, history]);
 
-    return replacePath ? null : <ResultView />;
+    return replacePath ? null : children;
 };
 
 RouteProtector.propTypes = {
-    list: testQuestionListProps.isRequired,
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
+    listLength: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = ({ test: { list } }) => ({
-    list,
+    listLength: list.length,
 });
 
 export default connect(mapStateToProps)(RouteProtector);

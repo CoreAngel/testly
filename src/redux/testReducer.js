@@ -26,21 +26,9 @@ const testSlice = createSlice({
                 index: index + 1,
             };
         },
-        prevQuestion: state => {
-            const { index } = state;
-
-            if (index - 1 < 0) {
-                return state;
-            }
-
-            return {
-                ...state,
-                index: index - 1,
-            };
-        },
-        setFail: (state, action) => {
+        setSelected: (state, action) => {
             const { list, index } = state;
-            const { payload: selectedAnswerIndex } = action;
+            const { index: selectedAnswerIndex, fail } = action.payload;
 
             const copyList = [...list];
             const copyQuestion = { ...copyList[index] };
@@ -56,10 +44,16 @@ const testSlice = createSlice({
                 a: copyAnswers,
             };
 
-            copyList.splice(index, 1, {
-                ...finalQuestion,
-                f: true,
-            });
+            if (fail) {
+                copyList.splice(index, 1, {
+                    ...finalQuestion,
+                    f: true,
+                });
+            } else {
+                copyList.splice(index, 1, {
+                    ...finalQuestion,
+                });
+            }
 
             return {
                 ...state,
@@ -70,6 +64,6 @@ const testSlice = createSlice({
 });
 
 const { actions, reducer } = testSlice;
-const { setTest, nextQuestion, prevQuestion, setFail } = actions;
-export { setTest, nextQuestion, prevQuestion, setFail };
+const { setTest, nextQuestion, setSelected } = actions;
+export { setTest, nextQuestion, setSelected };
 export default reducer;

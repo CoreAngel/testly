@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { colors } from 'utils/colors';
-import { maxBreakpoints } from '../../utils/breakpoints';
+import { maxBreakpoints } from 'utils/breakpoints';
 
 export const Container = styled.div`
     display: flex;
