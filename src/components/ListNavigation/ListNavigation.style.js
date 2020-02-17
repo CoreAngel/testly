@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { colors } from 'utils/colors';
+import { maxBreakpoints } from '../../utils/breakpoints';
 
 export const Container = styled.div`
     display: flex;
@@ -43,4 +44,56 @@ export const Error = styled.p`
     font-size: 1.4rem;
     padding: 5px 10px;
     margin: 5px;
+`;
+
+export const DesktopContainer = styled.div`
+    display: flex;
+    align-items: center;
+
+    @media screen and (max-width: ${maxBreakpoints.mobile}px) {
+        display: none;
+    }
+`;
+
+export const MobileContainer = styled.div`
+    display: none;
+
+    @media screen and (max-width: ${maxBreakpoints.mobile}px) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 10px 15px 10px;
+    }
+`;
+
+export const ListIdentificationContainer = styled.div`
+    margin-left: 15px;
+
+    @media screen and (max-width: ${maxBreakpoints.mobile}px) {
+        margin-left: 0;
+    }
+`;
+
+export const RunOptionsContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (max-width: ${maxBreakpoints.mobile}px) {
+        margin-left: auto;
+    }
+`;
+
+export const ListName = styled.p`
+    margin: 0;
+    font-size: 1.8rem;
+`;
+
+export const ListKey = styled.p`
+    margin: 0;
+    font-size: 1.2rem;
+`;
+
+export const RunOption = styled.span`
+    margin: 0;
+    font-size: 1.2rem;
 `;

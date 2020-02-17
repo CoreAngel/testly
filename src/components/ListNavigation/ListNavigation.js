@@ -9,7 +9,21 @@ import PropTypes from 'prop-types';
 import useHistoryPush from 'hooks/useHistoryPush';
 import { listProps, optionProps } from 'utils/propTypes';
 import { prepareTest } from './PrepareTestService';
-import { Wrapper, Container, LinkStyled, LinkText, RunButton, Error } from './ListNavigation.style';
+import {
+    Wrapper,
+    Container,
+    LinkStyled,
+    LinkText,
+    RunButton,
+    Error,
+    DesktopContainer,
+    ListIdentificationContainer,
+    ListKey,
+    ListName,
+    RunOption,
+    RunOptionsContainer,
+    MobileContainer,
+} from './ListNavigation.style';
 
 const ListNavigation = ({ list, setTestAction, options }) => {
     const [error, setError] = useState('');
@@ -32,6 +46,18 @@ const ListNavigation = ({ list, setTestAction, options }) => {
 
     return (
         <>
+            <MobileContainer>
+                {list !== null ? (
+                    <ListIdentificationContainer>
+                        <ListName>{list.name}</ListName>
+                        <ListKey>({list.key})</ListKey>
+                    </ListIdentificationContainer>
+                ) : null}
+                <RunOptionsContainer>
+                    <RunOption>Q - {options.questions}</RunOption>
+                    <RunOption>A - {options.answers}</RunOption>
+                </RunOptionsContainer>
+            </MobileContainer>
             <Container>
                 <Wrapper>
                     <LinkStyled to={routes.Home}>
@@ -42,8 +68,22 @@ const ListNavigation = ({ list, setTestAction, options }) => {
                         <IconStyled icon={inboxIn} size={32} />
                         <LinkText>Load</LinkText>
                     </LinkStyled>
+                    <DesktopContainer>
+                        {list !== null ? (
+                            <ListIdentificationContainer>
+                                <ListName>{list.name}</ListName>
+                                <ListKey>({list.key})</ListKey>
+                            </ListIdentificationContainer>
+                        ) : null}
+                    </DesktopContainer>
                 </Wrapper>
                 <Wrapper>
+                    <DesktopContainer>
+                        <RunOptionsContainer>
+                            <RunOption>Q - {options.questions}</RunOption>
+                            <RunOption>A - {options.answers}</RunOption>
+                        </RunOptionsContainer>
+                    </DesktopContainer>
                     <RunButton onClick={runTest}>
                         <IconStyled icon={play} size={32} />
                         <LinkText>Run</LinkText>
