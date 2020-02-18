@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { testProps } from 'utils/propTypes';
+import { MainContainer } from 'utils/style';
 import TestHeader from 'components/TestHeader';
 import Answers from 'components/Answers';
 import { nextQuestion } from 'redux/testReducer';
@@ -21,15 +22,17 @@ const TestView = ({ test: { index, name, key, list }, nextQuestionAction }) => {
 
     return (
         <>
-            <TestHeader
-                index={index}
-                position={position}
-                setPosition={setPosition}
-                listLength={list.length}
-                testKey={key}
-                name={name}
-            />
-            <TestQuestion>{q}</TestQuestion>
+            <MainContainer>
+                <TestHeader
+                    index={index}
+                    position={position}
+                    setPosition={setPosition}
+                    listLength={list.length}
+                    testKey={key}
+                    name={name}
+                />
+                <TestQuestion>{q}</TestQuestion>
+            </MainContainer>
             <Answers answers={a} index={index} position={position} nextQuestion={nextQuestionAction} />
         </>
     );

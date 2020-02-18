@@ -21,4 +21,23 @@ export const getIndexFromKeyCode = keyCode => {
     return null;
 };
 
+export const getCharFromIndex = index => {
+    if (index < 0) return '';
+
+    let chars = '';
+    let ind = index;
+
+    const numberOfChars = KeyCodes.z - KeyCodes.a + 1;
+    do {
+        const n = ind % numberOfChars;
+        chars += String.fromCharCode(KeyCodes.a + n);
+        ind = Math.floor(ind / numberOfChars) - 1;
+    } while (ind >= 0);
+
+    return chars
+        .split('')
+        .reverse()
+        .join('');
+};
+
 export default KeyCodes;

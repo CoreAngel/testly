@@ -2,17 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { answerProp } from 'utils/propTypes';
 import { answerType } from 'static/list';
-import keyCodes from 'utils/keyCodes';
+import keyCodes, { getCharFromIndex } from 'utils/keyCodes';
+import { MainContainer } from 'utils/style';
 import { Answer, AnswersList, ButtonsContainer, StyledButton } from './Buttons.style';
 
 const Buttons = ({ answers, active, animationTime, checkAnswer }) => {
     return (
-        <>
+        <MainContainer>
             <AnswersList>
                 {answers.map(({ i, c, s }, ind) => {
                     const isCorrect = c === answerType.Correct;
                     const isNotSure = c === answerType.NotSure;
                     const isSelected = s === true;
+                    const itemIndicator = getCharFromIndex(ind);
 
                     return (
                         <Answer
@@ -26,7 +28,7 @@ const Buttons = ({ answers, active, animationTime, checkAnswer }) => {
                             isActive={active}
                             animationTime={animationTime}
                         >
-                            {i}
+                            {`${itemIndicator}) ${i}`}
                         </Answer>
                     );
                 })}
@@ -39,7 +41,7 @@ const Buttons = ({ answers, active, animationTime, checkAnswer }) => {
                     </StyledButton>
                 ))}
             </ButtonsContainer>
-        </>
+        </MainContainer>
     );
 };
 

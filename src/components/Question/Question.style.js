@@ -10,7 +10,8 @@ export const QuestionText = styled.p`
 `;
 
 export const AnswersList = styled.ul`
-    list-style-type: lower-alpha;
+    list-style-type: none;
+    padding-left: 15px;
 `;
 
 export const Answer = styled.li`

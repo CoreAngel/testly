@@ -21,3 +21,16 @@ export const IconStyled = styled(Icon).attrs({
     align-items: center;
     justify-content: center;
 `;
+
+export const MainContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    max-width: 900px;
+    width: 100%;
+`;
+
+export const MainFluidContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+`;

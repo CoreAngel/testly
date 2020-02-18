@@ -1,7 +1,12 @@
 import React from 'react';
+import { MainContainer } from 'utils/style';
 
 const HomeView = () => {
-    return <p>Choose questions...</p>;
+    return (
+        <MainContainer>
+            <p>Main view</p>
+        </MainContainer>
+    );
 };
 
 export default HomeView;

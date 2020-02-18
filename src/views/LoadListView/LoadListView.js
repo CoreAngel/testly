@@ -1,6 +1,6 @@
 import React from 'react';
 import { inbox_in as inboxIn } from 'react-icons-kit/ikons/inbox_in';
-import { IconStyled } from 'utils/style';
+import { IconStyled, MainContainer } from 'utils/style';
 import { loaderItems } from 'static/loader';
 import fetchFile from 'utils/fetchFile';
 import LoadList from 'components/LoadList';
@@ -23,16 +23,18 @@ const LoadListView = ({ setListAction }) => {
     };
 
     return (
-        <Container>
-            <BackButtonWrapper>
-                <BackButton label="Back" />
-            </BackButtonWrapper>
-            <Header>
-                <IconStyled icon={inboxIn} size={28} />
-                <HeaderText>Choose test...</HeaderText>
-            </Header>
-            <LoadList showKey title="Global" onClick={loadGlobal} items={loaderItems} />
-        </Container>
+        <MainContainer>
+            <Container>
+                <BackButtonWrapper>
+                    <BackButton label="Back" />
+                </BackButtonWrapper>
+                <Header>
+                    <IconStyled icon={inboxIn} size={28} />
+                    <HeaderText>Choose test...</HeaderText>
+                </Header>
+                <LoadList showKey title="Global" onClick={loadGlobal} items={loaderItems} />
+            </Container>
+        </MainContainer>
     );
 };
 

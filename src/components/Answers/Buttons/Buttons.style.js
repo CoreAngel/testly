@@ -3,7 +3,8 @@ import { colors } from 'utils/colors';
 import { Button } from 'reactstrap';
 
 export const AnswersList = styled.ul`
-    list-style-type: lower-alpha;
+    list-style-type: none;
+    width: 100%;
 `;
 
 const fadeIsCorrect = keyframes`

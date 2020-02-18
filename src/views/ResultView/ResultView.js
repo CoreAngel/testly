@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { MainContainer } from 'utils/style';
 import Question from 'components/Question/Question';
 import { testProps } from 'utils/propTypes';
 
@@ -10,7 +11,7 @@ const ResultView = ({ test: { list } }) => {
     const questionNumber = list.length;
 
     return (
-        <>
+        <MainContainer>
             <p>{`Failed answers: ${failedCounter}/${questionNumber}`}</p>
             <div>
                 {failedQuestions.map(item => {
@@ -23,7 +24,7 @@ const ResultView = ({ test: { list } }) => {
                     );
                 })}
             </div>
-        </>
+        </MainContainer>
     );
 };
 
