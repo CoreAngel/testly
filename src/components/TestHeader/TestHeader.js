@@ -17,7 +17,7 @@ const TestHeader = ({ position, index, name, testKey, listLength, setPosition })
             </Button>
             <Wrapper>
                 <Position>
-                    {index + 1}/{listLength}
+                    {position + 1}/{listLength}
                 </Position>
                 <InfoWrapper>
                     <Name>{name}</Name>
