@@ -23,9 +23,9 @@ import {
     RunOption,
     RunOptionsContainer,
     MobileContainer,
-} from './ListNavigation.style';
+} from './ListHeader.style';
 
-const ListNavigation = ({ list, setTestAction, options }) => {
+const ListHeader = ({ list, setTestAction, options }) => {
     const [error, setError] = useState('');
     const pushToTest = useHistoryPush(routes.Test);
 
@@ -95,13 +95,13 @@ const ListNavigation = ({ list, setTestAction, options }) => {
     );
 };
 
-ListNavigation.propTypes = {
+ListHeader.propTypes = {
     list: listProps,
     setTestAction: PropTypes.func.isRequired,
     options: optionProps.isRequired,
 };
 
-ListNavigation.defaultProps = {
+ListHeader.defaultProps = {
     list: null,
 };
 
@@ -114,4 +114,4 @@ const mapDispatchToProps = {
     setTestAction: setTest,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ListNavigation);
+export default connect(mapStateToProps, mapDispatchToProps)(ListHeader);

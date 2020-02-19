@@ -36,7 +36,7 @@ const MenuList = ({ isMobile, isOpen, setIsOpen }) => {
                         <NavLink
                             onClick={onClick}
                             tabIndex={isAbleToFocus ? 0 : -1}
-                            disable={isRouteDisabled}
+                            disable={isRouteDisabled ? 1 : 0}
                             to={path}
                             exact
                         >

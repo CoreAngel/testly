@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import ListNavigation from 'components/ListNavigation';
+import ListHeader from 'components/ListHeader';
 import { listQuestionListProps } from 'utils/propTypes';
 import { MainContainer } from 'utils/style';
 import QuestionsList from 'components/QuestionsList/QuestionsList';
@@ -8,7 +8,7 @@ import QuestionsList from 'components/QuestionsList/QuestionsList';
 const ListView = ({ list }) => {
     return (
         <MainContainer>
-            <ListNavigation />
+            <ListHeader />
             {list.length > 0 && <QuestionsList questions={list} />}
         </MainContainer>
     );

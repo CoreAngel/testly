@@ -6,6 +6,8 @@ const KeyCodes = {
     a: 97,
     z: 122,
     esc: 27,
+    arrowLeft: 37,
+    arrowRight: 39,
 };
 
 export const getIndexFromKeyCode = keyCode => {
