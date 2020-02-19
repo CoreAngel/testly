@@ -8,16 +8,23 @@ import { NavItem, NavLink, NavList, NavSpan } from './MenuList.style';
 
 const MenuList = ({ isMobile, isOpen, setIsOpen }) => {
     const isTestEmpty = useSelector(({ test: { list } }) => list.length === 0);
-    const routesToDisableWhenTestEmpty = [routes.Test, routes.Result];
+    const isIndexZero = useSelector(({ test: { index } }) => index === 0);
+    const routesDisabled = {
+        [routes.Test]: isTestEmpty,
+        [routes.Result]: isTestEmpty || isIndexZero,
+    };
 
     return (
         <NavList>
             {navigationItems.map(item => {
                 const { id, label, icon, path } = item;
-                const isRouteDisabled = isTestEmpty && routesToDisableWhenTestEmpty.some(elem => elem === path) ? 1 : 0;
+                const isRouteDisabled = !!routesDisabled[path];
+                const isAbleToFocus = (!isMobile || isOpen) && !isRouteDisabled;
+
                 const onClick = e => {
                     if (isRouteDisabled) {
                         e.preventDefault();
+                        return;
                     }
                     if (isMobile) {
                         setIsOpen(false);
@@ -26,7 +33,13 @@ const MenuList = ({ isMobile, isOpen, setIsOpen }) => {
 
                 return (
                     <NavItem key={id}>
-                        <NavLink onClick={onClick} tabIndex={isOpen ? 0 : -1} disable={isRouteDisabled} to={path} exact>
+                        <NavLink
+                            onClick={onClick}
+                            tabIndex={isAbleToFocus ? 0 : -1}
+                            disable={isRouteDisabled}
+                            to={path}
+                            exact
+                        >
                             <IconStyled size={20} icon={icon} />
                             <NavSpan>{label}</NavSpan>
                         </NavLink>
