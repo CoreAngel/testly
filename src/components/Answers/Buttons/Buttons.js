@@ -39,6 +39,7 @@ const Buttons = ({ answers, active, animationTime, checkAnswer }) => {
                         const isCorrect = c === answerType.Correct;
                         const isNotSure = c === answerType.NotSure;
                         const isSelected = s === true;
+                        const isDisabled = isSelected || !active;
 
                         return (
                             <Button
@@ -46,6 +47,7 @@ const Buttons = ({ answers, active, animationTime, checkAnswer }) => {
                                     // eslint-disable-next-line react/no-array-index-key
                                     index
                                 }
+                                disabled={isDisabled}
                                 onClick={() => checkAnswer(index)}
                                 isCorrect={isCorrect}
                                 isNotSure={isNotSure}
