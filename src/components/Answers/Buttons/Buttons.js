@@ -4,43 +4,61 @@ import { answerProp } from 'utils/propTypes';
 import { answerType } from 'static/list';
 import keyCodes, { getCharFromIndex } from 'utils/keyCodes';
 import { MainContainer } from 'utils/style';
-import { Answer, AnswersList, ButtonsContainer, StyledButton } from './Buttons.style';
+import { Wrapper, Answer, AnswersList, ButtonsContainer, Button } from './Buttons.style';
 
 const Buttons = ({ answers, active, animationTime, checkAnswer }) => {
     return (
         <MainContainer>
-            <AnswersList>
-                {answers.map(({ i, c, s }, ind) => {
-                    const isCorrect = c === answerType.Correct;
-                    const isNotSure = c === answerType.NotSure;
-                    const isSelected = s === true;
-                    const itemIndicator = getCharFromIndex(ind);
+            <Wrapper>
+                <AnswersList>
+                    {answers.map(({ i, c, s }, index) => {
+                        const isCorrect = c === answerType.Correct;
+                        const isNotSure = c === answerType.NotSure;
+                        const isSelected = s === true;
+                        const itemIndicator = getCharFromIndex(index);
 
-                    return (
-                        <Answer
-                            key={
-                                // eslint-disable-next-line react/no-array-index-key
-                                ind
-                            }
-                            isCorrect={isCorrect}
-                            isNotSure={isNotSure}
-                            isSelected={isSelected}
-                            isActive={active}
-                            animationTime={animationTime}
-                        >
-                            {`${itemIndicator}) ${i}`}
-                        </Answer>
-                    );
-                })}
-            </AnswersList>
-            <ButtonsContainer>
-                {[...new Array(answers.length)].map((_, index) => (
-                    // eslint-disable-next-line react/no-array-index-key
-                    <StyledButton key={index} color="primary" onClick={() => checkAnswer(index)}>
-                        {String.fromCharCode(index + keyCodes.A)}
-                    </StyledButton>
-                ))}
-            </ButtonsContainer>
+                        return (
+                            <Answer
+                                key={
+                                    // eslint-disable-next-line react/no-array-index-key
+                                    index
+                                }
+                                isCorrect={isCorrect}
+                                isNotSure={isNotSure}
+                                isSelected={isSelected}
+                                isActive={active}
+                                animationTime={animationTime}
+                            >
+                                {`${itemIndicator}) ${i}`}
+                            </Answer>
+                        );
+                    })}
+                </AnswersList>
+                <ButtonsContainer>
+                    {answers.map(({ c, s }, index) => {
+                        const isCorrect = c === answerType.Correct;
+                        const isNotSure = c === answerType.NotSure;
+                        const isSelected = s === true;
+
+                        return (
+                            <Button
+                                key={
+                                    // eslint-disable-next-line react/no-array-index-key
+                                    index
+                                }
+                                onClick={() => checkAnswer(index)}
+                                isCorrect={isCorrect}
+                                isNotSure={isNotSure}
+                                isSelected={isSelected}
+                                isActive={active}
+                                animationTime={animationTime}
+                            >
+                                {String.fromCharCode(index + keyCodes.A)}
+                            </Button>
+                        );
+                    })}
+                </ButtonsContainer>
+            </Wrapper>
         </MainContainer>
     );
 };

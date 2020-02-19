@@ -28,7 +28,7 @@ const Answers = ({ checkAnswer, isGoNext, animationTime, answers, index, positio
     useEffect(() => {
         if (!isGoNext) return () => {};
 
-        const timeout = setTimeout(() => nextQuestion(), animationTime);
+        const timeout = setTimeout(() => nextQuestion(), animationTime + 100);
         return () => clearTimeout(timeout);
     }, [nextQuestion, animationTime, isGoNext]);
 

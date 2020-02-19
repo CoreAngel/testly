@@ -5,7 +5,7 @@ import Question from 'components/Question/Question';
 import { testProps } from 'utils/propTypes';
 
 const ResultView = ({ test: { list } }) => {
-    const failedQuestions = list.filter(item => item.f).sort((i1, i2) => i1.index - i2.index);
+    const failedQuestions = list.filter(item => item.f).sort((i1, i2) => i1.id - i2.id);
 
     const failedCounter = failedQuestions.length;
     const questionNumber = list.length;
@@ -19,7 +19,7 @@ const ResultView = ({ test: { list } }) => {
 
                     return (
                         <>
-                            <Question key={id} number={id + 1} question={q} answers={a} />
+                            <Question key={id} number={id + 1} question={q} answers={a} includeSelected />
                         </>
                     );
                 })}

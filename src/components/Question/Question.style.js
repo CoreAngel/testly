@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { colors } from 'utils/colors';
 
 export const QuestionContainer = styled.div`
@@ -15,6 +15,33 @@ export const AnswersList = styled.ul`
 `;
 
 export const Answer = styled.li`
-    ${({ correct }) => correct && `background-color: ${colors.Green}`};
-    ${({ notSure }) => notSure && `background-color: ${colors.Yellow}`};
+    margin: 5px 0;
+    padding: 0 5px;
+
+    ${({ isCorrect, isNotSure, isSelected, includeSelected }) => {
+        if (isCorrect)
+            return includeSelected && !isSelected
+                ? css`
+                      background: linear-gradient(90deg, ${colors.Green50}, ${colors.Green0});
+                  `
+                : css`
+                      background: linear-gradient(90deg, ${colors.Green}, ${colors.Green0});
+                  `;
+
+        if (isNotSure)
+            return includeSelected && !isSelected
+                ? css`
+                      background: linear-gradient(90deg, ${colors.Yellow50}, ${colors.Yellow0});
+                  `
+                : css`
+                      background: linear-gradient(90deg, ${colors.Yellow}, ${colors.Yellow0});
+                  `;
+
+        if (includeSelected && isSelected)
+            return css`
+                background: linear-gradient(90deg, ${colors.Red}, ${colors.Red0});
+            `;
+
+        return css``;
+    }}
 `;
