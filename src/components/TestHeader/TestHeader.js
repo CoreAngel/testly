@@ -2,8 +2,8 @@ import React, { useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { VisibilityHidden, IconStyled } from 'utils/style';
 import keyCodes from 'utils/keyCodes';
-import { ic_keyboard_arrow_left as arrowLeft } from 'react-icons-kit/md/ic_keyboard_arrow_left';
-import { ic_keyboard_arrow_right as arrowRight } from 'react-icons-kit/md/ic_keyboard_arrow_right';
+import { ic_keyboard_arrow_left as arrowLeft, ic_keyboard_arrow_right as arrowRight } from 'react-icons-kit/md';
+
 import { Name, Key, InfoWrapper, Wrapper, Position, Container, Button } from './TestHeader.style';
 
 const TestHeader = ({ position, index, name, testKey, listLength, setPosition }) => {

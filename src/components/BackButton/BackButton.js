@@ -1,5 +1,5 @@
 import React from 'react';
-import { androidArrowBack } from 'react-icons-kit/ionicons/androidArrowBack';
+import { androidArrowBack } from 'react-icons-kit/ionicons';
 import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { IconStyled } from 'utils/style';

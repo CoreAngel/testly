@@ -1,7 +1,19 @@
 import styled from 'styled-components';
+import { colors } from 'utils/colors';
 
 export const Container = styled.div`
     padding: 25px 20px;
+`;
+
+export const ExitButton = styled.button`
+    background-color: transparent;
+    color: ${colors.White80};
+    border: 0;
+    margin: 0;
+    padding: 6px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
 `;
 
 export const HeaderWrapper = styled.div`

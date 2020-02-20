@@ -1,4 +1,4 @@
-import { arrayOf, string, number, shape, oneOf, bool } from 'prop-types';
+import { arrayOf, string, number, shape, oneOf, bool, oneOfType, node } from 'prop-types';
 import { runTypes } from 'static/run';
 import { answerType, testType } from 'static/list';
 
@@ -48,3 +48,5 @@ export const optionProps = shape({
     questions: optionOrderProps.isRequired,
     answers: optionOrderProps.isRequired,
 });
+
+export const childrenProp = oneOfType([arrayOf(node), node]);

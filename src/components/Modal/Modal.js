@@ -1,20 +1,17 @@
 import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
-import { cross } from 'react-icons-kit/icomoon';
 import PropTypes from 'prop-types';
 import Backdrop from 'components/Backdrop';
 import useEscPress from 'hooks/useEscPress';
 import useClickOutside from 'hooks/useClickOutside';
 import GlobalStyleContext from 'theme/GlobalStyleContext';
-import { IconStyled } from 'utils/style';
-import { StaticWrapper, Container, ModalWrapper, ExitButton } from './OptionsModal.style';
-import Modal from './Modal';
+import { childrenProp } from 'utils/propTypes';
+import { StaticWrapper, Container, ModalWrapper } from './Modal.style';
 
-const OptionsModal = ({ exitOnEscape, exitWithClickOutside, isOpen, setIsOpen }) => {
+const Modal = ({ children, exitOnEscape, exitWithClickOutside, isOpen, setIsOpen, animationTime }) => {
     const [isLocalOpen, setIsLocalOpen] = useState(false);
     const { setOverflowBody } = useContext(GlobalStyleContext);
     const containerRef = useRef(null);
     const modalRef = useRef(null);
-    const animationTime = 200;
 
     const callback = useCallback(() => setIsOpen(false), [setIsOpen]);
     const isEscExitRun = isLocalOpen && exitOnEscape;
@@ -34,7 +31,7 @@ const OptionsModal = ({ exitOnEscape, exitWithClickOutside, isOpen, setIsOpen })
             timeout = setTimeout(() => setIsLocalOpen(false), animationTime);
         }
         return () => clearTimeout(timeout);
-    }, [isOpen]);
+    }, [isOpen, animationTime]);
 
     // @TODO jak znikal scrollbar zmiania sie media query, a w js detectMobile sie nie uruchamial wiec menu sie rozwala
     useEffect(() => {
@@ -49,22 +46,23 @@ const OptionsModal = ({ exitOnEscape, exitWithClickOutside, isOpen, setIsOpen })
         <StaticWrapper>
             <Backdrop isOpen={isOpen} animationTime={animationTime} />
             <Container isOpen={isOpen} animationTime={animationTime} ref={containerRef}>
-                <ModalWrapper ref={modalRef}>
-                    <ExitButton onClick={() => setIsOpen(false)}>
-                        <IconStyled icon={cross} size={22} />
-                    </ExitButton>
-                    <Modal />
-                </ModalWrapper>
+                <ModalWrapper ref={modalRef}>{children}</ModalWrapper>
             </Container>
         </StaticWrapper>
     ) : null;
 };
 
-OptionsModal.propTypes = {
+Modal.propTypes = {
+    children: childrenProp.isRequired,
     exitOnEscape: PropTypes.bool.isRequired,
     exitWithClickOutside: PropTypes.bool.isRequired,
     isOpen: PropTypes.bool.isRequired,
     setIsOpen: PropTypes.func.isRequired,
+    animationTime: PropTypes.number,
 };
 
-export default OptionsModal;
+Modal.defaultProps = {
+    animationTime: 200,
+};
+
+export default Modal;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { inbox_in as inboxIn } from 'react-icons-kit/ikons/inbox_in';
-import { plus, play } from 'react-icons-kit/ikons';
+import { inbox_in as inboxIn, plus, play } from 'react-icons-kit/ikons';
+
 import { IconStyled } from 'utils/style';
 import { routes } from 'static/routes';
 import { setTest } from 'redux/testReducer';

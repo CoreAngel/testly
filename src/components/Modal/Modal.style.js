@@ -32,14 +32,3 @@ export const ModalWrapper = styled.section`
     max-width: 600px;
     margin: 10px;
 `;
-
-export const ExitButton = styled.button`
-    background-color: transparent;
-    color: ${colors.White80};
-    border: 0;
-    margin: 0;
-    padding: 6px;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-`;
