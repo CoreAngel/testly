@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { inbox_in as inboxIn, plus, play } from 'react-icons-kit/ikons';
-
 import { IconStyled } from 'utils/style';
 import { routes } from 'static/routes';
 import { setTest } from 'redux/testReducer';
@@ -8,6 +7,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import useHistoryPush from 'hooks/useHistoryPush';
 import { listProps, optionProps } from 'utils/propTypes';
+import Confirm from 'components/Confirm';
 import { prepareTest } from './PrepareTestService';
 import {
     Wrapper,
@@ -23,18 +23,15 @@ import {
     RunOption,
     RunOptionsContainer,
     MobileContainer,
+    ConfirmText,
 } from './ListHeader.style';
 
-const ListHeader = ({ list, setTestAction, options }) => {
+const ListHeader = ({ list, setTestAction, options, testIndex, testListLength }) => {
     const [error, setError] = useState('');
+    const [isConfirmOpen, setIsConfirmOpen] = useState(false);
     const pushToTest = useHistoryPush(routes.Test);
 
     const runTest = () => {
-        if (list === null) {
-            setError('Create or load test before run!');
-            return;
-        }
-
         setError('');
         const preparedList = prepareTest(list.list, options);
         setTestAction({
@@ -42,6 +39,31 @@ const ListHeader = ({ list, setTestAction, options }) => {
             list: preparedList,
         });
         pushToTest();
+    };
+
+    const onClickRun = () => {
+        if (list === null) {
+            setError('Create or load test before run!');
+            return;
+        }
+
+        const isTestEmpty = testListLength === 0;
+        const isTestEnd = testListLength !== 0 && testIndex === testListLength - 1;
+        if (!isTestEnd && !isTestEmpty) {
+            setIsConfirmOpen(true);
+            return;
+        }
+
+        runTest();
+    };
+
+    const onConfirmExit = status => {
+        setIsConfirmOpen(false);
+        if (status) {
+            runTest();
+        } else {
+            setError('You need to confirm before run!');
+        }
     };
 
     return (
@@ -84,10 +106,15 @@ const ListHeader = ({ list, setTestAction, options }) => {
                             <RunOption>A - {options.answers}</RunOption>
                         </RunOptionsContainer>
                     </DesktopContainer>
-                    <RunButton onClick={runTest}>
+                    <RunButton onClick={onClickRun}>
                         <IconStyled icon={play} size={32} />
                         <LinkText>Run</LinkText>
                     </RunButton>
+                    <Confirm isOpen={isConfirmOpen} onExit={onConfirmExit}>
+                        <ConfirmText>
+                            You didn&apos;t finish the test! Are you sure you want to overwrite it?
+                        </ConfirmText>
+                    </Confirm>
                 </Wrapper>
             </Container>
             {error !== '' && <Error>{error}</Error>}
@@ -99,15 +126,19 @@ ListHeader.propTypes = {
     list: listProps,
     setTestAction: PropTypes.func.isRequired,
     options: optionProps.isRequired,
+    testIndex: PropTypes.number.isRequired,
+    testListLength: PropTypes.number.isRequired,
 };
 
 ListHeader.defaultProps = {
     list: null,
 };
 
-const mapStateToProps = ({ list, options }) => ({
+const mapStateToProps = ({ list, test: { index, list: testList }, options }) => ({
     list: list.list.length > 0 ? list : null,
     options,
+    testIndex: index,
+    testListLength: testList.length,
 });
 
 const mapDispatchToProps = {

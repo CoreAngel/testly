@@ -97,3 +97,9 @@ export const RunOption = styled.span`
     margin: 0;
     font-size: 1.2rem;
 `;
+
+export const ConfirmText = styled.p`
+    margin: 0 0 10px 0;
+    padding: 0 10px;
+    text-align: center;
+`;
