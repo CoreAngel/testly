@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { childrenProp } from 'utils/propTypes';
 import { Container, Checkbox, IconWrapper, Icon } from './Toggler.style';
 
 const Toggler = ({ children, onChange, selected, size }) => {
@@ -24,7 +25,7 @@ const Toggler = ({ children, onChange, selected, size }) => {
 };
 
 Toggler.propTypes = {
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
+    children: childrenProp.isRequired,
     onChange: PropTypes.func.isRequired,
     selected: PropTypes.bool,
     size: PropTypes.number,

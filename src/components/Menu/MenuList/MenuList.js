@@ -4,8 +4,8 @@ import navigationItems from 'static/navigation';
 import { routes } from 'static/routes';
 import { IconStyled } from 'utils/style';
 import { connect } from 'react-redux';
+import { testProps } from 'utils/propTypes';
 import { NavItem, NavLink, NavList, NavSpan } from './MenuList.style';
-import { testProps } from '../../../utils/propTypes';
 
 const MenuList = ({ isMobile, isOpen, setIsOpen, test: { list, index, end } }) => {
     const isTestEmpty = list.length === 0;

@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Modal from 'components/Modal';
 import { childrenProp } from 'utils/propTypes';
+import { colors } from 'utils/colors';
 import { ButtonsWrapper, Button, Container } from './Confirm.style';
-import { colors } from '../../utils/colors';
 
 const Confirm = ({ children, isOpen, onExit }) => {
     const [isClicked, setIsClicked] = useState(false);
