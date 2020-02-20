@@ -44,16 +44,10 @@ const testSlice = createSlice({
                 a: copyAnswers,
             };
 
-            if (fail) {
-                copyList.splice(index, 1, {
-                    ...finalQuestion,
-                    f: true,
-                });
-            } else {
-                copyList.splice(index, 1, {
-                    ...finalQuestion,
-                });
-            }
+            copyList.splice(index, 1, {
+                ...finalQuestion,
+                f: fail || !!finalQuestion.f,
+            });
 
             return {
                 ...state,
