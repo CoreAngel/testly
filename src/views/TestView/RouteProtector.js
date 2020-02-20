@@ -4,16 +4,12 @@ import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { routes } from 'static/routes';
 
-const RouteProtector = ({ children, listLength, index }) => {
+const RouteProtector = ({ children, listLength }) => {
     const history = useHistory();
     let replacePath = null;
 
     if (listLength === 0) {
         replacePath = routes.Home;
-    }
-
-    if (index + 1 === listLength) {
-        replacePath = routes.Result;
     }
 
     useEffect(() => {
@@ -28,12 +24,10 @@ const RouteProtector = ({ children, listLength, index }) => {
 RouteProtector.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
     listLength: PropTypes.number.isRequired,
-    index: PropTypes.number.isRequired,
 };
 
-const mapStateToProps = ({ test: { list, index } }) => ({
+const mapStateToProps = ({ test: { list } }) => ({
     listLength: list.length,
-    index,
 });
 
 export default connect(mapStateToProps)(RouteProtector);

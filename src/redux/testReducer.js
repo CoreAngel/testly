@@ -1,18 +1,27 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { testType } from 'static/list';
 
 const testSlice = createSlice({
     name: 'test',
     initialState: {
         name: '',
         key: '',
-        type: '',
+        type: testType.Single,
         list: [],
         index: 0,
+        end: false,
     },
     reducers: {
         setTest: (state, action) => ({
             ...action.payload,
             index: 0,
+            end: false,
+        }),
+        setList: (state, action) => ({
+            ...state,
+            list: [...action.payload],
+            index: 0,
+            end: false,
         }),
         nextQuestion: state => {
             const { index, list } = state;
@@ -26,6 +35,10 @@ const testSlice = createSlice({
                 index: index + 1,
             };
         },
+        setEnd: state => ({
+            ...state,
+            end: true,
+        }),
         setSelected: (state, action) => {
             const { list, index } = state;
             const { index: selectedAnswerIndex, fail } = action.payload;
@@ -58,6 +71,6 @@ const testSlice = createSlice({
 });
 
 const { actions, reducer } = testSlice;
-const { setTest, nextQuestion, setSelected } = actions;
-export { setTest, nextQuestion, setSelected };
+const { setTest, setList, nextQuestion, setSelected, setEnd } = actions;
+export { setTest, setList, nextQuestion, setSelected, setEnd };
 export default reducer;

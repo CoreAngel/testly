@@ -4,8 +4,23 @@ import withCheckAnswer from 'hoc/withCheckAnswer';
 import { answerProp } from 'utils/propTypes';
 import { getIndexFromKeyCode } from 'utils/keyCodes';
 import Buttons from 'components/Answers/Buttons';
+import useHistoryPush from 'hooks/useHistoryPush';
+import { routes } from 'static/routes';
 
-const Answers = ({ checkAnswer, isGoNext, animationTime, answers, index, position, nextQuestion }) => {
+const Answers = ({
+    checkAnswer,
+    isGoNext,
+    animationTime,
+    answers,
+    index,
+    position,
+    nextQuestion,
+    isEndList,
+    isEndTest,
+    setEndAction,
+}) => {
+    const pushToResult = useHistoryPush(routes.Result);
+
     useEffect(() => {
         const onKeyDown = e => {
             const isLastQuestion = index === position;
@@ -32,7 +47,20 @@ const Answers = ({ checkAnswer, isGoNext, animationTime, answers, index, positio
         return () => clearTimeout(timeout);
     }, [nextQuestion, animationTime, isGoNext]);
 
-    const isActive = isGoNext || index === position;
+    useEffect(() => {
+        if (isEndList && isGoNext && !isEndTest) {
+            const timeout = setTimeout(() => {
+                setEndAction();
+                pushToResult();
+            }, animationTime + 100);
+
+            return () => clearTimeout(timeout);
+        }
+
+        return () => {};
+    }, [isGoNext, isEndList, isEndTest, pushToResult, setEndAction, animationTime]);
+
+    const isActive = !isEndTest && (isGoNext || index === position);
     return <Buttons answers={answers} active={isActive} animationTime={animationTime} checkAnswer={checkAnswer} />;
 };
 
@@ -44,6 +72,9 @@ Answers.propTypes = {
     index: PropTypes.number.isRequired,
     position: PropTypes.number.isRequired,
     nextQuestion: PropTypes.func.isRequired,
+    isEndList: PropTypes.bool.isRequired,
+    isEndTest: PropTypes.bool.isRequired,
+    setEndAction: PropTypes.func.isRequired,
 };
 
 export default withCheckAnswer(Answers);

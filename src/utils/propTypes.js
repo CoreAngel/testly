@@ -44,9 +44,11 @@ export const testProps = shape({
 
 export const optionOrderProps = oneOf([runTypes.RANDOM, runTypes.ORDERED]);
 
-export const optionProps = shape({
+export const optionsProps = shape({
     questions: optionOrderProps.isRequired,
     answers: optionOrderProps.isRequired,
+    animationTime: number.isRequired,
+    animation: bool.isRequired,
 });
 
 export const childrenProp = oneOfType([arrayOf(node), node]);

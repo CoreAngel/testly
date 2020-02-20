@@ -5,11 +5,12 @@ import { testProps } from 'utils/propTypes';
 import { MainContainer } from 'utils/style';
 import TestHeader from 'components/TestHeader';
 import Answers from 'components/Answers';
-import { nextQuestion } from 'redux/testReducer';
+import { nextQuestion, setEnd } from 'redux/testReducer';
 import { TestQuestion } from './TestView.style';
 
-const TestView = ({ test: { index, name, key, list }, nextQuestionAction }) => {
+const TestView = ({ test: { index, name, key, list, end }, nextQuestionAction, setEndAction }) => {
     const [position, setPosition] = useState(index);
+
     const question = list[position];
     const { q, a } = question;
 
@@ -33,7 +34,14 @@ const TestView = ({ test: { index, name, key, list }, nextQuestionAction }) => {
                 />
                 <TestQuestion>{q}</TestQuestion>
             </MainContainer>
-            <Answers answers={a} index={index} position={position} nextQuestion={nextQuestionAction} />
+            <Answers
+                answers={a}
+                index={index}
+                position={position}
+                nextQuestion={nextQuestionAction}
+                isEndTest={end}
+                setEndAction={setEndAction}
+            />
         </>
     );
 };
@@ -41,11 +49,13 @@ const TestView = ({ test: { index, name, key, list }, nextQuestionAction }) => {
 TestView.propTypes = {
     test: testProps.isRequired,
     nextQuestionAction: PropTypes.func.isRequired,
+    setEndAction: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = ({ test }) => ({ test });
 const mapDispatchToProps = {
     nextQuestionAction: nextQuestion,
+    setEndAction: setEnd,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TestView);

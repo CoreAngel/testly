@@ -6,9 +6,9 @@ import { setTest } from 'redux/testReducer';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import useHistoryPush from 'hooks/useHistoryPush';
-import { listProps, optionProps } from 'utils/propTypes';
+import { listProps, optionsProps } from 'utils/propTypes';
 import Confirm from 'components/Confirm';
-import { prepareTest } from './PrepareTestService';
+import { prepareTest } from 'utils/prepareTestList';
 import {
     Wrapper,
     Container,
@@ -61,8 +61,6 @@ const ListHeader = ({ list, setTestAction, options, testIndex, testListLength })
         setIsConfirmOpen(false);
         if (status) {
             runTest();
-        } else {
-            setError('You need to confirm before run!');
         }
     };
 
@@ -125,7 +123,7 @@ const ListHeader = ({ list, setTestAction, options, testIndex, testListLength })
 ListHeader.propTypes = {
     list: listProps,
     setTestAction: PropTypes.func.isRequired,
-    options: optionProps.isRequired,
+    options: optionsProps.isRequired,
     testIndex: PropTypes.number.isRequired,
     testListLength: PropTypes.number.isRequired,
 };

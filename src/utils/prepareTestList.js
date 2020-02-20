@@ -26,3 +26,23 @@ export const prepareTest = (testQuestions, options) => {
     const preparedQuestions = prepareQuestions(testQuestions, questions);
     return prepareAnswers(preparedQuestions, answers);
 };
+
+export const clearList = testQuestions => {
+    const list = [...testQuestions];
+
+    return list.map(item => {
+        const copyItem = { ...item };
+        delete copyItem.f;
+
+        const answers = copyItem.a.map(aItem => {
+            const copyAItem = { ...aItem };
+            delete copyAItem.s;
+            return copyAItem;
+        });
+
+        return {
+            ...copyItem,
+            a: answers,
+        };
+    });
+};

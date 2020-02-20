@@ -3,15 +3,16 @@ import PropTypes from 'prop-types';
 import navigationItems from 'static/navigation';
 import { routes } from 'static/routes';
 import { IconStyled } from 'utils/style';
-import { useSelector } from 'react-redux';
+import { connect } from 'react-redux';
 import { NavItem, NavLink, NavList, NavSpan } from './MenuList.style';
+import { testProps } from '../../../utils/propTypes';
 
-const MenuList = ({ isMobile, isOpen, setIsOpen }) => {
-    const isTestEmpty = useSelector(({ test: { list } }) => list.length === 0);
-    const isIndexZero = useSelector(({ test: { index } }) => index === 0);
+const MenuList = ({ isMobile, isOpen, setIsOpen, test: { list, index, end } }) => {
+    const isTestEmpty = list.length === 0;
+    const isIndexZeroAndTestNotEnd = index === 0 && !end;
     const routesDisabled = {
         [routes.Test]: isTestEmpty,
-        [routes.Result]: isTestEmpty || isIndexZero,
+        [routes.Result]: isTestEmpty || isIndexZeroAndTestNotEnd,
     };
 
     return (
@@ -54,6 +55,9 @@ MenuList.propTypes = {
     isMobile: PropTypes.bool.isRequired,
     isOpen: PropTypes.bool.isRequired,
     setIsOpen: PropTypes.func.isRequired,
+    test: testProps.isRequired,
 };
 
-export default MenuList;
+const mapStateToProps = ({ test }) => ({ test });
+
+export default connect(mapStateToProps)(MenuList);

@@ -16,6 +16,7 @@ const withCheckAnswer = Component => {
         const { list, index } = test;
         const question = list[index];
 
+        const isEndList = index + 1 === list.length;
         const isGoNext = question.a.filter(({ c }) => c).every(({ s }) => s);
 
         const checkAnswer = ind => {
@@ -33,7 +34,15 @@ const withCheckAnswer = Component => {
             setSelectedAction({ index: ind, fail: isFail });
         };
 
-        return <Component checkAnswer={checkAnswer} isGoNext={isGoNext} animationTime={animationTime} {...props} />;
+        return (
+            <Component
+                checkAnswer={checkAnswer}
+                isGoNext={isGoNext}
+                isEndList={isEndList}
+                animationTime={animationTime}
+                {...props}
+            />
+        );
     };
 
     Wrapper.propTypes = {
