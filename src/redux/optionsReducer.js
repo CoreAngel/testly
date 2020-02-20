@@ -7,15 +7,20 @@ const optionsSlice = createSlice({
         questions: runTypes.RANDOM,
         answers: runTypes.RANDOM,
         animationTime: 200,
+        animation: true,
     },
     reducers: {
         setQuestions: (state, action) => ({ ...state, questions: action.payload }),
         setAnswers: (state, action) => ({ ...state, answers: action.payload }),
-        setAnimationTime: (state, action) => ({ ...state, animationTime: action.payload }),
+        setAnimation: (state, action) => ({
+            ...state,
+            animationTime: action.payload ? 200 : 0,
+            animation: action.payload,
+        }),
     },
 });
 
 const { actions, reducer } = optionsSlice;
-const { setQuestions, setAnswers, setAnimationTime } = actions;
-export { setQuestions, setAnswers, setAnimationTime };
+const { setQuestions, setAnswers, setAnimation } = actions;
+export { setQuestions, setAnswers, setAnimation };
 export default reducer;

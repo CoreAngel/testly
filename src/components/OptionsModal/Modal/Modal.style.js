@@ -18,5 +18,13 @@ export const Header = styled.h2`
 `;
 
 export const OptionRow = styled.div`
-    margin-bottom: 10px;
+    padding: 2px 0;
+    margin-bottom: 6px;
+`;
+
+export const TogglerText = styled.p`
+    margin: 0;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
 `;
