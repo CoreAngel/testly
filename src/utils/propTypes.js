@@ -10,13 +10,13 @@ export const answerProp = shape({
 
 export const typeListProp = oneOf([testType.Single, testType.Multi]);
 
-export const listQuestionListProps = arrayOf(
-    shape({
-        id: number.isRequired,
-        q: string.isRequired,
-        a: arrayOf(answerProp).isRequired,
-    }),
-);
+export const listQuestionProps = shape({
+    id: number.isRequired,
+    q: string.isRequired,
+    a: arrayOf(answerProp).isRequired,
+});
+
+export const listQuestionListProps = arrayOf(listQuestionProps);
 
 export const listProps = shape({
     name: string.isRequired,
@@ -25,14 +25,14 @@ export const listProps = shape({
     list: listQuestionListProps.isRequired,
 });
 
-export const testQuestionListProps = arrayOf(
-    shape({
-        id: number.isRequired,
-        q: string.isRequired,
-        a: arrayOf(answerProp).isRequired,
-        f: bool,
-    }),
-);
+export const testQuestionProps = shape({
+    id: number.isRequired,
+    q: string.isRequired,
+    a: arrayOf(answerProp).isRequired,
+    f: bool,
+});
+
+export const testQuestionListProps = arrayOf(testQuestionProps);
 
 export const testProps = shape({
     name: string.isRequired,
@@ -51,4 +51,4 @@ export const optionsProps = shape({
     animation: bool.isRequired,
 });
 
-export const childrenProp = oneOfType([arrayOf(node), node]);
+export const childrenProps = oneOfType([arrayOf(node), node]);

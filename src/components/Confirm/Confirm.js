@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Modal from 'components/Modal';
-import { childrenProp } from 'utils/propTypes';
+import { childrenProps } from 'utils/propTypes';
 import { colors } from 'utils/colors';
 import { ButtonsWrapper, Button, Container } from './Confirm.style';
 
@@ -54,7 +54,7 @@ const Confirm = ({ children, isOpen, onExit }) => {
 };
 
 Confirm.propTypes = {
-    children: childrenProp.isRequired,
+    children: childrenProps.isRequired,
     isOpen: PropTypes.bool.isRequired,
     onExit: PropTypes.func.isRequired,
 };

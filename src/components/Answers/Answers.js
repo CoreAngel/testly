@@ -6,6 +6,8 @@ import { getIndexFromKeyCode } from 'utils/keyCodes';
 import Buttons from 'components/Answers/Buttons';
 import useHistoryPush from 'hooks/useHistoryPush';
 import { routes } from 'static/routes';
+import { nextQuestion, setEnd } from 'redux/testReducer';
+import { connect } from 'react-redux';
 
 const Answers = ({
     checkAnswer,
@@ -14,16 +16,16 @@ const Answers = ({
     answers,
     index,
     position,
-    nextQuestion,
-    isEndList,
-    isEndTest,
+    nextQuestionAction,
+    isListEnd,
+    isTestEnd,
     setEndAction,
 }) => {
     const pushToResult = useHistoryPush(routes.Result);
+    const isLastQuestion = index === position;
 
     useEffect(() => {
         const onKeyDown = e => {
-            const isLastQuestion = index === position;
             if (!isLastQuestion) return;
 
             const { keyCode } = e;
@@ -38,17 +40,18 @@ const Answers = ({
 
         window.addEventListener('keydown', onKeyDown);
         return () => window.removeEventListener('keydown', onKeyDown);
-    }, [checkAnswer, answers.length, position, index]);
+    }, [checkAnswer, answers.length, isLastQuestion]);
 
     useEffect(() => {
         if (!isGoNext) return () => {};
 
-        const timeout = setTimeout(() => nextQuestion(), animationTime + 100);
+        const timeout = setTimeout(() => nextQuestionAction(), animationTime + 100);
         return () => clearTimeout(timeout);
-    }, [nextQuestion, animationTime, isGoNext]);
+    }, [nextQuestionAction, animationTime, isGoNext]);
 
     useEffect(() => {
-        if (isEndList && isGoNext && !isEndTest) {
+        const isTestOver = isListEnd && isGoNext;
+        if (isTestOver && !isTestEnd) {
             const timeout = setTimeout(() => {
                 setEndAction();
                 pushToResult();
@@ -58,23 +61,35 @@ const Answers = ({
         }
 
         return () => {};
-    }, [isGoNext, isEndList, isEndTest, pushToResult, setEndAction, animationTime]);
+    }, [isGoNext, isListEnd, isTestEnd, pushToResult, setEndAction, animationTime]);
 
-    const isActive = !isEndTest && (isGoNext || index === position);
+    const isActive = !isTestEnd && (isGoNext || isLastQuestion);
     return <Buttons answers={answers} active={isActive} animationTime={animationTime} checkAnswer={checkAnswer} />;
 };
 
 Answers.propTypes = {
-    checkAnswer: PropTypes.func.isRequired,
-    isGoNext: PropTypes.bool.isRequired,
-    animationTime: PropTypes.number.isRequired,
-    answers: PropTypes.arrayOf(answerProp).isRequired,
-    index: PropTypes.number.isRequired,
     position: PropTypes.number.isRequired,
-    nextQuestion: PropTypes.func.isRequired,
-    isEndList: PropTypes.bool.isRequired,
-    isEndTest: PropTypes.bool.isRequired,
+    index: PropTypes.number.isRequired,
+    answers: PropTypes.arrayOf(answerProp).isRequired,
+    isGoNext: PropTypes.bool.isRequired,
+    isListEnd: PropTypes.bool.isRequired,
+    isTestEnd: PropTypes.bool.isRequired,
+    animationTime: PropTypes.number.isRequired,
+    checkAnswer: PropTypes.func.isRequired,
+    nextQuestionAction: PropTypes.func.isRequired,
     setEndAction: PropTypes.func.isRequired,
 };
 
-export default withCheckAnswer(Answers);
+const mapStateToProps = ({ test: { index, end } }) => ({
+    index,
+    isTestEnd: end,
+});
+
+const mapDispatchToProps = {
+    nextQuestionAction: nextQuestion,
+    setEndAction: setEnd,
+};
+
+const AnswersWithStore = connect(mapStateToProps, mapDispatchToProps)(Answers);
+
+export default withCheckAnswer(AnswersWithStore);

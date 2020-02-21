@@ -37,8 +37,8 @@ const ResultView = ({ test: { list, index, end }, options, setListAction }) => {
 
     const questions = (isAllQuestionVisible ? answeredQuestions : failedQuestions).sort((i1, i2) => i1.id - i2.id);
 
-    const runTestWithFails = status => {
-        if (!status) return;
+    const runTestWithFails = confirmStatus => {
+        if (!confirmStatus || failedCounter === 0) return;
 
         const clearTestList = clearList(failedQuestions);
         const preparedList = prepareTest(clearTestList, options);

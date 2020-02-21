@@ -4,7 +4,7 @@ import Backdrop from 'components/Backdrop';
 import useEscPress from 'hooks/useEscPress';
 import useClickOutside from 'hooks/useClickOutside';
 import GlobalStyleContext from 'theme/GlobalStyleContext';
-import { childrenProp } from 'utils/propTypes';
+import { childrenProps } from 'utils/propTypes';
 import { StaticWrapper, Container, ModalWrapper } from './Modal.style';
 
 const Modal = ({ children, exitOnEscape, exitWithClickOutside, isOpen, setIsOpen, animationTime }) => {
@@ -53,7 +53,7 @@ const Modal = ({ children, exitOnEscape, exitWithClickOutside, isOpen, setIsOpen
 };
 
 Modal.propTypes = {
-    children: childrenProp.isRequired,
+    children: childrenProps.isRequired,
     exitOnEscape: PropTypes.bool.isRequired,
     exitWithClickOutside: PropTypes.bool.isRequired,
     isOpen: PropTypes.bool.isRequired,
