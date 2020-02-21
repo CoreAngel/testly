@@ -5,14 +5,14 @@ import { cross } from 'react-icons-kit/icomoon';
 import { IconStyled } from 'utils/style';
 import Select from 'components/Select';
 import { runItems } from 'static/run';
-import { setAnswers, setQuestions, setAnimation } from 'redux/optionsReducer';
+import { setAnswers, setQuestions, setAnimation, setDescription } from 'redux/optionsReducer';
 import { useDispatch, connect } from 'react-redux';
 import { optionOrderProps } from 'utils/propTypes';
 import Toggler from 'components/Toggler';
 import Modal from 'components/Modal';
 import { Container, Header, HeaderWrapper, OptionRow, TogglerText, ExitButton } from './Options.style';
 
-const Options = ({ questions, answers, animation, isOpen, setIsOpen }) => {
+const Options = ({ questions, answers, animation, description, isOpen, setIsOpen }) => {
     const dispatch = useDispatch();
 
     const setQuestion = ({ value }) => {
@@ -25,6 +25,10 @@ const Options = ({ questions, answers, animation, isOpen, setIsOpen }) => {
 
     const setAnimationValue = value => {
         dispatch(setAnimation(value));
+    };
+
+    const setDescriptionValue = value => {
+        dispatch(setDescription(value));
     };
 
     return (
@@ -48,6 +52,11 @@ const Options = ({ questions, answers, animation, isOpen, setIsOpen }) => {
                         <TogglerText>Animations</TogglerText>
                     </Toggler>
                 </OptionRow>
+                <OptionRow>
+                    <Toggler onChange={setDescriptionValue} selected={description}>
+                        <TogglerText>Descriptions</TogglerText>
+                    </Toggler>
+                </OptionRow>
             </Container>
         </Modal>
     );
@@ -59,8 +68,14 @@ Options.propTypes = {
     questions: optionOrderProps.isRequired,
     answers: optionOrderProps.isRequired,
     animation: PropTypes.bool.isRequired,
+    description: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = ({ options: { questions, answers, animation } }) => ({ questions, answers, animation });
+const mapStateToProps = ({ options: { questions, answers, animation, description } }) => ({
+    questions,
+    answers,
+    animation,
+    description,
+});
 
 export default connect(mapStateToProps)(Options);

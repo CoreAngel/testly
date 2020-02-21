@@ -6,6 +6,7 @@
     {
       "id": 0,
       "q": "W ramce danych znajduje się 6 bajtowy adres odbiorcy ustawiony przez warstwę sieci",
+      "d": "Jeżeli chodzi o adres fizyczny to 'Nie', jak o adres logiczny to 'tak', z tym że zazwyczaj się mówi o adresie fizycznym w rampkach więc odp 'nie'",
       "a": [
         {
           "i": "Tak"
@@ -19,6 +20,7 @@
     {
       "id": 1,
       "q": "Dla transmisji rozgłoszeniowej HUB jest skuteczniejszy od Switcha",
+      "d": "Tak? Z racji, że hub nie będzie analizował ramek, pracuje w pierwszej wartstwie, switch z kolei w drugiej, hub będzie szybszy",
       "a": [
         {
           "i": "Tak",
@@ -32,6 +34,7 @@
     {
       "id": 2,
       "q": "Skrętka nieekranowana ma lepsze parametry transmisyjne od skrętki ekranowanej",
+      "d": "https://prnt.sc/qtjo0l https://prnt.sc/qtjof7",
       "a": [
         {
           "i": "Tak"
@@ -58,6 +61,7 @@
     {
       "id": 4,
       "q": "Medium transmisyjne przynależy do warstwy fizycznej",
+      "d": "Medium traktujemy jako warstwę 0",
       "a": [
         {
           "i": "Tak"
@@ -84,6 +88,7 @@
     {
       "id": 6,
       "q": "Maks. czas oczekiwania na dostęp do nośnika GbEth jest ok 10x krótszy niż w FastEth",
+      "d": "Fast 5,1 us Gigabit 4,1us, do zwyklego ethernet już tak 51,2 us",
       "a": [
         {
           "i": "Tak"
@@ -110,6 +115,7 @@
     {
       "id": 8,
       "q": "Ping sprawdza, czy połączenie działa przynajmniej w jedną stronę",
+      "d": "https://prnt.sc/qtk3h9",
       "a": [
         {
           "i": "Tak"
@@ -123,6 +129,7 @@
     {
       "id": 9,
       "q": "W FDDI stacja wysyła ramkę danych tuż za uwolnionym tokenem",
+      "d": "https://prnt.sc/qtg7mi",
       "a": [
         {
           "i": "Tak"
@@ -136,6 +143,7 @@
     {
       "id": 10,
       "q": "Ethernet jest siecią odpowiednią do zastosowań przemysłowych",
+      "d": "https://prnt.sc/qtg9nx",
       "a": [
         {
           "i": "Tak"
@@ -149,6 +157,7 @@
     {
       "id": 11,
       "q": "Protokół CSMA/CA dotyczy unikania kolizji",
+      "d": "https://prnt.sc/qtg9un",
       "a": [
         {
           "i": "Tak",
@@ -162,6 +171,7 @@
     {
       "id": 12,
       "q": "Maska /23 to maska 255.255.253.0",
+      "d": "255.255.255.254.0",
       "a": [
         {
           "i": "Tak"
@@ -175,6 +185,7 @@
     {
       "id": 13,
       "q": "Sieć o masce 29.5 bitowej i adresie 192.168.1.64 ma adres broadcast: 192.168.1.69",
+      "d": "maska 29,5 bitowa?",
       "a": [
         {
           "i": "Tak"
@@ -188,6 +199,7 @@
     {
       "id": 14,
       "q": "Jeżeli klasy C podzielimy na 30-bitowe to stracimy 64 adresy na organizacje sieci",
+      "d": "klasa c to 255.255.255.0 wiec jak bedziesz mial maske c to 64 sieci po 4 adresy - 2 sieci i rozgl wiec tracisz 128 adresow, masz dostepnych 128",
       "a": [
         {
           "i": "Tak"
@@ -201,6 +213,7 @@
     {
       "id": 15,
       "q": "Komenda Configure terminal powoduje przejście do trybu uprzywilejowanego",
+      "d": "enable",
       "a": [
         {
           "i": "Tak"
@@ -214,6 +227,7 @@
     {
       "id": 16,
       "q": "Poprawną komenda konfiguracji statycznego jest: ip route 192.168.0.0     255.255.255.128     192.168.0.1",
+      "d": "router w tej samej sieci",
       "a": [
         {
           "i": "Tak"
@@ -227,6 +241,7 @@
     {
       "id": 17,
       "q": "W sieci WIFI \"stacja odkryta\" niepotrzebnie wstrzymuje transmisje",
+      "d": "https://prnt.sc/qtgezp",
       "a": [
         {
           "i": "Tak",
@@ -240,6 +255,7 @@
     {
       "id": 18,
       "q": "Sprawdzanie poprawności przesłanych danych wykonują w.fizyczna i w. łącza danych",
+      "d": "transport i lacza danych",
       "a": [
         {
           "i": "Tak"
@@ -253,6 +269,7 @@
     {
       "id": 19,
       "q": "SWITCH przynależy do warstwy fizycznej",
+      "d": "Switche pracuja w warstwie Lacza danych http://prntscr.com/qtgjoa",
       "a": [
         {
           "i": "Tak"
@@ -266,6 +283,7 @@
     {
       "id": 20,
       "q": "Protokół IP przynależy do warstwy transportowej",
+      "d": "IP nalezy do warstwy sieci http://prntscr.com/qtghxm",
       "a": [
         {
           "i": "Tak"
@@ -279,13 +297,14 @@
     {
       "id": 21,
       "q": "HUB pracuje w topologii gwiazdy",
+      "d": "Hub w topologi magistrali(sygnał leci do wszystki, nie rozróżnia gdzie ma lecieć), topologii gwiazdy uzywa switch Leci do wskazanego https://prnt.sc/qtgl18",
       "a": [
         {
           "i": "Tak"
         },
         {
           "i": "Nie",
-          "c": true
+          "c": null
         }
       ]
     },
@@ -305,19 +324,21 @@
     {
       "id": 23,
       "q": "Światłowód wielomodowy pozwala przesłać więcej Mb/s niż jednomodowy",
+      "d": "w wielomodowym na mniejsze odleglosci mozna przesylac, ale sama przepustowosc to tylko chyba wersja jak dobry swatlowod jest",
       "a": [
         {
           "i": "Tak"
         },
         {
           "i": "Nie",
-          "c": true
+          "c": null
         }
       ]
     },
     {
       "id": 24,
       "q": "Przy dużym obciążeniu sieci wydajność Ethernetu spada nawet o 80%",
+      "d": "https://prnt.sc/qth8pe",
       "a": [
         {
           "i": "Tak",
@@ -331,6 +352,7 @@
     {
       "id": 25,
       "q": "Jeśli zostaną przerwane obydwa światłowody, to FDDI będzie działać dalej",
+      "d": "https://prnt.sc/qthc4q",
       "a": [
         {
           "i": "Tak",
@@ -344,6 +366,7 @@
     {
       "id": 26,
       "q": "Ping działa w oparciu o protokół ARP",
+      "d": "ICMP",
       "a": [
         {
           "i": "Tak"
@@ -357,6 +380,7 @@
     {
       "id": 27,
       "q": "Zaletą FDDI jest szybkie uwalnianie tokenu",
+      "d": "https://prnt.sc/qtg7mi",
       "a": [
         {
           "i": "Tak",
@@ -370,6 +394,7 @@
     {
       "id": 28,
       "q": "W trasowaniu metodą stanu łącza nie występuje tzw. pętla routingu",
+      "d": "https://prnt.sc/qthnis https://prnt.sc/qthnxc",
       "a": [
         {
           "i": "Tak",
@@ -383,6 +408,7 @@
     {
       "id": 29,
       "q": "Przełączniki ATM wybierają trasę na podstawie adresu IP odbiorcy zapisanego w komórce",
+      "d": "brak ip w komorce https://prnt.sc/qthrb5",
       "a": [
         {
           "i": "Tak"
@@ -396,6 +422,7 @@
     {
       "id": 30,
       "q": "Sieć o masce 255.255.255.128 i adresie 192.168.1.64 ma adres rozgł. 192.168.1.191",
+      "d": "http://prntscr.com/qthhrv",
       "a": [
         {
           "i": "Tak"
@@ -409,6 +436,7 @@
     {
       "id": 31,
       "q": "Sieć klasy C możemy podzielić na 32 sieci o maskach 255.255.255.248",
+      "d": "256/32 = 8 = maska /29",
       "a": [
         {
           "i": "Tak",
@@ -435,6 +463,7 @@
     {
       "id": 33,
       "q": "Poprawną komendą konfiguracji rutingu statycznego jest: ip route 192.168.0.64 192.168.0.128",
+      "d": "nie podano maski sieci http://prntscr.com/qthlw9",
       "a": [
         {
           "i": "Tak"
@@ -448,6 +477,7 @@
     {
       "id": 34,
       "q": "W technologii WiFi wykrywanie kolizji odbywa się analogicznie jak w Ethernecie",
+      "d": "Ethernet - CSMA/CD / WIFI - CSMA/CA https://prnt.sc/qthw5i",
       "a": [
         {
           "i": "Tak"
@@ -461,6 +491,7 @@
     {
       "id": 35,
       "q": "Sprawdzanie poprawności przesłanych danych wykonują w. łącza danych i w. transportowa",
+      "d": "transport i lacza danych",
       "a": [
         {
           "i": "Tak",
@@ -474,6 +505,7 @@
     {
       "id": 36,
       "q": "HUB przynależy do warstwy fizycznej",
+      "d": "http://prntscr.com/qthux2",
       "a": [
         {
           "i": "Tak",
@@ -487,6 +519,7 @@
     {
       "id": 37,
       "q": "Protokół IP przynależy do warstwy sieci",
+      "d": "https://prnt.sc/qthx01",
       "a": [
         {
           "i": "Tak",
@@ -500,6 +533,7 @@
     {
       "id": 38,
       "q": "Switch pracuje w topologi magistrali",
+      "d": "https://prnt.sc/qthzj7",
       "a": [
         {
           "i": "Tak"
@@ -513,6 +547,7 @@
     {
       "id": 39,
       "q": "Kabel ekranowany pozwala na transmisję o większym zasięgu niż nieekranowany",
+      "d": "Chodzi tylko o zaklocenia, chociaz moze zaklocenia sa w stanie wytlumic fale. Najpierw się określa ekranowana/nieekranowa a później kategoria szybkości",
       "a": [
         {
           "i": "Tak"
@@ -526,6 +561,7 @@
     {
       "id": 40,
       "q": "Przy dużym obciążeniu sieci wydajność Ethernetu spada nawet 5 krotnie",
+      "d": "https://prnt.sc/qth8pe",
       "a": [
         {
           "i": "Tak",
@@ -552,6 +588,7 @@
     {
       "id": 42,
       "q": "Token Ring działa w oparciu o większe ramki niż FDDI",
+      "d": "https://prnt.sc/qti4oi",
       "a": [
         {
           "i": "Tak",
@@ -565,6 +602,7 @@
     {
       "id": 43,
       "q": "Ethernet działa w oparciu o protokół CSMA/CA",
+      "d": "Ethernet - CSMA/CD / WIFI - CSMA/CA https://prnt.sc/qthw5i",
       "a": [
         {
           "i": "Tak"
@@ -591,6 +629,7 @@
     {
       "id": 45,
       "q": "Sieć o masce 255.255.255.192 i adresie 192.168.1.128 ma adres rozgł. 192 168.1.255",
+      "d": "https://prnt.sc/qthz12",
       "a": [
         {
           "i": "Tak"
@@ -604,6 +643,7 @@
     {
       "id": 46,
       "q": "Sieć klasy C możemy podzielić na 64 sieci o maskach 255.255.255.252",
+      "d": "c = 255.255.255.0 = 256K   256/64=4    255.255.255.252=4K",
       "a": [
         {
           "i": "Tak",
@@ -630,10 +670,11 @@
     {
       "id": 48,
       "q": "Każdy router może dzielić większe pakiety na mniejsze i z powrotem je składać",
+      "d": "https://prnt.sc/qtp1tz",
       "a": [
         {
           "i": "Tak",
-          "c": true
+          "c": null
         },
         {
           "i": "Nie"
@@ -643,6 +684,7 @@
     {
       "id": 49,
       "q": "Czy warstwa Łącza danych odpowiada za końcową integralność danych? ",
+      "d": "Za koncowa integralnosc odpowiada warstwa Transportu",
       "a": [
         {
           "i": "Tak"
@@ -656,19 +698,21 @@
     {
       "id": 50,
       "q": "Czy światłowód wielomodowy w przeciwieństwie do jednomodowego, umożliwia transmisję w obu kierunkach",
+      "d": "pytanie czy chodzi o full duplex czy tylko na jednym kablu raz wyslac a raz odebrac - wydaje mi się, że może chodzić o ogólną różnicę więc odpowiedzią jest nie",
       "a": [
         {
           "i": "Tak"
         },
         {
           "i": "Nie",
-          "c": true
+          "c": null
         }
       ]
     },
     {
       "id": 51,
       "q": "Czy ATM używa komórek zamiast ramek?",
+      "d": "https://i.imgur.com/AkKgiw4.png",
       "a": [
         {
           "i": "Tak",
@@ -688,7 +732,7 @@
         },
         {
           "i": "Nie",
-          "c": true
+          "c": null
         }
       ]
     },
@@ -708,6 +752,7 @@
     {
       "id": 54,
       "q": "Czy protokół Mac odpowiada za translację adresu logicznego na fizyczny? ",
+      "d": "ARP za to odpowiada https://prnt.sc/qtigdc ",
       "a": [
         {
           "i": "Tak"
@@ -721,6 +766,7 @@
     {
       "id": 55,
       "q": "Czy możemy skonfigurować interfejs poleceniem: ip address 123.456.789.123 255.255.255.240 (Nie pamiętam dokładnie adresów) ",
+      "d": "oktet nie może być większy niż 255",
       "a": [
         {
           "i": "Tak"
@@ -734,6 +780,7 @@
     {
       "id": 56,
       "q": "Czy wzrost elementów sieci w TR zmniejszy jego sprawność, a w FDDI, zwiększy? ",
+      "d": "https://prnt.sc/qtiqy2",
       "a": [
         {
           "i": "Tak",
@@ -747,6 +794,7 @@
     {
       "id": 57,
       "q": "Czy UTP kategorii 5, działa na 250MHz? ",
+      "d": "https://prnt.sc/qtirbs",
       "a": [
         {
           "i": "Tak"
@@ -760,6 +808,7 @@
     {
       "id": 58,
       "q": "Czy podstawowym protokołem wykorzystywanym w WiFi jest CSMA/CD ",
+      "d": "Ethernet - CSMA/CD / WIFI - CSMA/CA https://prnt.sc/qthw5i",
       "a": [
         {
           "i": "Tak"
@@ -773,6 +822,7 @@
     {
       "id": 59,
       "q": "Czy w sieci Ethernet kolizja występuje tylko i wyłącznie wtedy, kiedy dwa urządzenia próbują nadawać jednocześnie. ",
+      "d": "min 2 https://prnt.sc/qtiu9r",
       "a": [
         {
           "i": "Tak"
@@ -799,10 +849,11 @@
     {
       "id": 61,
       "q": "Czy trasowanie metodą wektora odległości korzysta z informacji pośrednich ",
+      "d": "(EIGRP) is an advanced distance-vector routing protocol https://prnt.sc/qtj94t",
       "a": [
         {
           "i": "Tak",
-          "c": true
+          "c": null
         },
         {
           "i": "Nie"
@@ -812,6 +863,7 @@
     {
       "id": 62,
       "q": "Czy czas konwergencji w trasowaniu metodą stanu łącza jest skrócony do metody wektora odległości",
+      "d": "stan łącza - zmiana w sieci, odleglosc wektora - chyba co jakis czas tak jak RIP",
       "a": [
         {
           "i": "Tak",
@@ -825,6 +877,7 @@
     {
       "id": 63,
       "q": "Czy token w TR może modyfikować dowolny monitor",
+      "d": "Raczej chodzi o to ze w danej chwili, a w danej chwili mozna modyfikowac tylko jeden monitor ten ktory posiada token",
       "a": [
         {
           "i": "Tak"
@@ -838,6 +891,7 @@
     {
       "id": 64,
       "q": "Czy autonaprawa w FDDI polega na przełączeniu logicznym transmisji na drugi pierścień ",
+      "d": "https://prnt.sc/qtjj3y",
       "a": [
         {
           "i": "Tak",
@@ -851,6 +905,7 @@
     {
       "id": 65,
       "q": "Czy transmisja różnicowa redukuje zakłócenie w 100%. ",
+      "d": "jesli takie samo zaklocenie na 2 kablach to bedzie git ale generalnie nie mozna powiedziec ze zawsze redukuje w 100%",
       "a": [
         {
           "i": "Tak"

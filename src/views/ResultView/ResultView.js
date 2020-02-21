@@ -81,8 +81,8 @@ const ResultView = ({ test: { list, index, end }, options, setListAction }) => {
                         </span>
                     </NoItemsText>
                 )}
-                {questions.map(({ id, q, a }) => (
-                    <Question key={id} number={id + 1} question={q} answers={a} includeSelected />
+                {questions.map(({ id, q, d, a }) => (
+                    <Question key={id} number={id + 1} question={q} answers={a} description={d} includeSelected />
                 ))}
             </Container>
             <BackToTopButton offset={300} />

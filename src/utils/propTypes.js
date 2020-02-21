@@ -13,6 +13,7 @@ export const typeListProp = oneOf([testType.Single, testType.Multi]);
 export const listQuestionProps = shape({
     id: number.isRequired,
     q: string.isRequired,
+    d: string,
     a: arrayOf(answerProp).isRequired,
 });
 
@@ -28,6 +29,7 @@ export const listProps = shape({
 export const testQuestionProps = shape({
     id: number.isRequired,
     q: string.isRequired,
+    d: string,
     a: arrayOf(answerProp).isRequired,
     f: bool,
 });

@@ -9,6 +9,18 @@ export const QuestionText = styled.p`
     font-weight: bold;
 `;
 
+export const Description = styled.p`
+    font-size: 1.3rem;
+
+    & a {
+        color: ${colors.White80};
+
+        &:hover {
+            color: ${colors.White};
+        }
+    }
+`;
+
 export const AnswersList = styled.ul`
     list-style-type: none;
     padding-left: 15px;
