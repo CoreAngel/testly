@@ -24,6 +24,7 @@ import {
     RunButton,
     ConfirmText,
 } from './ResultView.style';
+import BackToTopButton from '../../components/BackToTopButton';
 
 const ResultView = ({ test: { list, index, end }, options, setListAction }) => {
     const [isAllQuestionVisible, setIsAllQuestionVisible] = useState(false);
@@ -84,6 +85,7 @@ const ResultView = ({ test: { list, index, end }, options, setListAction }) => {
                     <Question key={id} number={id + 1} question={q} answers={a} includeSelected />
                 ))}
             </Container>
+            <BackToTopButton offset={300} />
         </MainContainer>
     );
 };

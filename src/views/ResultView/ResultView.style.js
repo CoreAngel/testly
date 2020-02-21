@@ -18,7 +18,7 @@ export const Header = styled.div`
 `;
 
 export const Container = styled.div`
-    margin: 15px 0 0 0;
+    margin: 15px 0 70px 0;
 `;
 
 export const RunContainer = styled.div`
