@@ -10,7 +10,7 @@ const prepareQuestions = (testQuestions, runType) => {
 };
 
 const prepareAnswers = (testQuestions, runType) => {
-    if (runType !== runTypes.RANDOM) {
+    if (runType === runTypes.RANDOM) {
         return testQuestions.map(item => ({
             ...item,
             a: shuffle(item.a),

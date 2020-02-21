@@ -11,8 +11,8 @@ export const colors = {
     Red50: 'rgba(211, 47, 47, 0.5)',
     Red: '#d32f2f',
     Yellow0: 'rgba(255, 213, 79, 0)',
-    Yellow50: 'rgba(255, 213, 79, 0.5)',
-    Yellow: '#ffd54f',
+    Yellow50: 'rgba(212, 156, 7, 0.5)',
+    Yellow: '#d49c07',
     Dark: '#1a1a1a',
     Backdrop: 'rgba(0, 0, 0, 0.3)',
 };
