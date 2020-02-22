@@ -3,7 +3,8 @@ const db = admin.firestore();
 const testCollection = db.collection('test');
 const { CreateTestValidator } = require('./../Validators/CreateTestValidator');
 const { GetTestValidator } = require('./../Validators/GetTestValidator');
-const { hashPassword } = require('./../Utils/Crypto');
+const { CheckPasswordValidator } = require('./../Validators/CheckPasswordValidator');
+const { hashPassword, comparePassword } = require('./../Utils/Crypto');
 
 const createTest = async (req, res) => {
     const test = req.body;
@@ -70,7 +71,38 @@ const getTest = async (req, res) => {
     }
 };
 
+const checkPassword = async (req, res) => {
+    const obj = req.body;
+
+    const errors = CheckPasswordValidator(obj);
+
+    if (errors !== null) {
+        return res.status(400).send(errors);
+    }
+
+    try {
+        const doc = await testCollection.doc(obj.key).get();
+        if (!doc.exists) {
+            return res.status(401).send();
+        } else {
+            const test = doc.data();
+            const { password } = test;
+
+            const status = await comparePassword(obj.password, password);
+
+            if (status) {
+                return res.status(200).send();
+            } else {
+                return res.status(401).send();
+            }
+        }
+    } catch (e) {
+        return res.status(500).send();
+    }
+};
+
 module.exports = {
     createTest,
     getTest,
+    checkPassword,
 };
