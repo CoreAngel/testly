@@ -4,67 +4,71 @@ const testCollection = db.collection('test');
 const { CreateTestValidator } = require('./../Validators/CreateTestValidator');
 const { GetTestValidator } = require('./../Validators/GetTestValidator');
 const { CheckPasswordValidator } = require('./../Validators/CheckPasswordValidator');
+const { CreateTestDto } = require('./../Dto/CreateTestDto');
 const { hashPassword, comparePassword } = require('./../Utils/Crypto');
 
 const createTest = async (req, res) => {
-    const test = req.body;
-
-    const errors = CreateTestValidator(test);
+    const body = req.body;
+    const errors = CreateTestValidator(body);
 
     if (errors !== null) {
         return res.status(400).send(errors);
     }
 
-    test.list = test.list.map((item, index) => {
+    const { name, password, type, list } = CreateTestDto(body);
+
+    const listWithIds = list.map((item, index) => {
         item.id = index;
         return item;
     });
 
-    test.index = test.list.length;
+    const testToSave = {
+        name,
+        type,
+        index: listWithIds.length,
+        list: listWithIds,
+    };
 
-    if (test.password) {
-        test.password = await hashPassword(test.password);
+    if (password) {
+        testToSave.password = await hashPassword(password);
     }
 
     try {
-        const ref = await testCollection.add(test);
-        test.key = ref.id;
+        const { id } = await testCollection.add(testToSave);
+        return res.status(200).send({
+            name,
+            type,
+            key: id,
+            protected: Boolean(password),
+            list: listWithIds,
+        });
     } catch (e) {
         return res.status(500).send();
     }
-
-    if (test.password) {
-        test.protected = true;
-        delete test.password;
-    }
-
-    delete test.index;
-    return res.status(200).send(test);
 };
 
 const getTest = async (req, res) => {
-    const { id } = req.params;
+    const { key } = req.params;
 
-    const errors = GetTestValidator({ key: id });
+    const errors = GetTestValidator({ key });
 
     if (errors !== null) {
         return res.status(400).send(errors);
     }
 
     try {
-        const doc = await testCollection.doc(id).get();
+        const doc = await testCollection.doc(key).get();
         if (!doc.exists) {
             return res.status(404).send();
         } else {
-            const test = doc.data();
-            test.key = id;
-
-            delete test.index;
-            if (test.password) {
-                test.protected = true;
-                delete test.password;
-            }
-            return res.status(200).send(test);
+            const { name, type, list, password } = doc.data();
+            return res.status(200).send({
+                name,
+                type,
+                key,
+                protected: Boolean(password),
+                list,
+            });
         }
     } catch (e) {
         return res.status(500).send();
@@ -72,23 +76,23 @@ const getTest = async (req, res) => {
 };
 
 const checkPassword = async (req, res) => {
-    const obj = req.body;
+    const { key, password } = req.body;
 
-    const errors = CheckPasswordValidator(obj);
+    const errors = CheckPasswordValidator({ key, password });
 
     if (errors !== null) {
         return res.status(400).send(errors);
     }
 
     try {
-        const doc = await testCollection.doc(obj.key).get();
+        const doc = await testCollection.doc(key).get();
         if (!doc.exists) {
             return res.status(401).send();
         } else {
             const test = doc.data();
-            const { password } = test;
+            const { password: hash } = test;
 
-            const status = await comparePassword(obj.password, password);
+            const status = await comparePassword(password, hash);
 
             if (status) {
                 return res.status(200).send();
