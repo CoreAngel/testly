@@ -2,6 +2,7 @@ const admin = require('firebase-admin');
 const db = admin.firestore();
 const testCollection = db.collection('test');
 const { CreateTestValidator } = require('./../Validators/CreateTestValidator');
+const { GetTestValidator } = require('./../Validators/GetTestValidator');
 const { hashPassword } = require('./../Utils/Crypto');
 
 const createTest = async (req, res) => {
@@ -40,6 +41,36 @@ const createTest = async (req, res) => {
     return res.status(200).send(test);
 };
 
+const getTest = async (req, res) => {
+    const { id } = req.params;
+
+    const errors = GetTestValidator({ key: id });
+
+    if (errors !== null) {
+        return res.status(400).send(errors);
+    }
+
+    try {
+        const doc = await testCollection.doc(id).get();
+        if (!doc.exists) {
+            return res.status(404).send();
+        } else {
+            const test = doc.data();
+            test.key = id;
+
+            delete test.index;
+            if (test.password) {
+                test.protected = true;
+                delete test.password;
+            }
+            return res.status(200).send(test);
+        }
+    } catch (e) {
+        return res.status(500).send();
+    }
+};
+
 module.exports = {
     createTest,
+    getTest,
 };

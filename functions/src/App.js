@@ -8,5 +8,6 @@ app.use(cors({ origin: true }));
 app.use(express.json());
 
 app.post('/test', TestController.createTest);
+app.get('/test/:id', TestController.getTest);
 
 module.exports = app;
