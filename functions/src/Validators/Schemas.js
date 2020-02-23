@@ -131,7 +131,7 @@ const questionIdSchema = required => {
 };
 
 const questionSchema = required => {
-    const max = 250;
+    const max = 400;
 
     return value => {
         const errors = [];
@@ -154,7 +154,7 @@ const questionSchema = required => {
 };
 
 const descriptionSchema = required => {
-    const max = 200;
+    const max = 250;
 
     return value => {
         const errors = [];
@@ -177,7 +177,7 @@ const descriptionSchema = required => {
 };
 
 const answersSchema = required => {
-    const max = 150;
+    const max = 200;
 
     return value => {
         const errors = [];
