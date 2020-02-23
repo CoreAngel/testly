@@ -90,20 +90,20 @@ const typeSchema = required => {
     };
 };
 
-const listSchema = required => {
+const questionsSchema = required => {
     return value => {
         const errors = [];
 
         if (required) {
-            if (!isSet(value)) errors.push('List is required');
+            if (!isSet(value)) errors.push('Questions is required');
         }
 
         if (isSet(value)) {
             if (!mustBeType(value, 'array')) {
-                errors.push('List must be a array');
+                errors.push('Questions must be a array');
                 return errors;
             }
-            if (!mustBeNotEmpty(value)) errors.push('List cannot be empty');
+            if (!mustBeNotEmpty(value)) errors.push('Questions cannot be empty');
         }
 
         return errors;
@@ -221,7 +221,7 @@ module.exports = {
     nameSchema,
     passwordSchema,
     typeSchema,
-    listSchema,
+    questionsSchema,
     questionIdSchema,
     questionSchema,
     descriptionSchema,

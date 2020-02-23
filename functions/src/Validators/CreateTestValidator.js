@@ -1,11 +1,11 @@
 const {
     answersSchema,
     descriptionSchema,
-    listSchema,
+    questionsSchema,
     nameSchema,
     passwordSchema,
     typeSchema,
-    questionSchema,
+    questionSchema: questionTextSchema,
 } = require('./Schemas');
 const { Validator } = require('./Validator');
 
@@ -14,21 +14,21 @@ const CreateTestValidator = obj => {
         name: nameSchema(true),
         type: typeSchema(true),
         password: passwordSchema(false),
-        list: listSchema(true),
+        questions: questionsSchema(true),
     };
 
-    const questionsSchema = {
-        q: questionSchema(true),
+    const questionSchema = {
+        q: questionTextSchema(true),
         a: answersSchema(true),
         d: descriptionSchema(false),
     };
 
     const errors = Validator(obj, testSchema);
 
-    if (Object.prototype.hasOwnProperty.call(obj, 'list')) {
-        const questionsErrors = obj.list
+    if (Object.prototype.hasOwnProperty.call(obj, 'questions')) {
+        const questionsErrors = obj.questions
             .map((item, index) => {
-                const questionErrors = Validator(item, questionsSchema);
+                const questionErrors = Validator(item, questionSchema);
                 if (Object.entries(questionErrors).length !== 0) {
                     return {
                         position: index + 1,
@@ -40,7 +40,7 @@ const CreateTestValidator = obj => {
             .filter(item => item !== null);
 
         if (questionsErrors.length !== 0) {
-            errors.questions = questionsErrors;
+            errors.questionsItems = questionsErrors;
         }
     }
 

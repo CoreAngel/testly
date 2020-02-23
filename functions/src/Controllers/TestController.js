@@ -15,9 +15,9 @@ const createTest = async (req, res) => {
         return res.status(400).send(errors);
     }
 
-    const { name, password, type, list } = CreateTestDto(body);
+    const { name, password, type, questions } = CreateTestDto(body);
 
-    const listWithIds = list.map((item, index) => {
+    const questionsWithIds = questions.map((item, index) => {
         item.id = index;
         return item;
     });
@@ -25,8 +25,8 @@ const createTest = async (req, res) => {
     const testToSave = {
         name,
         type,
-        index: listWithIds.length,
-        list: listWithIds,
+        index: questionsWithIds.length,
+        questions: questionsWithIds,
     };
 
     if (password) {
@@ -40,7 +40,7 @@ const createTest = async (req, res) => {
             type,
             key: id,
             protected: Boolean(password),
-            list: listWithIds,
+            questions: questionsWithIds,
         });
     } catch (e) {
         return res.status(500).send();
@@ -61,13 +61,13 @@ const getTest = async (req, res) => {
         if (!doc.exists) {
             return res.status(404).send();
         } else {
-            const { name, type, list, password } = doc.data();
+            const { name, type, questions, password } = doc.data();
             return res.status(200).send({
                 name,
                 type,
                 key,
                 protected: Boolean(password),
-                list,
+                questions,
             });
         }
     } catch (e) {
