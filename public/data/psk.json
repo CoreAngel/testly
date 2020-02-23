@@ -2,7 +2,7 @@
   "name": "PSK",
   "key": "psk.json",
   "type": "single",
-  "list": [
+  "questions": [
     {
       "id": 0,
       "q": "W ramce danych znajduje się 6 bajtowy adres odbiorcy ustawiony przez warstwę sieci",

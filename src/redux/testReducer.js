@@ -7,7 +7,7 @@ const testSlice = createSlice({
         name: '',
         key: '',
         type: testType.Single,
-        list: [],
+        questions: [],
         index: 0,
         end: false,
     },
@@ -17,16 +17,16 @@ const testSlice = createSlice({
             index: 0,
             end: false,
         }),
-        setList: (state, action) => ({
+        setQuestions: (state, action) => ({
             ...state,
-            list: [...action.payload],
+            questions: [...action.payload],
             index: 0,
             end: false,
         }),
         nextQuestion: state => {
-            const { index, list } = state;
+            const { index, questions } = state;
 
-            if (index + 1 >= list.length) {
+            if (index + 1 >= questions.length) {
                 return state;
             }
 
@@ -40,11 +40,11 @@ const testSlice = createSlice({
             end: true,
         }),
         setSelected: (state, action) => {
-            const { list, index } = state;
+            const { questions, index } = state;
             const { index: selectedAnswerIndex, fail } = action.payload;
 
-            const copyList = [...list];
-            const copyQuestion = { ...copyList[index] };
+            const copyQuestions = [...questions];
+            const copyQuestion = { ...copyQuestions[index] };
             const copyAnswers = [...copyQuestion.a];
 
             copyAnswers.splice(selectedAnswerIndex, 1, {
@@ -57,20 +57,20 @@ const testSlice = createSlice({
                 a: copyAnswers,
             };
 
-            copyList.splice(index, 1, {
+            copyQuestions.splice(index, 1, {
                 ...finalQuestion,
                 f: fail || !!finalQuestion.f,
             });
 
             return {
                 ...state,
-                list: copyList,
+                questions: copyQuestions,
             };
         },
     },
 });
 
 const { actions, reducer } = testSlice;
-const { setTest, setList, nextQuestion, setSelected, setEnd } = actions;
-export { setTest, setList, nextQuestion, setSelected, setEnd };
+const { setTest, setQuestions, nextQuestion, setSelected, setEnd } = actions;
+export { setTest, setQuestions, nextQuestion, setSelected, setEnd };
 export default reducer;

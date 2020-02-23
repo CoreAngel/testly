@@ -4,11 +4,11 @@ import { useHistory } from 'react-router-dom';
 import { routes } from 'static/routes';
 import PropTypes from 'prop-types';
 
-const RouteProtector = ({ children, listLength, index, end }) => {
+const RouteProtector = ({ children, questionsLength, index, end }) => {
     const history = useHistory();
     let replacePath = null;
 
-    if (listLength === 0) {
+    if (questionsLength === 0) {
         replacePath = routes.Test;
     }
 
@@ -27,13 +27,13 @@ const RouteProtector = ({ children, listLength, index, end }) => {
 
 RouteProtector.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
-    listLength: PropTypes.number.isRequired,
+    questionsLength: PropTypes.number.isRequired,
     index: PropTypes.number.isRequired,
     end: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = ({ test: { list, index, end } }) => ({
-    listLength: list.length,
+const mapStateToProps = ({ test: { questions, index, end } }) => ({
+    questionsLength: questions.length,
     index,
     end,
 });

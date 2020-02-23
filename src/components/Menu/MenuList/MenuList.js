@@ -7,8 +7,8 @@ import { connect } from 'react-redux';
 import { testProps } from 'utils/propTypes';
 import { NavItem, NavLink, NavList, NavSpan } from './MenuList.style';
 
-const MenuList = ({ isMobile, isOpen, setIsOpen, test: { list, index, end } }) => {
-    const isTestEmpty = list.length === 0;
+const MenuList = ({ isMobile, isOpen, setIsOpen, test: { questions, index, end } }) => {
+    const isTestEmpty = questions.length === 0;
     const isIndexZeroAndTestNotEnd = index === 0 && !end;
     const routesDisabled = {
         [routes.Test]: isTestEmpty,

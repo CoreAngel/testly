@@ -17,13 +17,13 @@ export const listQuestionProps = shape({
     a: arrayOf(answerProp).isRequired,
 });
 
-export const listQuestionListProps = arrayOf(listQuestionProps);
+export const listQuestionsProps = arrayOf(listQuestionProps);
 
 export const listProps = shape({
     name: string.isRequired,
     key: string.isRequired,
     type: typeListProp.isRequired,
-    list: listQuestionListProps.isRequired,
+    questions: listQuestionsProps.isRequired,
 });
 
 export const testQuestionProps = shape({
@@ -34,13 +34,13 @@ export const testQuestionProps = shape({
     f: bool,
 });
 
-export const testQuestionListProps = arrayOf(testQuestionProps);
+export const testQuestionsProps = arrayOf(testQuestionProps);
 
 export const testProps = shape({
     name: string.isRequired,
     key: string.isRequired,
     type: typeListProp.isRequired,
-    list: testQuestionListProps.isRequired,
+    questions: testQuestionsProps.isRequired,
     index: number.isRequired,
 });
 

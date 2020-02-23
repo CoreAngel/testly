@@ -17,7 +17,7 @@ const Answers = ({
     index,
     position,
     nextQuestionAction,
-    isListEnd,
+    isQuestionsEnd,
     isTestEnd,
     setEndAction,
 }) => {
@@ -50,7 +50,7 @@ const Answers = ({
     }, [nextQuestionAction, animationTime, isGoNext]);
 
     useEffect(() => {
-        const isTestOver = isListEnd && isGoNext;
+        const isTestOver = isQuestionsEnd && isGoNext;
         if (isTestOver && !isTestEnd) {
             const timeout = setTimeout(() => {
                 setEndAction();
@@ -61,7 +61,7 @@ const Answers = ({
         }
 
         return () => {};
-    }, [isGoNext, isListEnd, isTestEnd, pushToResult, setEndAction, animationTime]);
+    }, [isGoNext, isQuestionsEnd, isTestEnd, pushToResult, setEndAction, animationTime]);
 
     const isActive = !isTestEnd && (isGoNext || isLastQuestion);
     return <Buttons answers={answers} active={isActive} animationTime={animationTime} checkAnswer={checkAnswer} />;
@@ -72,7 +72,7 @@ Answers.propTypes = {
     index: PropTypes.number.isRequired,
     answers: PropTypes.arrayOf(answerProp).isRequired,
     isGoNext: PropTypes.bool.isRequired,
-    isListEnd: PropTypes.bool.isRequired,
+    isQuestionsEnd: PropTypes.bool.isRequired,
     isTestEnd: PropTypes.bool.isRequired,
     animationTime: PropTypes.number.isRequired,
     checkAnswer: PropTypes.func.isRequired,

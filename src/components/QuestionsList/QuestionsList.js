@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Input } from 'reactstrap';
 import Question from 'components/Question';
-import { listQuestionListProps } from 'utils/propTypes';
+import { listQuestionsProps } from 'utils/propTypes';
 import { SearchContainer } from './QuestionsList.style';
 
 const QuestionsList = ({ questions }) => {
@@ -33,7 +33,7 @@ const QuestionsList = ({ questions }) => {
 };
 
 QuestionsList.propTypes = {
-    questions: listQuestionListProps.isRequired,
+    questions: listQuestionsProps.isRequired,
 };
 
 export default QuestionsList;

@@ -3,13 +3,18 @@ import { createSlice } from '@reduxjs/toolkit';
 const listSlice = createSlice({
     name: 'list',
     initialState: {
-        name: '',
-        key: '',
-        type: '',
-        list: [],
+        list: {
+            name: '',
+            key: '',
+            type: '',
+            questions: [],
+        },
     },
     reducers: {
-        setList: (state, action) => ({ ...action.payload }),
+        setList: (state, action) => ({
+            ...state,
+            list: { ...action.payload },
+        }),
     },
 });
 

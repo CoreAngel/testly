@@ -8,9 +8,10 @@ import { optionsProps, testProps } from 'utils/propTypes';
 import Toggler from 'components/Toggler';
 import { prepareTest, clearList } from 'utils/prepareTestList';
 import useHistoryPush from 'hooks/useHistoryPush';
-import { setList } from 'redux/testReducer';
+import { setQuestions } from 'redux/testReducer';
 import { routes } from 'static/routes';
 import Confirm from 'components/Confirm';
+import BackToTopButton from 'components/BackToTopButton';
 import {
     FailedText,
     Header,
@@ -24,26 +25,27 @@ import {
     RunButton,
     ConfirmText,
 } from './ResultView.style';
-import BackToTopButton from '../../components/BackToTopButton';
 
-const ResultView = ({ test: { list, index, end }, options, setListAction }) => {
+const ResultView = ({ test: { questions, index, end }, options, setQuestionsAction }) => {
     const [isAllQuestionVisible, setIsAllQuestionVisible] = useState(false);
     const [isConfirmOpen, setIsConfirmOpen] = useState(false);
     const pushToTest = useHistoryPush(routes.Test);
 
-    const answeredQuestions = end ? [...list] : list.slice(0, index);
+    const answeredQuestions = end ? [...questions] : questions.slice(0, index);
 
     const failedQuestions = answeredQuestions.filter(item => item.f);
     const failedCounter = failedQuestions.length;
 
-    const questions = (isAllQuestionVisible ? answeredQuestions : failedQuestions).sort((i1, i2) => i1.id - i2.id);
+    const questionsToShow = (isAllQuestionVisible ? answeredQuestions : failedQuestions).sort(
+        (i1, i2) => i1.id - i2.id,
+    );
 
     const runTestWithFails = confirmStatus => {
         if (!confirmStatus || failedCounter === 0) return;
 
         const clearTestList = clearList(failedQuestions);
         const preparedList = prepareTest(clearTestList, options);
-        setListAction(preparedList);
+        setQuestionsAction(preparedList);
         pushToTest();
     };
 
@@ -73,7 +75,7 @@ const ResultView = ({ test: { list, index, end }, options, setListAction }) => {
                 </RunContainer>
             )}
             <Container>
-                {questions.length === 0 && (
+                {questionsToShow.length === 0 && (
                     <NoItemsText>
                         Everything is correct! Keep going{' '}
                         <span role="img" aria-label="thumb up">
@@ -81,7 +83,7 @@ const ResultView = ({ test: { list, index, end }, options, setListAction }) => {
                         </span>
                     </NoItemsText>
                 )}
-                {questions.map(({ id, q, d, a }) => (
+                {questionsToShow.map(({ id, q, d, a }) => (
                     <Question key={id} number={id + 1} question={q} answers={a} description={d} includeSelected />
                 ))}
             </Container>
@@ -93,12 +95,12 @@ const ResultView = ({ test: { list, index, end }, options, setListAction }) => {
 ResultView.propTypes = {
     test: testProps.isRequired,
     options: optionsProps.isRequired,
-    setListAction: PropTypes.func.isRequired,
+    setQuestionsAction: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = ({ test, options }) => ({ test, options });
 const mapDispatchToProps = {
-    setListAction: setList,
+    setQuestionsAction: setQuestions,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ResultView);

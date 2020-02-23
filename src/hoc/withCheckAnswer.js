@@ -11,7 +11,7 @@ const withCheckAnswer = Component => {
         index_withCheckAnswer: index,
         question_withCheckAnswer: question,
         listType_withCheckAnswer: type,
-        listLength_withCheckAnswer: listLength,
+        questionsLength_withCheckAnswer: questionsLength,
         animationTime_withCheckAnswer: animationTime,
         setSelected_withCheckAnswer: setSelectedAction,
         ...props
@@ -19,7 +19,7 @@ const withCheckAnswer = Component => {
         const correctAnswers = question.a.filter(({ c }) => c === answerType.Correct || c === answerType.NotSure);
         const isGoNext =
             type === testType.Single ? correctAnswers.some(({ s }) => s) : correctAnswers.every(({ s }) => s);
-        const isListEnd = index + 1 === listLength;
+        const isQuestionsEnd = index + 1 === questionsLength;
 
         const checkAnswer = useCallback(
             ind => {
@@ -27,7 +27,7 @@ const withCheckAnswer = Component => {
 
                 const { a } = question;
                 const isInAnswersRange = ind < a.length;
-                const isInQuestionsRange = index < listLength;
+                const isInQuestionsRange = index < questionsLength;
                 if (!isInAnswersRange || !isInQuestionsRange) return;
 
                 const isCorrect = a[ind].c === answerType.Correct;
@@ -36,14 +36,14 @@ const withCheckAnswer = Component => {
 
                 setSelectedAction({ index: ind, fail: isFail });
             },
-            [isGoNext, question, index, listLength, setSelectedAction],
+            [isGoNext, question, index, questionsLength, setSelectedAction],
         );
 
         return (
             <Component
                 checkAnswer={checkAnswer}
                 isGoNext={isGoNext}
-                isListEnd={isListEnd}
+                isQuestionsEnd={isQuestionsEnd}
                 animationTime={animationTime}
                 {...props}
             />
@@ -54,16 +54,16 @@ const withCheckAnswer = Component => {
         index_withCheckAnswer: PropTypes.number.isRequired,
         question_withCheckAnswer: testQuestionProps.isRequired,
         listType_withCheckAnswer: typeListProp.isRequired,
-        listLength_withCheckAnswer: PropTypes.number.isRequired,
+        questionsLength_withCheckAnswer: PropTypes.number.isRequired,
         animationTime_withCheckAnswer: PropTypes.number.isRequired,
         setSelected_withCheckAnswer: PropTypes.func.isRequired,
     };
 
-    const mapStateToProps = ({ test: { list, index, type }, options: { animationTime } }) => ({
+    const mapStateToProps = ({ test: { questions, index, type }, options: { animationTime } }) => ({
         index_withCheckAnswer: index,
-        question_withCheckAnswer: list[index],
+        question_withCheckAnswer: questions[index],
         listType_withCheckAnswer: type,
-        listLength_withCheckAnswer: list.length,
+        questionsLength_withCheckAnswer: questions.length,
         animationTime_withCheckAnswer: animationTime,
     });
     const mapDispatchToProps = {

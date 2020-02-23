@@ -2,7 +2,7 @@
   "name": "IO",
   "key": "io.json",
   "type": "single",
-  "list": [
+  "questions": [
     {
       "id": 0,
       "q": "Glownym zadaniem fazy wymagan jest:",

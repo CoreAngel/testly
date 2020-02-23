@@ -6,10 +6,10 @@ import TestHeader from 'components/TestHeader';
 import Answers from 'components/Answers';
 import { TestQuestion } from './TestView.style';
 
-const TestView = ({ test: { index, name, key, list } }) => {
+const TestView = ({ test: { index, name, key, questions } }) => {
     const [position, setPosition] = useState(index);
 
-    const question = list[position];
+    const question = questions[position];
     const { q, a } = question;
 
     useEffect(() => {
@@ -26,7 +26,7 @@ const TestView = ({ test: { index, name, key, list } }) => {
                     index={index}
                     position={position}
                     setPosition={setPosition}
-                    listLength={list.length}
+                    questionsLength={questions.length}
                     testKey={key}
                     name={name}
                 />

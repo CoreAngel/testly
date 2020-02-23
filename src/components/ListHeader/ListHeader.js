@@ -26,14 +26,14 @@ import {
     ConfirmText,
 } from './ListHeader.style';
 
-const ListHeader = ({ list, setTestAction, options, testIndex, testListLength }) => {
+const ListHeader = ({ list, setTestAction, options, testIndex, testQuestionsLength }) => {
     const [error, setError] = useState('');
     const [isConfirmOpen, setIsConfirmOpen] = useState(false);
     const pushToTest = useHistoryPush(routes.Test);
 
     const runTest = () => {
         setError('');
-        const preparedList = prepareTest(list.list, options);
+        const preparedList = prepareTest(list.questions, options);
         setTestAction({
             ...list,
             list: preparedList,
@@ -47,8 +47,8 @@ const ListHeader = ({ list, setTestAction, options, testIndex, testListLength })
             return;
         }
 
-        const isTestEmpty = testListLength === 0;
-        const isTestEnd = testListLength !== 0 && testIndex === testListLength - 1;
+        const isTestEmpty = testQuestionsLength === 0;
+        const isTestEnd = testQuestionsLength !== 0 && testIndex === testQuestionsLength - 1;
         if (!isTestEnd && !isTestEmpty) {
             setIsConfirmOpen(true);
             return;
@@ -125,18 +125,18 @@ ListHeader.propTypes = {
     setTestAction: PropTypes.func.isRequired,
     options: optionsProps.isRequired,
     testIndex: PropTypes.number.isRequired,
-    testListLength: PropTypes.number.isRequired,
+    testQuestionsLength: PropTypes.number.isRequired,
 };
 
 ListHeader.defaultProps = {
     list: null,
 };
 
-const mapStateToProps = ({ list, test: { index, list: testList }, options }) => ({
-    list: list.list.length > 0 ? list : null,
+const mapStateToProps = ({ list: { list }, test: { index, questions }, options }) => ({
+    list: list.questions.length > 0 ? list : null,
     options,
     testIndex: index,
-    testListLength: testList.length,
+    testQuestionsLength: questions.length,
 });
 
 const mapDispatchToProps = {

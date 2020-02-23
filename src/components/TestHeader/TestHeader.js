@@ -6,7 +6,7 @@ import { ic_keyboard_arrow_left as arrowLeft, ic_keyboard_arrow_right as arrowRi
 
 import { Name, Key, InfoWrapper, Wrapper, Position, Container, Button } from './TestHeader.style';
 
-const TestHeader = ({ position, index, name, testKey, listLength, setPosition }) => {
+const TestHeader = ({ position, index, name, testKey, questionsLength, setPosition }) => {
     const goPrev = useCallback(() => {
         setPosition(prevPos => (prevPos > 0 ? prevPos - 1 : prevPos));
     }, [setPosition]);
@@ -38,7 +38,7 @@ const TestHeader = ({ position, index, name, testKey, listLength, setPosition })
             </Button>
             <Wrapper>
                 <Position>
-                    {position + 1}/{listLength}
+                    {position + 1}/{questionsLength}
                 </Position>
                 <InfoWrapper>
                     <Name>{name}</Name>
@@ -58,7 +58,7 @@ TestHeader.propTypes = {
     index: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     testKey: PropTypes.string.isRequired,
-    listLength: PropTypes.number.isRequired,
+    questionsLength: PropTypes.number.isRequired,
     setPosition: PropTypes.func.isRequired,
 };
 
