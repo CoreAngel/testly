@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { testType } from 'static/list';
 
 const listSlice = createSlice({
     name: 'list',
@@ -6,19 +7,42 @@ const listSlice = createSlice({
         list: {
             name: '',
             key: '',
-            type: '',
+            type: testType.Single,
+            protected: false,
             questions: [],
         },
+        loading: false,
+        error: '',
     },
     reducers: {
-        setList: (state, action) => ({
+        setList: (state, { payload }) => ({
             ...state,
-            list: { ...action.payload },
+            list: { ...payload },
+            loading: false,
+            error: '',
+        }),
+        setKey: (state, { payload }) => ({
+            ...state,
+            list: {
+                ...state.list,
+                key: payload,
+            },
+        }),
+        startLoading: state => ({ ...state, loading: true }),
+        finishLoadingWithSuccess: state => ({
+            ...state,
+            loading: false,
+            error: '',
+        }),
+        finishLoadingWithError: (state, { payload }) => ({
+            ...state,
+            loading: false,
+            error: payload,
         }),
     },
 });
 
 const { actions, reducer } = listSlice;
-const { setList } = actions;
-export { setList };
+const { setList, finishLoadingWithError, finishLoadingWithSuccess, startLoading, setKey } = actions;
+export { setList, finishLoadingWithError, finishLoadingWithSuccess, startLoading, setKey };
 export default reducer;

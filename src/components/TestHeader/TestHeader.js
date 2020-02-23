@@ -42,7 +42,7 @@ const TestHeader = ({ position, index, name, testKey, questionsLength, setPositi
                 </Position>
                 <InfoWrapper>
                     <Name>{name}</Name>
-                    <Key>{testKey}</Key>
+                    <Key>({testKey})</Key>
                 </InfoWrapper>
             </Wrapper>
             <Button disabled={position === index} onClick={goNext}>

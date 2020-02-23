@@ -20,7 +20,7 @@ const MainView = () => {
                 <Switch>
                     <Route exact path={routes.Home} component={HomeView} />
                     <Route path={routes.LoadList} component={LoadListView} />
-                    <Route path={routes.List} component={ListView} />
+                    <Route path={`${routes.List}/:id?`} component={ListView} />
                     <Route path={routes.Test} component={TestView} />
                     <Route path={routes.Result} component={ResultView} />
                 </Switch>

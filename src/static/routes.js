@@ -1,6 +1,6 @@
 export const routes = {
     Home: '/',
-    List: '/list',
+    List: '/lists',
     LoadList: '/list/load',
     Test: '/test',
     Result: '/result',

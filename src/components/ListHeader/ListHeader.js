@@ -26,7 +26,7 @@ import {
     ConfirmText,
 } from './ListHeader.style';
 
-const ListHeader = ({ list, setTestAction, options, testIndex, testQuestionsLength }) => {
+const ListHeader = ({ list, setTestAction, options, testIndex, testQuestionsLength, isShowListInfo }) => {
     const [error, setError] = useState('');
     const [isConfirmOpen, setIsConfirmOpen] = useState(false);
     const pushToTest = useHistoryPush(routes.Test);
@@ -67,12 +67,12 @@ const ListHeader = ({ list, setTestAction, options, testIndex, testQuestionsLeng
     return (
         <>
             <MobileContainer>
-                {list !== null ? (
+                {isShowListInfo && (
                     <ListIdentificationContainer>
                         <ListName>{list.name}</ListName>
                         <ListKey>({list.key})</ListKey>
                     </ListIdentificationContainer>
-                ) : null}
+                )}
                 <RunOptionsContainer>
                     <RunOption>Q - {options.questions}</RunOption>
                     <RunOption>A - {options.answers}</RunOption>
@@ -89,12 +89,12 @@ const ListHeader = ({ list, setTestAction, options, testIndex, testQuestionsLeng
                         <LinkText>Load</LinkText>
                     </LinkStyled>
                     <DesktopContainer>
-                        {list !== null ? (
+                        {isShowListInfo && (
                             <ListIdentificationContainer>
                                 <ListName>{list.name}</ListName>
                                 <ListKey>({list.key})</ListKey>
                             </ListIdentificationContainer>
-                        ) : null}
+                        )}
                     </DesktopContainer>
                 </Wrapper>
                 <Wrapper>
@@ -122,6 +122,7 @@ const ListHeader = ({ list, setTestAction, options, testIndex, testQuestionsLeng
 
 ListHeader.propTypes = {
     list: listProps,
+    isShowListInfo: PropTypes.bool.isRequired,
     setTestAction: PropTypes.func.isRequired,
     options: optionsProps.isRequired,
     testIndex: PropTypes.number.isRequired,

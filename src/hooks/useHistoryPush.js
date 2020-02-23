@@ -5,7 +5,7 @@ const useHistoryPush = path => {
     const history = useHistory();
 
     if (location.pathname !== path) {
-        return () => history.push(path);
+        return (param = '') => history.push(path + param);
     }
 
     return () => {};

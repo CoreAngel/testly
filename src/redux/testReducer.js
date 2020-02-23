@@ -6,6 +6,7 @@ const testSlice = createSlice({
     initialState: {
         name: '',
         key: '',
+        protected: false,
         type: testType.Single,
         questions: [],
         index: 0,
