@@ -1,12 +1,12 @@
 export const loaderItems = [
     {
         id: 0,
-        label: 'IO',
+        name: 'IO',
         key: 'hEkkQ6JPXcnwWnipcbMD',
     },
     {
         id: 1,
-        label: 'PSK',
+        name: 'PSK',
         key: 'J5mkGhDDsSffq1QlWV9b',
     },
 ];

@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import useHistoryPush from 'hooks/useHistoryPush';
+import { routes } from 'static/routes';
+import { addedListProps } from 'utils/propTypes';
 import { ItemButton, List, ListItem, ListTitle, KeySpan } from './LoadList.style';
-import useHistoryPush from '../../hooks/useHistoryPush';
-import { routes } from '../../static/routes';
 
 const LoadList = ({ showKey, title, items }) => {
     const pushToList = useHistoryPush(routes.List);
@@ -15,10 +16,10 @@ const LoadList = ({ showKey, title, items }) => {
         <>
             <ListTitle>{title}</ListTitle>
             <List>
-                {items.map(({ id, key, label }) => (
+                {items.map(({ id, key, name }) => (
                     <ListItem key={id}>
                         <ItemButton onClick={() => onClick(key)}>
-                            {label} {showKey && <KeySpan>({key})</KeySpan>}
+                            {name} {showKey && <KeySpan>({key})</KeySpan>}
                         </ItemButton>
                     </ListItem>
                 ))}
@@ -30,13 +31,7 @@ const LoadList = ({ showKey, title, items }) => {
 LoadList.propTypes = {
     showKey: PropTypes.bool,
     title: PropTypes.string.isRequired,
-    items: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.number.isRequired,
-            key: PropTypes.string.isRequired,
-            label: PropTypes.string.isRequired,
-        }),
-    ).isRequired,
+    items: addedListProps.isRequired,
 };
 
 LoadList.defaultProps = {

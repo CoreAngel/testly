@@ -1,8 +1,21 @@
 import styled from 'styled-components';
+import { maxBreakpoints } from '../../utils/breakpoints';
 
 export const Container = styled.div`
     margin: 0 10px;
 `;
+
+export const Wrapper = styled.div`
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+
+    @media screen and (max-width: ${maxBreakpoints.mobile}px) {
+        flex-direction: column-reverse;
+    }
+`;
+
+export const InnerContainer = styled.div``;
 
 export const Header = styled.h2`
     display: flex;

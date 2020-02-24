@@ -10,7 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const App = () => {
     return (
         <Provider store={store}>
-            <PersistGate loading={Spinner} persistor={persistor}>
+            <PersistGate loading={<Spinner />} persistor={persistor}>
                 <GlobalStyleWrapper>
                     <MainView />
                 </GlobalStyleWrapper>

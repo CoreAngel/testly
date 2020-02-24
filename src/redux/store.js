@@ -4,17 +4,19 @@ import storage from 'redux-persist/lib/storage';
 import listReducer from './listReducer';
 import testReducer from './testReducer';
 import optionsReducer from './optionsReducer';
+import addedListReducer from './addedListReducer';
 
 const reducer = combineReducers({
     list: listReducer,
     test: testReducer,
+    addedList: addedListReducer,
     options: optionsReducer,
 });
 
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['options'],
+    whitelist: ['options', 'addedList'],
     blacklist: [],
 };
 

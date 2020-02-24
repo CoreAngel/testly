@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { colors } from '../../utils/colors';
+import { colors } from 'utils/colors';
 
 export const Button = styled.button`
     position: fixed;

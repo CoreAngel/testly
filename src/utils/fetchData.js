@@ -7,5 +7,9 @@ const getBaseUrl = () => {
 };
 
 export const getList = key => {
-    return fetch(`${getBaseUrl()}/test/${key}`);
+    return fetch(`${getBaseUrl()}/tests/${key}`);
+};
+
+export const getAddList = key => {
+    return fetch(`${getBaseUrl()}/tests/${key}/name`);
 };

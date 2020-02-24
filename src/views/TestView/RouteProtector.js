@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { routes } from 'static/routes';
+import { childrenProps } from 'utils/propTypes';
 
 const RouteProtector = ({ children, questionsLength }) => {
     const history = useHistory();
@@ -22,7 +23,7 @@ const RouteProtector = ({ children, questionsLength }) => {
 };
 
 RouteProtector.propTypes = {
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
+    children: childrenProps.isRequired,
     questionsLength: PropTypes.number.isRequired,
 };
 

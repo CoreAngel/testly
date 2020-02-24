@@ -56,3 +56,11 @@ export const optionsProps = shape({
 });
 
 export const childrenProps = oneOfType([arrayOf(node), node]);
+
+export const addedListItemProps = shape({
+    id: number.isRequired,
+    key: string.isRequired,
+    name: string.isRequired,
+});
+
+export const addedListProps = arrayOf(addedListItemProps);
