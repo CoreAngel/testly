@@ -105,8 +105,34 @@ const checkPassword = async (req, res) => {
     }
 };
 
+const getTestName = async (req, res) => {
+    const { key } = req.params;
+
+    const errors = GetTestValidator({ key });
+
+    if (errors !== null) {
+        return res.status(400).send(errors);
+    }
+
+    try {
+        const doc = await testCollection.doc(key).get();
+        if (!doc.exists) {
+            return res.status(404).send();
+        } else {
+            const { name } = doc.data();
+            return res.status(200).send({
+                name,
+                key,
+            });
+        }
+    } catch (e) {
+        return res.status(500).send();
+    }
+};
+
 module.exports = {
     createTest,
     getTest,
     checkPassword,
+    getTestName,
 };

@@ -8,7 +8,8 @@ app.use(cors({ origin: true }));
 app.use(express.json());
 
 app.post('/test', TestController.createTest);
-app.get('/test/:key', TestController.getTest);
+app.get('/tests/:key', TestController.getTest);
+app.get('/tests/:key/name', TestController.getTestName);
 app.post('/test/password', TestController.checkPassword);
 
 module.exports = app;
