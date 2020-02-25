@@ -1,11 +1,11 @@
 import { useHistory, useLocation } from 'react-router-dom';
 
 const useHistoryPush = path => {
-    const location = useLocation();
-    const history = useHistory();
+    const { pathname } = useLocation();
+    const { push } = useHistory();
 
-    if (location.pathname !== path) {
-        return (param = '') => history.push(path + param);
+    if (pathname !== path) {
+        return (param = '') => push(path + param);
     }
 
     return () => {};

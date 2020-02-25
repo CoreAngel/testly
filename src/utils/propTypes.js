@@ -64,3 +64,9 @@ export const addedListItemProps = shape({
 });
 
 export const addedListProps = arrayOf(addedListItemProps);
+
+export const selectProps = shape({
+    id: oneOfType([number, string]).isRequired,
+    label: string.isRequired,
+    value: string.isRequired,
+});

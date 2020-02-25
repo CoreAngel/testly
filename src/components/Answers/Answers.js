@@ -25,7 +25,7 @@ const Answers = ({
     const isLastQuestion = index === position;
 
     useEffect(() => {
-        const onKeyDown = e => {
+        const handleKeyDown = e => {
             if (!isLastQuestion) return;
 
             const { keyCode } = e;
@@ -38,8 +38,8 @@ const Answers = ({
             checkAnswer(ind);
         };
 
-        window.addEventListener('keydown', onKeyDown);
-        return () => window.removeEventListener('keydown', onKeyDown);
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
     }, [checkAnswer, answers.length, isLastQuestion]);
 
     useEffect(() => {
@@ -64,7 +64,15 @@ const Answers = ({
     }, [isGoNext, isQuestionsEnd, isTestEnd, pushToResult, setEndAction, animationTime]);
 
     const isActive = !isTestEnd && (isGoNext || isLastQuestion);
-    return <Buttons answers={answers} active={isActive} animationTime={animationTime} checkAnswer={checkAnswer} />;
+    return (
+        <Buttons
+            position={position}
+            answers={answers}
+            active={isActive}
+            animationTime={animationTime}
+            checkAnswer={checkAnswer}
+        />
+    );
 };
 
 Answers.propTypes = {

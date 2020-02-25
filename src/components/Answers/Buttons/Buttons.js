@@ -6,7 +6,7 @@ import keyCodes, { getCharFromIndex } from 'utils/keyCodes';
 import { MainContainer } from 'utils/style';
 import { Wrapper, Answer, AnswersList, ButtonsContainer, Button } from './Buttons.style';
 
-const Buttons = ({ answers, active, animationTime, checkAnswer }) => {
+const Buttons = ({ position, answers, active, animationTime, checkAnswer }) => {
     return (
         <MainContainer>
             <Wrapper>
@@ -21,7 +21,7 @@ const Buttons = ({ answers, active, animationTime, checkAnswer }) => {
                             <Answer
                                 key={
                                     // eslint-disable-next-line react/no-array-index-key
-                                    index
+                                    `${position}/${index}`
                                 }
                                 isCorrect={isCorrect}
                                 isNotSure={isNotSure}
@@ -45,7 +45,7 @@ const Buttons = ({ answers, active, animationTime, checkAnswer }) => {
                             <Button
                                 key={
                                     // eslint-disable-next-line react/no-array-index-key
-                                    index
+                                    `${position}/${index}`
                                 }
                                 disabled={isDisabled}
                                 onClick={() => checkAnswer(index)}
@@ -66,6 +66,7 @@ const Buttons = ({ answers, active, animationTime, checkAnswer }) => {
 };
 
 Buttons.propTypes = {
+    position: PropTypes.number.isRequired,
     answers: PropTypes.arrayOf(answerProp).isRequired,
     active: PropTypes.bool.isRequired,
     animationTime: PropTypes.number.isRequired,

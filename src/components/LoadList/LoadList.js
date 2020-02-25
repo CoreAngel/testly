@@ -8,7 +8,7 @@ import { ItemButton, List, ListItem, ListTitle, KeySpan } from './LoadList.style
 const LoadList = ({ showKey, title, items }) => {
     const pushToList = useHistoryPush(routes.List);
 
-    const onClick = id => {
+    const handleClick = id => {
         pushToList(`/${id}`);
     };
 
@@ -18,7 +18,7 @@ const LoadList = ({ showKey, title, items }) => {
             <List>
                 {items.map(({ id, key, name }) => (
                     <ListItem key={id}>
-                        <ItemButton onClick={() => onClick(key)}>
+                        <ItemButton onClick={() => handleClick(key)}>
                             {name} {showKey && <KeySpan>({key})</KeySpan>}
                         </ItemButton>
                     </ListItem>

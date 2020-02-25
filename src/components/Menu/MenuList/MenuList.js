@@ -28,6 +28,16 @@ const MenuList = ({ isMobile, isOpen, setIsOpen, test: { questions, index, end }
         return item;
     });
 
+    const handleActiveClick = () => {
+        if (isMobile) {
+            setIsOpen(false);
+        }
+    };
+
+    const handleDisableClick = e => {
+        e.preventDefault();
+    };
+
     return (
         <NavList>
             {navigationItemsWithParams.map(item => {
@@ -35,20 +45,10 @@ const MenuList = ({ isMobile, isOpen, setIsOpen, test: { questions, index, end }
                 const isRouteDisabled = !!routesDisabled[path];
                 const isAbleToFocus = (!isMobile || isOpen) && !isRouteDisabled;
 
-                const onClick = e => {
-                    if (isRouteDisabled) {
-                        e.preventDefault();
-                        return;
-                    }
-                    if (isMobile) {
-                        setIsOpen(false);
-                    }
-                };
-
                 return (
                     <NavItem key={id}>
                         <NavLink
-                            onClick={onClick}
+                            onClick={isRouteDisabled ? handleDisableClick : handleActiveClick}
                             tabIndex={isAbleToFocus ? 0 : -1}
                             disable={isRouteDisabled ? 1 : 0}
                             to={path}

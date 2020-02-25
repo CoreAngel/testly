@@ -41,7 +41,7 @@ const ListHeader = ({ list, setTestAction, options, testIndex, testQuestionsLeng
         pushToTest();
     };
 
-    const onClickRun = () => {
+    const handleClickRun = () => {
         if (list === null) {
             setError('Create or load test before run!');
             return;
@@ -57,7 +57,7 @@ const ListHeader = ({ list, setTestAction, options, testIndex, testQuestionsLeng
         runTest();
     };
 
-    const onConfirmExit = status => {
+    const handleConfirmExit = status => {
         setIsConfirmOpen(false);
         if (status) {
             runTest();
@@ -104,11 +104,11 @@ const ListHeader = ({ list, setTestAction, options, testIndex, testQuestionsLeng
                             <RunOption>A - {options.answers}</RunOption>
                         </RunOptionsContainer>
                     </DesktopContainer>
-                    <RunButton onClick={onClickRun}>
+                    <RunButton onClick={handleClickRun}>
                         <IconStyled icon={play} size={32} />
                         <LinkText>Run</LinkText>
                     </RunButton>
-                    <Confirm isOpen={isConfirmOpen} onExit={onConfirmExit}>
+                    <Confirm isOpen={isConfirmOpen} onExit={handleConfirmExit}>
                         <ConfirmText>
                             You didn&apos;t finish the test! Are you sure you want to overwrite it?
                         </ConfirmText>

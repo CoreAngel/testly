@@ -7,12 +7,12 @@ import { Button, Label } from './BackButton.style';
 
 const BackButton = ({ label }) => {
     const history = useHistory();
-    const back = () => {
+    const handleClick = () => {
         history.goBack();
     };
 
     return (
-        <Button onClick={back}>
+        <Button onClick={handleClick}>
             <IconStyled icon={androidArrowBack} size={32} />
             {label !== '' && <Label>Back</Label>}
         </Button>

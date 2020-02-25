@@ -13,7 +13,7 @@ export const Container = styled.div`
 `;
 
 export const Header = styled.h2`
-    margin: 0 0 30px 0px;
+    margin: 0 0 30px 0;
     font-weight: bold;
     font-size: 2rem;
 `;

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { VisibilityHidden, IconStyled } from 'utils/style';
 import keyCodes from 'utils/keyCodes';
 import { ic_keyboard_arrow_left as arrowLeft, ic_keyboard_arrow_right as arrowRight } from 'react-icons-kit/md';
-
 import { Name, Key, InfoWrapper, Wrapper, Position, Container, Button } from './TestHeader.style';
 
 const TestHeader = ({ position, index, name, testKey, questionsLength, setPosition }) => {
@@ -15,7 +14,7 @@ const TestHeader = ({ position, index, name, testKey, questionsLength, setPositi
     }, [setPosition, index]);
 
     useEffect(() => {
-        const onKeyDown = e => {
+        const handleKeyDown = e => {
             const { keyCode } = e;
 
             if (keyCode === keyCodes.arrowLeft) {
@@ -26,13 +25,16 @@ const TestHeader = ({ position, index, name, testKey, questionsLength, setPositi
             }
         };
 
-        window.addEventListener('keydown', onKeyDown);
-        return () => window.removeEventListener('keydown', onKeyDown);
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
     }, [goNext, goPrev]);
+
+    const isFirstQuestion = position === 0;
+    const isLastQuestion = position === index;
 
     return (
         <Container>
-            <Button disabled={position === 0} onClick={goPrev}>
+            <Button disabled={isFirstQuestion} onClick={goPrev}>
                 <VisibilityHidden>Prev question</VisibilityHidden>
                 <IconStyled icon={arrowLeft} size={32} />
             </Button>
@@ -45,7 +47,7 @@ const TestHeader = ({ position, index, name, testKey, questionsLength, setPositi
                     <Key>({testKey})</Key>
                 </InfoWrapper>
             </Wrapper>
-            <Button disabled={position === index} onClick={goNext}>
+            <Button disabled={isLastQuestion} onClick={goNext}>
                 <VisibilityHidden>Prev question</VisibilityHidden>
                 <IconStyled icon={arrowRight} size={32} />
             </Button>

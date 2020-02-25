@@ -6,7 +6,7 @@ import { routes } from 'static/routes';
 import { childrenProps } from 'utils/propTypes';
 
 const RouteProtector = ({ children, questionsLength }) => {
-    const history = useHistory();
+    const { replace } = useHistory();
     let replacePath = null;
 
     if (questionsLength === 0) {
@@ -15,9 +15,9 @@ const RouteProtector = ({ children, questionsLength }) => {
 
     useEffect(() => {
         if (replacePath) {
-            history.replace(replacePath);
+            replace(replacePath);
         }
-    }, [replacePath, history]);
+    }, [replacePath, replace]);
 
     return replacePath ? null : children;
 };

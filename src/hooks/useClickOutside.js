@@ -11,7 +11,7 @@ const useClickOutside = (callback, targetRef, { containerRef = { current: docume
     useEffect(() => {
         if (!isRun) return () => {};
 
-        const clickOutside = e => {
+        const handleClickOutside = e => {
             const { target } = e;
             const targetElem = targetRef.current;
 
@@ -21,8 +21,8 @@ const useClickOutside = (callback, targetRef, { containerRef = { current: docume
         };
 
         const container = containerRef.current;
-        container.addEventListener('click', clickOutside);
-        return () => container.removeEventListener('click', clickOutside);
+        container.addEventListener('click', handleClickOutside);
+        return () => container.removeEventListener('click', handleClickOutside);
     }, [isRun, targetRef, containerRef, callback]);
 };
 

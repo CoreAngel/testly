@@ -9,15 +9,15 @@ const useEscPress = (callback, isRun = true) => {
     useEffect(() => {
         if (!isRun) return () => {};
 
-        const escPress = e => {
+        const handleEscPress = e => {
             const { keyCode } = e;
             if (keyCode === keyCodes.esc) {
                 callback();
             }
         };
 
-        window.addEventListener('keydown', escPress);
-        return () => window.removeEventListener('keydown', escPress);
+        window.addEventListener('keydown', handleEscPress);
+        return () => window.removeEventListener('keydown', handleEscPress);
     }, [isRun, callback]);
 };
 

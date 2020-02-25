@@ -10,7 +10,7 @@ import { Answer, AnswersList, QuestionContainer, QuestionText, Description } fro
 const Question = ({ number, question, description, answers, includeSelected, showDesc }) => {
     const isShowDesc = description !== null && showDesc;
 
-    const changeLinkToATag = useCallback(text => {
+    const changeLinksToATags = useCallback(text => {
         return text.split(linkRegEx).map((part, index) =>
             index % 2 === 0 ? (
                 part
@@ -26,7 +26,7 @@ const Question = ({ number, question, description, answers, includeSelected, sho
     return (
         <QuestionContainer>
             <QuestionText>{`${number}. ${question}`}</QuestionText>
-            {isShowDesc && <Description>{changeLinkToATag(description)}</Description>}
+            {isShowDesc && <Description>{changeLinksToATags(description)}</Description>}
             <AnswersList>
                 {answers.map(({ i, c, s }, index) => {
                     const isCorrect = c === answerType.Correct;

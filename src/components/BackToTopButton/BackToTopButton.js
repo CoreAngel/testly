@@ -20,7 +20,7 @@ const BackToTopButton = ({ offset }) => {
         };
     }, [offset]);
 
-    const clickBackToTop = () => {
+    const handleClickBackToTop = () => {
         window.scrollTo({
             top: 0,
             behavior: 'smooth',
@@ -28,7 +28,7 @@ const BackToTopButton = ({ offset }) => {
     };
 
     return (
-        <Button active={active} onClick={clickBackToTop}>
+        <Button active={active} onClick={handleClickBackToTop}>
             <InnerWrapper>
                 <IconWrapper>
                     <IconStyled icon={arrowUp} size={45} />

@@ -45,12 +45,12 @@ const AddList = ({ addListAction, addedItems }) => {
         }
     };
 
-    const onChange = ({ target }) => {
+    const handleChange = ({ target }) => {
         const { value: val } = target;
         setValue(val);
     };
 
-    const onClick = () => {
+    const handleClick = () => {
         const isAddedBefore = addedItems.find(({ key }) => key === value);
         if (isAddedBefore) {
             setStatus({
@@ -72,8 +72,8 @@ const AddList = ({ addListAction, addedItems }) => {
     return (
         <Container>
             <Header>Add list</Header>
-            <TextInput placeholder={"Type the list's id..."} onChange={onChange} value={value} />
-            <Button onClick={onClick} disabled={status.loading}>
+            <TextInput placeholder={"Type the list's id..."} onChange={handleChange} value={value} />
+            <Button onClick={handleClick} disabled={status.loading}>
                 {status.loading ? <Spinner size={18} /> : 'Add'}
             </Button>
             {status.error !== '' && <Error>{status.error}</Error>}

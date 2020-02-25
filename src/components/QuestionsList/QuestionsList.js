@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Input } from 'reactstrap';
 import Question from 'components/Question';
+import TextInput from 'components/TextInput';
 import { listQuestionsProps } from 'utils/propTypes';
 import { SearchContainer } from './QuestionsList.style';
 
@@ -16,7 +16,7 @@ const QuestionsList = ({ questions }) => {
     return (
         <>
             <SearchContainer>
-                <Input
+                <TextInput
                     onChange={({ target }) => setSearchState(target.value)}
                     value={searchState}
                     placeholder="Search..."
