@@ -80,7 +80,7 @@ const ListHeader = ({ list, setTestAction, options, testIndex, testQuestionsLeng
             </MobileContainer>
             <Container>
                 <Wrapper>
-                    <LinkStyled to={routes.Home}>
+                    <LinkStyled to={routes.CreateList}>
                         <IconStyled icon={plus} size={32} />
                         <LinkText>Create</LinkText>
                     </LinkStyled>

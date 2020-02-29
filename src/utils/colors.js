@@ -3,6 +3,7 @@ export const colors = {
     White80: '#e2e2e2',
     White50: '#808080',
     Primary: '#1f1f1f',
+    LightPrimary: '#282828',
     Secondary: '#1a24e7',
     Green0: 'rgba(23, 142, 60, 0)',
     Green50: 'rgba(23, 142, 60, 0.5)',

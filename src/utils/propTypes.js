@@ -46,6 +46,30 @@ export const testProps = shape({
     index: number.isRequired,
 });
 
+export const createAnswerProp = shape({
+    lId: number.isRequired,
+    i: string.isRequired,
+    c: oneOf([answerType.Correct, answerType.NotSure]),
+});
+
+export const createQuestionProps = shape({
+    lId: number.isRequired,
+    q: string.isRequired,
+    d: string,
+    a: arrayOf(createAnswerProp).isRequired,
+    idIterator: number.isRequired,
+});
+
+export const createQuestionsProps = arrayOf(createQuestionProps);
+
+export const createProps = shape({
+    name: string.isRequired,
+    password: string.isRequired,
+    type: typeListProp.isRequired,
+    questions: createQuestionsProps.isRequired,
+    idIterator: number.isRequired,
+});
+
 export const optionOrderProps = oneOf([runTypes.RANDOM, runTypes.ORDERED]);
 
 export const optionsProps = shape({
@@ -70,3 +94,11 @@ export const selectProps = shape({
     label: string.isRequired,
     value: string.isRequired,
 });
+
+export const radioSelectItemsProps = arrayOf(
+    shape({
+        value: string.isRequired,
+        label: string.isRequired,
+        color: string,
+    }),
+);

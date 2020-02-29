@@ -5,18 +5,20 @@ import listReducer from './listReducer';
 import testReducer from './testReducer';
 import optionsReducer from './optionsReducer';
 import addedListReducer from './addedListReducer';
+import createReducer from './createReducer';
 
 const reducer = combineReducers({
     list: listReducer,
     test: testReducer,
     addedList: addedListReducer,
     options: optionsReducer,
+    create: createReducer,
 });
 
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['options', 'addedList'],
+    whitelist: ['options', 'addedList', 'create'],
     blacklist: [],
 };
 
