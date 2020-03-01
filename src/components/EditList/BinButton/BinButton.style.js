@@ -36,3 +36,9 @@ export const BigIcon = styled.div`
     transform: translateX(${({ isActive }) => (isActive ? '-50px' : 0)});
     transition: color ease-in-out 200ms, transform ease-in-out 300ms;
 `;
+
+export const InvisiblePlaceholder = styled.div`
+    height: 0;
+    width: 0;
+    overflow: hidden;
+`;

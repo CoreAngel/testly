@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useRef, useState } from 'react';
+import React, { memo, useContext, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { ic_menu as menu } from 'react-icons-kit/md/ic_menu';
 import { dropAnimationStyles, typesDnD } from 'utils/dragAndDrop';
@@ -7,13 +7,13 @@ import TextInput from 'components/TextInput';
 import { Draggable } from 'react-beautiful-dnd';
 import { answerTypeAsString } from 'static/list';
 import { colors } from 'utils/colors';
-import { createAnswerProp } from 'utils/propTypes';
+import { editAnswerProp } from 'utils/propTypes';
 import { IconStyled } from 'utils/style';
 import { answerTypeToStringType, answerStringTypeToType } from 'utils/list';
 import useDebounce from 'hooks/useDebounce';
-import { setAnswer } from 'redux/createReducer';
-import { connect } from 'react-redux';
-import { Answer, Reorder, Wrapper, RadioWrapper } from './AnswerEdit.style';
+import { DnDContext } from 'components/EditList/DnDProvider';
+import { ActionsContext } from 'components/EditList/ActionsContext';
+import { Container, Reorder, Wrapper, RadioWrapper } from './Answer.style';
 
 const radioItems = [
     {
@@ -33,12 +33,13 @@ const radioItems = [
     },
 ];
 
-const AnswerEdit = ({ answer, questionId, position, setAnswerAction }) => {
-    const [state, setState] = useState(answer);
+const Answer = ({ answer: { lId: answerId, i: item, c: correct }, questionId, position }) => {
+    const [state, setState] = useState({ lId: answerId, i: item, c: correct });
     const isInitialMount = useRef(true);
-    const debouncedState = useDebounce(state, 200);
+    const { debounce } = useContext(DnDContext);
+    const { setAnswer } = useContext(ActionsContext);
+    const debouncedState = useDebounce(state, debounce);
 
-    const { lId: answerId, c: correct } = answer;
     const defaultValue = answerTypeToStringType(correct);
 
     const handleTextChange = ({ target }) => {
@@ -59,13 +60,13 @@ const AnswerEdit = ({ answer, questionId, position, setAnswerAction }) => {
         if (isInitialMount.current) {
             isInitialMount.current = false;
         } else if (debouncedState === state) {
-            setAnswerAction({
+            setAnswer({
                 idQuestion: Number.parseInt(questionId, 10),
                 idAnswer: Number.parseInt(answerId, 10),
                 answer: debouncedState,
             });
         }
-    }, [debouncedState, setAnswerAction, state, questionId, answerId]);
+    }, [debouncedState, setAnswer, state, questionId, answerId]);
 
     return (
         <Draggable
@@ -74,7 +75,11 @@ const AnswerEdit = ({ answer, questionId, position, setAnswerAction }) => {
             index={position}
         >
             {({ draggableProps, innerRef, dragHandleProps }, snapshot) => (
-                <Answer ref={innerRef} {...draggableProps} style={dropAnimationStyles(draggableProps.style, snapshot)}>
+                <Container
+                    ref={innerRef}
+                    {...draggableProps}
+                    style={dropAnimationStyles(draggableProps.style, snapshot)}
+                >
                     <Wrapper>
                         <Reorder {...dragHandleProps}>
                             <IconStyled icon={menu} size={22} />
@@ -91,22 +96,16 @@ const AnswerEdit = ({ answer, questionId, position, setAnswerAction }) => {
                         </RadioWrapper>
                     </Wrapper>
                     <TextInput onChange={handleTextChange} value={state.i} name="i" placeholder="Answer" />
-                </Answer>
+                </Container>
             )}
         </Draggable>
     );
 };
 
-AnswerEdit.propTypes = {
-    answer: createAnswerProp.isRequired,
+Answer.propTypes = {
+    answer: editAnswerProp.isRequired,
     questionId: PropTypes.string.isRequired,
     position: PropTypes.number.isRequired,
-    setAnswerAction: PropTypes.func.isRequired,
 };
 
-const mapDispatchToProps = {
-    setAnswerAction: setAnswer,
-};
-
-const AnswerEditWithMemo = memo(AnswerEdit);
-export default connect(null, mapDispatchToProps)(AnswerEditWithMemo);
+export default memo(Answer);

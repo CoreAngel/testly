@@ -12,8 +12,11 @@ export const Container = styled.div`
     }
 `;
 
-export const InvisiblePlaceholder = styled.div`
-    height: 0;
-    width: 0;
-    overflow: hidden;
+export const AddButton = styled.button`
+    display: flex;
+    background-color: transparent;
+    border: 0;
+    padding: 5px;
+    margin-left: auto;
+    color: ${colors.White80};
 `;

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { maxBreakpoints } from '../../utils/breakpoints';
+import { maxBreakpoints } from 'utils/breakpoints';
 
 export const Container = styled.div`
     margin: 0 10px;

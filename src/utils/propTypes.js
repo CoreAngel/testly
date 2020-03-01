@@ -46,27 +46,27 @@ export const testProps = shape({
     index: number.isRequired,
 });
 
-export const createAnswerProp = shape({
+export const editAnswerProp = shape({
     lId: number.isRequired,
     i: string.isRequired,
-    c: oneOf([answerType.Correct, answerType.NotSure]),
+    c: oneOf([answerType.Correct, answerType.NotSure, answerType.Incorrect]),
 });
 
-export const createQuestionProps = shape({
+export const editQuestionProps = shape({
     lId: number.isRequired,
     q: string.isRequired,
     d: string,
-    a: arrayOf(createAnswerProp).isRequired,
+    a: arrayOf(editAnswerProp).isRequired,
     idIterator: number.isRequired,
 });
 
-export const createQuestionsProps = arrayOf(createQuestionProps);
+export const editQuestionsProps = arrayOf(editQuestionProps);
 
-export const createProps = shape({
+export const editProps = shape({
     name: string.isRequired,
     password: string.isRequired,
     type: typeListProp.isRequired,
-    questions: createQuestionsProps.isRequired,
+    questions: editQuestionsProps.isRequired,
     idIterator: number.isRequired,
 });
 

@@ -5,8 +5,8 @@ import { addList as addListAct } from 'redux/addedListReducer';
 import TextInput from 'components/TextInput';
 import Spinner from 'components/Spinner';
 import { getAddList } from 'utils/fetchData';
+import { addedListProps } from 'utils/propTypes';
 import { Container, Header, Button, Error } from './AddList.style';
-import { addedListProps } from '../../utils/propTypes';
 
 const AddList = ({ addListAction, addedItems }) => {
     const [value, setValue] = useState('');

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { colors } from 'utils/colors';
 import { maxBreakpoints } from 'utils/breakpoints';
 
-export const Answer = styled.div`
+export const Container = styled.div`
     display: flex;
     align-items: center;
     margin-bottom: 10px;

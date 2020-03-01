@@ -40,23 +40,3 @@ export const Body = styled.div`
 export const Row = styled.div`
     margin-bottom: 15px;
 `;
-
-export const Answers = styled.div`
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    background-color: ${colors.Primary};
-`;
-
-export const AnswerHeader = styled.p`
-    font-size: 1.4rem;
-`;
-
-export const AddButton = styled.button`
-    display: flex;
-    background-color: transparent;
-    border: 0;
-    padding: 5px;
-    margin-left: auto;
-    color: ${colors.White80};
-`;

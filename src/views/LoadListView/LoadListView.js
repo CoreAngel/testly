@@ -5,8 +5,8 @@ import { connect } from 'react-redux';
 import LoadList from 'components/LoadList';
 import BackButton from 'components/BackButton';
 import { addedListProps } from 'utils/propTypes';
+import AddList from 'components/AddList';
 import { Container, Wrapper, InnerContainer, Header, HeaderText, BackButtonWrapper } from './LoadListView.style';
-import AddList from '../../components/AddList';
 
 const LoadListView = ({ addedList }) => {
     return (
