@@ -42,10 +42,10 @@ const Options = ({ questions, answers, animation, description, isOpen, setIsOpen
                     <Header>Options</Header>
                 </HeaderWrapper>
                 <OptionRow>
-                    <Select label="Questions:" items={runItems} defaultValue={questions} onChange={setQuestion} />
+                    <Select label="Questions:" items={runItems} value={questions} onChange={setQuestion} />
                 </OptionRow>
                 <OptionRow>
-                    <Select label="Answers:" items={runItems} defaultValue={answers} onChange={setAnswer} />
+                    <Select label="Answers:" items={runItems} value={answers} onChange={setAnswer} />
                 </OptionRow>
                 <OptionRow>
                     <Toggler onChange={setAnimationValue} selected={animation}>

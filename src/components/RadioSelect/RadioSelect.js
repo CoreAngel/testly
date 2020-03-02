@@ -1,22 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { radioSelectItemsProps } from 'utils/propTypes';
 import { VisibilityHidden } from 'utils/style';
 import { colors } from 'utils/colors';
 import { Container, Label, LabelText, Radio } from './RadioSelect.style';
 
-const RadioSelect = ({ name, direction, items, visibleLabel, defaultValue, onChange }) => {
-    const [state, setState] = useState(items.find(item => item.value === defaultValue));
-
-    const handleChange = value => {
-        setState(value);
-        onChange(value);
+const RadioSelect = ({ name, direction, items, visibleLabel, value, onChange }) => {
+    const handleChange = item => {
+        onChange(item);
     };
 
     return (
         <Container direction={direction}>
             {items.map((item, index) => {
-                const { value, label, color: bgColor } = item;
+                const { value: itemValue, label, color: bgColor } = item;
                 const color = bgColor !== undefined ? bgColor : colors.White50;
                 return (
                     // eslint-disable-next-line react/no-array-index-key
@@ -25,10 +22,10 @@ const RadioSelect = ({ name, direction, items, visibleLabel, defaultValue, onCha
                             as="input"
                             type="radio"
                             name={name}
-                            checked={state.value === value}
+                            checked={value === itemValue}
                             onChange={() => handleChange(item)}
                         />
-                        <Radio isChecked={state.value === value} color={color} />
+                        <Radio isChecked={value === itemValue} color={color} />
                         <LabelText isVisible={visibleLabel}>{label}</LabelText>
                     </Label>
                 );
@@ -42,7 +39,7 @@ RadioSelect.propTypes = {
     visibleLabel: PropTypes.bool,
     direction: PropTypes.oneOf(['vertical', 'horizontal']),
     items: radioSelectItemsProps.isRequired,
-    defaultValue: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
 };
 

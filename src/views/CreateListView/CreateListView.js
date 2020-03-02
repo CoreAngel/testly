@@ -4,6 +4,9 @@ import { plus } from 'react-icons-kit/ikons';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import EditList from 'components/EditList';
+import { editProps } from 'utils/propTypes';
+import BackButton from 'components/BackButton';
+import BackToTopButton from 'components/BackToTopButton';
 import {
     setList,
     setAnswer,
@@ -14,9 +17,18 @@ import {
     deleteQuestion,
     deleteAnswer,
     addQuestion,
+    reset,
 } from 'redux/createReducer';
-import { editProps } from 'utils/propTypes';
-import { Container, HeaderText, Header } from './CreateListView.style';
+import {
+    Container,
+    HeaderText,
+    Header,
+    BackButtonWrapper,
+    Buttons,
+    Title,
+    ButtonReset,
+    ButtonSave,
+} from './CreateListView.style';
 
 const CreateListView = ({
     create,
@@ -29,13 +41,23 @@ const CreateListView = ({
     changeAnswerPositionAction,
     deleteQuestionAction,
     deleteAnswerAction,
+    resetAction,
 }) => {
     return (
         <MainContainer>
             <Container>
+                <BackButtonWrapper>
+                    <BackButton label="back" />
+                </BackButtonWrapper>
                 <Header>
-                    <IconStyled icon={plus} size={28} />
-                    <HeaderText>Create test</HeaderText>
+                    <Title>
+                        <IconStyled icon={plus} size={28} />
+                        <HeaderText>Create test</HeaderText>
+                    </Title>
+                    <Buttons>
+                        <ButtonReset onClick={() => resetAction()}>Reset</ButtonReset>
+                        <ButtonSave>Save</ButtonSave>
+                    </Buttons>
                 </Header>
                 <EditList
                     list={create}
@@ -51,6 +73,7 @@ const CreateListView = ({
                     deleteAnswer={deleteAnswerAction}
                 />
             </Container>
+            <BackToTopButton offset={300} />
         </MainContainer>
     );
 };
@@ -66,6 +89,7 @@ CreateListView.propTypes = {
     changeAnswerPositionAction: PropTypes.func.isRequired,
     deleteQuestionAction: PropTypes.func.isRequired,
     deleteAnswerAction: PropTypes.func.isRequired,
+    resetAction: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = ({ create }) => ({ create });
@@ -80,6 +104,7 @@ const mapDispatchToProps = {
     changeAnswerPositionAction: changeAnswerPosition,
     deleteQuestionAction: deleteQuestion,
     deleteAnswerAction: deleteAnswer,
+    resetAction: reset,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateListView);

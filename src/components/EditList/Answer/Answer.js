@@ -36,11 +36,12 @@ const radioItems = [
 const Answer = ({ answer: { lId: answerId, i: item, c: correct }, questionId, position }) => {
     const [state, setState] = useState({ lId: answerId, i: item, c: correct });
     const isInitialMount = useRef(true);
+    const prevDebouncedState = useRef({});
     const { debounce } = useContext(DnDContext);
     const { setAnswer } = useContext(ActionsContext);
     const debouncedState = useDebounce(state, debounce);
 
-    const defaultValue = answerTypeToStringType(correct);
+    const radioValue = answerTypeToStringType(correct);
 
     const handleTextChange = ({ target }) => {
         setState(prev => ({
@@ -57,16 +58,23 @@ const Answer = ({ answer: { lId: answerId, i: item, c: correct }, questionId, po
     };
 
     useEffect(() => {
-        if (isInitialMount.current) {
+        const isTyping = state !== debouncedState;
+        const localStateChanged = debouncedState !== prevDebouncedState.current;
+        const propsAreDifferentThanState = state.lId !== answerId || state.i !== item || state.c !== correct;
+
+        if (!isTyping && !localStateChanged && propsAreDifferentThanState) {
+            setState({ lId: answerId, i: item, c: correct });
+        } else if (isInitialMount.current) {
             isInitialMount.current = false;
-        } else if (debouncedState === state) {
+        } else if (localStateChanged && propsAreDifferentThanState) {
+            prevDebouncedState.current = debouncedState;
             setAnswer({
                 idQuestion: Number.parseInt(questionId, 10),
                 idAnswer: Number.parseInt(answerId, 10),
                 answer: debouncedState,
             });
         }
-    }, [debouncedState, setAnswer, state, questionId, answerId]);
+    }, [answerId, item, correct, questionId, state, debouncedState, setAnswer]);
 
     return (
         <Draggable
@@ -90,7 +98,7 @@ const Answer = ({ answer: { lId: answerId, i: item, c: correct }, questionId, po
                                 items={radioItems}
                                 visibleLabel={false}
                                 direction="horizontal"
-                                defaultValue={defaultValue}
+                                value={radioValue}
                                 onChange={handleRadioChange}
                             />
                         </RadioWrapper>

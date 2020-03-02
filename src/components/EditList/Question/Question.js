@@ -8,12 +8,13 @@ import { Draggable } from 'react-beautiful-dnd';
 import { dropAnimationStyles, typesDnD } from 'utils/dragAndDrop';
 import Answers from 'components/EditList/Answers';
 import useDebounce from 'hooks/useDebounce';
+import { ActionsContext } from 'components/EditList/ActionsContext';
 import { Header, Container, HeaderText, HeaderIcon, HeaderIndicator, Body, Row } from './Question.style';
-import { ActionsContext } from '../ActionsContext';
 
 const Question = ({ position, question: { q: question, d: description, a: answers }, questionId }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [state, setState] = useState({ q: question, d: description });
+    const prevDebouncedState = useRef({});
     const isInitialMount = useRef(true);
     const { debounce, setQuestion } = useContext(ActionsContext);
     const debouncedState = useDebounce(state, debounce);
@@ -28,15 +29,22 @@ const Question = ({ position, question: { q: question, d: description, a: answer
     };
 
     useEffect(() => {
-        if (isInitialMount.current) {
+        const isTyping = state !== debouncedState;
+        const localStateChanged = debouncedState !== prevDebouncedState.current;
+        const propsAreDifferentThanState = state.q !== question || state.d !== description;
+
+        if (!isTyping && !localStateChanged && propsAreDifferentThanState) {
+            setState({ q: question, d: description });
+        } else if (isInitialMount.current) {
             isInitialMount.current = false;
-        } else if (debouncedState === state) {
+        } else if (localStateChanged && propsAreDifferentThanState) {
+            prevDebouncedState.current = debouncedState;
             setQuestion({
                 id: Number.parseInt(questionId, 10),
                 question: debouncedState,
             });
         }
-    }, [debouncedState, setQuestion, state, questionId]);
+    }, [question, description, questionId, state, debouncedState, setQuestion]);
 
     return (
         <Draggable draggableId={`${typesDnD.Questions}-${questionId}`} index={position}>

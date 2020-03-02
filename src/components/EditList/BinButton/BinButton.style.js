@@ -6,6 +6,7 @@ export const Container = styled.div`
     right: 0;
     top: 0;
     height: 100%;
+    z-index: 1000;
     width: ${({ isVisible, isActive }) => {
         if (isActive) return '60px';
         if (isVisible) return '40px';

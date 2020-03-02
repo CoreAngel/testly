@@ -9,12 +9,9 @@ import { editProps } from 'utils/propTypes';
 import { Container, Row, Wrapper } from './List.style';
 
 const List = ({ list: { name, password, type, questions } }) => {
-    const [state, setState] = useState({
-        name,
-        password,
-        type,
-    });
+    const [state, setState] = useState({ name, password, type });
     const isInitialMount = useRef(true);
+    const prevDebouncedState = useRef({});
     const { debounce, setList } = useContext(ActionsContext);
     const debouncedState = useDebounce(state, debounce);
 
@@ -33,12 +30,19 @@ const List = ({ list: { name, password, type, questions } }) => {
     };
 
     useEffect(() => {
-        if (isInitialMount.current) {
+        const isTyping = state !== debouncedState;
+        const localStateChanged = debouncedState !== prevDebouncedState.current;
+        const propsAreDifferentThanState = state.name !== name || state.password !== password || state.type !== type;
+
+        if (!isTyping && !localStateChanged && propsAreDifferentThanState) {
+            setState({ name, password, type });
+        } else if (isInitialMount.current) {
             isInitialMount.current = false;
-        } else if (debouncedState === state) {
+        } else if (localStateChanged && propsAreDifferentThanState) {
+            prevDebouncedState.current = debouncedState;
             setList(debouncedState);
         }
-    }, [debouncedState, setList, state]);
+    }, [name, password, type, state, debouncedState, setList]);
 
     return (
         <Container>
@@ -56,12 +60,7 @@ const List = ({ list: { name, password, type, questions } }) => {
                     />
                 </Row>
                 <Row>
-                    <Select
-                        label="List type"
-                        items={testTypeItems}
-                        onChange={handleSelectChange}
-                        defaultValue={state.type}
-                    />
+                    <Select label="List type" items={testTypeItems} onChange={handleSelectChange} value={state.type} />
                 </Row>
             </Wrapper>
             <Questions questions={questions} />
