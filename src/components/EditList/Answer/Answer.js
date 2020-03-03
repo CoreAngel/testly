@@ -11,7 +11,6 @@ import { editAnswerProp } from 'utils/propTypes';
 import { IconStyled } from 'utils/style';
 import { answerTypeToStringType, answerStringTypeToType } from 'utils/list';
 import useDebounce from 'hooks/useDebounce';
-import { DnDContext } from 'components/EditList/DnDProvider';
 import { ActionsContext } from 'components/EditList/ActionsContext';
 import { Container, Reorder, Wrapper, RadioWrapper } from './Answer.style';
 
@@ -35,10 +34,8 @@ const radioItems = [
 
 const Answer = ({ answer: { lId: answerId, i: item, c: correct }, questionId, position }) => {
     const [state, setState] = useState({ lId: answerId, i: item, c: correct });
-    const isInitialMount = useRef(true);
-    const prevDebouncedState = useRef({});
-    const { debounce } = useContext(DnDContext);
-    const { setAnswer } = useContext(ActionsContext);
+    const prevDebouncedState = useRef(state);
+    const { setAnswer, debounce } = useContext(ActionsContext);
     const debouncedState = useDebounce(state, debounce);
 
     const radioValue = answerTypeToStringType(correct);
@@ -57,15 +54,17 @@ const Answer = ({ answer: { lId: answerId, i: item, c: correct }, questionId, po
         }));
     };
 
+    const compareStates = (firstState, secondState) => {
+        return firstState.lId !== secondState.lId || firstState.i !== secondState.i || firstState.c !== secondState.c;
+    };
+
     useEffect(() => {
         const isTyping = state !== debouncedState;
-        const localStateChanged = debouncedState !== prevDebouncedState.current;
-        const propsAreDifferentThanState = state.lId !== answerId || state.i !== item || state.c !== correct;
+        const localStateChanged = compareStates(debouncedState, prevDebouncedState.current);
+        const propsAreDifferentThanState = compareStates(state, { lId: answerId, i: item, c: correct });
 
         if (!isTyping && !localStateChanged && propsAreDifferentThanState) {
             setState({ lId: answerId, i: item, c: correct });
-        } else if (isInitialMount.current) {
-            isInitialMount.current = false;
         } else if (localStateChanged && propsAreDifferentThanState) {
             prevDebouncedState.current = debouncedState;
             setAnswer({

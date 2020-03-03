@@ -10,8 +10,7 @@ import { Container, Row, Wrapper } from './List.style';
 
 const List = ({ list: { name, password, type, questions } }) => {
     const [state, setState] = useState({ name, password, type });
-    const isInitialMount = useRef(true);
-    const prevDebouncedState = useRef({});
+    const prevDebouncedState = useRef(state);
     const { debounce, setList } = useContext(ActionsContext);
     const debouncedState = useDebounce(state, debounce);
 
@@ -29,15 +28,21 @@ const List = ({ list: { name, password, type, questions } }) => {
         }));
     };
 
+    const compareStates = (firstState, secondState) => {
+        return (
+            firstState.name !== secondState.name ||
+            firstState.password !== secondState.password ||
+            firstState.type !== secondState.type
+        );
+    };
+
     useEffect(() => {
         const isTyping = state !== debouncedState;
-        const localStateChanged = debouncedState !== prevDebouncedState.current;
-        const propsAreDifferentThanState = state.name !== name || state.password !== password || state.type !== type;
+        const localStateChanged = compareStates(debouncedState, prevDebouncedState.current);
+        const propsAreDifferentThanState = compareStates(state, { name, password, type });
 
         if (!isTyping && !localStateChanged && propsAreDifferentThanState) {
             setState({ name, password, type });
-        } else if (isInitialMount.current) {
-            isInitialMount.current = false;
         } else if (localStateChanged && propsAreDifferentThanState) {
             prevDebouncedState.current = debouncedState;
             setList(debouncedState);

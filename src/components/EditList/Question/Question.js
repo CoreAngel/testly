@@ -14,8 +14,7 @@ import { Header, Container, HeaderText, HeaderIcon, HeaderIndicator, Body, Row }
 const Question = ({ position, question: { q: question, d: description, a: answers }, questionId }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [state, setState] = useState({ q: question, d: description });
-    const prevDebouncedState = useRef({});
-    const isInitialMount = useRef(true);
+    const prevDebouncedState = useRef(state);
     const { debounce, setQuestion } = useContext(ActionsContext);
     const debouncedState = useDebounce(state, debounce);
 
@@ -28,15 +27,17 @@ const Question = ({ position, question: { q: question, d: description, a: answer
         }));
     };
 
+    const compareStates = (firstState, secondState) => {
+        return firstState.q !== secondState.q || firstState.d !== secondState.d;
+    };
+
     useEffect(() => {
         const isTyping = state !== debouncedState;
-        const localStateChanged = debouncedState !== prevDebouncedState.current;
-        const propsAreDifferentThanState = state.q !== question || state.d !== description;
+        const localStateChanged = compareStates(debouncedState, prevDebouncedState.current);
+        const propsAreDifferentThanState = compareStates(state, { q: question, d: description });
 
         if (!isTyping && !localStateChanged && propsAreDifferentThanState) {
             setState({ q: question, d: description });
-        } else if (isInitialMount.current) {
-            isInitialMount.current = false;
         } else if (localStateChanged && propsAreDifferentThanState) {
             prevDebouncedState.current = debouncedState;
             setQuestion({
