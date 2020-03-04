@@ -9,11 +9,17 @@ import { dropAnimationStyles, typesDnD } from 'utils/dragAndDrop';
 import Answers from 'components/EditList/Answers';
 import useDebounce from 'hooks/useDebounce';
 import { ActionsContext } from 'components/EditList/ActionsContext';
+import { ErrorWrapper } from 'components/EditList/InputErrorWrapper/InputErrorWrapper.style';
+import InputErrorWrapper from 'components/EditList/InputErrorWrapper';
 import { Header, Container, HeaderText, HeaderIcon, HeaderIndicator, Body, Row } from './Question.style';
 
-const Question = ({ position, question: { q: question, d: description, a: answers }, questionId }) => {
+const Question = ({
+    position,
+    question: { q: question, d: description, a: answersObj, error, warning },
+    questionId,
+}) => {
     const [isOpen, setIsOpen] = useState(false);
-    const [state, setState] = useState({ q: question, d: description });
+    const [state, setState] = useState({ q: question.item, d: description.item });
     const prevDebouncedState = useRef(state);
     const { debounce, setQuestion } = useContext(ActionsContext);
     const debouncedState = useDebounce(state, debounce);
@@ -34,10 +40,10 @@ const Question = ({ position, question: { q: question, d: description, a: answer
     useEffect(() => {
         const isTyping = state !== debouncedState;
         const localStateChanged = compareStates(debouncedState, prevDebouncedState.current);
-        const propsAreDifferentThanState = compareStates(state, { q: question, d: description });
+        const propsAreDifferentThanState = compareStates(state, { q: question.item, d: description.item });
 
         if (!isTyping && !localStateChanged && propsAreDifferentThanState) {
-            setState({ q: question, d: description });
+            setState({ q: question.item, d: description.item });
         } else if (localStateChanged && propsAreDifferentThanState) {
             prevDebouncedState.current = debouncedState;
             setQuestion({
@@ -56,34 +62,40 @@ const Question = ({ position, question: { q: question, d: description, a: answer
                     ref={innerRef}
                     style={dropAnimationStyles(draggableProps.style, snapshot)}
                 >
-                    <Header onClick={() => toggle(questionId)} {...dragHandleProps}>
-                        <HeaderIndicator>{`${position + 1}.`}</HeaderIndicator>
-                        <HeaderText>{state.q}</HeaderText>
-                        <HeaderIcon isOpen={isOpen}>
-                            <IconStyled icon={arrowDown} size={25} />
-                        </HeaderIcon>
-                    </Header>
-                    {isOpen && (
-                        <Body>
-                            <Row>
-                                <TextInput
-                                    placeholder="Question"
-                                    onChange={handleTextChange}
-                                    name="q"
-                                    value={state.q}
-                                />
-                            </Row>
-                            <Row>
-                                <TextInput
-                                    placeholder="Description"
-                                    onChange={handleTextChange}
-                                    name="d"
-                                    value={state.d}
-                                />
-                            </Row>
-                            <Answers questionId={questionId} answers={answers} position={position} />
-                        </Body>
-                    )}
+                    <ErrorWrapper error={error} warning={warning}>
+                        <Header onClick={() => toggle(questionId)} {...dragHandleProps}>
+                            <HeaderIndicator>{`${position + 1}.`}</HeaderIndicator>
+                            <HeaderText>{state.q}</HeaderText>
+                            <HeaderIcon isOpen={isOpen}>
+                                <IconStyled icon={arrowDown} size={25} />
+                            </HeaderIcon>
+                        </Header>
+                        {isOpen && (
+                            <Body>
+                                <Row>
+                                    <InputErrorWrapper item={question}>
+                                        <TextInput
+                                            placeholder="Question"
+                                            onChange={handleTextChange}
+                                            name="q"
+                                            value={state.q}
+                                        />
+                                    </InputErrorWrapper>
+                                </Row>
+                                <Row>
+                                    <InputErrorWrapper item={description}>
+                                        <TextInput
+                                            placeholder="Description"
+                                            onChange={handleTextChange}
+                                            name="d"
+                                            value={state.d}
+                                        />
+                                    </InputErrorWrapper>
+                                </Row>
+                                <Answers questionId={questionId} answers={answersObj} position={position} />
+                            </Body>
+                        )}
+                    </ErrorWrapper>
                 </Container>
             )}
         </Draggable>

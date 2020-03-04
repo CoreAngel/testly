@@ -24,6 +24,9 @@ export const HeaderIndicator = styled.p`
 
 export const HeaderText = styled.p`
     margin: 0;
+    display: flex;
+    flex: 1;
+    word-break: break-word;
 `;
 
 export const HeaderIcon = styled.span`

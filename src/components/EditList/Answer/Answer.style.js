@@ -3,12 +3,15 @@ import { colors } from 'utils/colors';
 import { maxBreakpoints } from 'utils/breakpoints';
 
 export const Container = styled.div`
-    display: flex;
-    align-items: center;
     margin-bottom: 10px;
     padding: 5px;
     border-radius: 5px;
     background-color: ${colors.Primary};
+`;
+
+export const Wrapper = styled.div`
+    display: flex;
+    align-items: center;
 
     @media screen and (max-width: ${maxBreakpoints.mobile}px) {
         flex-direction: column;
@@ -19,7 +22,7 @@ export const Reorder = styled.div`
     padding: 5px;
 `;
 
-export const Wrapper = styled.div`
+export const InnerWrapper = styled.div`
     display: flex;
     justify-content: space-between;
 

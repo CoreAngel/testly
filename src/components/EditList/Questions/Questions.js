@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { editQuestionsProps } from 'utils/propTypes';
-import QuestionEdit from 'components/EditList/Question';
+import Question from 'components/EditList/Question';
 import { Droppable } from 'react-beautiful-dnd';
 import { typesDnD } from 'utils/dragAndDrop';
 import { DnDContext } from 'components/EditList/DnDProvider';
@@ -24,12 +24,7 @@ const Questions = ({ questions }) => {
                             const questionId = `${lId}`;
 
                             return (
-                                <QuestionEdit
-                                    key={questionId}
-                                    question={item}
-                                    questionId={questionId}
-                                    position={index}
-                                />
+                                <Question key={questionId} question={item} questionId={questionId} position={index} />
                             );
                         })}
                     {provided.placeholder}

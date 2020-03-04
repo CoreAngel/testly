@@ -46,25 +46,41 @@ export const testProps = shape({
     index: number.isRequired,
 });
 
+export const editStringWithValidation = shape({
+    item: string.isRequired,
+    errors: arrayOf(string).isRequired,
+    warnings: arrayOf(string).isRequired,
+});
+
 export const editAnswerProp = shape({
     lId: number.isRequired,
     i: string.isRequired,
     c: oneOf([answerType.Correct, answerType.NotSure, answerType.Incorrect]),
+    errors: arrayOf(string).isRequired,
+    warnings: arrayOf(string).isRequired,
+});
+
+export const editAnswersObjProps = shape({
+    answers: arrayOf(editAnswerProp).isRequired,
+    errors: arrayOf(string).isRequired,
+    warnings: arrayOf(string).isRequired,
 });
 
 export const editQuestionProps = shape({
     lId: number.isRequired,
-    q: string.isRequired,
-    d: string,
-    a: arrayOf(editAnswerProp).isRequired,
+    q: editStringWithValidation.isRequired,
+    d: editStringWithValidation,
+    a: editAnswersObjProps.isRequired,
+    error: bool.isRequired,
+    warning: bool.isRequired,
     idIterator: number.isRequired,
 });
 
 export const editQuestionsProps = arrayOf(editQuestionProps);
 
 export const editProps = shape({
-    name: string.isRequired,
-    password: string.isRequired,
+    name: editStringWithValidation.isRequired,
+    password: editStringWithValidation.isRequired,
     type: typeListProp.isRequired,
     questions: editQuestionsProps.isRequired,
     idIterator: number.isRequired,

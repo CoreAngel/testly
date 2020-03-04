@@ -12,7 +12,8 @@ import { IconStyled } from 'utils/style';
 import { answerTypeToStringType, answerStringTypeToType } from 'utils/list';
 import useDebounce from 'hooks/useDebounce';
 import { ActionsContext } from 'components/EditList/ActionsContext';
-import { Container, Reorder, Wrapper, RadioWrapper } from './Answer.style';
+import InputErrorWrapper from 'components/EditList/InputErrorWrapper';
+import { Container, Reorder, Wrapper, RadioWrapper, InnerWrapper } from './Answer.style';
 
 const radioItems = [
     {
@@ -32,7 +33,7 @@ const radioItems = [
     },
 ];
 
-const Answer = ({ answer: { lId: answerId, i: item, c: correct }, questionId, position }) => {
+const Answer = ({ answer: { lId: answerId, i: item, c: correct, errors, warnings }, questionId, position }) => {
     const [state, setState] = useState({ lId: answerId, i: item, c: correct });
     const prevDebouncedState = useRef(state);
     const { setAnswer, debounce } = useContext(ActionsContext);
@@ -87,22 +88,26 @@ const Answer = ({ answer: { lId: answerId, i: item, c: correct }, questionId, po
                     {...draggableProps}
                     style={dropAnimationStyles(draggableProps.style, snapshot)}
                 >
-                    <Wrapper>
-                        <Reorder {...dragHandleProps}>
-                            <IconStyled icon={menu} size={22} />
-                        </Reorder>
-                        <RadioWrapper>
-                            <RadioSelect
-                                name={questionId}
-                                items={radioItems}
-                                visibleLabel={false}
-                                direction="horizontal"
-                                value={radioValue}
-                                onChange={handleRadioChange}
-                            />
-                        </RadioWrapper>
-                    </Wrapper>
-                    <TextInput onChange={handleTextChange} value={state.i} name="i" placeholder="Answer" />
+                    <InputErrorWrapper item={{ errors, warnings }}>
+                        <Wrapper>
+                            <InnerWrapper>
+                                <Reorder {...dragHandleProps}>
+                                    <IconStyled icon={menu} size={22} />
+                                </Reorder>
+                                <RadioWrapper>
+                                    <RadioSelect
+                                        name={questionId}
+                                        items={radioItems}
+                                        visibleLabel={false}
+                                        direction="horizontal"
+                                        value={radioValue}
+                                        onChange={handleRadioChange}
+                                    />
+                                </RadioWrapper>
+                            </InnerWrapper>
+                            <TextInput onChange={handleTextChange} value={state.i} name="i" placeholder="Answer" />
+                        </Wrapper>
+                    </InputErrorWrapper>
                 </Container>
             )}
         </Draggable>
