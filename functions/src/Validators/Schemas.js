@@ -180,39 +180,52 @@ const answersSchema = required => {
     const max = 200;
 
     return value => {
-        const errors = [];
+        const errorsObj = {
+            errors: [],
+            answers: [],
+        };
 
         if (required) {
-            if (!isSet(value)) errors.push('Answers is required');
+            if (!isSet(value)) errorsObj.errors.push('Answers is required');
         }
 
         if (!isSet(value)) {
-            return errors;
+            return errorsObj.errors;
         }
 
         if (!mustBeType(value, 'array')) {
-            errors.push('Answers must be a array');
-            return errors;
+            errorsObj.errors.push('Answers must be a array');
+            return errorsObj.errors;
         }
         if (!mustBeNotEmpty(value)) {
-            errors.push('Answers list cannot be empty');
-            return errors;
+            errorsObj.errors.push('Answers list cannot be empty');
+            return errorsObj.errors;
         }
 
         const isAtLeastOneOfItemCorrect = value.some(({ c }) => c === true || c === null);
-        if (!isAtLeastOneOfItemCorrect) errors.push('At least one of the answers must be correct');
+        if (!isAtLeastOneOfItemCorrect) errorsObj.errors.push('At least one of the answers must be correct');
 
         value.forEach(({ i, c }, index) => {
             const position = index + 1;
-            if (!isSet(i)) errors.push(`Answer ${position}: is required`);
-            if (!mustBeNotEmpty(i)) errors.push(`Answer ${position}: cannot be empty`);
-            if (!mustBeMax(i, max)) errors.push(`Answer ${position}: max length is ${max} characters`);
+            const answerError = [];
+            if (!isSet(i)) answerError.push(`Answer is required`);
+            if (!mustBeNotEmpty(i)) answerError.push(`Answer cannot be empty`);
+            if (!mustBeMax(i, max)) answerError.push(`Answer max length is ${max} characters`);
             if (isSet(c)) {
-                if (!mustBeOneOf(c, [true, null])) errors.push(`Answer ${position}: correct field is wrong type`);
+                if (!mustBeOneOf(c, [true, null])) answerError.push(`Answer correct field is wrong type`);
+            }
+            if (answerError.length !== 0) {
+                errorsObj.answers.push({
+                    position,
+                    errors: answerError,
+                });
             }
         });
 
-        return errors;
+        if (errorsObj.errors.length !== 0 || errorsObj.errors.length !== 0) {
+            return errorsObj;
+        }
+        return {};
     };
 };
 

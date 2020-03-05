@@ -40,7 +40,7 @@ const CreateTestValidator = obj => {
             .filter(item => item !== null);
 
         if (questionsErrors.length !== 0) {
-            errors.questionsItems = questionsErrors;
+            errors.questions = questionsErrors;
         }
     }
 

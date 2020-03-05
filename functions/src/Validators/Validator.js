@@ -10,7 +10,7 @@ const Validator = (data, schema) => {
         const validationFun = schema[key];
 
         const itemErrors = validationFun(item);
-        if (itemErrors.length > 0) {
+        if (Object.keys(itemErrors).length > 0) {
             errors[key] = itemErrors;
         }
     }
