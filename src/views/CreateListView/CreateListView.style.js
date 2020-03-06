@@ -44,3 +44,49 @@ export const ButtonSave = styled(ButtonReset)`
     background-color: ${colors.Green50};
     margin: 0;
 `;
+
+export const ModalContainer = styled.div`
+    padding: 60px 20px 20px 20px;
+`;
+
+export const ModalText = styled.p`
+    font-size: 1.4rem;
+    text-align: center;
+    margin-bottom: 10px;
+`;
+
+export const ModalTextYellow = styled(ModalText)`
+    color: ${colors.Yellow};
+`;
+
+export const ExitButton = styled.button`
+    background-color: transparent;
+    color: ${colors.White80};
+    border: 0;
+    margin: 0;
+    padding: 6px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+`;
+
+export const ButtonSaveModal = styled(ButtonSave)`
+    margin: 0 15px;
+`;
+
+export const ButtonsContainer = styled.div`
+    display: flex;
+    justify-content: space-around;
+    margin: 30px auto 0 auto;
+    max-width: 340px;
+`;
+
+export const ErrorInfo = styled.p`
+    font-size: 1.4rem;
+    padding: 5px 10px;
+    background-color: ${colors.Red};
+`;
+
+export const WarningInfo = styled(ErrorInfo)`
+    background-color: ${colors.Yellow};
+`;

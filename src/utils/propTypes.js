@@ -81,9 +81,13 @@ export const editQuestionsProps = arrayOf(editQuestionProps);
 export const editProps = shape({
     name: editStringWithValidation.isRequired,
     password: editStringWithValidation.isRequired,
-    type: typeListProp.isRequired,
+    type: shape({
+        item: typeListProp.isRequired,
+        errors: arrayOf(string).isRequired,
+    }).isRequired,
     questions: editQuestionsProps.isRequired,
     idIterator: number.isRequired,
+    isLoading: bool.isRequired,
 });
 
 export const optionOrderProps = oneOf([runTypes.RANDOM, runTypes.ORDERED]);

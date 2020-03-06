@@ -21,7 +21,10 @@ const stringWithValidation = {
 const initialState = {
     name: { ...stringWithValidation },
     password: { ...stringWithValidation },
-    type: testType.Multi,
+    type: {
+        item: testType.Multi,
+        errors: [],
+    },
     questions: [
         {
             lId: 0,
@@ -46,6 +49,7 @@ const initialState = {
         },
     ],
     idIterator: 1,
+    isLoading: false,
 };
 
 const createReduce = createSlice({
@@ -54,6 +58,73 @@ const createReduce = createSlice({
     reducers: {
         reset: () => {
             return { ...initialState };
+        },
+        setLoading: (state, { payload }) => {
+            return {
+                ...state,
+                isLoading: payload,
+            };
+        },
+        mergeErrors: (state, { payload }) => {
+            const { name, password, type, questions } = payload;
+
+            const questionsList = state.questions.map((stateQuestion, questionIndex) => {
+                const { q, d, a } = questions[questionIndex];
+
+                const answers = stateQuestion.a.answers.map((item, answerIndex) => {
+                    const payloadAnswer = a.answers[answerIndex];
+                    return payloadAnswer === undefined
+                        ? { ...item }
+                        : {
+                              ...item,
+                              ...payloadAnswer,
+                          };
+                });
+
+                return questions[questionIndex] === undefined
+                    ? { ...stateQuestion }
+                    : {
+                          ...stateQuestion,
+                          q: {
+                              ...stateQuestion.q,
+                              ...q,
+                          },
+                          d: {
+                              ...stateQuestion.d,
+                              ...d,
+                          },
+                          a: {
+                              ...stateQuestion.a,
+                              ...a,
+                              answers,
+                          },
+                      };
+            });
+
+            const finallyQuestionList = questionsList.map(item => {
+                return {
+                    ...item,
+                    error: checkQuestion(item, 'errors'),
+                    warning: checkQuestion(item, 'warnings'),
+                };
+            });
+
+            return {
+                ...state,
+                name: {
+                    ...state.name,
+                    ...name,
+                },
+                password: {
+                    ...state.password,
+                    ...password,
+                },
+                type: {
+                    ...state.type,
+                    ...type,
+                },
+                questions: finallyQuestionList,
+            };
         },
         changeAnswerPosition: (state, { payload }) => {
             const { question, target, destination } = payload;
@@ -150,6 +221,8 @@ const createReduce = createSlice({
                     errors: [],
                     warnings: [],
                 },
+                error: false,
+                warning: false,
                 idIterator: 1,
             });
 
@@ -186,7 +259,7 @@ const createReduce = createSlice({
             };
         },
         setList: (state, { payload }) => {
-            const { name, password } = payload;
+            const { name, password, type } = payload;
             const validationResult = validateTest({ name, password });
 
             return {
@@ -199,7 +272,10 @@ const createReduce = createSlice({
                     item: password,
                     ...validationResult.password,
                 },
-                type: state.type,
+                type: {
+                    ...state.type,
+                    item: type,
+                },
             };
         },
         setQuestion: (state, { payload }) => {
@@ -293,6 +369,8 @@ const {
     setQuestion,
     setList,
     setAnswer,
+    mergeErrors,
+    setLoading,
 } = actions;
 export {
     addQuestion,
@@ -305,5 +383,7 @@ export {
     setQuestion,
     setList,
     setAnswer,
+    mergeErrors,
+    setLoading,
 };
 export default reducer;

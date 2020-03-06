@@ -13,3 +13,13 @@ export const getList = key => {
 export const getAddList = key => {
     return fetch(`${getBaseUrl()}/tests/${key}/name`);
 };
+
+export const createTest = test => {
+    return fetch(`${getBaseUrl()}/test`, {
+        method: 'post',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(test),
+    });
+};

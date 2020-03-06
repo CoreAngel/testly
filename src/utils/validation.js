@@ -1,4 +1,4 @@
-import { answerType } from '../static/list';
+import { answerType } from 'static/list';
 
 const isEmpty = value => {
     return value.length === 0;
@@ -85,4 +85,64 @@ export const validateAnswer = answer => {
     if (!isInMax(i, 200)) result.warnings.push('Answer max length is 200 characters');
 
     return result;
+};
+
+const isErrorsExists = obj => {
+    let isError = false;
+    let isWarning = false;
+
+    Object.keys(obj).forEach(key => {
+        const { errors = [], warnings = [] } = obj[key];
+        isError = errors.length !== 0;
+        isWarning = warnings.length !== 0;
+    });
+
+    return {
+        errors: isError,
+        warnings: isWarning,
+    };
+};
+
+const margeValidObj = (primary, secondary) => ({
+    errors: primary.errors ? true : secondary.errors,
+    warnings: primary.warnings ? true : secondary.warnings,
+});
+
+export const validateAll = ({ name, password, questions }) => {
+    let valid = {
+        errors: false,
+        warnings: false,
+    };
+
+    const errorObj = validateTest({
+        name: name.item,
+        password: password.item,
+    });
+    valid = margeValidObj(valid, isErrorsExists(errorObj));
+
+    errorObj.questions = questions.map(({ q, d, a: { answers } }) => {
+        const errorsQuestion = validateQuestion({ q: q.item, d: d.item });
+        const errorsAnswersArray = validateAnswers(answers);
+        valid = margeValidObj(valid, isErrorsExists(errorsQuestion));
+        valid = margeValidObj(valid, isErrorsExists({ a: errorsAnswersArray }));
+
+        const errorsAnswers = answers.map(answerItem => {
+            const errorsAnswer = validateAnswer(answerItem);
+            valid = margeValidObj(valid, isErrorsExists({ i: errorsAnswer }));
+            return errorsAnswer;
+        });
+
+        return {
+            ...errorsQuestion,
+            a: {
+                ...errorsAnswersArray,
+                answers: errorsAnswers,
+            },
+        };
+    });
+
+    return {
+        ...valid,
+        results: errorObj,
+    };
 };

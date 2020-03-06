@@ -10,7 +10,7 @@ import InputErrorWrapper from 'components/EditList/InputErrorWrapper';
 import { Container, Row, Wrapper } from './List.style';
 
 const List = ({ list: { name, password, type, questions } }) => {
-    const [state, setState] = useState({ name: name.item, password: password.item, type });
+    const [state, setState] = useState({ name: name.item, password: password.item, type: type.item });
     const prevDebouncedState = useRef(state);
     const { debounce, setList } = useContext(ActionsContext);
     const debouncedState = useDebounce(state, debounce);
@@ -40,10 +40,14 @@ const List = ({ list: { name, password, type, questions } }) => {
     useEffect(() => {
         const isTyping = state !== debouncedState;
         const localStateChanged = compareStates(debouncedState, prevDebouncedState.current);
-        const propsAreDifferentThanState = compareStates(state, { name: name.item, password: password.item, type });
+        const propsAreDifferentThanState = compareStates(state, {
+            name: name.item,
+            password: password.item,
+            type: type.item,
+        });
 
         if (!isTyping && !localStateChanged && propsAreDifferentThanState) {
-            setState({ name: name.item, password: password.item, type });
+            setState({ name: name.item, password: password.item, type: type.item });
         } else if (localStateChanged && propsAreDifferentThanState) {
             prevDebouncedState.current = debouncedState;
             setList(debouncedState);
