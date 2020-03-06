@@ -222,7 +222,7 @@ const answersSchema = required => {
             }
         });
 
-        if (errorsObj.errors.length !== 0 || errorsObj.errors.length !== 0) {
+        if (errorsObj.errors.length !== 0 || errorsObj.answers.length !== 0) {
             return errorsObj;
         }
         return {};
