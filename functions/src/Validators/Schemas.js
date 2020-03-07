@@ -190,23 +190,23 @@ const answersSchema = required => {
         }
 
         if (!isSet(value)) {
-            return errorsObj.errors;
+            return errorsObj;
         }
 
         if (!mustBeType(value, 'array')) {
             errorsObj.errors.push('Answers must be a array');
-            return errorsObj.errors;
+            return errorsObj;
         }
         if (!mustBeNotEmpty(value)) {
             errorsObj.errors.push('Answers list cannot be empty');
-            return errorsObj.errors;
+            return errorsObj;
         }
 
         const isAtLeastOneOfItemCorrect = value.some(({ c }) => c === true || c === null);
         if (!isAtLeastOneOfItemCorrect) errorsObj.errors.push('At least one of the answers must be correct');
 
         value.forEach(({ i, c }, index) => {
-            const position = index + 1;
+            const position = index;
             const answerError = [];
             if (!isSet(i)) answerError.push(`Answer is required`);
             if (!mustBeNotEmpty(i)) answerError.push(`Answer cannot be empty`);

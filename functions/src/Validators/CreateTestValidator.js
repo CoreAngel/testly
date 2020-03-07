@@ -31,7 +31,7 @@ const CreateTestValidator = obj => {
                 const questionErrors = Validator(item, questionSchema);
                 if (Object.entries(questionErrors).length !== 0) {
                     return {
-                        position: index + 1,
+                        position: index,
                         errors: questionErrors,
                     };
                 }
