@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { testProps } from 'utils/propTypes';
 import { NavItem, NavLink, NavList, NavSpan } from './MenuList.style';
 
-const MenuList = ({ isMobile, isOpen, setIsOpen, test: { questions, index, end }, listKey }) => {
+const MenuList = ({ isMobile, isOpen, setIsOpen, test: { questions, index, end }, listKey, listOrigin }) => {
     const isTestEmpty = questions.length === 0;
     const isIndexZeroAndTestNotEnd = index === 0 && !end;
     const routesDisabled = {
@@ -15,7 +15,7 @@ const MenuList = ({ isMobile, isOpen, setIsOpen, test: { questions, index, end }
         [routes.Result]: isTestEmpty || isIndexZeroAndTestNotEnd,
     };
     const params = {
-        [routes.List]: `/${listKey}`,
+        [routes.List]: `/${listOrigin}/${listKey}`,
     };
 
     const navigationItemsWithParams = navigationItems.map(item => {
@@ -70,13 +70,14 @@ MenuList.propTypes = {
     setIsOpen: PropTypes.func.isRequired,
     test: testProps.isRequired,
     listKey: PropTypes.string.isRequired,
+    listOrigin: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = ({
     test,
     list: {
-        list: { key },
+        list: { key, origin },
     },
-}) => ({ test, listKey: key });
+}) => ({ test, listKey: key, listOrigin: origin });
 
 export default connect(mapStateToProps)(MenuList);

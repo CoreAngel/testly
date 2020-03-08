@@ -4,6 +4,11 @@ export const answerType = {
     Incorrect: false,
 };
 
+export const originType = {
+    Server: 'server',
+    Local: 'local',
+};
+
 export const answerTypeAsString = {
     Correct: 'Correct',
     NotSure: 'NotSure',

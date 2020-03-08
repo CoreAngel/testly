@@ -1,6 +1,6 @@
 import { arrayOf, string, number, shape, oneOf, bool, oneOfType, node } from 'prop-types';
 import { runTypes } from 'static/run';
-import { answerType, testType } from 'static/list';
+import { answerType, originType, testType } from 'static/list';
 
 export const answerProp = shape({
     i: string.isRequired,
@@ -22,6 +22,7 @@ export const listQuestionsProps = arrayOf(listQuestionProps);
 export const listProps = shape({
     name: string.isRequired,
     key: string.isRequired,
+    origin: oneOf([originType.Local, originType.Server]),
     type: typeListProp.isRequired,
     protected: oneOf([true, false]),
     questions: listQuestionsProps.isRequired,
@@ -101,11 +102,13 @@ export const optionsProps = shape({
 
 export const childrenProps = oneOfType([arrayOf(node), node]);
 
-export const addedListItemProps = shape({
+export const addedListItemObj = {
     id: number.isRequired,
     key: string.isRequired,
     name: string.isRequired,
-});
+};
+
+export const addedListItemProps = shape({ ...addedListItemObj });
 
 export const addedListProps = arrayOf(addedListItemProps);
 

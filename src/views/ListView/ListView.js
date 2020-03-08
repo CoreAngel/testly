@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import ListHeader from 'components/ListHeader';
-import { getList } from 'utils/fetchData';
-import { setList, finishLoadingWithError, finishLoadingWithSuccess, startLoading, setKey } from 'redux/listReducer';
 import { listProps } from 'utils/propTypes';
 import { MainContainer } from 'utils/style';
 import QuestionsList from 'components/QuestionsList/QuestionsList';
@@ -10,12 +8,14 @@ import BackToTopButton from 'components/BackToTopButton';
 import PropTypes from 'prop-types';
 import { routes } from 'static/routes';
 import Spinner from 'components/Spinner';
+import { getOriginType } from 'utils/list';
+import LoadService from 'views/ListView/LoadService/LoadService';
 import { Container, SpinnerContainer, Error } from './ListView.style';
 
 const ListView = ({
-    list: { key, questions },
+    list: { key, origin, questions },
     match: {
-        params: { id },
+        params: { id, origin: originPath },
     },
     history: { replace },
     loading,
@@ -24,45 +24,20 @@ const ListView = ({
     const dispatch = useDispatch();
 
     useEffect(() => {
-        const isRedirectToFullPath = id === undefined && key !== '';
-        if (isRedirectToFullPath) {
-            replace(`${routes.List}/${key}`);
+        const isRedirect = (id === undefined || getOriginType(originPath) === null) && key !== '';
+        if (isRedirect) {
+            replace(`${routes.List}/${origin}/${key}`);
         }
-    }, [id, key, replace]);
+    }, [id, originPath, origin, key, replace]);
 
     useEffect(() => {
-        let didCancel = false;
-
-        const loadList = async () => {
-            dispatch(startLoading());
-            try {
-                const res = await getList(id);
-
-                if (res.status === 200) {
-                    const data = await res.json();
-                    if (!didCancel) {
-                        dispatch(setList(data));
-                    }
-                } else if (res.status === 500) {
-                    dispatch(finishLoadingWithError('Internal server error'));
-                } else {
-                    dispatch(finishLoadingWithError('Wrong list id'));
-                    dispatch(setKey(id));
-                }
-            } catch (e) {
-                dispatch(finishLoadingWithError('Problem witch fetching data'));
-            }
-        };
-
-        const isLoadList = id !== undefined && key !== id;
+        const isLoadList = id !== undefined && originPath !== undefined && key !== id;
         if (isLoadList) {
-            loadList();
+            const cancelFn = LoadService(id, originPath, dispatch);
+            return () => cancelFn();
         }
-        return () => {
-            didCancel = true;
-            dispatch(finishLoadingWithSuccess());
-        };
-    }, [id, key, dispatch]);
+        return () => {};
+    }, [id, originPath, key, dispatch]);
 
     const isShowQuestions = questions.length > 0 && !loading && error === '' && id === key;
 
@@ -90,6 +65,7 @@ ListView.propTypes = {
     match: PropTypes.shape({
         params: PropTypes.shape({
             id: PropTypes.string,
+            origin: PropTypes.string,
         }),
     }).isRequired,
     history: PropTypes.shape({

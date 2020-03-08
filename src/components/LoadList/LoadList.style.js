@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import { colors } from 'utils/colors';
 
+export const Container = styled.div`
+    margin-bottom: 30px;
+`;
+
 export const ListTitle = styled.h2`
     margin: 0 0 10px 0;
     font-size: 1.8rem;

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { testType } from 'static/list';
+import { originType, testType } from 'static/list';
 
 const listSlice = createSlice({
     name: 'list',
@@ -7,6 +7,7 @@ const listSlice = createSlice({
         list: {
             name: '',
             key: '',
+            origin: originType.Local,
             type: testType.Single,
             protected: false,
             questions: [],
@@ -21,14 +22,15 @@ const listSlice = createSlice({
             loading: false,
             error: '',
         }),
-        setKey: (state, { payload }) => ({
+        setListIdentifier: (state, { payload: { key, origin } }) => ({
             ...state,
             list: {
                 ...state.list,
-                key: payload,
+                key,
+                origin,
             },
         }),
-        startLoading: state => ({ ...state, loading: true }),
+        startLoading: state => ({ ...state, loading: true, error: '' }),
         finishLoadingWithSuccess: state => ({
             ...state,
             loading: false,
@@ -43,6 +45,6 @@ const listSlice = createSlice({
 });
 
 const { actions, reducer } = listSlice;
-const { setList, finishLoadingWithError, finishLoadingWithSuccess, startLoading, setKey } = actions;
-export { setList, finishLoadingWithError, finishLoadingWithSuccess, startLoading, setKey };
+const { setList, finishLoadingWithError, finishLoadingWithSuccess, startLoading, setListIdentifier } = actions;
+export { setList, finishLoadingWithError, finishLoadingWithSuccess, startLoading, setListIdentifier };
 export default reducer;
