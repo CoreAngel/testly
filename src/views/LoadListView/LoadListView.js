@@ -8,9 +8,11 @@ import BackButton from 'components/BackButton';
 import { addedListProps, listProps } from 'utils/propTypes';
 import AddList from 'components/AddList';
 import { originType } from 'static/list';
+import { deleteList as deleteAddedList } from 'redux/addedListReducer';
+import { deleteList as deleteLocalList } from 'redux/localListsReducer';
 import { Container, Wrapper, InnerContainer, Header, HeaderText, BackButtonWrapper } from './LoadListView.style';
 
-const LoadListView = ({ global, local }) => {
+const LoadListView = ({ global, local, deleteAddedListAction, deleteLocalListAction }) => {
     const globalList = global.map(item => ({ ...item, origin: originType.Server }));
     const localList = local.map(({ key, name }, index) => ({
         id: index,
@@ -31,8 +33,8 @@ const LoadListView = ({ global, local }) => {
                             <IconStyled icon={inboxIn} size={28} />
                             <HeaderText>Choose test...</HeaderText>
                         </Header>
-                        <LoadList showKey title="Global" items={globalList} />
-                        <LoadList showKey title="Local" items={localList} />
+                        <LoadList showKey title="Global" items={globalList} deleteAction={deleteAddedListAction} />
+                        <LoadList showKey title="Local" items={localList} deleteAction={deleteLocalListAction} />
                     </InnerContainer>
                     <AddList />
                 </Wrapper>
@@ -44,8 +46,14 @@ const LoadListView = ({ global, local }) => {
 LoadListView.propTypes = {
     global: addedListProps.isRequired,
     local: PropTypes.arrayOf(listProps).isRequired,
+    deleteAddedListAction: PropTypes.func.isRequired,
+    deleteLocalListAction: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = ({ addedList: { items }, localLists: { lists } }) => ({ global: items, local: lists });
+const mapDispatchToProps = {
+    deleteAddedListAction: deleteAddedList,
+    deleteLocalListAction: deleteLocalList,
+};
 
-export default connect(mapStateToProps)(LoadListView);
+export default connect(mapStateToProps, mapDispatchToProps)(LoadListView);

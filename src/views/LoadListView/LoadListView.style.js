@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { maxBreakpoints } from 'utils/breakpoints';
 
 export const Container = styled.div`
     margin: 0 10px;
@@ -10,12 +9,19 @@ export const Wrapper = styled.div`
     justify-content: space-between;
     flex-direction: row;
 
-    @media screen and (max-width: ${maxBreakpoints.mobile}px) {
+    @media screen and (max-width: 610px) {
         flex-direction: column-reverse;
     }
 `;
 
-export const InnerContainer = styled.div``;
+export const InnerContainer = styled.div`
+    flex: 1;
+    margin-right: 25px;
+
+    @media screen and (max-width: 610px) {
+        margin-right: 0;
+    }
+`;
 
 export const Header = styled.h2`
     display: flex;

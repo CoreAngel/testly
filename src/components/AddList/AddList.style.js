@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 import { colors } from 'utils/colors';
-import { maxBreakpoints } from 'utils/breakpoints';
 
 export const Container = styled.div`
     width: 100%;
     max-width: 210px;
     margin-bottom: 30px;
 
-    @media screen and (max-width: ${maxBreakpoints.mobile}px) {
+    @media screen and (max-width: 610px) {
         max-width: unset;
     }
 `;

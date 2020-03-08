@@ -8,7 +8,13 @@ const localListSlice = createSlice({
     reducers: {
         addList: (state, { payload }) => ({
             ...state,
-            lists: [...state.lists, payload],
+            lists: [
+                ...state.lists,
+                {
+                    ...payload,
+                    protected: false,
+                },
+            ],
         }),
         deleteList: (state, { payload }) => {
             const newList = state.lists.filter(({ key }) => key !== payload);

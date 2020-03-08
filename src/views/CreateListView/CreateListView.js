@@ -17,6 +17,7 @@ import { addList as addLocalList } from 'redux/localListsReducer';
 import { setList } from 'redux/listReducer';
 import useHistoryPush from 'hooks/useHistoryPush';
 import { routes } from 'static/routes';
+import { originType } from 'static/list';
 import {
     setList as setCreateList,
     setAnswer,
@@ -83,7 +84,7 @@ const getTestDataFromStore = ({ name, password, type, questions }) => {
     return testResult;
 };
 
-const setIdQuestions = (test, localKeys) => {
+const prepareTestToLocalSave = (test, localKeys) => {
     let key = '';
     let isKeyExist;
 
@@ -190,10 +191,11 @@ const CreateListView = ({
     const handleSaveLocal = () => {
         setError('');
         const test = getTestDataFromStore(create);
-        const testWithQuestionsId = setIdQuestions(test, localKeys);
-        setListAction(testWithQuestionsId);
-        addLocalListAction(testWithQuestionsId);
+        const preparedTest = prepareTestToLocalSave(test, localKeys);
+        setListAction(preparedTest);
+        addLocalListAction(preparedTest);
         resetAction();
+        pushToList(`${originType.Local}/${preparedTest.key}`);
     };
 
     const handleSaveServer = async () => {
@@ -210,7 +212,7 @@ const CreateListView = ({
                 setListAction(data);
                 addListAction({ key: data.key, name: data.name });
                 resetAction();
-                pushToList(data.key);
+                pushToList(`${originType.Server}/${data.key}`);
             } else if (res.status === 400) {
                 const data = await res.json();
                 const errors = mapServerErrorsValidationToStore(data);

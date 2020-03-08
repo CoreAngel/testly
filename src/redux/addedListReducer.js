@@ -27,7 +27,7 @@ const addedListReducer = createSlice({
         },
         deleteList: (state, { payload }) => ({
             ...state,
-            items: state.items.filter(i => i.id !== payload),
+            items: state.items.filter(({ key }) => key !== payload),
         }),
     },
 });

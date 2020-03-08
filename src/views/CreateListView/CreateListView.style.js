@@ -3,7 +3,7 @@ import { colors } from 'utils/colors';
 
 export const Container = styled.div`
     padding: 0 10px;
-    margin: 0 0 20px 0;
+    margin: 0 0 80px 0;
 `;
 
 export const BackButtonWrapper = styled.div`

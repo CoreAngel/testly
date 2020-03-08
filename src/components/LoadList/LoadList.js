@@ -4,9 +4,11 @@ import useHistoryPush from 'hooks/useHistoryPush';
 import { routes } from 'static/routes';
 import { addedListItemObj } from 'utils/propTypes';
 import { originType } from 'static/list';
-import { Container, ItemButton, List, ListItem, ListTitle, KeySpan } from './LoadList.style';
+import { bin } from 'react-icons-kit/ikons/bin';
+import { IconStyled } from 'utils/style';
+import { Container, ItemButton, List, ListItem, ListTitle, KeySpan, DeleteButton } from './LoadList.style';
 
-const LoadList = ({ showKey, title, items }) => {
+const LoadList = ({ showKey, title, items, deleteAction }) => {
     const pushToList = useHistoryPush(routes.List);
 
     const handleClick = (key, origin) => {
@@ -14,18 +16,23 @@ const LoadList = ({ showKey, title, items }) => {
     };
 
     return (
-        <Container>
-            <ListTitle>{title}</ListTitle>
-            <List>
-                {items.map(({ id, key, origin, name }) => (
-                    <ListItem key={id}>
-                        <ItemButton onClick={() => handleClick(key, origin)}>
-                            {name} {showKey && <KeySpan>({key})</KeySpan>}
-                        </ItemButton>
-                    </ListItem>
-                ))}
-            </List>
-        </Container>
+        items.length > 0 && (
+            <Container>
+                <ListTitle>{title}</ListTitle>
+                <List>
+                    {items.map(({ id, key, origin, name }) => (
+                        <ListItem key={id}>
+                            <ItemButton onClick={() => handleClick(key, origin)}>
+                                {name} {showKey && <KeySpan>({key})</KeySpan>}
+                            </ItemButton>
+                            <DeleteButton onClick={() => deleteAction(key)}>
+                                <IconStyled icon={bin} size={16} />
+                            </DeleteButton>
+                        </ListItem>
+                    ))}
+                </List>
+            </Container>
+        )
     );
 };
 
@@ -38,6 +45,7 @@ LoadList.propTypes = {
             origin: PropTypes.oneOf([originType.Local, originType.Server]).isRequired,
         }),
     ).isRequired,
+    deleteAction: PropTypes.func.isRequired,
 };
 
 LoadList.defaultProps = {

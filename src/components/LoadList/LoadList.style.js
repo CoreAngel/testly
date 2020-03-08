@@ -37,3 +37,14 @@ export const KeySpan = styled.span`
     color: ${colors.White80};
     font-size: 1.2rem;
 `;
+
+export const DeleteButton = styled.button`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 0;
+    background-color: transparent;
+    margin: 0;
+    padding: 0 5px;
+    color: ${colors.Red};
+`;
