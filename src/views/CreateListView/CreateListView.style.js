@@ -28,7 +28,10 @@ export const HeaderText = styled.span`
     margin-left: 10px;
 `;
 
-export const Buttons = styled.div``;
+export const Buttons = styled.div`
+    display: flex;
+    align-items: center;
+`;
 
 export const ButtonReset = styled.button`
     background-color: ${colors.Red50};

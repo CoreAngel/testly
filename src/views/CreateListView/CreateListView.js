@@ -1,18 +1,22 @@
 import React, { useState } from 'react';
 import { MainContainer, IconStyled } from 'utils/style';
 import { plus } from 'react-icons-kit/ikons';
+import { cross } from 'react-icons-kit/icomoon';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import EditList from 'components/EditList';
 import { editProps } from 'utils/propTypes';
 import BackButton from 'components/BackButton';
 import BackToTopButton from 'components/BackToTopButton';
+import Spinner from 'components/Spinner';
 import { validateAll } from 'utils/validation';
 import Modal from 'components/Modal';
-import { cross } from 'react-icons-kit/icomoon';
 import { createTest } from 'utils/fetchData';
 import { addList } from 'redux/addedListReducer';
+import { addList as addLocalList } from 'redux/localListsReducer';
 import { setList } from 'redux/listReducer';
+import useHistoryPush from 'hooks/useHistoryPush';
+import { routes } from 'static/routes';
 import {
     setList as setCreateList,
     setAnswer,
@@ -45,8 +49,6 @@ import {
     ErrorInfo,
     WarningInfo,
 } from './CreateListView.style';
-import useHistoryPush from '../../hooks/useHistoryPush';
-import { routes } from '../../static/routes';
 
 const getTestDataFromStore = ({ name, password, type, questions }) => {
     const questionsMapped = questions.map(({ q, d, a: { answers } }) => {
@@ -79,6 +81,33 @@ const getTestDataFromStore = ({ name, password, type, questions }) => {
         delete testResult.password;
     }
     return testResult;
+};
+
+const setIdQuestions = (test, localKeys) => {
+    let key = '';
+    let isKeyExist;
+
+    do {
+        key =
+            Math.random()
+                .toString(36)
+                .substring(2, 15) +
+            Math.random()
+                .toString(36)
+                .substring(2, 15);
+        // eslint-disable-next-line no-loop-func
+        isKeyExist = localKeys.some(item => item.key === key);
+    } while (isKeyExist);
+
+    const newQuestions = test.questions.map((question, index) => ({
+        ...question,
+        id: index,
+    }));
+    return {
+        ...test,
+        key,
+        questions: newQuestions,
+    };
 };
 
 const mapFieldToErrors = field => {
@@ -123,6 +152,7 @@ const mapServerErrorsValidationToStore = res => {
 
 const CreateListView = ({
     create,
+    localKeys,
     setCreateListAction,
     setAnswerAction,
     setQuestionAction,
@@ -137,6 +167,7 @@ const CreateListView = ({
     setLoadingAction,
     addListAction,
     setListAction,
+    addLocalListAction,
 }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [error, setError] = useState('');
@@ -156,10 +187,20 @@ const CreateListView = ({
         }
     };
 
+    const handleSaveLocal = () => {
+        setError('');
+        const test = getTestDataFromStore(create);
+        const testWithQuestionsId = setIdQuestions(test, localKeys);
+        setListAction(testWithQuestionsId);
+        addLocalListAction(testWithQuestionsId);
+        resetAction();
+    };
+
     const handleSaveServer = async () => {
+        if (isWarning) return;
+
         setIsModalOpen(false);
         setError('');
-        if (isWarning) return;
         const test = getTestDataFromStore(create);
         setLoadingAction(true);
         try {
@@ -197,7 +238,9 @@ const CreateListView = ({
                     </Title>
                     <Buttons>
                         <ButtonReset onClick={() => resetAction()}>Reset</ButtonReset>
-                        <ButtonSave onClick={handlerSave}>Save</ButtonSave>
+                        <ButtonSave onClick={handlerSave}>
+                            {create.isLoading ? <Spinner size={20} /> : 'Save'}
+                        </ButtonSave>
                     </Buttons>
                 </Header>
                 {error !== '' && <ErrorInfo>{error}</ErrorInfo>}
@@ -227,13 +270,7 @@ const CreateListView = ({
                     <ModalTextYellow>Yellow warnings are restrictions for save on server</ModalTextYellow>
                     {isWarning && <WarningInfo>You have warnings, the server save will not be available</WarningInfo>}
                     <ButtonsContainer>
-                        <ButtonSaveModal
-                            onClick={() => {
-                                setIsModalOpen(false);
-                            }}
-                        >
-                            Local
-                        </ButtonSaveModal>
+                        <ButtonSaveModal onClick={handleSaveLocal}>Local</ButtonSaveModal>
                         <ButtonSaveModal onClick={handleSaveServer}>Server</ButtonSaveModal>
                     </ButtonsContainer>
                 </ModalContainer>
@@ -244,6 +281,7 @@ const CreateListView = ({
 
 CreateListView.propTypes = {
     create: editProps.isRequired,
+    localKeys: PropTypes.arrayOf(PropTypes.string).isRequired,
     setCreateListAction: PropTypes.func.isRequired,
     setAnswerAction: PropTypes.func.isRequired,
     setQuestionAction: PropTypes.func.isRequired,
@@ -258,9 +296,10 @@ CreateListView.propTypes = {
     setLoadingAction: PropTypes.func.isRequired,
     addListAction: PropTypes.func.isRequired,
     setListAction: PropTypes.func.isRequired,
+    addLocalListAction: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({ create }) => ({ create });
+const mapStateToProps = ({ create, localLists }) => ({ create, localKeys: localLists.lists.map(({ key }) => key) });
 
 const mapDispatchToProps = {
     setCreateListAction: setCreateList,
@@ -277,6 +316,7 @@ const mapDispatchToProps = {
     setLoadingAction: setLoading,
     addListAction: addList,
     setListAction: setList,
+    addLocalListAction: addLocalList,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateListView);

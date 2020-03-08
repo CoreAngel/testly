@@ -23,7 +23,7 @@ export const listProps = shape({
     name: string.isRequired,
     key: string.isRequired,
     type: typeListProp.isRequired,
-    protected: oneOf([true, false]).isRequired,
+    protected: oneOf([true, false]),
     questions: listQuestionsProps.isRequired,
 });
 
