@@ -89,6 +89,7 @@ export const editProps = shape({
     questions: editQuestionsProps.isRequired,
     idIterator: number.isRequired,
     isLoading: bool.isRequired,
+    error: string.isRequired,
 });
 
 export const optionOrderProps = oneOf([runTypes.RANDOM, runTypes.ORDERED]);

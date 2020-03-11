@@ -50,6 +50,7 @@ const initialState = {
     ],
     idIterator: 1,
     isLoading: false,
+    error: '',
 };
 
 const createReduce = createSlice({
@@ -59,12 +60,31 @@ const createReduce = createSlice({
         reset: () => {
             return { ...initialState };
         },
-        setLoading: (state, { payload }) => {
+        setLoadingStart: state => {
             return {
                 ...state,
-                isLoading: payload,
+                isLoading: true,
+                error: '',
             };
         },
+        setLoadingEndError: (state, { payload }) => {
+            return {
+                ...state,
+                isLoading: false,
+                error: payload,
+            };
+        },
+        setLoadingEndSuccess: state => {
+            return {
+                ...state,
+                isLoading: false,
+                errors: '',
+            };
+        },
+        cleanError: state => ({
+            ...state,
+            error: '',
+        }),
         mergeErrors: (state, { payload }) => {
             const { name, password, type, questions } = payload;
 
@@ -370,7 +390,10 @@ const {
     setList,
     setAnswer,
     mergeErrors,
-    setLoading,
+    cleanError,
+    setLoadingEndError,
+    setLoadingEndSuccess,
+    setLoadingStart,
 } = actions;
 export {
     addQuestion,
@@ -384,6 +407,9 @@ export {
     setList,
     setAnswer,
     mergeErrors,
-    setLoading,
+    cleanError,
+    setLoadingEndError,
+    setLoadingEndSuccess,
+    setLoadingStart,
 };
 export default reducer;
